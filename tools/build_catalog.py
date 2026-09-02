@@ -25,6 +25,16 @@ REPO_ROOT = Path(__file__).resolve().parent.parent
 CATALOG_PATH = REPO_ROOT / "catalog.json"
 REPO_SLUG = "buildrtech/skills"
 MARKETPLACE_PATH = REPO_ROOT / ".claude-plugin" / "marketplace.json"
+CATALOG_VERSION = 2
+
+# File contents are inlined so the catalog site can show every file in a
+# skill without extra requests. Only text files under this size are inlined;
+# larger or binary files keep their path and size with content set to null.
+MAX_INLINE_BYTES = 256 * 1024
+TEXT_SUFFIXES = {
+    ".md", ".txt", ".json", ".yaml", ".yml", ".toml", ".csv",
+    ".py", ".sh", ".js", ".mjs", ".ts", ".html", ".css",
+}
 
 
 def plugin_memberships() -> dict[str, list[str]]:
@@ -45,6 +55,18 @@ def read_optional(skill_root: Path, relative: str) -> str | None:
     return path.read_text(encoding="utf-8") if path.is_file() else None
 
 
+def file_entry(skill_root: Path, path: Path) -> dict:
+    relative = path.relative_to(skill_root).as_posix()
+    size = path.stat().st_size
+    content = None
+    if path.suffix.lower() in TEXT_SUFFIXES and size <= MAX_INLINE_BYTES:
+        try:
+            content = path.read_text(encoding="utf-8")
+        except UnicodeDecodeError:
+            content = None
+    return {"path": relative, "bytes": size, "content": content}
+
+
 def first_sample(skill_root: Path, files: list[str], prefix: str) -> str | None:
     for relative in files:
         if relative.startswith(f"samples/{prefix}"):
@@ -57,7 +79,8 @@ def build_entry(skill_root: Path, plugins: dict[str, list[str]]) -> dict:
     frontmatter, body = split_frontmatter(content)
     metadata = frontmatter.get("metadata", {}) or {}
     name = frontmatter["name"]
-    files = [p.relative_to(skill_root).as_posix() for p in collect_files(skill_root)]
+    file_entries = [file_entry(skill_root, p) for p in collect_files(skill_root)]
+    files = [entry["path"] for entry in file_entries]
     tier = metadata.get("tier", "neutral")
     first_plugin = (plugins.get(name) or ["all"])[0]
 
@@ -70,7 +93,7 @@ def build_entry(skill_root: Path, plugins: dict[str, list[str]]) -> dict:
         "version": metadata.get("version"),
         "author": metadata.get("author", "Buildr"),
         "path": f"skills/{name}",
-        "files": files,
+        "files": file_entries,
         "plugins": plugins.get(name, []),
         "install": {
             "skills_cli": f"npx skills add {REPO_SLUG} --skill {name}",
@@ -90,7 +113,7 @@ def build_catalog() -> dict:
     plugins = plugin_memberships()
     entries = [build_entry(root, plugins) for root in skill_roots(REPO_ROOT)]
     return {
-        "version": 1,
+        "version": CATALOG_VERSION,
         "repo": REPO_SLUG,
         "skills": entries,
     }

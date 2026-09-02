@@ -82,6 +82,9 @@ output exercises every section of the skill.
 
 ## Catalog
 
-`tools/build_catalog.py` reads every skill's frontmatter, sample prompts, and
-sample output into `catalog.json`. The buildr.com site fetches that file at
-build time. Commit it with every change; CI checks that it is current.
+`tools/build_catalog.py` reads every skill's frontmatter, sample prompts,
+sample output, and the full contents of every text file under 256 KB into
+`catalog.json` (format version 2). The buildr.com site fetches that file at
+build time and renders a file browser from it, so anything you put in a
+skill folder is public on the site as well as on GitHub. Commit
+`catalog.json` with every change; CI checks that it is current.
