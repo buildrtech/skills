@@ -1,0 +1,35 @@
+{
+  "name": "buildr",
+  "owner": {
+    "name": "Buildr",
+    "email": "hello@buildr.com"
+  },
+  "metadata": {
+    "description": "Construction skills for AI coding agents: preconstruction, estimating, project controls, workforce, and forecasting workflows written by the Buildr team.",
+    "version": "0.1.0"
+  },
+  "plugins": [
+    {
+      "name": "precon",
+      "description": "Preconstruction and business development skills: RFP intake and go/no-go review. Bid leveling, drawing scope extraction, and proposal PDF templates are on the roadmap.",
+      "source": "./",
+      "strict": false,
+      "category": "construction",
+      "keywords": ["construction", "preconstruction", "rfp", "bid", "estimating", "general-contractor"],
+      "skills": [
+        "./skills/rfp-intake"
+      ]
+    },
+    {
+      "name": "all",
+      "description": "Every skill in the Buildr construction skills catalog.",
+      "source": "./",
+      "strict": false,
+      "category": "construction",
+      "keywords": ["construction", "general-contractor", "preconstruction", "project-controls"],
+      "skills": [
+        "./skills/rfp-intake"
+      ]
+    }
+  ]
+}
