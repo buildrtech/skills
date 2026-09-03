@@ -68,8 +68,10 @@ def file_entry(skill_root: Path, path: Path) -> dict:
 
 
 def first_sample(skill_root: Path, files: list[str], prefix: str) -> str | None:
+    """First markdown sample with the given prefix; other formats (JSON, HTML,
+    CSV) are still browsable as files but are not rendered as prose."""
     for relative in files:
-        if relative.startswith(f"samples/{prefix}"):
+        if relative.startswith(f"samples/{prefix}") and relative.endswith(".md"):
             return read_optional(skill_root, relative)
     return None
 
