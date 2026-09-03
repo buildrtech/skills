@@ -37,7 +37,7 @@
 
 ## Scope summary
 
-Wood or steel-framed single-story classroom wing with a corridor connection into an occupied school, plus civil work (bus loop, storm, playground). Self-perform candidates: concrete, rough carpentry, doors and hardware. Trades to line up early: over-excavation and structural fill (geotech-driven), casework (Alternate 1), playground surfacing (Alternate 2), storm drainage. Structural system and mechanical approach are not stated in the ITB; confirm from the 94-sheet drawing set.
+Single-story classroom wing with a corridor connection into an occupied school, plus civil work (bus loop, storm drainage, playground relocation) (ITB §1). The ITB does not state the structural system, envelope, or mechanical approach, so self-perform candidates cannot be named yet; confirm from the 94-sheet drawing set (ITB §10) before assigning scope. Trades to line up early based on what the ITB does state: over-excavation and structural fill (geotech, ITB §9), casework (Alternate 1, ITB §11), playground surfacing (Alternate 2, ITB §11), and storm drainage (ITB §1).
 
 ## Risk flags
 
