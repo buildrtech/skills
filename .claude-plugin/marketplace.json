@@ -6,7 +6,7 @@
   },
   "metadata": {
     "description": "Construction skills for AI coding agents: preconstruction, estimating, project controls, workforce, and forecasting workflows written by the Buildr team.",
-    "version": "0.2.0"
+    "version": "0.2.1"
   },
   "plugins": [
     {
@@ -52,19 +52,17 @@
     },
     {
       "name": "buildr-connected",
-      "description": "Skills that read and write Buildr data through the Buildr MCP server: bid leveling persisted to Buildr, workforce planning, and financial forecasting.",
+      "description": "Skills that read and write Buildr data through the Buildr MCP server: workforce planning and financial forecasting.",
       "source": "./",
       "strict": false,
       "category": "construction",
       "keywords": [
         "buildr",
         "mcp",
-        "bid-leveling",
         "workforce",
         "forecasting"
       ],
       "skills": [
-        "./skills/bid-leveling-buildr",
         "./skills/workforce-planning",
         "./skills/financial-forecasting"
       ]
@@ -90,7 +88,6 @@
         "./skills/rfi-drafter",
         "./skills/pay-app-review",
         "./skills/construction-connectors",
-        "./skills/bid-leveling-buildr",
         "./skills/workforce-planning",
         "./skills/financial-forecasting"
       ]
