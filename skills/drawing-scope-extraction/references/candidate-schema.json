@@ -1,0 +1,186 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Drawing scope extraction candidates",
+  "description": "Shape of the candidates file the agent writes while reading a drawing set and the coverage ledger that proves which sheets and probes were reviewed. scripts/scope_list.py reads this file and prints the scope list.",
+  "type": "object",
+  "required": ["set_name", "candidates", "coverage_ledger"],
+  "properties": {
+    "set_name": {
+      "type": "string",
+      "description": "Project and set as printed on the cover sheet, for example 'Suite 300 Tenant Improvement, Permit Set 2026-08-14'."
+    },
+    "sheet_count": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Number of sheets in the inventory. Must equal the number of kind: sheet entries in coverage_ledger."
+    },
+    "candidates": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "division",
+          "candidate",
+          "sheet_number",
+          "location",
+          "quote",
+          "support_level",
+          "decision",
+          "reason"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^cand-[0-9]{3,}$",
+            "description": "Unique id, cand-001 and up."
+          },
+          "division": {
+            "type": "string",
+            "pattern": "^[0-4][0-9]$",
+            "description": "Two-digit MasterFormat division from references/csi-divisions.md. Reserved divisions are not allowed."
+          },
+          "candidate": {
+            "type": "string",
+            "description": "The work item only: product, assembly, or activity with its location when the drawings give one. No sheet numbers, division names, or cost codes here."
+          },
+          "sheet_number": {
+            "type": "string",
+            "description": "Primary sheet the candidate is taken from. Must match a kind: sheet entry in coverage_ledger."
+          },
+          "related_sheets": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "Other sheets that show the same item."
+          },
+          "location": {
+            "type": "string",
+            "description": "Where on the sheet: keyed note number, schedule row, detail number, partition type, legend entry, general note."
+          },
+          "quote": {
+            "type": "string",
+            "description": "Short verbatim text from the sheet that supports the candidate. Mark OCR-derived text as such."
+          },
+          "support_level": {
+            "type": "string",
+            "enum": [
+              "direct",
+              "schedule",
+              "spec_requirement",
+              "reference_only",
+              "by_others",
+              "inferred"
+            ],
+            "description": "How the sheet supports the item. See references/grounding-rules.md. reference_only, by_others, and inferred candidates can never be decision: include."
+          },
+          "spec_section": {
+            "type": "string",
+            "description": "Specification section number when support_level is spec_requirement."
+          },
+          "decision": {
+            "type": "string",
+            "enum": ["include", "exclude", "review"]
+          },
+          "reason": {
+            "type": "string",
+            "description": "Why the decision and division were chosen. Required to be non-empty for exclude and review; record judgment calls for include."
+          },
+          "notes": {
+            "type": "string",
+            "description": "Anything the estimator should see next to the item on the scope list, for example a division judgment call."
+          },
+          "cost_code": {
+            "type": "string",
+            "description": "Only when the user supplied a cost code list and asked for a mapping. Never invented."
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "assumptions": {
+      "type": "array",
+      "description": "Readings of the drawings the user should confirm. Not candidates.",
+      "items": { "$ref": "#/$defs/note" }
+    },
+    "exclusions": {
+      "type": "array",
+      "description": "Blanket exclusions stated on the drawings (NIC, by tenant, by landlord) that are not tied to a single candidate. Item-level by-others work is recorded as a candidate with support_level by_others and decision exclude.",
+      "items": { "$ref": "#/$defs/note" }
+    },
+    "rfis": {
+      "type": "array",
+      "description": "Questions the documents cannot answer. Not candidates.",
+      "items": { "$ref": "#/$defs/note" }
+    },
+    "coverage_ledger": {
+      "type": "array",
+      "description": "One entry per sheet in the inventory, one per probe run, and one per notable source (schedule, general-note list) whose treatment is not obvious from the candidates. Built from the sheets and probes first, never generated backward from the candidate list.",
+      "items": {
+        "oneOf": [
+          {
+            "type": "object",
+            "required": ["kind", "source", "status", "reason"],
+            "properties": {
+              "kind": { "const": "sheet" },
+              "source": { "type": "string", "description": "Sheet number as printed in the title block." },
+              "title": { "type": "string", "description": "Sheet title from the sheet index or title block." },
+              "status": {
+                "type": "string",
+                "enum": ["reviewed", "reviewed_ocr", "unreadable", "not_reviewed"]
+              },
+              "candidate_ids": { "type": "array", "items": { "type": "string" } },
+              "reason": { "type": "string", "description": "What the sheet contributed, or why it could not be reviewed." }
+            },
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "required": ["kind", "source", "status", "reason"],
+            "properties": {
+              "kind": { "const": "probe" },
+              "source": { "type": "string", "description": "The term searched, for example 'casework'." },
+              "status": {
+                "type": "string",
+                "enum": ["covered", "merged", "excluded", "reference_only", "needs_followup", "no_hits"]
+              },
+              "candidate_ids": { "type": "array", "items": { "type": "string" } },
+              "reason": { "type": "string", "description": "What concrete items the probe surfaced and what happened to each, or that it surfaced nothing." }
+            },
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "required": ["kind", "source", "status", "reason"],
+            "properties": {
+              "kind": { "const": "source" },
+              "source": { "type": "string", "description": "A schedule, general-note list, or blanket requirement, named with its sheet." },
+              "status": {
+                "type": "string",
+                "enum": ["covered", "merged", "excluded", "reference_only", "needs_followup"]
+              },
+              "candidate_ids": { "type": "array", "items": { "type": "string" } },
+              "reason": { "type": "string" }
+            },
+            "additionalProperties": false
+          }
+        ]
+      }
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "note": {
+      "type": "object",
+      "required": ["text", "source"],
+      "properties": {
+        "text": { "type": "string" },
+        "source": {
+          "type": "string",
+          "description": "Sheet and location the note is grounded in, or 'not stated in the set' for a gap."
+        },
+        "candidate_ids": { "type": "array", "items": { "type": "string" } }
+      },
+      "additionalProperties": false
+    }
+  }
+}

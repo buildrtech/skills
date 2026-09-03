@@ -1,0 +1,684 @@
+{
+  "set_name": "Copperline Health Partners TI, Suite 300, Permit Set 2026-08-14",
+  "sheet_count": 12,
+  "candidates": [
+    {
+      "id": "cand-001",
+      "division": "02",
+      "candidate": "Remove existing gypsum board partitions shown dashed, full height to deck where shown, including studs, track, and in-wall items",
+      "sheet_number": "A-101",
+      "location": "Keyed demolition note 1",
+      "quote": "REMOVE EXISTING GYPSUM BOARD PARTITIONS INDICATED DASHED, INCLUDING STUDS, TRACK, AND IN-WALL ITEMS, FULL HEIGHT TO DECK WHERE SHOWN.",
+      "support_level": "direct",
+      "decision": "include",
+      "reason": "Keyed note describes the removal itself. Selective demolition, 02 41 19."
+    },
+    {
+      "id": "cand-002",
+      "division": "02",
+      "candidate": "Remove existing carpet and rubber base throughout Suite 300",
+      "sheet_number": "A-101",
+      "location": "Keyed demolition note 2",
+      "quote": "REMOVE EXISTING CARPET AND RUBBER BASE THROUGHOUT SUITE 300. PREPARE SLAB TO RECEIVE NEW FINISHES, SEE A-201.",
+      "support_level": "direct",
+      "decision": "include",
+      "reason": "Keyed note describes the removal. Slab preparation is a separate candidate under Division 09 because A-201 defines it (cand-008)."
+    },
+    {
+      "id": "cand-003",
+      "division": "02",
+      "candidate": "Remove existing 2x4 acoustical ceiling tile and grid in Open Office 301 and Rooms 305 through 309; protect existing Corridor 300 ceiling to remain",
+      "sheet_number": "A-101",
+      "location": "Keyed demolition note 3",
+      "quote": "REMOVE EXISTING 2X4 ACOUSTICAL CEILING TILE AND GRID IN OPEN OFFICE 301 AND ROOMS 305 THROUGH 309. EXISTING CEILING IN CORRIDOR 300 TO REMAIN AND BE PROTECTED.",
+      "support_level": "direct",
+      "decision": "include",
+      "reason": "Keyed note describes the removal and names the rooms."
+    },
+    {
+      "id": "cand-004",
+      "division": "26",
+      "candidate": "Remove existing light fixtures in demolished ceiling areas and abandon circuits",
+      "sheet_number": "A-101",
+      "related_sheets": [
+        "E-101"
+      ],
+      "location": "Keyed demolition note 4",
+      "quote": "EXISTING LIGHT FIXTURES IN DEMOLISHED CEILING AREAS TO BE REMOVED BY ELECTRICAL CONTRACTOR. SEE E-101 FOR CIRCUITS TO BE ABANDONED.",
+      "support_level": "reference_only",
+      "decision": "review",
+      "reason": "A-101 assigns the removal to the electrical contractor and points to E-101 for the circuits. E-101 extracted text contains device tags and circuit numbers only and no demolition note was found there, so the electrical demolition scope is not confirmed on an electrical sheet. Carried in Division 26 because the architectural sheet assigns it to the electrical trade."
+    },
+    {
+      "id": "cand-005",
+      "division": "01",
+      "candidate": "Temporary dust partition at the suite entry from Corridor 300 for the duration of demolition; protect existing corridor carpet and wall covering",
+      "sheet_number": "A-101",
+      "location": "Keyed demolition note 5",
+      "quote": "PROVIDE TEMPORARY DUST PARTITION AT SUITE ENTRY FROM CORRIDOR 300 FOR THE DURATION OF DEMOLITION. PROTECT EXISTING CORRIDOR CARPET AND WALL COVERING.",
+      "support_level": "direct",
+      "decision": "include",
+      "reason": "Temporary facilities and protection, 01 50 00."
+    },
+    {
+      "id": "cand-006",
+      "division": "09",
+      "candidate": "Carpet tile CPT-1, 24x24 glue-down, quarter-turn, in Open Office 301 and Offices 305 through 309",
+      "sheet_number": "A-201",
+      "location": "Finish schedule, row CPT-1",
+      "quote": "CPT-1 CARPET TILE, 24X24, GLUE-DOWN, OPEN OFFICE 301, OFFICES 305-309, INSTALL QUARTER-TURN",
+      "support_level": "schedule",
+      "decision": "include",
+      "reason": "Finish schedule row defines the product and rooms."
+    },
+    {
+      "id": "cand-007",
+      "division": "09",
+      "candidate": "Luxury vinyl tile LVT-1, 6x36 plank, in Break Room 312",
+      "sheet_number": "A-201",
+      "location": "Finish schedule, row LVT-1",
+      "quote": "LVT-1 LUXURY VINYL TILE, 6X36 PLANK, BREAK ROOM 312, SEE FINISH NOTE 2",
+      "support_level": "schedule",
+      "decision": "include",
+      "reason": "Finish schedule row defines the product and room."
+    },
+    {
+      "id": "cand-008",
+      "division": "09",
+      "candidate": "Level existing slab in Break Room 312 with cementitious underlayment to 1/8 in in 10 ft before LVT-1",
+      "sheet_number": "A-201",
+      "related_sheets": [
+        "A-101"
+      ],
+      "location": "Finish note 2",
+      "quote": "LEVEL EXISTING SLAB IN BREAK ROOM 312 PRIOR TO LVT-1 INSTALLATION. FLATNESS 1/8 IN IN 10 FT. USE CEMENTITIOUS UNDERLAYMENT.",
+      "support_level": "direct",
+      "decision": "include",
+      "reason": "Flooring preparation, 09 05 61. A-101 note 2 calls for slab prep generally; A-201 limits the leveling requirement to Break Room 312.",
+      "notes": "Only Break Room 312 has a stated flatness requirement. Slab prep elsewhere is limited to what note 2 on A-101 calls for after carpet removal."
+    },
+    {
+      "id": "cand-009",
+      "division": "06",
+      "candidate": "Plastic laminate base cabinets with adjustable shelves and 30 in high plastic laminate upper cabinets in Break Room 312",
+      "sheet_number": "A-501",
+      "related_sheets": [
+        "A-401"
+      ],
+      "location": "Detail 1/A-501",
+      "quote": "PLASTIC LAMINATE BASE CABINETS WITH ADJUSTABLE SHELVES AND PLASTIC LAMINATE UPPER CABINETS, 30 IN HIGH.",
+      "support_level": "direct",
+      "decision": "include",
+      "reason": "Detail describes the casework. Architectural wood casework, 06 41 00."
+    },
+    {
+      "id": "cand-010",
+      "division": "06",
+      "candidate": "Continuous 2x wood blocking in wall at the upper cabinet hanging rail, Break Room 312",
+      "sheet_number": "A-501",
+      "location": "Detail 1/A-501",
+      "quote": "PROVIDE CONTINUOUS 2X WOOD BLOCKING IN WALL AT UPPER CABINET HANGING RAIL.",
+      "support_level": "direct",
+      "decision": "include",
+      "reason": "Detail note describes the blocking. Miscellaneous rough carpentry, 06 10 53, kept separate from the casework it supports."
+    },
+    {
+      "id": "cand-011",
+      "division": "06",
+      "candidate": "Solid surface countertop, 1/2 in thick, with integral 4 in backsplash and sink cutout, Break Room 312",
+      "sheet_number": "A-501",
+      "location": "Detail 2/A-501",
+      "quote": "SOLID SURFACE COUNTERTOP, 1/2 IN THICK, WITH INTEGRAL 4 IN BACKSPLASH. ... CUTOUT BY COUNTERTOP FABRICATOR.",
+      "support_level": "direct",
+      "decision": "include",
+      "reason": "Detail describes the countertop. Carried in Division 06 with the casework; MasterFormat lists countertops at 12 36 00. Judgment call recorded as an assumption.",
+      "notes": "Move to Division 12 if the cost code list separates countertops from casework."
+    },
+    {
+      "id": "cand-012",
+      "division": "22",
+      "candidate": "Undermount sink at Break Room 312 countertop with rough-in",
+      "sheet_number": "A-501",
+      "related_sheets": [
+        "P-101"
+      ],
+      "location": "Detail 2/A-501",
+      "quote": "UNDERMOUNT SINK BY PLUMBING CONTRACTOR, SEE P-101.",
+      "support_level": "reference_only",
+      "decision": "review",
+      "reason": "A-501 points to P-101 for the sink and rough-in. P-101 is a scanned sheet and was unreadable after OCR, so the fixture, waste, vent, and water connections are not confirmed."
+    },
+    {
+      "id": "cand-013",
+      "division": "11",
+      "candidate": "Undercounter refrigerator and countertop microwave in Break Room 312",
+      "sheet_number": "A-501",
+      "location": "Detail 3/A-501",
+      "quote": "APPLIANCES ARE OWNER FURNISHED, OWNER INSTALLED (OFOI).",
+      "support_level": "by_others",
+      "decision": "exclude",
+      "reason": "Detail note assigns the appliances to the owner. The casework openings sized for them are part of cand-009."
+    },
+    {
+      "id": "cand-014",
+      "division": "23",
+      "candidate": "Ceiling exhaust fan EF-1 in Break Room 312, approximately 75 CFM, ducted to the existing shaft",
+      "sheet_number": "M-101",
+      "location": "Equipment schedule, row EF-1",
+      "quote": "EF-1 CEILING EXHAUST FAN, 75 CFM (APPROX), BREAK ROOM 312, DUCT TO EXISTING SHAFT, VIF",
+      "support_level": "schedule",
+      "decision": "include",
+      "reason": "Equipment schedule row defines the fan and its duct route. Shaft connection is marked verify in field. Test and balance from mechanical note 2 is carried with this item and recorded as an assumption.",
+      "notes": "Includes the test and balance report required by M-101 mechanical note 2."
+    },
+    {
+      "id": "cand-015",
+      "division": "25",
+      "candidate": "Thermostats and DDC connections for the mechanical work in Suite 300, including EF-1",
+      "sheet_number": "M-101",
+      "location": "Mechanical note 1",
+      "quote": "THERMOSTATS AND DDC CONNECTIONS BY BASE BUILDING CONTROLS CONTRACTOR UNDER SEPARATE CONTRACT WITH LANDLORD.",
+      "support_level": "by_others",
+      "decision": "exclude",
+      "reason": "Mechanical note assigns controls to the landlord's controls contractor under a separate contract."
+    },
+    {
+      "id": "cand-016",
+      "division": "26",
+      "candidate": "Lighting fixture type L1, 2x4 LED troffer, 4000K, 0-10V dimming, lay-in, in Open Office 301 and Offices 305 through 309",
+      "sheet_number": "E-201",
+      "location": "Lighting fixture schedule, type L1",
+      "quote": "L1 2X4 LED TROFFER, 4000K, 0-10V DIMMING, LAY-IN, OPEN OFFICE 301, OFFICES 305-309",
+      "support_level": "schedule",
+      "decision": "include",
+      "reason": "Fixture schedule row defines the fixture and rooms."
+    },
+    {
+      "id": "cand-017",
+      "division": "26",
+      "candidate": "Ceiling-mounted occupancy sensors in all enclosed rooms, controlling lighting and the receptacle circuits indicated on E-101",
+      "sheet_number": "E-201",
+      "related_sheets": [
+        "E-101"
+      ],
+      "location": "Lighting note 1",
+      "quote": "PROVIDE CEILING-MOUNTED OCCUPANCY SENSORS IN ALL ENCLOSED ROOMS PER ENERGY CODE. SENSORS TO CONTROL BOTH LIGHTING AND RECEPTACLE CIRCUITS WHERE INDICATED ON E-101.",
+      "support_level": "direct",
+      "decision": "include",
+      "reason": "Lighting note describes the sensors. Lighting controls stay in Division 26; no Division 25 or 27 sheet claims them."
+    },
+    {
+      "id": "cand-018",
+      "division": "21",
+      "candidate": "Fire sprinkler head relocation and additions to suit the new ceiling layout, design-build under deferred submittal",
+      "sheet_number": "G-001",
+      "related_sheets": [
+        "A-103"
+      ],
+      "location": "General note GN-3",
+      "quote": "FIRE SPRINKLER HEAD RELOCATION AND ADDITIONS TO SUIT THE NEW CEILING LAYOUT ARE DESIGN-BUILD BY THE FIRE PROTECTION CONTRACTOR UNDER DEFERRED SUBMITTAL.",
+      "support_level": "direct",
+      "decision": "include",
+      "reason": "General note assigns the work to the fire protection contractor as design-build within the contract; it is not marked by others or NIC. No fire protection sheet is in the set."
+    },
+    {
+      "id": "cand-019",
+      "division": "08",
+      "candidate": "Doors, frames, and hardware per the door schedule",
+      "sheet_number": "G-001",
+      "related_sheets": [
+        "A-601"
+      ],
+      "location": "General note GN-4",
+      "quote": "DOORS, FRAMES, AND HARDWARE PER DOOR SCHEDULE, SHEET A-601.",
+      "support_level": "reference_only",
+      "decision": "review",
+      "reason": "G-001 points to A-601 for the door schedule. A-601 extraction returned only the title block, so no door, frame, or hardware rows were read. Re-extract A-601 with OCR before recording door candidates."
+    },
+    {
+      "id": "cand-020",
+      "division": "09",
+      "candidate": "New lay-in acoustical ceiling grid and tile in Open Office 301 and Offices 305 through 309 to receive type L1 troffers",
+      "sheet_number": "E-201",
+      "related_sheets": [
+        "A-101",
+        "A-103"
+      ],
+      "location": "Lighting fixture schedule, type L1, mounting column",
+      "quote": "L1 ... LAY-IN ... OPEN OFFICE 301, OFFICES 305-309",
+      "support_level": "inferred",
+      "decision": "review",
+      "reason": "Inference: A-101 note 3 removes the existing grid in these rooms and E-201 schedules lay-in fixtures there, so a new lay-in ceiling is needed, but A-103 extracted text shows only room tags and ceiling heights and no ceiling type or legend surfaced. Confirm the ceiling type on A-103 before including."
+    }
+  ],
+  "assumptions": [
+    {
+      "text": "The solid surface countertop is carried in Division 06 with the casework rather than Division 12.",
+      "source": "A-501, Detail 2/A-501",
+      "candidate_ids": [
+        "cand-011"
+      ]
+    },
+    {
+      "text": "Test and balance for EF-1 is carried with the Division 23 work rather than as a separate item.",
+      "source": "M-101, mechanical note 2",
+      "candidate_ids": [
+        "cand-014"
+      ]
+    },
+    {
+      "text": "Slab leveling with a stated flatness tolerance applies to Break Room 312 only; other rooms get slab preparation after carpet removal without a stated tolerance.",
+      "source": "A-201, finish note 2; A-101, keyed note 2",
+      "candidate_ids": [
+        "cand-002",
+        "cand-008"
+      ]
+    }
+  ],
+  "exclusions": [
+    {
+      "text": "Furniture, systems furniture, and tenant equipment are NIC, furnished and installed by the tenant.",
+      "source": "G-001, general note GN-2"
+    },
+    {
+      "text": "Existing Corridor 300 finishes are not in contract; the corridor ceiling remains and is protected.",
+      "source": "A-201, finish note 1; A-101, keyed note 3"
+    }
+  ],
+  "rfis": [
+    {
+      "text": "P-101 is a scanned image and unreadable after OCR. Request a native PDF so the sink, rough-in, waste, vent, and any other plumbing fixtures can be recorded.",
+      "source": "P-101",
+      "candidate_ids": [
+        "cand-012"
+      ]
+    },
+    {
+      "text": "A-601 text extraction returned only the title block. Request the door schedule as a native PDF or OCR the sheet before recording door, frame, and hardware scope.",
+      "source": "A-601; G-001, general note GN-4",
+      "candidate_ids": [
+        "cand-019"
+      ]
+    },
+    {
+      "text": "A-103 shows room tags and ceiling heights but no ceiling type in the extracted text. Confirm the ceiling type and grid for Open Office 301 and Offices 305 through 309.",
+      "source": "A-103; A-101, keyed note 3; E-201, type L1",
+      "candidate_ids": [
+        "cand-020"
+      ]
+    },
+    {
+      "text": "EF-1 is ducted to an existing shaft marked verify in field. Confirm the shaft is available and whether a fire or smoke damper is required at the shaft connection; no damper is shown.",
+      "source": "M-101, equipment schedule row EF-1",
+      "candidate_ids": [
+        "cand-014"
+      ]
+    },
+    {
+      "text": "New partitions on A-102 are shown as plan callouts without a partition type legend in the extracted text. Confirm partition types, heights, and any rated assemblies so Division 07 firestopping and Division 09 partitions can be recorded.",
+      "source": "A-102; not stated in the extracted text"
+    },
+    {
+      "text": "A-201 finish schedule lists floor finishes only; no paint or wall finish code appears in the extracted text. Confirm wall finishes for new and existing gypsum board.",
+      "source": "A-201; not stated in the extracted text"
+    }
+  ],
+  "coverage_ledger": [
+    {
+      "kind": "sheet",
+      "source": "G-001",
+      "title": "Cover Sheet, Sheet Index, General Notes",
+      "status": "reviewed",
+      "candidate_ids": [
+        "cand-018",
+        "cand-019"
+      ],
+      "reason": "General notes GN-2 (NIC furniture, recorded as an exclusion), GN-3 (sprinkler design-build), GN-4 (door schedule reference). GN-1 is administrative."
+    },
+    {
+      "kind": "sheet",
+      "source": "A-101",
+      "title": "Demolition Plan",
+      "status": "reviewed",
+      "candidate_ids": [
+        "cand-001",
+        "cand-002",
+        "cand-003",
+        "cand-004",
+        "cand-005"
+      ],
+      "reason": "Five keyed demolition notes; each became a candidate."
+    },
+    {
+      "kind": "sheet",
+      "source": "A-102",
+      "title": "Construction Plan",
+      "status": "reviewed",
+      "candidate_ids": [],
+      "reason": "Extracted text contains room names and plan callouts only; no partition type legend or keyed notes surfaced. Partition scope is an RFI."
+    },
+    {
+      "kind": "sheet",
+      "source": "A-103",
+      "title": "Reflected Ceiling Plan",
+      "status": "reviewed",
+      "candidate_ids": [
+        "cand-020"
+      ],
+      "reason": "Extracted text contains room tags and ceiling heights only; no ceiling type legend surfaced. Supports the inferred ceiling candidate and an RFI."
+    },
+    {
+      "kind": "sheet",
+      "source": "A-201",
+      "title": "Finish Plan and Finish Schedule",
+      "status": "reviewed",
+      "candidate_ids": [
+        "cand-006",
+        "cand-007",
+        "cand-008"
+      ],
+      "reason": "Two finish schedule rows and two finish notes; note 1 recorded as an exclusion, note 2 as a candidate. No wall finish code; see RFI."
+    },
+    {
+      "kind": "sheet",
+      "source": "A-401",
+      "title": "Interior Elevations",
+      "status": "reviewed",
+      "candidate_ids": [],
+      "reason": "Extracted text contains elevation tags and references to A-501 only; casework scope is carried by the A-501 candidates."
+    },
+    {
+      "kind": "sheet",
+      "source": "A-501",
+      "title": "Casework Details",
+      "status": "reviewed",
+      "candidate_ids": [
+        "cand-009",
+        "cand-010",
+        "cand-011",
+        "cand-012",
+        "cand-013"
+      ],
+      "reason": "Three details; casework, blocking, countertop, sink reference, and OFOI appliances recorded."
+    },
+    {
+      "kind": "sheet",
+      "source": "A-601",
+      "title": "Door Schedule and Door Details",
+      "status": "not_reviewed",
+      "candidate_ids": [],
+      "reason": "Text extraction returned only the title block; the door schedule appears to be an embedded image. Needs OCR or a native PDF. See RFI."
+    },
+    {
+      "kind": "sheet",
+      "source": "M-101",
+      "title": "Mechanical Plan and Equipment Schedule",
+      "status": "reviewed",
+      "candidate_ids": [
+        "cand-014",
+        "cand-015"
+      ],
+      "reason": "One equipment schedule row and two mechanical notes; note 1 by others, note 2 folded into the Division 23 item as an assumption."
+    },
+    {
+      "kind": "sheet",
+      "source": "P-101",
+      "title": "Plumbing Plan",
+      "status": "unreadable",
+      "candidate_ids": [],
+      "reason": "Scanned image; OCR recovered fewer than twenty words. No plumbing scope could be read. See RFI."
+    },
+    {
+      "kind": "sheet",
+      "source": "E-101",
+      "title": "Power Plan",
+      "status": "reviewed",
+      "candidate_ids": [],
+      "reason": "Extracted text contains device tags and circuit numbers only; no keyed notes, panel schedule, or demolition note surfaced. Referenced by A-101 note 4 and E-201 note 1."
+    },
+    {
+      "kind": "sheet",
+      "source": "E-201",
+      "title": "Lighting Plan and Lighting Fixture Schedule",
+      "status": "reviewed",
+      "candidate_ids": [
+        "cand-016",
+        "cand-017"
+      ],
+      "reason": "One fixture schedule row and one lighting note; each became a candidate."
+    },
+    {
+      "kind": "probe",
+      "source": "demolition",
+      "status": "covered",
+      "candidate_ids": [
+        "cand-001",
+        "cand-002",
+        "cand-003",
+        "cand-004",
+        "cand-005"
+      ],
+      "reason": "Hits on A-101 keyed notes 1 through 5."
+    },
+    {
+      "kind": "probe",
+      "source": "concrete",
+      "status": "covered",
+      "candidate_ids": [
+        "cand-008"
+      ],
+      "reason": "Hit on A-201 finish note 2 (slab leveling). No structural concrete."
+    },
+    {
+      "kind": "probe",
+      "source": "blocking",
+      "status": "covered",
+      "candidate_ids": [
+        "cand-010"
+      ],
+      "reason": "Hit on A-501 detail 1. No blanket blocking general note on G-001."
+    },
+    {
+      "kind": "probe",
+      "source": "casework",
+      "status": "covered",
+      "candidate_ids": [
+        "cand-009",
+        "cand-011"
+      ],
+      "reason": "Hits on A-501 details 1 and 2 and A-401 tags pointing to A-501."
+    },
+    {
+      "kind": "probe",
+      "source": "firestopping",
+      "status": "no_hits",
+      "candidate_ids": [],
+      "reason": "No hits for firestop, rated, or penetration. Partition types unknown (A-102); see RFI."
+    },
+    {
+      "kind": "probe",
+      "source": "sealant",
+      "status": "no_hits",
+      "candidate_ids": [],
+      "reason": "No hits for sealant, caulk, or acoustical seal."
+    },
+    {
+      "kind": "probe",
+      "source": "roofing",
+      "status": "no_hits",
+      "candidate_ids": [],
+      "reason": "No hits. EF-1 ducts to an existing shaft, not the roof."
+    },
+    {
+      "kind": "probe",
+      "source": "door hardware",
+      "status": "reference_only",
+      "candidate_ids": [
+        "cand-019"
+      ],
+      "reason": "Hit on G-001 GN-4 (reference to A-601). A-601 not readable."
+    },
+    {
+      "kind": "probe",
+      "source": "access panels",
+      "status": "no_hits",
+      "candidate_ids": [],
+      "reason": "No hits for access door, access panel, or AP."
+    },
+    {
+      "kind": "probe",
+      "source": "glazing",
+      "status": "no_hits",
+      "candidate_ids": [],
+      "reason": "No hits for glass, storefront, sidelite, or mirror."
+    },
+    {
+      "kind": "probe",
+      "source": "gypsum board",
+      "status": "needs_followup",
+      "candidate_ids": [
+        "cand-001"
+      ],
+      "reason": "Hit on A-101 note 1 (removal) only. No partition type legend surfaced on A-102; new partitions are an RFI."
+    },
+    {
+      "kind": "probe",
+      "source": "acoustical ceiling",
+      "status": "needs_followup",
+      "candidate_ids": [
+        "cand-003",
+        "cand-020"
+      ],
+      "reason": "Hit on A-101 note 3 (removal). No ceiling type on A-103; new ceiling is inferred and under review."
+    },
+    {
+      "kind": "probe",
+      "source": "resilient flooring",
+      "status": "covered",
+      "candidate_ids": [
+        "cand-006",
+        "cand-007"
+      ],
+      "reason": "Hits on A-201 rows CPT-1 and LVT-1. No base row in the schedule."
+    },
+    {
+      "kind": "probe",
+      "source": "painting",
+      "status": "no_hits",
+      "candidate_ids": [],
+      "reason": "No hits for paint, PT, or coating on any readable sheet. Wall finish is an RFI."
+    },
+    {
+      "kind": "probe",
+      "source": "toilet accessories",
+      "status": "no_hits",
+      "candidate_ids": [],
+      "reason": "No hits; no restroom in the suite scope."
+    },
+    {
+      "kind": "probe",
+      "source": "wall protection",
+      "status": "no_hits",
+      "candidate_ids": [],
+      "reason": "No hits for corner guard, FRP, or crash rail."
+    },
+    {
+      "kind": "probe",
+      "source": "sprinkler",
+      "status": "covered",
+      "candidate_ids": [
+        "cand-018"
+      ],
+      "reason": "Hit on G-001 GN-3. No fire protection sheet in the set."
+    },
+    {
+      "kind": "probe",
+      "source": "plumbing fixtures",
+      "status": "reference_only",
+      "candidate_ids": [
+        "cand-012"
+      ],
+      "reason": "Hit on A-501 detail 2 (sink by plumbing, see P-101). P-101 unreadable."
+    },
+    {
+      "kind": "probe",
+      "source": "HVAC",
+      "status": "covered",
+      "candidate_ids": [
+        "cand-014",
+        "cand-015"
+      ],
+      "reason": "Hits on M-101 schedule row EF-1 and mechanical notes 1 and 2."
+    },
+    {
+      "kind": "probe",
+      "source": "electrical",
+      "status": "covered",
+      "candidate_ids": [
+        "cand-004",
+        "cand-016",
+        "cand-017"
+      ],
+      "reason": "Hits on E-201 schedule and lighting note 1, and A-101 note 4. E-101 text has tags only."
+    },
+    {
+      "kind": "probe",
+      "source": "countertop",
+      "status": "covered",
+      "candidate_ids": [
+        "cand-011"
+      ],
+      "reason": "Follow-up from casework hit. A-501 detail 2."
+    },
+    {
+      "kind": "probe",
+      "source": "thermostat",
+      "status": "excluded",
+      "candidate_ids": [
+        "cand-015"
+      ],
+      "reason": "Follow-up from HVAC hit. M-101 note 1 assigns thermostats to the landlord's controls contractor."
+    },
+    {
+      "kind": "probe",
+      "source": "appliance",
+      "status": "excluded",
+      "candidate_ids": [
+        "cand-013"
+      ],
+      "reason": "Follow-up from casework hit. A-501 detail 3 marks appliances OFOI."
+    },
+    {
+      "kind": "probe",
+      "source": "occupancy sensor",
+      "status": "covered",
+      "candidate_ids": [
+        "cand-017"
+      ],
+      "reason": "Follow-up from electrical hit. E-201 lighting note 1."
+    },
+    {
+      "kind": "probe",
+      "source": "fire alarm",
+      "status": "no_hits",
+      "candidate_ids": [],
+      "reason": "Follow-up. No hits for fire alarm, strobe, or pull station on any readable sheet. Silence on a suite with new ceilings is noted for the user but not recorded as scope."
+    },
+    {
+      "kind": "source",
+      "source": "G-001 general note GN-2 (NIC furniture and tenant equipment)",
+      "status": "excluded",
+      "candidate_ids": [],
+      "reason": "Blanket exclusion recorded in the exclusions list, not as a candidate."
+    },
+    {
+      "kind": "source",
+      "source": "M-101 mechanical note 2 (test and balance)",
+      "status": "merged",
+      "candidate_ids": [
+        "cand-014"
+      ],
+      "reason": "Blanket requirement folded into the Division 23 item and recorded as an assumption."
+    }
+  ]
+}
