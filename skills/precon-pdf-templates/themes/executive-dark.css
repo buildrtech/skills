@@ -1,0 +1,81 @@
+:root {
+  --page-bg: #ffffff;
+  --ink: #1f2937;
+  --muted: #6b7280;
+  --primary: #111827;
+  --accent: #38bdf8;
+  --surface: #eef2ff;
+  --border: #cbd5e1;
+  --font-body: "Liberation Sans", "DejaVu Sans", sans-serif;
+  --font-display: "Liberation Serif", "DejaVu Serif", serif;
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 10.5pt;
+  line-height: 1.45;
+}
+
+.pdf-page {
+  page-break-after: always;
+}
+
+.keep-together {
+  break-inside: avoid;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead {
+  display: table-header-group;
+}
+
+.cover {
+  background: var(--primary);
+  color: #ffffff;
+}
+
+.cover h1,
+.cover h2,
+.cover p {
+  color: #ffffff;
+}
+
+h1,
+h2,
+h3 {
+  color: var(--primary);
+  font-family: var(--font-body);
+  font-weight: 800;
+}
+
+.kpi-card {
+  background: var(--primary);
+  border-radius: 6px;
+  color: #ffffff;
+  padding: 14px;
+}
+
+.kpi-card strong {
+  color: var(--accent);
+  display: block;
+  font-size: 18pt;
+}
+
+th {
+  background: #1f2937;
+  color: #ffffff;
+  padding: 8px;
+  text-align: left;
+}
+
+td {
+  border-bottom: 1px solid var(--border);
+  padding: 8px;
+  vertical-align: top;
+}

@@ -1,0 +1,19 @@
+{
+  "type": "object",
+  "required": ["employee", "projectExperience"],
+  "properties": {
+    "employee": {
+      "type": "object",
+      "required": ["name", "role"],
+      "properties": {
+        "name": { "type": "string" },
+        "role": { "type": "string" },
+        "location": { "type": "string" },
+        "yearsExperience": { "type": "number" },
+        "certifications": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "projectExperience": { "type": "array" },
+    "differentiators": { "type": "array", "items": { "type": "string" } }
+  }
+}

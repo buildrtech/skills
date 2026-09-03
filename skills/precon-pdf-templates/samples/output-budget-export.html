@@ -1,0 +1,117 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Construction Budget Export</title>
+  <style>
+    :root { --ink: #1f2937; --muted: #6b7280; --primary: #334155; --accent: #0f766e; --surface: #f1f5f9; --border: #cbd5e1; --font-body: "Liberation Sans", "DejaVu Sans", sans-serif; }
+    body { margin: 0; color: var(--ink); font-family: var(--font-body); font-size: 10pt; line-height: 1.35; }
+    .pdf-page { box-sizing: border-box; min-height: 10in; page-break-after: always; padding: 0.45in; }
+    .pdf-page:last-of-type { page-break-after: auto; }
+    .keep-together { break-inside: avoid; }
+    h1 { color: var(--primary); font-size: 24pt; margin: 0; }
+    h2 { background: var(--surface); border-left: 5px solid var(--accent); color: var(--primary); font-size: 13pt; padding: 7px 9px; }
+    table { width: 100%; border-collapse: collapse; margin-bottom: 14px; }
+    thead { display: table-header-group; }
+    th { background: var(--primary); color: #ffffff; font-size: 7.5pt; padding: 6px; text-align: left; text-transform: uppercase; }
+    td { border: 1px solid var(--border); padding: 5px 6px; vertical-align: top; }
+    .numeric { font-variant-numeric: tabular-nums; text-align: right; white-space: nowrap; }
+    .division td { background: var(--surface); color: var(--primary); font-weight: 800; }
+    .meta { color: var(--muted); margin: 4px 0 6px; }
+    .meta + .meta { margin-bottom: 18px; }
+    .totals { margin-left: auto; width: 45%; }
+    .totals tr:last-child td { background: var(--primary); color: #ffffff; font-weight: 800; }
+  </style>
+</head>
+<body>
+  <section class="pdf-page">
+    <p>Construction Budget Export</p>
+    <h1>Cedar Hollow Community Library Expansion</h1>
+    <p class="meta">Estimate date: 2026-08-21</p>
+    <p class="meta">Prepared by Northgate Builders for Cedar Hollow Public Library District</p>
+    <h2>Division Detail</h2>
+    <table>
+      <thead><tr><th>Description</th><th>Quantity</th><th>Division</th><th class="numeric">Total</th></tr></thead>
+      <tbody><tr class="division"><td colspan="3">Division 03 — Concrete</td><td class="numeric">$345,500</td></tr>
+<tr>
+          <td>Foundations and slab-on-grade</td>
+          <td>9,600 SF</td>
+          <td>03</td>
+          <td class="numeric">$284,000</td>
+        </tr>
+<tr>
+          <td>Site concrete walks and curbs</td>
+          <td>1 LS</td>
+          <td>03</td>
+          <td class="numeric">$61,500</td>
+        </tr>
+<tr class="division"><td colspan="3">Division 06 — Wood, Plastics, and Composites</td><td class="numeric">$647,000</td></tr>
+<tr>
+          <td>Mass timber roof structure and glulam columns</td>
+          <td>9,600 SF</td>
+          <td>06</td>
+          <td class="numeric">$528,000</td>
+        </tr>
+<tr>
+          <td>Millwork and reading-room shelving</td>
+          <td>1 LS</td>
+          <td>06</td>
+          <td class="numeric">$119,000</td>
+        </tr>
+<tr class="division"><td colspan="3">Division 09 — Finishes</td><td class="numeric">$241,500</td></tr>
+<tr>
+          <td>Acoustic ceilings and wall panels</td>
+          <td>8,200 SF</td>
+          <td>09</td>
+          <td class="numeric">$143,000</td>
+        </tr>
+<tr>
+          <td>Carpet tile and polished concrete flooring</td>
+          <td>9,600 SF</td>
+          <td>09</td>
+          <td class="numeric">$98,500</td>
+        </tr>
+<tr class="division"><td colspan="3">Division 23 — Heating, Ventilating, and Air Conditioning</td><td class="numeric">$376,000</td></tr>
+<tr>
+          <td>Rooftop units, ductwork, and controls</td>
+          <td>1 LS</td>
+          <td>23</td>
+          <td class="numeric">$376,000</td>
+        </tr>
+<tr class="division"><td colspan="3">Division 26 — Electrical</td><td class="numeric">$379,000</td></tr>
+<tr>
+          <td>Lighting, power, and fire alarm</td>
+          <td>1 LS</td>
+          <td>26</td>
+          <td class="numeric">$292,000</td>
+        </tr>
+<tr>
+          <td>Low-voltage and AV rough-in</td>
+          <td>1 LS</td>
+          <td>26</td>
+          <td class="numeric">$87,000</td>
+        </tr></tbody>
+    </table>
+    <div class="keep-together">
+      <h2>Alternates</h2>
+      <table><thead><tr><th>Alternate</th><th class="numeric">Total</th></tr></thead><tbody><tr><td>Alternate 1: Rooftop photovoltaic array</td><td class="numeric">$124,000</td></tr>
+<tr><td>Alternate 2: Exterior reading terrace</td><td class="numeric">$72,500</td></tr></tbody></table>
+      <h2>Markups</h2>
+      <table><thead><tr><th>Markup</th><th class="numeric">Total</th></tr></thead><tbody><tr><td>General conditions (22 weeks)</td><td class="numeric">$179,000</td></tr>
+<tr><td>Insurance and bond</td><td class="numeric">$49,700</td></tr>
+<tr><td>Fee</td><td class="numeric">$88,700</td></tr></tbody></table>
+      <table class="totals">
+        <tbody>
+          <tr><td>Subtotal</td><td class="numeric">$1,989,000</td></tr>
+          <tr><td>Markups</td><td class="numeric">$317,400</td></tr>
+          <tr><td>Total</td><td class="numeric">$2,306,400</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <h2>Notes</h2>
+    <ul><li>Pricing is based on the 75% construction documents dated 2026-08-14.</li>
+<li>Alternates are priced separately and are not included in the total.</li>
+<li>Excludes permit fees, owner-furnished furniture, and moving of the library collection.</li></ul>
+  </section>
+</body>
+</html>

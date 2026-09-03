@@ -1,0 +1,89 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Milestone Export</title>
+  <style>
+    :root { --ink: #1f2937; --muted: #6b7280; --primary: #334155; --accent: #0f766e; --surface: #f1f5f9; --border: #cbd5e1; --font-body: "Liberation Sans", "DejaVu Sans", sans-serif; }
+    body { margin: 0; color: var(--ink); font-family: var(--font-body); font-size: 10.5pt; line-height: 1.4; }
+    .pdf-page { box-sizing: border-box; min-height: 10in; page-break-after: always; padding: 0.5in; }
+    .pdf-page:last-of-type { page-break-after: auto; }
+    .keep-together { break-inside: avoid; }
+    h1 { color: var(--primary); font-size: 25pt; margin: 0; }
+    h2 { background: var(--surface); border-left: 5px solid var(--accent); color: var(--primary); font-size: 13pt; padding: 8px 10px; }
+    table { width: 100%; border-collapse: collapse; }
+    thead { display: table-header-group; }
+    th { background: var(--primary); color: #ffffff; font-size: 7.5pt; padding: 6px; text-align: left; text-transform: uppercase; }
+    td { border: 1px solid var(--border); padding: 7px; vertical-align: top; }
+    .numeric { font-variant-numeric: tabular-nums; text-align: right; white-space: nowrap; }
+    .meta { color: var(--muted); margin: 4px 0 18px; }
+    .summary-grid { display: grid; gap: 10px; grid-template-columns: repeat(4, 1fr); }
+    .summary-card { background: var(--surface); border-top: 4px solid var(--accent); padding: 10px; }
+    .summary-card strong { display: block; font-size: 14pt; }
+    .columns { display: grid; gap: 18px; grid-template-columns: 1fr 1fr; }
+  </style>
+</head>
+<body>
+  <section class="pdf-page">
+    <p>Milestone Export</p>
+    <h1>Riverside Medical Office</h1>
+    <p class="meta">Design Development · 2026-05-15</p>
+    <div class="summary-grid keep-together">
+      <div class="summary-card"><span>Milestone</span><strong>Design Development</strong></div>
+      <div class="summary-card"><span>Area</span><strong>18,400 SF</strong></div>
+      <div class="summary-card"><span>Cost</span><strong>$1,250,000</strong></div>
+      <div class="summary-card"><span>Cost / SF</span><strong>$68</strong></div>
+    </div>
+    <div class="columns">
+      <div>
+        <h2>Inclusions</h2>
+        <ul><li>Selective demolition and phased infection-control barriers.</li>
+<li>Exam-room finish upgrades with casework allowance.</li>
+<li>Lighting, power, low-voltage rough-in, and panel upgrades.</li></ul>
+      </div>
+      <div>
+        <h2>Exclusions</h2>
+        <ul><li>Owner-furnished medical equipment.</li>
+<li>Permit fees and utility company charges.</li>
+<li>Hazardous material remediation beyond identified allowances.</li></ul>
+      </div>
+    </div>
+    <h2>Division Totals</h2>
+    <table>
+      <thead><tr><th>Code</th><th>Division</th><th>Notes</th><th class="numeric">Total</th></tr></thead>
+      <tbody><tr>
+        <td>Division 02</td>
+        <td>Existing Conditions</td>
+        <td>Includes temporary controls for occupied work.</td>
+        <td class="numeric">$259,000</td>
+      </tr>
+<tr>
+        <td>Division 09</td>
+        <td>Finishes</td>
+        <td>Includes baseline casework package.</td>
+        <td class="numeric">$637,000</td>
+      </tr>
+<tr>
+        <td>Division 26</td>
+        <td>Electrical</td>
+        <td>Includes gear allowance pending final cut sheets.</td>
+        <td class="numeric">$552,000</td>
+      </tr></tbody>
+    </table>
+    <h2>Approvals</h2>
+    <table>
+      <thead><tr><th>Name</th><th>Status</th><th>Date</th></tr></thead>
+      <tbody><tr>
+        <td>Owner Representative</td>
+        <td>Pending</td>
+        <td></td>
+      </tr>
+<tr>
+        <td>Contractor Preconstruction</td>
+        <td>Issued</td>
+        <td>2026-05-15</td>
+      </tr></tbody>
+    </table>
+  </section>
+</body>
+</html>

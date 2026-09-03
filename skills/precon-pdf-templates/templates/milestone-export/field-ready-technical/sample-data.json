@@ -1,0 +1,29 @@
+{
+  "project": "Riverside Medical Office",
+  "milestone": "Design Development",
+  "summary": {
+    "estimateDate": "2026-05-15",
+    "grossSquareFeet": "18,400 SF",
+    "constructionCostCents": 125000000,
+    "costPerSquareFootCents": 6793
+  },
+  "inclusions": [
+    "Selective demolition and phased infection-control barriers.",
+    "Exam-room finish upgrades with casework allowance.",
+    "Lighting, power, low-voltage rough-in, and panel upgrades."
+  ],
+  "exclusions": [
+    "Owner-furnished medical equipment.",
+    "Permit fees and utility company charges.",
+    "Hazardous material remediation beyond identified allowances."
+  ],
+  "divisions": [
+    { "code": "02", "name": "Existing Conditions", "totalCents": 25900000, "notes": "Includes temporary controls for occupied work." },
+    { "code": "09", "name": "Finishes", "totalCents": 63700000, "notes": "Includes baseline casework package." },
+    { "code": "26", "name": "Electrical", "totalCents": 55200000, "notes": "Includes gear allowance pending final cut sheets." }
+  ],
+  "approvals": [
+    { "name": "Owner Representative", "status": "Pending", "date": "" },
+    { "name": "Contractor Preconstruction", "status": "Issued", "date": "2026-05-15" }
+  ]
+}

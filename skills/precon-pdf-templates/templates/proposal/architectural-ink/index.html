@@ -1,0 +1,98 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Project Proposal</title>
+  <style>
+    :root { --page-bg: #ffffff; --ink: #1f2937; --muted: #6b7280; --primary: #0d1b2a; --accent: #b87333; --surface: #f8fafc; --border: #d1d5db; --font-body: "Liberation Sans", "DejaVu Sans", sans-serif; --font-display: "Liberation Serif", "DejaVu Serif", serif; }
+    body { margin: 0; color: var(--ink); font-family: var(--font-body); font-size: 10.5pt; line-height: 1.45; }
+    .pdf-page { box-sizing: border-box; min-height: 10in; page-break-after: always; padding: 0.55in; }
+    .pdf-page:last-of-type { page-break-after: auto; }
+    .keep-together { break-inside: avoid; }
+    table { width: 100%; border-collapse: collapse; }
+    thead { display: table-header-group; }
+    h1, h2, h3 { color: var(--primary); font-family: var(--font-display); font-weight: 700; letter-spacing: -0.02em; }
+    h1 { font-size: 42pt; line-height: 0.95; margin: 0 0 18px; }
+    h2 { border-bottom: 2px solid var(--accent); font-size: 18pt; margin: 28px 0 12px; padding-bottom: 8px; }
+    h3 { font-size: 13pt; margin: 0 0 6px; }
+    p { margin: 0 0 10px; }
+    .cover { background: linear-gradient(135deg, #0d1b2a 0%, #10243a 64%, #b87333 64%, #b87333 100%); color: #ffffff; display: flex; flex-direction: column; justify-content: space-between; }
+    .cover h1, .cover p { color: #ffffff; }
+    .eyebrow { color: var(--accent); font-size: 8pt; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; }
+    .cover .eyebrow { color: #f6c38c; }
+    .prepared { font-size: 16pt; margin-top: 18px; }
+    .meta-grid, .card-grid, .signature-grid { display: grid; gap: 12px; grid-template-columns: repeat(2, 1fr); }
+    .card { background: var(--surface); border-left: 4px solid var(--accent); padding: 16px; }
+    .number { color: var(--accent); font-family: var(--font-display); font-size: 22pt; font-weight: 700; }
+    th { background: var(--primary); color: #ffffff; font-size: 8pt; letter-spacing: 0.08em; padding: 8px; text-align: left; text-transform: uppercase; }
+    td { border-bottom: 1px solid var(--border); padding: 8px; vertical-align: top; }
+    .money { font-variant-numeric: tabular-nums; text-align: right; white-space: nowrap; }
+    .signature { border-top: 1px solid var(--primary); margin-top: 44px; padding-top: 8px; }
+  </style>
+</head>
+<body>
+  <section class="pdf-page cover">
+    <div>
+      <p class="eyebrow">Contractor Name</p>
+      <h1>Project Proposal</h1>
+      <p class="prepared">Prepared for Owner Name</p>
+    </div>
+    <div class="meta-grid">
+      <p><strong>Project:</strong><br>Riverside Medical Office Renovation</p>
+      <p><strong>Date:</strong><br>May 15, 2026</p>
+      <p><strong>Prepared by:</strong><br>Contractor Preconstruction Team</p>
+      <p><strong>Proposal valid through:</strong><br>June 14, 2026</p>
+    </div>
+  </section>
+
+  <section class="pdf-page">
+    <h2>Executive Summary</h2>
+    <p>Our team proposes a coordinated preconstruction and construction approach for the Riverside Medical Office Renovation. Our team will protect ongoing clinical operations, sequence work around owner milestones, and provide transparent budget controls from notice to proceed through closeout.</p>
+    <div class="card-grid keep-together">
+      <div class="card"><div class="number">16 weeks</div><p>Planned construction duration with phased turnover.</p></div>
+      <div class="card"><div class="number">$1.25M</div><p>Conceptual construction budget before owner alternates.</p></div>
+    </div>
+
+    <h2>Scope of Work</h2>
+    <p>The base scope includes selective demolition, interior framing, MEP coordination, finish upgrades, infection-control barriers, and final commissioning support. Long-lead procurement will start during preconstruction to protect the first patient-ready turnover.</p>
+    <div class="card keep-together">
+      <h3>Owner priorities</h3>
+      <p>Maintain safe access, reduce change-order exposure, and present clear weekly cost and schedule decisions.</p>
+    </div>
+
+    <h2>Schedule Strategy</h2>
+    <table>
+      <thead><tr><th>Phase</th><th>Dates</th><th>Primary focus</th></tr></thead>
+      <tbody>
+        <tr><td>Preconstruction</td><td>Weeks 1–3</td><td>Existing-condition review, buyout, infection-control plan.</td></tr>
+        <tr><td>Phase 1</td><td>Weeks 4–9</td><td>North wing demolition, rough-in, inspections, above-ceiling close.</td></tr>
+        <tr><td>Phase 2</td><td>Weeks 10–15</td><td>South wing construction, finishes, equipment coordination.</td></tr>
+        <tr><td>Closeout</td><td>Week 16</td><td>Punch, training, turnover documentation, owner acceptance.</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Commercial Summary</h2>
+    <table>
+      <thead><tr><th>Option</th><th>Description</th><th class="money">Amount</th></tr></thead>
+      <tbody>
+        <tr><td>Base proposal</td><td>Complete renovation scope described above.</td><td class="money">$1,250,000</td></tr>
+        <tr><td>Alternate A</td><td>Upgrade exam-room casework package.</td><td class="money">$84,000</td></tr>
+        <tr><td>Alternate B</td><td>After-hours accelerated work shifts.</td><td class="money">$61,000</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Project Team</h2>
+    <div class="card-grid">
+      <div class="card"><h3>Project Executive</h3><p>Morgan Patel will provide owner-level governance and escalation support.</p></div>
+      <div class="card"><h3>Senior Estimator</h3><p>Jordan Lee will maintain the live estimate and alternate log.</p></div>
+    </div>
+
+    <h2>Terms and Acceptance</h2>
+    <p>This proposal is based on the documents and assumptions available as of the date above. Final contract value will be reconciled after scope confirmation and accepted alternates.</p>
+    <div class="signature-grid">
+      <div class="signature">Owner Representative</div>
+      <div class="signature">Contractor Name</div>
+    </div>
+  </section>
+</body>
+</html>

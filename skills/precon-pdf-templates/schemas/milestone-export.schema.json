@@ -1,0 +1,13 @@
+{
+  "type": "object",
+  "required": ["project", "milestone", "summary", "inclusions", "divisions"],
+  "properties": {
+    "project": { "type": "string" },
+    "milestone": { "type": "string" },
+    "summary": { "type": "object" },
+    "inclusions": { "type": "array", "items": { "type": "string" } },
+    "exclusions": { "type": "array", "items": { "type": "string" } },
+    "divisions": { "type": "array" },
+    "approvals": { "type": "array" }
+  }
+}

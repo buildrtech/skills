@@ -1,0 +1,35 @@
+{
+  "employee": {
+    "name": "Jordan Lee",
+    "role": "Senior Estimator",
+    "location": "Denver, CO",
+    "yearsExperience": 12,
+    "certifications": ["LEED AP BD+C", "ASPE Certified Professional Estimator", "OSHA 30"]
+  },
+  "summary": "Jordan brings disciplined conceptual estimating and trade partner coverage for healthcare, multifamily, and adaptive reuse pursuits.",
+  "projectExperience": [
+    {
+      "project": "Riverside Medical Office Renovation",
+      "role": "Lead estimator",
+      "value": "$1.25M",
+      "details": "Built phased budget options for an occupied clinical environment with infection-control constraints."
+    },
+    {
+      "project": "Union Station Mixed-Use Core",
+      "role": "Preconstruction manager",
+      "value": "$42M",
+      "details": "Led milestone estimates from schematic design through GMP reconciliation."
+    },
+    {
+      "project": "Northfield Public Safety Center",
+      "role": "Estimator",
+      "value": "$18M",
+      "details": "Coordinated civil, structural, and MEP scope leveling across early bid packages."
+    }
+  ],
+  "differentiators": [
+    "Turns incomplete documents into clear assumptions and owner decision logs.",
+    "Balances trade coverage with transparent escalation and contingency strategy.",
+    "Experienced in occupied healthcare renovation phasing."
+  ]
+}

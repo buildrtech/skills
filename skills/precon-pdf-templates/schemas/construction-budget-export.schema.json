@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "required": ["project", "estimateDate", "divisions", "totals"],
+  "properties": {
+    "project": { "type": "string" },
+    "estimateDate": { "type": "string" },
+    "preparedBy": { "type": "string" },
+    "preparedFor": { "type": "string" },
+    "divisions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["code", "name", "lineItems"],
+        "properties": {
+          "code": { "type": "string" },
+          "name": { "type": "string" },
+          "lineItems": { "type": "array" },
+          "totalCents": { "type": "number" }
+        }
+      }
+    },
+    "alternates": { "type": "array" },
+    "markups": { "type": "array" },
+    "totals": { "type": "object" },
+    "notes": { "type": "array", "items": { "type": "string" } }
+  }
+}

@@ -1,0 +1,221 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Project Proposal — Swiss Transit Technical</title>
+  <style>
+    @page { size: letter; margin: 0; }
+    :root { --ink: #171717; --muted: rgb(23 23 23 / 62%); --quiet: rgb(23 23 23 / 38%); --line: rgb(23 23 23 / 14%); --paper: #fafaf7; --accent: #d71920; --amber: #f4b000; --green: #138a58; --blue: #0067b1; }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: #d9d8d1; color: var(--ink); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; font-size: 9.5pt; line-height: 1.35; }
+    .page { position: relative; width: 8.5in; min-height: 11in; margin: 0 auto 24px; padding: 0.44in 0.48in; background: var(--paper); overflow: hidden; page-break-after: always; }
+    .page:last-of-type { page-break-after: auto; }
+    .page::before { content: ""; position: absolute; inset: 0.44in 0.48in; background-image: linear-gradient(to right, rgb(23 23 23 / 5%) 1px, transparent 1px), linear-gradient(to bottom, rgb(23 23 23 / 4%) 1px, transparent 1px); background-size: calc((7.54in) / 12) 100%, 100% 0.25in; pointer-events: none; }
+    .content { position: relative; z-index: 1; }
+    .grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 12px; }
+    .span-3 { grid-column: span 3; }
+    .span-4 { grid-column: span 4; }
+    .span-5 { grid-column: span 5; }
+    .span-6 { grid-column: span 6; }
+    .span-7 { grid-column: span 7; }
+    .span-8 { grid-column: span 8; }
+    .span-9 { grid-column: span 9; }
+    .span-12 { grid-column: span 12; }
+    h1, h2, h3, p { margin: 0; }
+    h1 { max-width: 6.8in; font-size: 55pt; font-weight: 400; letter-spacing: -0.075em; line-height: 0.88; }
+    h2 { margin-bottom: 12px; border-top: 4px solid var(--ink); padding-top: 8px; font-size: 20pt; font-weight: 400; letter-spacing: -0.045em; }
+    h3 { font-size: 10pt; font-weight: 700; letter-spacing: -0.01em; }
+    .kicker { color: var(--muted); font-size: 7.5pt; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; }
+    .large { font-size: 13pt; letter-spacing: -0.025em; line-height: 1.22; }
+    .body { color: var(--muted); }
+    .muted { color: var(--muted); }
+    .quiet { color: var(--quiet); }
+    .rule { height: 1px; background: var(--line); }
+    .cover-top { min-height: 6.8in; align-items: start; }
+    .proposal-tag { grid-column: 1 / span 2; display: flex; align-items: center; gap: 8px; font-size: 8pt; font-weight: 700; }
+    .proposal-tag::before { content: ""; width: 18px; height: 18px; border-radius: 999px; background: var(--accent); }
+    .cover-title { grid-column: 3 / span 10; }
+    .cover-title .route { margin-bottom: 18px; color: var(--accent); font-size: 8pt; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; }
+    .tube-map { position: absolute; right: -0.2in; bottom: 1.1in; left: 0.48in; height: 2.2in; }
+    .tube-line { position: absolute; height: 10px; border-radius: 999px; background: var(--accent); }
+    .tube-line.blue { background: var(--blue); }
+    .tube-line.green { background: var(--green); }
+    .tube-line.amber { background: var(--amber); }
+    .tube-line.one { left: 0.1in; right: 0.9in; top: 0.3in; transform: rotate(-5deg); }
+    .tube-line.two { left: 0.8in; right: 0.3in; top: 1.0in; transform: rotate(7deg); }
+    .tube-line.three { left: 1.4in; right: 1.4in; top: 1.62in; }
+    .station { position: absolute; width: 24px; height: 24px; border: 5px solid var(--paper); border-radius: 999px; background: var(--ink); box-shadow: 0 0 0 2px var(--ink); }
+    .station.s1 { left: 0.64in; top: 0.16in; }
+    .station.s2 { left: 2.44in; top: 0.92in; }
+    .station.s3 { left: 4.92in; top: 1.48in; }
+    .station.s4 { left: 6.66in; top: 0.56in; }
+    .meta { position: absolute; right: 0.48in; bottom: 0.44in; left: 0.48in; z-index: 1; }
+    .meta-item { border-top: 1px solid var(--ink); padding-top: 8px; }
+    .meta-item strong { display: block; margin-bottom: 3px; font-size: 8pt; }
+    .index-no { color: var(--accent); font-size: 28pt; font-weight: 400; letter-spacing: -0.05em; line-height: 1; }
+    .route-row { display: grid; grid-template-columns: 0.42in 1fr 1.15in; gap: 12px; align-items: start; border-top: 1px solid var(--line); padding: 12px 0; }
+    .dot { width: 18px; height: 18px; margin-top: 2px; border: 4px solid var(--accent); border-radius: 999px; background: var(--paper); }
+    .dot.blue { border-color: var(--blue); }
+    .dot.green { border-color: var(--green); }
+    .dot.amber { border-color: var(--amber); }
+    .metric { border-top: 5px solid var(--accent); padding-top: 8px; }
+    .metric .value { font-size: 25pt; font-weight: 400; letter-spacing: -0.055em; line-height: 1; }
+    .metric .label { margin-top: 6px; color: var(--muted); }
+    table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+    th { border-bottom: 2px solid var(--ink); padding: 7px 6px 8px 0; font-size: 8pt; font-weight: 700; text-align: left; white-space: nowrap; }
+    td { border-bottom: 1px solid var(--line); padding: 8px 6px 8px 0; vertical-align: top; }
+    .money { text-align: right; white-space: nowrap; }
+    .footer { position: absolute; right: 0.48in; bottom: 0.18in; left: 0.48in; display: grid; grid-template-columns: repeat(12, 1fr); gap: 12px; color: var(--quiet); font-size: 7.5pt; }
+    .signature { min-height: 0.58in; border-top: 2px solid var(--ink); padding-top: 8px; }
+
+    .budget-page { font-size: 7.4pt; line-height: 1.16; }
+    .budget-page .grid { gap: 8px 12px; }
+    .budget-page .span-9 { grid-column: span 12; }
+    .budget-page h2 { margin-bottom: 7px; }
+    .budget-page th { padding-top: 4px; padding-bottom: 4px; }
+    .budget-page td { padding-top: 3px; padding-bottom: 3px; }
+    .budget-table { table-layout: fixed; }
+    .budget-table th:first-child, .budget-table td:first-child { width: 0.72in; white-space: nowrap; }
+    .budget-table th:nth-child(2), .budget-table td:nth-child(2) { width: 2.15in; }
+    .budget-table th:last-child, .budget-table td:last-child { width: 0.82in; }
+    .subtotal-row td { font-weight: 700; }
+    .grand-total td { border-bottom-width: 2px; font-weight: 700; }
+    .budget-notes { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 12px; }
+    .budget-notes > div { border-top: 1px solid var(--line); padding-top: 8px; }
+  </style>
+</head>
+<body>
+  <section class="page">
+    <div class="content grid cover-top">
+      <div class="proposal-tag">PR-26</div>
+      <div class="cover-title">
+        <p class="route">Route proposal / Riverside medical office renovation</p>
+        <h1>Clear path to patient-ready turnover.</h1>
+      </div>
+    </div>
+    <div class="tube-map">
+      <div class="tube-line one"></div>
+      <div class="tube-line blue two"></div>
+      <div class="tube-line green three"></div>
+      <div class="tube-line amber" style="left: 5.1in; right: 0.4in; top: 0.75in; transform: rotate(42deg);"></div>
+      <div class="station s1"></div><div class="station s2"></div><div class="station s3"></div><div class="station s4"></div>
+    </div>
+    <div class="meta grid">
+      <div class="meta-item span-3"><strong>Client</strong>Owner Name</div>
+      <div class="meta-item span-3"><strong>Project</strong>Riverside Medical Office Renovation</div>
+      <div class="meta-item span-3"><strong>Prepared by</strong>Contractor Preconstruction Team</div>
+      <div class="meta-item span-3"><strong>Valid through</strong>June 14, 2026</div>
+    </div>
+  </section>
+
+  <section class="page">
+    <div class="content grid">
+      <div class="span-3"><p class="kicker">01 / Summary</p></div>
+      <div class="span-9"><h2>Executive summary</h2><p class="large">Our team proposes a coordinated preconstruction and construction approach that keeps clinical operations protected while moving the renovation through a controlled 16-week route.</p></div>
+      <div class="span-3"></div>
+      <div class="span-5 metric"><div class="value">16 weeks</div><p class="label">Planned construction duration with phased turnover.</p></div>
+      <div class="span-4 metric"><div class="value">$1.25M</div><p class="label">Conceptual construction budget before owner alternates.</p></div>
+      <div class="span-3"><p class="kicker">02 / Workstreams</p></div>
+      <div class="span-9">
+        <div class="route-row"><div class="dot"></div><div><h3>Preconstruction control</h3><p class="body">Existing-condition review, buyout, infection-control planning, and long-lead procurement start before mobilization.</p></div><div class="quiet">Weeks 1–3</div></div>
+        <div class="route-row"><div class="dot blue"></div><div><h3>North wing delivery</h3><p class="body">Selective demolition, rough-in, inspections, and above-ceiling close are sequenced away from active clinical routes.</p></div><div class="quiet">Weeks 4–9</div></div>
+        <div class="route-row"><div class="dot green"></div><div><h3>South wing turnover</h3><p class="body">Finishes, equipment coordination, commissioning support, and patient-ready turnover are bundled into a single closeout lane.</p></div><div class="quiet">Weeks 10–16</div></div>
+      </div>
+      <div class="span-3"><p class="kicker">03 / Priorities</p></div>
+      <div class="span-9"><p class="large">Maintain safe access, reduce change-order exposure, and present clear weekly cost and schedule decisions.</p></div>
+    </div>
+    <div class="footer"><span class="span-6">Contractor Name / Proposal PR-26</span><span class="span-6" style="text-align: right;">Riverside Medical Office Renovation</span></div>
+  </section>
+
+  <section class="page">
+    <div class="content grid">
+      <div class="span-3"><p class="kicker">04 / Schedule</p></div>
+      <div class="span-9">
+        <h2>Schedule strategy</h2>
+        <table>
+          <thead><tr><th>Phase</th><th>Dates</th><th>Primary focus</th></tr></thead>
+          <tbody>
+            <tr><td>Preconstruction</td><td>Weeks 1–3</td><td>Existing-condition review, buyout, infection-control plan.</td></tr>
+            <tr><td>Phase 1</td><td>Weeks 4–9</td><td>North wing demolition, rough-in, inspections, above-ceiling close.</td></tr>
+            <tr><td>Phase 2</td><td>Weeks 10–15</td><td>South wing construction, finishes, equipment coordination.</td></tr>
+            <tr><td>Closeout</td><td>Week 16</td><td>Punch, training, turnover documentation, owner acceptance.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="span-3"><p class="kicker">05 / Commercial</p></div>
+      <div class="span-9">
+        <h2>Commercial summary</h2>
+        <table>
+          <thead><tr><th>Option</th><th>Description</th><th class="money">Amount</th></tr></thead>
+          <tbody>
+            <tr><td>Base proposal</td><td>Complete renovation scope described above.</td><td class="money">$1,250,000</td></tr>
+            <tr><td>Alternate A</td><td>Upgrade exam-room casework package.</td><td class="money">$84,000</td></tr>
+            <tr><td>Alternate B</td><td>After-hours accelerated work shifts.</td><td class="money">$61,000</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="span-3"><p class="kicker">06 / Budget appendix</p></div>
+      <div class="span-9"><h2>Budget basis</h2><p class="body">Full budget detail follows as a two-stop estimate route. The commercial summary remains the controlling proposal value; the appendix shows the line-item basis for comparison across scopes and alternates.</p></div>
+      <div class="span-3"><p class="kicker">07 / Acceptance</p></div>
+      <div class="span-9"><p class="large">Acceptance signature blocks are included after the full budget detail so scope and price can be reviewed together.</p></div>
+    <div class="footer"><span class="span-6">Contractor Name / Proposal PR-26</span><span class="span-6" style="text-align: right;">03</span></div>
+  </section>
+
+  <section class="page budget-page">
+    <div class="content grid">
+      <div class="span-3"><p class="kicker">06A / Budget route</p></div>
+      <div class="span-9"><h2>Full budget detail</h2><p class="body" style="margin-bottom: 10px;">Line-item pricing for general requirements, existing conditions, carpentry, openings, and the start of interior scope.</p><table class="budget-table">
+          <thead><tr><th>Code</th><th>Line item</th><th>Basis of pricing</th><th class="money">Amount</th></tr></thead>
+          <tbody>
+<tr><td>01 10 00</td><td>Project supervision and field management</td><td>Field leadership, safety meetings, daily coordination, and owner reporting.</td><td class="money">$74,000</td></tr>
+            <tr><td>01 50 00</td><td>Temporary protection and infection-control barriers</td><td>Dust partitions, negative-air support, access protection, temporary signage, and cleaning labor.</td><td class="money">$68,000</td></tr>
+            <tr><td>01 70 00</td><td>Final cleaning, closeout, and owner training</td><td>Terminal clean, attic stock turnover, O&M package, owner training, and closeout administration.</td><td class="money">$44,000</td></tr>
+            <tr class="subtotal-row"><td colspan="3">01 General requirements subtotal</td><td class="money">$186,000</td></tr>
+            <tr><td>02 41 00</td><td>Selective demolition and haul-off</td><td>Interior removals, debris handling, protected haul routes, and disposal.</td><td class="money">$92,000</td></tr>
+            <tr><td>02 70 00</td><td>Existing-condition verification and make-safe</td><td>Field verification, utility isolation, patch-ready make-safe work, and concealed-condition documentation.</td><td class="money">$50,000</td></tr>
+            <tr class="subtotal-row"><td colspan="3">02 Existing conditions subtotal</td><td class="money">$142,000</td></tr>
+            <tr><td>06 41 00</td><td>Exam-room casework base package</td><td>Standard plastic-laminate casework, counters, blocking coordination, and install labor.</td><td class="money">$56,000</td></tr>
+            <tr><td>06 10 00</td><td>Millwork coordination and blocking</td><td>Backing, rough carpentry, and coordination for owner equipment interfaces.</td><td class="money">$20,000</td></tr>
+            <tr class="subtotal-row"><td colspan="3">06 Wood, plastics, and composites subtotal</td><td class="money">$76,000</td></tr>
+            <tr><td>08 00 00</td><td>Doors, frames, hardware, and access panels</td><td>Door modifications, finish hardware, access panels, and minor interior glazing adjustments.</td><td class="money">$52,000</td></tr>
+          </tbody>
+        </table></div>
+    </div>
+    <div class="footer"><span class="span-6">Contractor Name / Budget route A</span><span class="span-6" style="text-align: right;">04</span></div>
+  </section>
+
+  <section class="page budget-page">
+    <div class="content grid">
+      <div class="span-3"><p class="kicker">06B / Budget route</p></div>
+      <div class="span-9"><h2>Full budget detail continued</h2><table class="budget-table">
+          <thead><tr><th>Code</th><th>Line item</th><th>Basis of pricing</th><th class="money">Amount</th></tr></thead>
+          <tbody>
+<tr><td>09 21 00</td><td>Framing, drywall, and acoustical assemblies</td><td>Metal framing, gypsum board, firestopping coordination, and acoustical wall treatment.</td><td class="money">$78,000</td></tr>
+            <tr><td>09 51 00</td><td>Ceilings and acoustical treatment</td><td>ACT grid, replacement tile, soffit adjustments, and ceiling closeout labor.</td><td class="money">$42,000</td></tr>
+            <tr><td>09 65 00</td><td>Resilient flooring and wall base</td><td>Sheet goods, LVT transitions, rubber base, prep, moisture testing, and protection.</td><td class="money">$54,000</td></tr>
+            <tr><td>09 90 00</td><td>Paint, wall protection, and finish touch-up</td><td>Paint systems, crash rail, corner guards, and final touch-up after owner equipment placement.</td><td class="money">$56,000</td></tr>
+            <tr class="subtotal-row"><td colspan="3">09 Finishes subtotal</td><td class="money">$230,000</td></tr>
+            <tr><td>10 00 00</td><td>Specialties, signage, and accessories</td><td>Code signage, toilet accessories, corner guards, marker boards, and miscellaneous specialty items.</td><td class="money">$40,000</td></tr>
+            <tr><td>21 00 00</td><td>Fire sprinkler modifications and testing</td><td>Head relocations, branch adjustments, drain-down coordination, inspection support, and testing.</td><td class="money">$58,000</td></tr>
+            <tr><td>22 00 00</td><td>Plumbing fixture relocation and medical sinks</td><td>Rough-in revisions, fixtures, valves, insulation, and sanitary tie-ins within the renovation limits.</td><td class="money">$82,000</td></tr>
+            <tr><td>23 00 00</td><td>HVAC ductwork, controls, and TAB support</td><td>Duct modifications, diffusers, control tie-ins, balancing support, and after-hours cutovers.</td><td class="money">$178,000</td></tr>
+            <tr><td>26 00 00</td><td>Power, lighting, and low-voltage rough-in</td><td>Panel coordination, device rough-in, lighting changes, nurse-call pathways, and data rough-in.</td><td class="money">$106,000</td></tr>
+            <tr><td>ALW-01</td><td>Owner decision allowance</td><td>Placeholder for owner-directed scope decisions carried in the base proposal.</td><td class="money">$60,000</td></tr>
+            <tr><td>CNT-01</td><td>Renovation contingency</td><td>Controlled contingency for minor concealed conditions and field coordination inside the stated scope.</td><td class="money">$40,000</td></tr>
+            <tr class="grand-total"><td colspan="3">Base proposal total</td><td class="money">$1,250,000</td></tr>
+          </tbody>
+        </table><h2 style="margin-top: 14px;">Alternates and basis notes</h2><table><thead><tr><th>Alternate</th><th>Scope</th><th class="money">Amount</th></tr></thead><tbody>
+            <tr><td>Alternate A</td><td>Upgrade exam-room casework package from standard laminate to premium healthcare-grade surfaces.</td><td class="money">$84,000</td></tr>
+            <tr><td>Alternate B</td><td>After-hours accelerated work shifts for noise-producing work and clinical access constraints.</td><td class="money">$61,000</td></tr>
+          </tbody></table>
+        <div class="budget-notes">
+          <div><h3>Assumptions</h3><p class="muted">Pricing assumes normal working-hour access except where Alternate B is accepted, existing utilities are adequate for the documented scope, and owner decisions are released before Phase 1 procurement.</p></div>
+          <div><h3>Exclusions</h3><p class="muted">Permit fees, owner-furnished equipment, hazardous material abatement, medical equipment procurement, design fees, and work outside the renovation limits are excluded unless accepted by alternate.</p></div>
+        </div></div>
+      <div class="span-3"><p class="kicker">07 / Acceptance</p></div>
+      <div class="span-9 grid"><div class="span-6 signature">Owner Representative</div><div class="span-6 signature">Contractor Name</div></div>
+    </div>
+    <div class="footer"><span class="span-6">Contractor Name / Budget route B</span><span class="span-6" style="text-align: right;">05</span></div>
+  </section>
+</body>
+</html>

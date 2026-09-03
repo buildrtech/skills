@@ -1,0 +1,102 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Executive Report</title>
+  <style>
+    :root { --page-bg: #ffffff; --ink: #1f2937; --muted: #6b7280; --primary: #111827; --accent: #38bdf8; --surface: #eef2ff; --border: #cbd5e1; --font-body: "Liberation Sans", "DejaVu Sans", sans-serif; --font-display: "Liberation Serif", "DejaVu Serif", serif; }
+    body { margin: 0; color: var(--ink); font-family: var(--font-body); font-size: 10.5pt; line-height: 1.45; }
+    .pdf-page { box-sizing: border-box; min-height: 10in; page-break-after: always; padding: 0.55in; }
+    .pdf-page:last-of-type { page-break-after: auto; }
+    .keep-together { break-inside: avoid; }
+    table { width: 100%; border-collapse: collapse; }
+    thead { display: table-header-group; }
+    .cover { background: radial-gradient(circle at top right, #1e40af 0, #111827 36%, #030712 100%); color: #ffffff; display: flex; flex-direction: column; justify-content: space-between; }
+    .cover h1, .cover h2, .cover p { color: #ffffff; }
+    h1, h2, h3 { color: var(--primary); font-family: var(--font-body); font-weight: 800; }
+    h1 { font-size: 40pt; line-height: 1; margin: 0; }
+    h2 { font-size: 17pt; margin: 28px 0 12px; }
+    p { margin: 0 0 10px; }
+    .eyebrow { color: var(--accent); font-size: 8pt; font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase; }
+    .subtitle { color: #cbd5e1; font-size: 14pt; max-width: 420px; }
+    .kpi-grid { display: grid; gap: 12px; grid-template-columns: repeat(4, 1fr); }
+    .kpi-card { background: var(--primary); border-radius: 6px; color: #ffffff; padding: 14px; }
+    .kpi-card strong { color: var(--accent); display: block; font-size: 18pt; }
+    .kpi-card span { color: #cbd5e1; font-size: 8pt; text-transform: uppercase; }
+    .summary { background: var(--surface); border-left: 5px solid var(--accent); padding: 16px; }
+    th { background: #1f2937; color: #ffffff; font-size: 8pt; padding: 8px; text-align: left; text-transform: uppercase; }
+    td { border-bottom: 1px solid var(--border); padding: 8px; vertical-align: top; }
+    .status { border-radius: 999px; display: inline-block; font-size: 8pt; font-weight: 800; padding: 3px 8px; text-transform: uppercase; }
+    .green { background: #dcfce7; color: #166534; }
+    .amber { background: #fef3c7; color: #92400e; }
+    .red { background: #fee2e2; color: #991b1b; }
+    .money { font-variant-numeric: tabular-nums; text-align: right; white-space: nowrap; }
+  </style>
+</head>
+<body>
+  <section class="pdf-page cover">
+    <div>
+      <p class="eyebrow">Executive Report</p>
+      <h1>Project Health Summary</h1>
+      <p class="subtitle">Riverside Medical Office Renovation · Reporting period ending May 15, 2026</p>
+    </div>
+    <div>
+      <p><strong>Prepared for:</strong> Owner Steering Committee</p>
+      <p><strong>Prepared by:</strong> Contractor Name</p>
+    </div>
+  </section>
+
+  <section class="pdf-page">
+    <h2>Snapshot</h2>
+    <div class="kpi-grid keep-together">
+      <div class="kpi-card"><span>Budget</span><strong>+1.8%</strong>Forecast variance</div>
+      <div class="kpi-card"><span>Schedule</span><strong>On track</strong>Phase 1 turnover</div>
+      <div class="kpi-card"><span>Open RFIs</span><strong>6</strong>Two critical</div>
+      <div class="kpi-card"><span>Safety</span><strong>0</strong>Recordables</div>
+    </div>
+    <div class="summary keep-together">
+      <p>The project remains within executive tolerance. Current attention is focused on imaging equipment coordination, owner decision timing for casework upgrades, and subcontractor procurement for long-lead electrical gear.</p>
+    </div>
+
+    <h2>Key Decisions</h2>
+    <table>
+      <thead><tr><th>Decision</th><th>Owner action</th><th>Needed by</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td>Casework alternate</td><td>Approve base or upgraded package.</td><td>May 22</td><td><span class="status amber">Pending</span></td></tr>
+        <tr><td>Weekend access plan</td><td>Confirm security coverage for after-hours work.</td><td>May 24</td><td><span class="status green">Ready</span></td></tr>
+        <tr><td>Owner-furnished equipment</td><td>Release final cut sheets for imaging rooms.</td><td>May 27</td><td><span class="status red">At risk</span></td></tr>
+      </tbody>
+    </table>
+
+    <h2>Risk Register</h2>
+    <table>
+      <thead><tr><th>Risk</th><th>Impact</th><th>Mitigation</th><th>Owner visibility</th></tr></thead>
+      <tbody>
+        <tr><td>Late electrical gear</td><td>Could affect Phase 2 start.</td><td>Early release package and substitution review.</td><td>Weekly</td></tr>
+        <tr><td>Clinical access conflicts</td><td>May compress demolition windows.</td><td>Daily lookahead with facilities and infection control.</td><td>Daily during Phase 1</td></tr>
+        <tr><td>Scope creep in exam rooms</td><td>Potential cost growth.</td><td>Decision log with priced alternates.</td><td>Steering committee</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Budget and Schedule Movement</h2>
+    <table>
+      <thead><tr><th>Category</th><th>Previous</th><th>Current</th><th>Movement</th></tr></thead>
+      <tbody>
+        <tr><td>Forecast cost</td><td class="money">$1,228,000</td><td class="money">$1,250,000</td><td>Electrical procurement allowance added.</td></tr>
+        <tr><td>Substantial completion</td><td>September 4</td><td>September 4</td><td>No movement.</td></tr>
+        <tr><td>Contingency remaining</td><td class="money">$92,000</td><td class="money">$74,000</td><td>Drawdown for selective demolition discoveries.</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Next Steps</h2>
+    <table>
+      <thead><tr><th>Owner</th><th>Action</th><th>Due</th></tr></thead>
+      <tbody>
+        <tr><td>Contractor</td><td>Issue Phase 1 buyout recommendation.</td><td>May 20</td></tr>
+        <tr><td>Facilities</td><td>Approve weekend access calendar.</td><td>May 24</td></tr>
+        <tr><td>Owner</td><td>Confirm casework alternate selection.</td><td>May 22</td></tr>
+      </tbody>
+    </table>
+  </section>
+</body>
+</html>

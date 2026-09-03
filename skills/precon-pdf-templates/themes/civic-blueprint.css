@@ -1,0 +1,107 @@
+:root {
+  --page-bg: #f7fbfb;
+  --ink: #12324a;
+  --muted: rgb(18 50 74 / 66%);
+  --primary: #12324a;
+  --accent: #1f78a8;
+  --surface: rgb(255 255 255 / 72%);
+  --border: rgb(18 50 74 / 16%);
+  --stamp: #c95638;
+  --font-body: "Aptos", "Segoe UI", "Liberation Sans", sans-serif;
+  --font-display: "Aptos", "Segoe UI", "Liberation Sans", sans-serif;
+}
+
+body {
+  margin: 0;
+  background: var(--page-bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 9.5pt;
+  line-height: 1.42;
+}
+
+.pdf-page {
+  page-break-after: always;
+}
+
+.keep-together {
+  break-inside: avoid;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--surface);
+  font-variant-numeric: tabular-nums;
+}
+
+thead {
+  display: table-header-group;
+}
+
+h1,
+h2,
+h3 {
+  color: var(--primary);
+  font-family: var(--font-display);
+  font-weight: 500;
+  letter-spacing: -0.035em;
+}
+
+h1 {
+  font-size: 44pt;
+  line-height: 0.96;
+}
+
+h2 {
+  border-bottom: 1px solid var(--primary);
+  font-size: 19pt;
+  padding-bottom: 9px;
+}
+
+.eyebrow,
+.label {
+  color: var(--accent);
+  font-size: 7.5pt;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.sheet-header,
+.card {
+  background: var(--surface);
+  border: 1px solid var(--primary);
+  padding: 12px;
+}
+
+.stamp {
+  border: 3px solid var(--stamp);
+  border-radius: 999px;
+  color: var(--stamp);
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+th {
+  border-bottom: 1.5px solid var(--primary);
+  color: var(--muted);
+  font-size: 7.5pt;
+  font-weight: 800;
+  padding: 7px 6px 8px 0;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+td {
+  border-bottom: 1px solid var(--border);
+  padding: 8px 6px 8px 0;
+  vertical-align: top;
+}
+
+.numeric,
+.money {
+  text-align: right;
+  white-space: nowrap;
+}

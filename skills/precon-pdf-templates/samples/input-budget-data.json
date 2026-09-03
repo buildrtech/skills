@@ -1,0 +1,71 @@
+{
+  "project": "Cedar Hollow Community Library Expansion",
+  "estimateDate": "2026-08-21",
+  "preparedBy": "Northgate Builders",
+  "preparedFor": "Cedar Hollow Public Library District",
+  "divisions": [
+    {
+      "code": "03",
+      "name": "Concrete",
+      "lineItems": [
+        { "description": "Foundations and slab-on-grade", "quantity": "9,600 SF", "totalCents": 28400000 },
+        { "description": "Site concrete walks and curbs", "quantity": "1 LS", "totalCents": 6150000 }
+      ],
+      "totalCents": 34550000
+    },
+    {
+      "code": "06",
+      "name": "Wood, Plastics, and Composites",
+      "lineItems": [
+        { "description": "Mass timber roof structure and glulam columns", "quantity": "9,600 SF", "totalCents": 52800000 },
+        { "description": "Millwork and reading-room shelving", "quantity": "1 LS", "totalCents": 11900000 }
+      ],
+      "totalCents": 64700000
+    },
+    {
+      "code": "09",
+      "name": "Finishes",
+      "lineItems": [
+        { "description": "Acoustic ceilings and wall panels", "quantity": "8,200 SF", "totalCents": 14300000 },
+        { "description": "Carpet tile and polished concrete flooring", "quantity": "9,600 SF", "totalCents": 9850000 }
+      ],
+      "totalCents": 24150000
+    },
+    {
+      "code": "23",
+      "name": "Heating, Ventilating, and Air Conditioning",
+      "lineItems": [
+        { "description": "Rooftop units, ductwork, and controls", "quantity": "1 LS", "totalCents": 37600000 }
+      ],
+      "totalCents": 37600000
+    },
+    {
+      "code": "26",
+      "name": "Electrical",
+      "lineItems": [
+        { "description": "Lighting, power, and fire alarm", "quantity": "1 LS", "totalCents": 29200000 },
+        { "description": "Low-voltage and AV rough-in", "quantity": "1 LS", "totalCents": 8700000 }
+      ],
+      "totalCents": 37900000
+    }
+  ],
+  "alternates": [
+    { "description": "Alternate 1: Rooftop photovoltaic array", "totalCents": 12400000 },
+    { "description": "Alternate 2: Exterior reading terrace", "totalCents": 7250000 }
+  ],
+  "markups": [
+    { "description": "General conditions (22 weeks)", "totalCents": 17900000 },
+    { "description": "Insurance and bond", "totalCents": 4970000 },
+    { "description": "Fee", "totalCents": 8870000 }
+  ],
+  "totals": {
+    "subtotalCents": 198900000,
+    "markupCents": 31740000,
+    "grandTotalCents": 230640000
+  },
+  "notes": [
+    "Pricing is based on the 75% construction documents dated 2026-08-14.",
+    "Alternates are priced separately and are not included in the total.",
+    "Excludes permit fees, owner-furnished furniture, and moving of the library collection."
+  ]
+}

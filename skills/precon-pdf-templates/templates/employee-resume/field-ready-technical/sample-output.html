@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Employee Resume</title>
+  <style>
+    :root { --ink: #1f2937; --muted: #6b7280; --primary: #334155; --accent: #0f766e; --surface: #f1f5f9; --border: #cbd5e1; --font-body: "Liberation Sans", "DejaVu Sans", sans-serif; }
+    body { margin: 0; color: var(--ink); font-family: var(--font-body); font-size: 10.5pt; line-height: 1.45; }
+    .pdf-page { box-sizing: border-box; min-height: 10in; page-break-after: always; padding: 0.55in; }
+    .pdf-page:last-of-type { page-break-after: auto; }
+    .keep-together { break-inside: avoid; }
+    h1 { color: var(--primary); font-size: 28pt; margin: 0; }
+    h2 { background: var(--surface); border-left: 5px solid var(--accent); color: var(--primary); font-size: 14pt; padding: 8px 10px; }
+    table { width: 100%; border-collapse: collapse; }
+    thead { display: table-header-group; }
+    th { background: var(--primary); color: #ffffff; font-size: 7.5pt; padding: 6px; text-align: left; text-transform: uppercase; }
+    td { border: 1px solid var(--border); padding: 7px; vertical-align: top; }
+    .meta { color: var(--muted); font-size: 11pt; margin: 6px 0 18px; }
+    .chips span { background: var(--surface); border: 1px solid var(--border); display: inline-block; margin: 0 6px 6px 0; padding: 4px 8px; }
+    .summary { border-left: 4px solid var(--accent); padding-left: 12px; }
+  </style>
+</head>
+<body>
+  <section class="pdf-page">
+    <p>Employee Resume</p>
+    <h1>Jordan Lee</h1>
+    <p class="meta">Senior Estimator · Denver, CO · 12 years experience</p>
+    <div class="summary keep-together">Jordan brings disciplined conceptual estimating and trade partner coverage for healthcare, multifamily, and adaptive reuse pursuits.</div>
+    <h2>Certifications</h2>
+    <div class="chips"><span>LEED AP BD+C</span>
+<span>ASPE Certified Professional Estimator</span>
+<span>OSHA 30</span></div>
+    <h2>Project Experience</h2>
+    <table>
+      <thead><tr><th>Project / Role</th><th>Value</th><th>Relevant experience</th></tr></thead>
+      <tbody><tr>
+        <td><strong>Riverside Medical Office Renovation</strong><br>Lead estimator</td>
+        <td>$1.25M</td>
+        <td>Built phased budget options for an occupied clinical environment with infection-control constraints.</td>
+      </tr>
+<tr>
+        <td><strong>Union Station Mixed-Use Core</strong><br>Preconstruction manager</td>
+        <td>$42M</td>
+        <td>Led milestone estimates from schematic design through GMP reconciliation.</td>
+      </tr>
+<tr>
+        <td><strong>Northfield Public Safety Center</strong><br>Estimator</td>
+        <td>$18M</td>
+        <td>Coordinated civil, structural, and MEP scope leveling across early bid packages.</td>
+      </tr></tbody>
+    </table>
+    <h2>Differentiators</h2>
+    <ul><li>Turns incomplete documents into clear assumptions and owner decision logs.</li>
+<li>Balances trade coverage with transparent escalation and contingency strategy.</li>
+<li>Experienced in occupied healthcare renovation phasing.</li></ul>
+  </section>
+</body>
+</html>

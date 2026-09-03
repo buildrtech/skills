@@ -1,0 +1,105 @@
+:root {
+  --page-bg: #fbf7ef;
+  --ink: #241f1b;
+  --muted: rgb(36 31 27 / 64%);
+  --primary: #241f1b;
+  --accent: #9b3f26;
+  --surface: #f7f0e6;
+  --border: rgb(36 31 27 / 16%);
+  --font-body: "Liberation Serif", "DejaVu Serif", serif;
+  --font-display: "Liberation Serif", "DejaVu Serif", serif;
+  --font-sans: "Liberation Sans", "DejaVu Sans", sans-serif;
+}
+
+body {
+  margin: 0;
+  background: var(--page-bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 10.2pt;
+  line-height: 1.45;
+}
+
+.pdf-page {
+  page-break-after: always;
+}
+
+.keep-together {
+  break-inside: avoid;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--font-sans);
+  font-size: 8.8pt;
+  font-variant-numeric: tabular-nums;
+}
+
+thead {
+  display: table-header-group;
+}
+
+h1,
+h2,
+h3 {
+  color: var(--primary);
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: -0.045em;
+}
+
+h1 {
+  font-size: 52pt;
+  line-height: 0.92;
+}
+
+h2 {
+  font-size: 28pt;
+  line-height: 1;
+}
+
+h3 {
+  font-family: var(--font-sans);
+  font-size: 10pt;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.eyebrow,
+.label {
+  color: var(--accent);
+  font-family: var(--font-sans);
+  font-size: 7.5pt;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.pull,
+.card {
+  border-left: 5px solid var(--accent);
+  padding-left: 18px;
+}
+
+th {
+  border-bottom: 1.5px solid var(--primary);
+  color: var(--muted);
+  font-size: 7.5pt;
+  font-weight: 700;
+  padding: 8px 8px 8px 0;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+td {
+  border-bottom: 1px solid var(--border);
+  padding: 9px 8px 9px 0;
+  vertical-align: top;
+}
+
+.numeric,
+.money {
+  text-align: right;
+  white-space: nowrap;
+}

@@ -1,0 +1,50 @@
+{
+  "project": "Riverside Medical Office",
+  "estimateDate": "2026-05-15",
+  "divisions": [
+    {
+      "code": "02",
+      "name": "Existing Conditions",
+      "lineItems": [
+        { "description": "Selective demolition and disposal", "quantity": "1 LS", "totalCents": 18500000 },
+        { "description": "Temporary partitions and infection control", "quantity": "16 weeks", "totalCents": 7400000 }
+      ],
+      "totalCents": 25900000
+    },
+    {
+      "code": "09",
+      "name": "Finishes",
+      "lineItems": [
+        { "description": "Walls, ceilings, and resilient flooring", "quantity": "18,400 SF", "totalCents": 41600000 },
+        { "description": "Casework and exam-room accessories", "quantity": "24 rooms", "totalCents": 22100000 }
+      ],
+      "totalCents": 63700000
+    },
+    {
+      "code": "26",
+      "name": "Electrical",
+      "lineItems": [
+        { "description": "Lighting, power, low-voltage rough-in", "quantity": "1 LS", "totalCents": 31400000 },
+        { "description": "Panel upgrades and gear allowance", "quantity": "1 LS", "totalCents": 23800000 }
+      ],
+      "totalCents": 55200000
+    }
+  ],
+  "alternates": [
+    { "description": "Upgrade exam-room casework package", "totalCents": 8400000 },
+    { "description": "After-hours accelerated work shifts", "totalCents": 6100000 }
+  ],
+  "markups": [
+    { "description": "General conditions", "totalCents": 14250000 },
+    { "description": "Insurance and bond", "totalCents": 5850000 }
+  ],
+  "totals": {
+    "subtotalCents": 105600000,
+    "markupCents": 20100000,
+    "grandTotalCents": 125000000
+  },
+  "notes": [
+    "Pricing excludes owner-furnished medical equipment and permit fees.",
+    "Estimate assumes two-phase construction with continued facility operation."
+  ]
+}

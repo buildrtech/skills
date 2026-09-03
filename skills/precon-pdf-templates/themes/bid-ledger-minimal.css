@@ -1,0 +1,98 @@
+:root {
+  --page-bg: #fbfaf5;
+  --ink: #181714;
+  --muted: rgb(24 23 20 / 64%);
+  --primary: #181714;
+  --accent: #6f5b2e;
+  --surface: #f4f1e8;
+  --border: rgb(24 23 20 / 16%);
+  --font-body: "Liberation Serif", "DejaVu Serif", serif;
+  --font-display: "Liberation Serif", "DejaVu Serif", serif;
+  --font-mono: "Liberation Mono", "DejaVu Sans Mono", monospace;
+}
+
+body {
+  margin: 0;
+  background: var(--page-bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 10pt;
+  line-height: 1.42;
+}
+
+.pdf-page {
+  page-break-after: always;
+}
+
+.keep-together {
+  break-inside: avoid;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-variant-numeric: tabular-nums;
+}
+
+thead {
+  display: table-header-group;
+}
+
+h1,
+h2,
+h3 {
+  color: var(--primary);
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: -0.035em;
+}
+
+h1 {
+  font-size: 42pt;
+  line-height: 0.98;
+}
+
+h2 {
+  border-bottom: 1px solid var(--primary);
+  font-size: 18pt;
+  padding-bottom: 8px;
+}
+
+.eyebrow,
+.label {
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 7.5pt;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.card {
+  border-top: 1px solid var(--primary);
+  border-bottom: 1px solid var(--border);
+  padding: 12px 0;
+}
+
+th {
+  border-bottom: 1px solid var(--primary);
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 7.5pt;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  padding: 7px 7px 7px 0;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+td {
+  border-bottom: 1px solid var(--border);
+  padding: 7px 7px 7px 0;
+  vertical-align: top;
+}
+
+.numeric,
+.money {
+  text-align: right;
+  white-space: nowrap;
+}

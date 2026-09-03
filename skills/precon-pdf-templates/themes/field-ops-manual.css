@@ -1,0 +1,102 @@
+:root {
+  --page-bg: #f6f4ee;
+  --ink: #202124;
+  --muted: rgb(32 33 36 / 67%);
+  --primary: rgb(32 33 36 / 88%);
+  --accent: #e26d2f;
+  --surface: #ffffff;
+  --border: rgb(32 33 36 / 16%);
+  --safety: #f6c445;
+  --font-body: "Liberation Sans", "DejaVu Sans", sans-serif;
+  --font-display: "Liberation Sans", "DejaVu Sans", sans-serif;
+}
+
+body {
+  margin: 0;
+  background: var(--page-bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 9.2pt;
+  line-height: 1.38;
+}
+
+.pdf-page {
+  page-break-after: always;
+}
+
+.keep-together {
+  break-inside: avoid;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--surface);
+  font-variant-numeric: tabular-nums;
+}
+
+thead {
+  display: table-header-group;
+}
+
+h1,
+h2,
+h3 {
+  color: var(--primary);
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.035em;
+}
+
+h1 {
+  font-size: 46pt;
+  line-height: 0.94;
+}
+
+h2 {
+  border-bottom: 3px solid var(--primary);
+  font-size: 18pt;
+  padding-bottom: 8px;
+}
+
+.eyebrow,
+.label,
+.tag {
+  background: var(--safety);
+  color: var(--ink);
+  display: inline-flex;
+  font-size: 7.5pt;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  padding: 5px 9px;
+  text-transform: uppercase;
+}
+
+.callout,
+.card {
+  background: var(--surface);
+  border-left: 7px solid var(--accent);
+  padding: 12px;
+}
+
+th {
+  background: #ece8dd;
+  border-bottom: 2px solid var(--primary);
+  font-size: 7.5pt;
+  font-weight: 700;
+  padding: 7px;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+td {
+  border-bottom: 1px solid var(--border);
+  padding: 7px;
+  vertical-align: top;
+}
+
+.numeric,
+.money {
+  text-align: right;
+  white-space: nowrap;
+}
