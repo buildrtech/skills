@@ -36,9 +36,18 @@ but the body alone is enough for most of them.
 
 | Skill | Stage | Tier | What it does |
 |---|---|---|---|
-| [rfp-intake](skills/rfp-intake) | Business development, Preconstruction | Neutral | Bid/no-bid intake review of an RFP, ITB, or RFQ: key dates, requirements to bid, scope, risk flags, and a go/no-go scorecard, every fact cited to the document. |
+| [rfp-intake](skills/rfp-intake) | Business development, Preconstruction | Neutral | Run a bid/no-bid intake review on an RFP or bid invitation. |
+| [bid-leveling](skills/bid-leveling) | Preconstruction, Estimating | Neutral | Level subcontractor bids for one trade package into a bid tab or bid comparison matrix. |
+| [drawing-scope-extraction](skills/drawing-scope-extraction) | Preconstruction, Estimating | Neutral | Extract a scope of work from a construction drawing set, grouped by CSI division, with every item cited to a sheet, detail, or note. |
+| [precon-pdf-templates](skills/precon-pdf-templates) | Business development, Preconstruction, Estimating | Neutral | Produce polished PDFs for general contractor and preconstruction workflows from bundled HTML templates and themes. |
+| [rfi-drafter](skills/rfi-drafter) | Operations, Preconstruction | Neutral | Draft a Request for Information (RFI) for a general contractor from a described drawing or specification conflict, citing the sheets, details, and spec paragraphs the user provides, proposing a resolution when the documents support one, and producing an RFI log row. |
+| [pay-app-review](skills/pay-app-review) | Operations, Forecasting | Neutral | Check a contractor's or subcontractor's progress payment application (AIA G702/G703-style application and continuation sheet, or any schedule-of-values billing) for math, continuity, retainage, change order, and stored materials problems, then prepare a review memo with a hold/release list for a human decision. |
+| [construction-connectors](skills/construction-connectors) | Operations, Preconstruction, Estimating | Neutral | Work safely and accurately over construction software MCP servers and connectors (project management, cost, drawings, takeoff, BIM). |
+| [bid-leveling-buildr](skills/bid-leveling-buildr) | Preconstruction, Estimating | Buildr-connected | Level subcontractor bids and persist the result into Buildr through the Buildr MCP server, including the bid package, bidders, submissions, GC scope line items, submission pricing, alternates, and carry selections on a reviewable change-request branch. |
+| [workforce-planning](skills/workforce-planning) | Workforce, Forecasting | Buildr-connected | Analyze and plan construction workforce staffing over Buildr workforce data through the Buildr MCP server. |
+| [financial-forecasting](skills/financial-forecasting) | Forecasting, Operations | Buildr-connected | Analyze Buildr financial forecasts through the Buildr MCP server. |
 
-See [ROADMAP.md](ROADMAP.md) for what is coming next.
+All ten v1 skills have shipped. See [ROADMAP.md](ROADMAP.md) for what is next.
 
 ## Tiers
 

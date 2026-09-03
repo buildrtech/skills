@@ -6,18 +6,67 @@
   },
   "metadata": {
     "description": "Construction skills for AI coding agents: preconstruction, estimating, project controls, workforce, and forecasting workflows written by the Buildr team.",
-    "version": "0.1.0"
+    "version": "0.2.0"
   },
   "plugins": [
     {
       "name": "precon",
-      "description": "Preconstruction and business development skills: RFP intake and go/no-go review. Bid leveling, drawing scope extraction, and proposal PDF templates are on the roadmap.",
+      "description": "Preconstruction and estimating skills that work with the documents you hand your agent: RFP intake and go/no-go review, bid leveling, drawing scope extraction, and precon PDF templates.",
       "source": "./",
       "strict": false,
       "category": "construction",
-      "keywords": ["construction", "preconstruction", "rfp", "bid", "estimating", "general-contractor"],
+      "keywords": [
+        "construction",
+        "preconstruction",
+        "rfp",
+        "bid-leveling",
+        "estimating",
+        "general-contractor"
+      ],
       "skills": [
-        "./skills/rfp-intake"
+        "./skills/rfp-intake",
+        "./skills/bid-leveling",
+        "./skills/drawing-scope-extraction",
+        "./skills/precon-pdf-templates"
+      ]
+    },
+    {
+      "name": "project-controls",
+      "description": "Project execution skills: RFI drafting with citations, pay application review, and a cookbook for working over construction MCP servers.",
+      "source": "./",
+      "strict": false,
+      "category": "construction",
+      "keywords": [
+        "construction",
+        "rfi",
+        "pay-application",
+        "g702",
+        "mcp",
+        "project-controls"
+      ],
+      "skills": [
+        "./skills/rfi-drafter",
+        "./skills/pay-app-review",
+        "./skills/construction-connectors"
+      ]
+    },
+    {
+      "name": "buildr-connected",
+      "description": "Skills that read and write Buildr data through the Buildr MCP server: bid leveling persisted to Buildr, workforce planning, and financial forecasting.",
+      "source": "./",
+      "strict": false,
+      "category": "construction",
+      "keywords": [
+        "buildr",
+        "mcp",
+        "bid-leveling",
+        "workforce",
+        "forecasting"
+      ],
+      "skills": [
+        "./skills/bid-leveling-buildr",
+        "./skills/workforce-planning",
+        "./skills/financial-forecasting"
       ]
     },
     {
@@ -26,9 +75,24 @@
       "source": "./",
       "strict": false,
       "category": "construction",
-      "keywords": ["construction", "general-contractor", "preconstruction", "project-controls"],
+      "keywords": [
+        "construction",
+        "general-contractor",
+        "preconstruction",
+        "project-controls",
+        "buildr"
+      ],
       "skills": [
-        "./skills/rfp-intake"
+        "./skills/rfp-intake",
+        "./skills/bid-leveling",
+        "./skills/drawing-scope-extraction",
+        "./skills/precon-pdf-templates",
+        "./skills/rfi-drafter",
+        "./skills/pay-app-review",
+        "./skills/construction-connectors",
+        "./skills/bid-leveling-buildr",
+        "./skills/workforce-planning",
+        "./skills/financial-forecasting"
       ]
     }
   ]
