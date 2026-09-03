@@ -1,0 +1,46 @@
+{
+  "bidder_name": "Northgate Drywall & Acoustics",
+  "source_files": ["northgate-proposal.pdf"],
+  "document_role": "bid_proposal",
+  "trade_scope": "Division 09 metal framing and gypsum board (09 22 16, 09 21 16)",
+  "total_bid_amount_in_cents": 84250000,
+  "scopes_of_work": [
+    {"scope_key": "metal_stud_framing", "scope": "Non-structural metal stud framing (09 22 16)", "status": "included", "amount_in_cents": null, "evidence_ref": "NG-1"},
+    {"scope_key": "gypsum_board", "scope": "Gypsum board, tape and finish to Level 4 (09 21 16)", "status": "included", "amount_in_cents": null, "evidence_ref": "NG-1"},
+    {"scope_key": "level5_lobby", "scope": "Level 5 finish at two-story lobby", "status": "included", "amount_in_cents": null, "evidence_ref": "NG-2"},
+    {"scope_key": "shaft_wall", "scope": "Shaft wall assemblies at elevator and mechanical shafts", "status": "included", "amount_in_cents": null, "evidence_ref": "NG-1"},
+    {"scope_key": "sound_batt", "scope": "Sound attenuation batts in interior partitions", "status": "included", "amount_in_cents": null, "evidence_ref": "NG-2"},
+    {"scope_key": "in_wall_blocking", "scope": "In-wall blocking for casework and wall-mounted equipment", "status": "included", "amount_in_cents": null, "evidence_ref": "NG-2"},
+    {"scope_key": "lifts", "scope": "Scissor lifts and scaffolding for own work", "status": "included", "amount_in_cents": null, "evidence_ref": "NG-3"},
+    {"scope_key": "cleanup", "scope": "Daily cleanup and debris to GC dumpster", "status": "included", "amount_in_cents": null, "evidence_ref": "NG-3"}
+  ],
+  "excluded_scopes": [
+    {"scope_key": "exterior_sheathing", "scope": "Exterior glass-mat gypsum sheathing", "status": "excluded", "note": "\"Exterior sheathing by others\"", "evidence_ref": "NG-4"},
+    {"scope_key": "firestopping", "scope": "Firestopping at rated penetrations by this trade", "status": "excluded", "note": "\"Firestopping NIC\"", "evidence_ref": "NG-4"}
+  ],
+  "alternate_lines": [
+    {"alternate_key": "alt_1_level5_corridors", "label": "Alternate 1: Level 5 finish at all corridors", "kind": "add", "solicited": true, "amount_in_cents": 1840000, "evidence_ref": "NG-5"}
+  ],
+  "unit_price_lines": [
+    {"description": "Additional soffit or bulkhead, framed and finished", "unit": "LF", "unit_price_in_cents": 4200, "quantity": null, "evidence_ref": "NG-6"}
+  ],
+  "priced_qualifications": [
+    {"description": "Performance and payment bond, if required, add 1.5% of contract value", "amount_in_cents": null, "evidence_ref": "NG-7"}
+  ],
+  "review_items": [
+    {"description": "Proposal is valid for 30 days from August 21, 2026; confirm award timing against that window.", "evidence_ref": "NG-7"}
+  ],
+  "qualifications": [
+    {"text": "Sales tax on materials included.", "evidence_ref": "NG-7"},
+    {"text": "Pricing assumes one mobilization per floor and clear access to each floor by hoist or stair.", "evidence_ref": "NG-3"}
+  ],
+  "evidence": [
+    {"ref": "NG-1", "source_file": "northgate-proposal.pdf", "location": "page 1, Scope of Work", "quote": "Furnish and install non-structural metal framing, gypsum board, shaft wall at elevator and mechanical shafts, taped and finished to Level 4 per Section 09 21 16."},
+    {"ref": "NG-2", "source_file": "northgate-proposal.pdf", "location": "page 1, Scope of Work items 4-6", "quote": "Level 5 finish at two-story lobby per finish schedule. Sound attenuation batts at all partitions noted on A-601. In-wall blocking for casework and wall-mounted equipment per A-501 details."},
+    {"ref": "NG-3", "source_file": "northgate-proposal.pdf", "location": "page 2, General Conditions", "quote": "Lifts and scaffolding for our work included. Daily cleanup of our debris to GC-provided dumpster included. Pricing assumes one mobilization per floor."},
+    {"ref": "NG-4", "source_file": "northgate-proposal.pdf", "location": "page 2, Exclusions", "quote": "Exterior sheathing by others. Firestopping NIC. Acoustical ceilings NIC."},
+    {"ref": "NG-5", "source_file": "northgate-proposal.pdf", "location": "page 2, Alternates", "quote": "Alternate No. 1, Level 5 finish at all corridors: ADD $18,400.00."},
+    {"ref": "NG-6", "source_file": "northgate-proposal.pdf", "location": "page 2, Unit Prices", "quote": "Additional soffit/bulkhead, framed and finished: $42.00 per LF."},
+    {"ref": "NG-7", "source_file": "northgate-proposal.pdf", "location": "page 2, Terms", "quote": "Base bid $842,500.00. Sales tax included. Performance and payment bond if required add 1.5%. Proposal valid 30 days from August 21, 2026."}
+  ]
+}

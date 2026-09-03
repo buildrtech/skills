@@ -1,0 +1,46 @@
+{
+  "bidder_name": "Prairie Wall & Ceiling Co.",
+  "source_files": ["prairie-bid-form.xlsx", "prairie-cover-email.eml"],
+  "document_role": "bid_form",
+  "trade_scope": "Division 09 metal framing and gypsum board (09 22 16, 09 21 16)",
+  "total_bid_amount_in_cents": 87120000,
+  "scopes_of_work": [
+    {"scope_key": "metal_stud_framing", "scope": "Non-structural metal stud framing (09 22 16)", "status": "included", "amount_in_cents": 31200000, "evidence_ref": "PW-1"},
+    {"scope_key": "gypsum_board", "scope": "Gypsum board, tape and finish to Level 4 (09 21 16)", "status": "included", "amount_in_cents": 32620000, "evidence_ref": "PW-1"},
+    {"scope_key": "level5_lobby", "scope": "Level 5 finish at two-story lobby", "status": "included", "amount_in_cents": 1460000, "evidence_ref": "PW-1"},
+    {"scope_key": "shaft_wall", "scope": "Shaft wall assemblies at elevator and mechanical shafts", "status": "included", "amount_in_cents": 5830000, "evidence_ref": "PW-1"},
+    {"scope_key": "sound_batt", "scope": "Sound attenuation batts in interior partitions", "status": "included", "amount_in_cents": 2280000, "evidence_ref": "PW-1"},
+    {"scope_key": "exterior_sheathing", "scope": "Exterior glass-mat gypsum sheathing", "status": "included", "amount_in_cents": 4120000, "evidence_ref": "PW-1"},
+    {"scope_key": "firestopping", "scope": "Firestopping at rated penetrations by this trade", "status": "included", "amount_in_cents": 980000, "evidence_ref": "PW-1"},
+    {"scope_key": "lifts", "scope": "Scissor lifts and scaffolding for own work", "status": "included", "amount_in_cents": 2240000, "evidence_ref": "PW-1"},
+    {"scope_key": "cleanup", "scope": "Daily cleanup and debris to GC dumpster", "status": "included", "amount_in_cents": 670000, "evidence_ref": "PW-1"},
+    {"scope_key": "act_ceilings", "scope": "Acoustical ceiling tile and grid (09 51 13)", "status": "included", "row_class": "outside_scope", "amount_in_cents": 4600000, "evidence_ref": "PW-2"}
+  ],
+  "excluded_scopes": [
+    {"scope_key": "in_wall_blocking", "scope": "In-wall blocking for casework and wall-mounted equipment", "status": "excluded", "note": "Row 10 reads \"By others\" with no amount", "evidence_ref": "PW-3"}
+  ],
+  "alternate_lines": [
+    {"alternate_key": "alt_1_level5_corridors", "label": "Alternate 1: Level 5 finish at all corridors", "kind": "add", "solicited": true, "amount_in_cents": 1675000, "evidence_ref": "PW-4"}
+  ],
+  "unit_price_lines": [
+    {"description": "Additional 5/8\" Type X gypsum board, installed and finished", "unit": "SF", "unit_price_in_cents": 410, "quantity": null, "evidence_ref": "PW-4"}
+  ],
+  "priced_qualifications": [
+    {"description": "Performance and payment bond included in total", "amount_in_cents": 1120000, "in_total": true, "evidence_ref": "PW-5"}
+  ],
+  "review_items": [
+    {"description": "Cover email states \"$869,700\" but the bid form total is $871,200; the form is treated as the bid. Confirm which governs.", "evidence_ref": "PW-6"}
+  ],
+  "qualifications": [
+    {"text": "Bid form total includes P&P bond at $11,200 and sales tax.", "evidence_ref": "PW-5"},
+    {"text": "Pricing per drawings and specifications including Addenda 1 and 2.", "evidence_ref": "PW-6"}
+  ],
+  "evidence": [
+    {"ref": "PW-1", "source_file": "prairie-bid-form.xlsx", "location": "sheet Bid Form, rows 1-9", "quote": "Metal stud framing 312,000; Gypsum board L4 326,200; Level 5 lobby 14,600; Shaft wall 58,300; Sound batts 22,800; Exterior sheathing 41,200; Firestopping 9,800; Lifts 22,400; Cleanup 6,700."},
+    {"ref": "PW-2", "source_file": "prairie-bid-form.xlsx", "location": "sheet Bid Form, row 12", "quote": "ACT ceilings 09 51 13: 46,000."},
+    {"ref": "PW-3", "source_file": "prairie-bid-form.xlsx", "location": "sheet Bid Form, row 10", "quote": "In-wall blocking: By others."},
+    {"ref": "PW-4", "source_file": "prairie-bid-form.xlsx", "location": "sheet Bid Form, rows 14-15", "quote": "Alt 1 Level 5 corridors: ADD 16,750. Unit price, added 5/8 Type X board installed and finished: 4.10 / SF."},
+    {"ref": "PW-5", "source_file": "prairie-bid-form.xlsx", "location": "sheet Bid Form, rows 13 and 16", "quote": "P&P bond 11,200. TOTAL BASE BID 871,200 (includes bond and sales tax)."},
+    {"ref": "PW-6", "source_file": "prairie-cover-email.eml", "location": "email body", "quote": "Attached is our bid form for $869,700 per drawings and specs including Addenda 1 and 2."}
+  ]
+}

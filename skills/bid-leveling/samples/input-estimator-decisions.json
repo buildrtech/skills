@@ -1,0 +1,42 @@
+{
+  "plugs": [
+    {
+      "bidder_name": "Northgate Drywall & Acoustics",
+      "scope_key": "exterior_sheathing",
+      "amount_in_cents": 4120000,
+      "source": "Estimator (M. Reyes, 8/24) carried Prairie's itemized sheathing line, bid form row 6, as the plug."
+    },
+    {
+      "bidder_name": "Northgate Drywall & Acoustics",
+      "scope_key": "firestopping",
+      "amount_in_cents": 1200000,
+      "source": "Estimator (M. Reyes, 8/24): budget allowance for Division 09 firestopping from the 8/1 estimate, line 07 84 00."
+    },
+    {
+      "bidder_name": "Summit Interior Systems, LLC",
+      "scope_key": "sound_batt",
+      "amount_in_cents": 2280000,
+      "source": "Estimator (M. Reyes, 8/24) carried Prairie's itemized sound batt line, bid form row 5, as the plug."
+    },
+    {
+      "bidder_name": "Summit Interior Systems, LLC",
+      "scope_key": "in_wall_blocking",
+      "amount_in_cents": 850000,
+      "source": "Estimator (M. Reyes, 8/24): self-perform carpentry takeoff for blocking, 8/1 estimate line 06 10 00."
+    },
+    {
+      "bidder_name": "Prairie Wall & Ceiling Co.",
+      "scope_key": "in_wall_blocking",
+      "amount_in_cents": 850000,
+      "source": "Estimator (M. Reyes, 8/24): self-perform carpentry takeoff for blocking, 8/1 estimate line 06 10 00."
+    }
+  ],
+  "adjustments": [
+    {
+      "bidder_name": "Prairie Wall & Ceiling Co.",
+      "amount_in_cents": -4600000,
+      "description": "Remove ACT ceilings (09 51 13); bid separately under the ceilings package",
+      "source": "Prairie bid form row 12 shows the ACT line at $46,000 inside the total (PW-2)."
+    }
+  ]
+}

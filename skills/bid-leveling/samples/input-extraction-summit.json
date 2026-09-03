@@ -1,0 +1,44 @@
+{
+  "bidder_name": "Summit Interior Systems, LLC",
+  "source_files": ["summit-quote-email.eml"],
+  "document_role": "email",
+  "trade_scope": "Division 09 metal framing and gypsum board (09 22 16, 09 21 16)",
+  "total_bid_amount_in_cents": 79800000,
+  "scopes_of_work": [
+    {"scope_key": "metal_stud_framing", "scope": "Non-structural metal stud framing (09 22 16)", "status": "included", "amount_in_cents": null, "evidence_ref": "SI-1"},
+    {"scope_key": "gypsum_board", "scope": "Gypsum board, tape and finish to Level 4 (09 21 16)", "status": "included", "amount_in_cents": null, "evidence_ref": "SI-1"},
+    {"scope_key": "shaft_wall", "scope": "Shaft wall assemblies at elevator and mechanical shafts", "status": "included", "amount_in_cents": null, "evidence_ref": "SI-1"},
+    {"scope_key": "exterior_sheathing", "scope": "Exterior glass-mat gypsum sheathing", "status": "included", "amount_in_cents": null, "evidence_ref": "SI-1"},
+    {"scope_key": "firestopping", "scope": "Firestopping at rated penetrations by this trade", "status": "included", "amount_in_cents": null, "evidence_ref": "SI-2"},
+    {"scope_key": "lifts", "scope": "Scissor lifts and scaffolding for own work", "status": "included", "amount_in_cents": null, "evidence_ref": "SI-2"},
+    {"scope_key": "cleanup", "scope": "Daily cleanup and debris to GC dumpster", "status": "included", "amount_in_cents": null, "evidence_ref": "SI-2"}
+  ],
+  "excluded_scopes": [
+    {"scope_key": "level5_lobby", "scope": "Level 5 finish at two-story lobby", "status": "excluded", "note": "\"Level 4 finish throughout\"; lobby Level 5 not priced", "evidence_ref": "SI-3"},
+    {"scope_key": "sound_batt", "scope": "Sound attenuation batts in interior partitions", "status": "excluded", "note": "\"Insulation by others\"", "evidence_ref": "SI-3"},
+    {"scope_key": "in_wall_blocking", "scope": "In-wall blocking for casework and wall-mounted equipment", "status": "omitted", "note": "Not mentioned anywhere in the email", "evidence_ref": "SI-4"}
+  ],
+  "alternate_lines": [
+    {"alternate_key": "alt_1_level5_corridors", "label": "Alternate 1: Level 5 finish at all corridors", "kind": "add", "solicited": true, "amount_in_cents": 1490000, "evidence_ref": "SI-5"},
+    {"alternate_key": "summit_lift_deduct", "label": "Deduct if GC furnishes scissor lifts for the duration", "kind": "deduct", "solicited": false, "amount_in_cents": -950000, "evidence_ref": "SI-5"}
+  ],
+  "unit_price_lines": [],
+  "priced_qualifications": [
+    {"description": "Escalation of 3% on the base bid if not awarded within 45 days", "amount_in_cents": null, "evidence_ref": "SI-6"}
+  ],
+  "review_items": [
+    {"description": "Quote is an email body with no attached proposal; ask for a signed proposal on letterhead before award.", "evidence_ref": "SI-4"},
+    {"description": "Email says \"per drawings dated 7/15\"; confirm they priced Addendum 2 (8/10) which added the lobby Level 5 finish.", "evidence_ref": "SI-1"}
+  ],
+  "qualifications": [
+    {"text": "Sales tax included. Bond not included.", "evidence_ref": "SI-6"}
+  ],
+  "evidence": [
+    {"ref": "SI-1", "source_file": "summit-quote-email.eml", "location": "email body, paragraph 1", "quote": "We are pleased to quote $798,000 for metal framing, drywall, shaft wall, and exterior gypsum sheathing per drawings dated 7/15."},
+    {"ref": "SI-2", "source_file": "summit-quote-email.eml", "location": "email body, paragraph 2", "quote": "Includes firestopping at our own penetrations, our lifts, and daily cleanup to your dumpster."},
+    {"ref": "SI-3", "source_file": "summit-quote-email.eml", "location": "email body, paragraph 3", "quote": "Level 4 finish throughout. Insulation by others."},
+    {"ref": "SI-4", "source_file": "summit-quote-email.eml", "location": "whole email", "quote": "No mention of in-wall blocking; no attachment."},
+    {"ref": "SI-5", "source_file": "summit-quote-email.eml", "location": "email body, paragraph 4", "quote": "Alt 1 Level 5 corridors: add $14,900. If you furnish scissor lifts for the duration we can deduct $9,500."},
+    {"ref": "SI-6", "source_file": "summit-quote-email.eml", "location": "email body, paragraph 5", "quote": "Tax included, bond not included. Add 3% escalation if not awarded within 45 days."}
+  ]
+}
