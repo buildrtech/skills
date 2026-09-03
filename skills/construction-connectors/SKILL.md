@@ -9,7 +9,7 @@ metadata:
   author: Buildr
 ---
 
-# Construction connectors
+# Construction Connectors
 
 Work over construction software through MCP servers and connectors the way a
 careful project engineer would use someone else's login: find out what is

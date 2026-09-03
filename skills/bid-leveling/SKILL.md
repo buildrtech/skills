@@ -9,7 +9,7 @@ metadata:
   author: Buildr
 ---
 
-# Bid leveling
+# Bid Leveling
 
 Turn a stack of subcontractor bids for one trade package into a leveled
 comparison the way an estimator would: read every bid, record what each one
