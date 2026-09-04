@@ -202,3 +202,8 @@ and E-401 in its RFIs.
   carry that weight. `wrong-no-ledger` clears the threshold by only 0.026, so
   a later loosening of any correctness or format check should be rechecked
   against it.
+- Round 1 (2026-09-04, 3 attempts per cell). One verifier fix: the citation
+  gate skipped only lines matching a fixed negation phrase list, so correct
+  memos that said the phantom sheets "do not appear" or "neither sheet
+  exists" were rejected; `is_negated` now uses a broad negation regex. After
+  rescoring: Claude Code with skills 3/3 reward 1; baselines 0/6.
