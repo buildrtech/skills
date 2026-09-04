@@ -206,4 +206,8 @@ and E-401 in its RFIs.
   gate skipped only lines matching a fixed negation phrase list, so correct
   memos that said the phantom sheets "do not appear" or "neither sheet
   exists" were rejected; `is_negated` now uses a broad negation regex. After
-  rescoring: Claude Code with skills 3/3 reward 1; baselines 0/6.
+  rescoring: Claude Code with skills 3/3 reward 1; baselines 0/6.  Codex with skills 2/3 until
+  `no_extra_scope` learned to accept items phrased outside the expected
+  keyword vocabulary when two content words appear in the input candidates
+  (structural steel frame, LED high-bay fixture, sewer cleanouts were real
+  items scored as invented); then 3/3.

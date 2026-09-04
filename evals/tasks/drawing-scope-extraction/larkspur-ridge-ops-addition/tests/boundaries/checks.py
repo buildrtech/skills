@@ -53,12 +53,52 @@ def no_extra_scope(workspace: Path) -> bool:
     bullets = [line for line in included.splitlines() if BULLET.match(line)]
     if not bullets:
         return False
+    candidate_words = _candidate_words(workspace)
     known = 0
     for bullet in bullets:
         low = bullet.lower()
         if any(term in low for term in VOCABULARY):
             known += 1
+            continue
+        # An item phrased outside the expected-keyword vocabulary still
+        # counts as drawn from the set when two of its content words appear
+        # in the estimator's candidates (the agent-visible evidence).
+        words = {w for w in WORD.findall(low) if len(w) >= 6 and w not in STOPWORDS}
+        if len(words & candidate_words) >= 2:
+            known += 1
     return known / len(bullets) >= 0.9
+
+
+WORD = re.compile(r"[a-z][a-z-]+")
+STOPWORDS = {
+    "existing", "locations", "location", "shown", "during", "including", "provide", "install",
+    "required", "complete", "between", "through", "system", "systems", "general", "building",
+    "throughout", "connections", "direct", "schedule", "reference", "include", "exclude",
+}
+
+
+def _candidate_words(workspace: Path) -> set[str]:
+    import json
+
+    words: set[str] = set()
+    for path in (workspace / "input").glob("*.json"):
+        try:
+            data = json.loads(path.read_text(encoding="utf-8", errors="replace"))
+        except json.JSONDecodeError:
+            continue
+
+        def walk(node):
+            if isinstance(node, dict):
+                for v in node.values():
+                    walk(v)
+            elif isinstance(node, list):
+                for v in node:
+                    walk(v)
+            elif isinstance(node, str):
+                words.update(w for w in WORD.findall(node.lower()) if len(w) >= 6)
+
+        walk(data)
+    return words - STOPWORDS
 
 
 rk.citations_exist(weight=1.0)
