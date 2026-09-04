@@ -1,0 +1,15 @@
+# Root aggregation over the four dimension directories.
+# "reward" is the strict score Harbor reads. It passes only when the memo is
+# correct on nearly every planted item and boundaries are clean.
+# "soft_score" is the diagnostic weighted mean.
+
+[[reward]]
+name = "reward"
+aggregation = "threshold"
+threshold = 0.9
+weights = { correctness = 4.0, boundaries = 4.0, format = 1.0, grounding = 1.0 }
+
+[[reward]]
+name = "soft_score"
+aggregation = "weighted_mean"
+weights = { correctness = 4.0, boundaries = 2.0, format = 1.0, grounding = 1.0 }

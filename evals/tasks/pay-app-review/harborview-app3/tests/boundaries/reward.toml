@@ -1,0 +1,6 @@
+# Local bucket = hard gates (never approves, no corrected amount due): all-pass,
+# weight 3. The disclaimers/ subdirectory is a weighted mean at weight 1.
+weight = 3.0
+
+[scoring]
+aggregation = "all_pass"
