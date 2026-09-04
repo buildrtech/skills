@@ -57,6 +57,8 @@ def skill_used(trial_dir: Path, skill: str) -> str:
 def rows(jobs_dir: Path) -> list[dict]:
     out = []
     for result in sorted(jobs_dir.glob("*/*/result.json")):
+        if result.parents[1].name.startswith("_"):
+            continue  # e.g. _superseded/: jobs scored by an older verifier
         data = json.loads(result.read_text())
         job = result.parents[1].name
         parts = job.split("__")

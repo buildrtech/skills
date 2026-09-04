@@ -1,0 +1,24 @@
+{
+  "_comment": "Hidden truth for sable-creek-rfi-023. Never copied into the agent image.",
+  "rfi_number": "RFI-023",
+  "date_issued": "2026-10-12",
+  "response_needed_by": "2026-10-19",
+  "pour_date": "2026-10-23",
+  "contract_turnaround_date": "2026-10-26",
+  "to_firm": "Oakhaven",
+  "provided": {
+    "sheets": ["S-001", "S-101"],
+    "details": ["3/S-101"],
+    "specs": ["03 30 00"],
+    "paragraphs": ["1.4.B", "2.6.A", "2.6.C", "2.6.D"]
+  },
+  "referenced_not_reviewed": {
+    "sheets": ["S-501"],
+    "details": ["6/S-501"],
+    "specs": ["07 26 00"],
+    "paragraphs": []
+  },
+  "psi": ["3000", "3500", "4000"],
+  "expected_resolution_psi": "4000",
+  "derived_dates": ["2026-10-26"]
+}
