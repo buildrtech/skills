@@ -1,0 +1,35 @@
+schema_version = "1.4"
+
+[task]
+name = "buildr/rfi-drafter-sable-creek-rfi-023"
+description = "Draft an RFI from a synthetic drawing/spec conflict on slab-on-grade concrete strength (S-001 Note 5 at 3,500 psi versus Section 03 30 00 paragraph 2.6.C at 4,000 psi, with a 3,500 psi mix already returned No Exceptions Taken), citing only the supplied sheets and paragraphs, proposing the resolution the documents support, and producing the RFI log row."
+authors = []
+keywords = ["construction", "rfi-drafter", "skills"]
+
+[metadata]
+author_name = "Buildr"
+skill = "rfi-drafter"
+family = "outcome"
+difficulty = "medium"
+category = "document-drafting"
+tags = ["skills", "construction", "deterministic-verifier"]
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 1800.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 4096
+storage_mb = 10240
+gpus = 0
+mcp_servers = []
+
+[verifier.env]
+
+[environment.env]
+
+[solution.env]
