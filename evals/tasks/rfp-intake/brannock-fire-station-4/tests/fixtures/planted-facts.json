@@ -1,0 +1,328 @@
+{
+  "_comment": "Hidden truth for brannock-fire-station-4. Dates are Y-M-D. Keywords are matched per line, case-insensitive; the value must appear on the same line.",
+  "extra_allowed_dates": [
+    "2026-09-16",
+    "2026-09-17"
+  ],
+  "dates": {
+    "pre_bid": {
+      "date": "2026-09-22",
+      "keywords": [
+        "pre-bid",
+        "prebid",
+        "pre bid",
+        "site visit",
+        "site walk"
+      ],
+      "section": "3"
+    },
+    "questions_deadline": {
+      "date": "2026-10-01",
+      "keywords": [
+        "question",
+        "rfi"
+      ],
+      "section": "3"
+    },
+    "final_addendum": {
+      "date": "2026-10-08",
+      "keywords": [
+        "final addend",
+        "last addend",
+        "addenda"
+      ],
+      "section": "3"
+    },
+    "bid_due": {
+      "date": "2026-10-15",
+      "keywords": [
+        "bid due",
+        "bids due",
+        "bid deadline",
+        "bid opening",
+        "due date",
+        "bids are due",
+        "proposal due"
+      ],
+      "section": "3|addendum"
+    },
+    "award": {
+      "date": "2026-11-03",
+      "keywords": [
+        "award"
+      ],
+      "section": "3"
+    },
+    "notice_to_proceed": {
+      "date": "2026-12-01",
+      "keywords": [
+        "notice to proceed",
+        "ntp",
+        "construction start"
+      ],
+      "section": "3"
+    },
+    "substantial_completion": {
+      "date": "2028-01-25",
+      "keywords": [
+        "substantial completion"
+      ],
+      "section": "3"
+    },
+    "final_completion": {
+      "date": "2028-02-24",
+      "keywords": [
+        "final completion"
+      ],
+      "section": "3"
+    }
+  },
+  "requirements": {
+    "bid_bond_5": {
+      "keywords": [
+        "bid bond",
+        "bid security"
+      ],
+      "percent": "5",
+      "section": "4"
+    },
+    "pp_bonds_100": {
+      "keywords": [
+        "performance",
+        "payment bond"
+      ],
+      "percent": "100",
+      "section": "4"
+    },
+    "retainage_5": {
+      "keywords": [
+        "retainage"
+      ],
+      "percent": "5",
+      "section": "4"
+    },
+    "wa_registration": {
+      "keywords": [
+        "contractor registration",
+        "18.27",
+        "registered contractor",
+        "state registration"
+      ],
+      "section": "5"
+    },
+    "experience_8m": {
+      "keywords": [
+        "essential",
+        "risk category"
+      ],
+      "amount": "8000000",
+      "section": "5"
+    },
+    "prevailing_wage": {
+      "keywords": [
+        "prevailing wage"
+      ],
+      "section": "6"
+    },
+    "certified_payroll": {
+      "keywords": [
+        "certified payroll"
+      ],
+      "any": [
+        "weekly",
+        "each week",
+        "every week"
+      ],
+      "section": "6"
+    },
+    "apprenticeship_15": {
+      "keywords": [
+        "apprentice"
+      ],
+      "percent": "15",
+      "section": "6"
+    },
+    "cgl_2m_4m": {
+      "keywords": [
+        "general liability",
+        "cgl"
+      ],
+      "amounts": [
+        "2000000",
+        "4000000"
+      ],
+      "section": "8"
+    },
+    "umbrella_10m": {
+      "keywords": [
+        "umbrella",
+        "excess"
+      ],
+      "amount": "10000000",
+      "section": "8"
+    },
+    "pollution_2m": {
+      "keywords": [
+        "pollution"
+      ],
+      "amount": "2000000",
+      "section": "8"
+    },
+    "sub_list_one_hour": {
+      "keywords": [
+        "subcontractor list",
+        "sub list",
+        "39.30.060"
+      ],
+      "any": [
+        "one hour",
+        "1 hour",
+        "60 minutes",
+        "within an hour"
+      ],
+      "section": "11"
+    },
+    "qualification_statement": {
+      "keywords": [
+        "qualification statement",
+        "00 45 13"
+      ],
+      "section": "5|11"
+    },
+    "non_collusion": {
+      "keywords": [
+        "non-collusion",
+        "noncollusion",
+        "non collusion"
+      ],
+      "section": "11"
+    },
+    "wage_compliance_cert": {
+      "keywords": [
+        "39.04.350",
+        "wage payment statute",
+        "wage payment compliance",
+        "compliance with wage"
+      ],
+      "section": "11"
+    }
+  },
+  "risks": {
+    "liquidated_damages": {
+      "keywords": [
+        "liquidated"
+      ],
+      "amount": "3200",
+      "section": "7"
+    },
+    "no_damages_for_delay": {
+      "keywords": [
+        "no damages for delay",
+        "no-damages-for-delay",
+        "no damage for delay",
+        "sole remedy"
+      ],
+      "section": "7"
+    },
+    "mandatory_prebid": {
+      "keywords": [
+        "mandatory"
+      ],
+      "any": [
+        "pre-bid",
+        "prebid",
+        "pre bid",
+        "site visit",
+        "site walk"
+      ],
+      "section": "3"
+    },
+    "restrictive_experience": {
+      "keywords": [
+        "essential",
+        "risk category"
+      ],
+      "any": [
+        "seven years",
+        "7 years",
+        "two completed",
+        "two projects",
+        "2 projects",
+        "two essential",
+        "2 essential"
+      ],
+      "section": "5"
+    },
+    "hazmat_abatement": {
+      "keywords": [
+        "asbestos",
+        "abatement",
+        "hazardous material",
+        "transite",
+        "lead-based",
+        "lead based"
+      ],
+      "section": "9"
+    },
+    "groundwater_soft_fill": {
+      "keywords": [
+        "groundwater",
+        "aggregate pier",
+        "ground improvement",
+        "silty fill",
+        "loose fill",
+        "unsuitable soil"
+      ],
+      "section": "9"
+    },
+    "station_stays_in_service": {
+      "keywords": [
+        "in service",
+        "remain operational",
+        "operational",
+        "occupied",
+        "live station",
+        "active station",
+        "egress"
+      ],
+      "section": "1"
+    },
+    "two_year_warranty": {
+      "keywords": [
+        "warranty"
+      ],
+      "any": [
+        "two-year",
+        "two year",
+        "2-year",
+        "2 year",
+        "24-month",
+        "24 month"
+      ],
+      "section": "2|addendum"
+    },
+    "apprentice_penalty": {
+      "keywords": [
+        "apprentice"
+      ],
+      "amount": "1000",
+      "section": "6"
+    }
+  },
+  "addendum_change": {
+    "keywords": [
+      "addend"
+    ],
+    "any": [
+      "extend",
+      "changed from",
+      "moved from",
+      "was october 13",
+      "originally october 13",
+      "from october 13",
+      "from oct 13",
+      "from oct. 13",
+      "revised from"
+    ]
+  }
+}

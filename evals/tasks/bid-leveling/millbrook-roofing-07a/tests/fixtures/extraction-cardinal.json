@@ -1,0 +1,49 @@
+{
+  "bidder_name": "Cardinal Commercial Roofing Co.",
+  "source_files": ["cardinal-bid-form.xlsx", "cardinal-cover-email.eml"],
+  "document_role": "bid_form",
+  "trade_scope": "Bid package 07A: low-slope roofing, tapered insulation, and sheet metal (07 26 00, 07 22 16, 07 54 23, 07 62 00, 07 72 33)",
+  "total_bid_amount_in_cents": 59875000,
+  "scopes_of_work": [
+    {"scope_key": "vapor_retarder", "scope": "Self-adhered vapor retarder over metal deck (07 26 00)", "status": "included", "amount_in_cents": 4130000, "evidence_ref": "CC-1"},
+    {"scope_key": "tapered_insulation", "scope": "Tapered polyiso insulation, R-30 average, crickets to drains (07 22 16)", "status": "included", "amount_in_cents": 16890000, "evidence_ref": "CC-1"},
+    {"scope_key": "cover_board", "scope": "1/2\" gypsum cover board", "status": "included", "amount_in_cents": 4420000, "evidence_ref": "CC-1"},
+    {"scope_key": "tpo_membrane", "scope": "60-mil TPO membrane, fully adhered (07 54 23)", "status": "included", "amount_in_cents": 21460000, "evidence_ref": "CC-1"},
+    {"scope_key": "sheet_metal", "scope": "Sheet metal coping, edge metal, and counterflashing (07 62 00)", "status": "included", "amount_in_cents": 6280000, "evidence_ref": "CC-1"},
+    {"scope_key": "curb_flashing", "scope": "Flashing of mechanical curbs and pipe penetrations", "status": "included", "amount_in_cents": 1240000, "evidence_ref": "CC-1"},
+    {"scope_key": "walkway_pads", "scope": "Walkway pads at rooftop units and roof hatch", "status": "included", "amount_in_cents": 420000, "evidence_ref": "CC-1"},
+    {"scope_key": "roof_hatch", "scope": "Roof hatch, furnish and install (07 72 33)", "status": "included", "amount_in_cents": 685000, "evidence_ref": "CC-1"},
+    {"scope_key": "fall_protection", "scope": "Perimeter warning line and fall protection for own work", "status": "included", "amount_in_cents": 510000, "evidence_ref": "CC-1"},
+    {"scope_key": "ndl_warranty", "scope": "20-year manufacturer NDL system warranty", "status": "included", "amount_in_cents": 390000, "evidence_ref": "CC-1"},
+    {"scope_key": "metal_wall_panels", "scope": "Metal wall panels at mechanical screen (07 42 13)", "status": "included", "row_class": "outside_scope", "amount_in_cents": 2740000, "evidence_ref": "CC-2"}
+  ],
+  "excluded_scopes": [
+    {"scope_key": "hoisting", "scope": "Hoisting of roofing materials to the roof", "status": "excluded", "note": "Row 11 reads \"By GC\" with no amount", "evidence_ref": "CC-3"}
+  ],
+  "alternate_lines": [
+    {"alternate_key": "alt_1_80mil_tpo", "label": "Alternate 1: 80-mil TPO membrane in lieu of 60-mil", "kind": "add", "solicited": true, "amount_in_cents": 2410000, "evidence_ref": "CC-4"},
+    {"alternate_key": "cardinal_mech_attached_deduct", "label": "Voluntary: mechanically attached membrane in lieu of fully adhered", "kind": "deduct", "solicited": false, "amount_in_cents": -3100000, "evidence_ref": "CC-4"}
+  ],
+  "unit_price_lines": [
+    {"description": "Additional tapered insulation, furnished and installed", "unit": "SF", "unit_price_in_cents": 720, "quantity": null, "evidence_ref": "CC-4"}
+  ],
+  "priced_qualifications": [
+    {"description": "Performance and payment bond included in total", "amount_in_cents": 890000, "in_total": true, "evidence_ref": "CC-5"}
+  ],
+  "review_items": [
+    {"description": "Bid form rows 1 through 13 sum to $600,550 against a stated total of $598,750; ask Cardinal which number governs.", "evidence_ref": "CC-5"},
+    {"description": "Voluntary alternate for a mechanically attached membrane is not the specified system; a review decision is needed before it counts for anything.", "evidence_ref": "CC-4"}
+  ],
+  "qualifications": [
+    {"text": "Bid form total includes P&P bond at $8,900 and sales tax.", "evidence_ref": "CC-5"},
+    {"text": "Pricing per drawings and specifications including Addendum 1.", "evidence_ref": "CC-6"}
+  ],
+  "evidence": [
+    {"ref": "CC-1", "source_file": "cardinal-bid-form.xlsx", "location": "sheet 07A Bid Form, rows 1-10", "quote": "Self-adhered vapor retarder 41,300; Tapered polyiso insulation 168,900; 1/2\" gypsum cover board 44,200; 60-mil TPO, fully adhered 214,600; Sheet metal: coping, edge metal, counterflashing 62,800; Curb and penetration flashing 12,400; Walkway pads 4,200; Roof hatch, furnish and install 6,850; Perimeter warning line / fall protection 5,100; 20-year NDL system warranty 3,900."},
+    {"ref": "CC-2", "source_file": "cardinal-bid-form.xlsx", "location": "sheet 07A Bid Form, row 12", "quote": "Metal wall panels at mechanical screen, 07 42 13: 27,400."},
+    {"ref": "CC-3", "source_file": "cardinal-bid-form.xlsx", "location": "sheet 07A Bid Form, row 11", "quote": "Hoisting: By GC."},
+    {"ref": "CC-4", "source_file": "cardinal-bid-form.xlsx", "location": "sheet 07A Bid Form, rows 14-16", "quote": "Alt 1, 80-mil TPO in lieu of 60-mil: ADD 24,100. Voluntary alternate: mechanically attached membrane in lieu of fully adhered: DEDUCT 31,000. Unit price, additional tapered insulation, furnished and installed: 7.20 / SF."},
+    {"ref": "CC-5", "source_file": "cardinal-bid-form.xlsx", "location": "sheet 07A Bid Form, rows 13 and 17", "quote": "P&P bond 8,900. TOTAL BASE BID (includes bond and sales tax) 598,750."},
+    {"ref": "CC-6", "source_file": "cardinal-cover-email.eml", "location": "email body", "quote": "Attached is our completed 07A bid form at $598,750, per drawings and specifications including Addendum 1. We would like to talk about a mechanically attached membrane as an option; see the voluntary alternate on the form."}
+  ]
+}

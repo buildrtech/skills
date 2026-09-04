@@ -1,0 +1,846 @@
+{
+  "set_name": "Larkspur Ridge Water District, Operations Building Addition and Yard Improvements, Permit Set 2026-07-30",
+  "sheet_count": 18,
+  "candidates": [
+    {
+      "id": "cand-001",
+      "division": "01",
+      "candidate": "Temporary barricades and dust partitions at all work areas while the existing operations building stays occupied, maintaining the existing egress path",
+      "sheet_number": "G-000",
+      "location": "General note GN-4",
+      "quote": "THE EXISTING OPERATIONS BUILDING REMAINS OCCUPIED THROUGHOUT CONSTRUCTION. PROVIDE TEMPORARY BARRICADES AND DUST PARTITIONS AT ALL WORK AREAS AND MAINTAIN THE EXISTING EGRESS PATH.",
+      "support_level": "direct",
+      "decision": "include",
+      "reason": "General note describes the temporary work itself. Temporary facilities and controls, 01 50 00."
+    },
+    {
+      "id": "cand-002",
+      "division": "10",
+      "candidate": "Continuous fire-retardant treated wood blocking in walls at wall-mounted equipment, grab bars, and casework",
+      "sheet_number": "G-000",
+      "location": "General note GN-3",
+      "quote": "PROVIDE CONTINUOUS FIRE-RETARDANT TREATED WOOD BLOCKING IN WALLS AT ALL WALL-MOUNTED EQUIPMENT, GRAB BARS, AND CASEWORK.",
+      "support_level": "direct",
+      "decision": "include",
+      "reason": "Grab bars and wall-mounted equipment are Division 10 specialties, so the backing for them was carried in Division 10 with the accessories."
+    },
+    {
+      "id": "cand-003",
+      "division": "40",
+      "candidate": "SCADA panel, radio antenna, and telemetry equipment",
+      "sheet_number": "G-000",
+      "location": "General note GN-2",
+      "quote": "THE DISTRICT'S SCADA PANEL, RADIO ANTENNA, AND TELEMETRY EQUIPMENT ARE FURNISHED AND INSTALLED BY THE DISTRICT'S INSTRUMENTATION VENDOR UNDER A SEPARATE CONTRACT.",
+      "support_level": "by_others",
+      "decision": "exclude",
+      "reason": "GN-2 assigns the equipment to the District's instrumentation vendor under a separate contract. Only the empty conduit stub-ups are contractor work (cand-036)."
+    },
+    {
+      "id": "cand-004",
+      "division": "02",
+      "candidate": "Saw cut and remove existing asphalt pavement within the limits shown and haul off site",
+      "sheet_number": "C-101",
+      "location": "Keyed site note 1",
+      "quote": "SAW CUT AND REMOVE EXISTING ASPHALT PAVEMENT WITHIN THE LIMITS SHOWN. HAUL OFF SITE AND DISPOSE LEGALLY.",
+      "support_level": "direct",
+      "decision": "include",
+      "reason": "Keyed note describes the removal. Selective site demolition, 02 41 13."
+    },
+    {
+      "id": "cand-005",
+      "division": "31",
+      "candidate": "Mass excavation and engineered fill to subgrade elevation 412.50, compacted to 95 percent modified Proctor",
+      "sheet_number": "C-101",
+      "location": "Keyed site note 2",
+      "quote": "MASS EXCAVATION AND ENGINEERED FILL TO SUBGRADE ELEVATION 412.50, COMPACTED TO 95 PERCENT MODIFIED PROCTOR.",
+      "support_level": "direct",
+      "decision": "include",
+      "reason": "Keyed note describes the earthwork. Earth moving, 31 20 00."
+    },
+    {
+      "id": "cand-006",
+      "division": "33",
+      "candidate": "8 in PVC SDR-35 sanitary sewer lateral from the addition to existing manhole MH-4 with two cleanouts",
+      "sheet_number": "C-201",
+      "location": "Keyed utility note 1",
+      "quote": "INSTALL 8 IN PVC SDR-35 SANITARY SEWER LATERAL FROM THE ADDITION TO EXISTING MANHOLE MH-4, WITH TWO CLEANOUTS AT THE LOCATIONS SHOWN.",
+      "support_level": "direct",
+      "decision": "include",
+      "reason": "Keyed note describes the installed work. Sanitary utility sewerage piping, 33 31 00."
+    },
+    {
+      "id": "cand-007",
+      "division": "33",
+      "candidate": "2 in domestic water service from the existing yard meter to the building with a reduced pressure backflow preventer in a heated enclosure on a concrete pad",
+      "sheet_number": "C-201",
+      "location": "Keyed utility note 2",
+      "quote": "INSTALL 2 IN DOMESTIC WATER SERVICE FROM THE EXISTING YARD METER TO THE BUILDING, WITH A REDUCED PRESSURE BACKFLOW PREVENTER IN A HEATED ENCLOSURE ON A CONCRETE PAD.",
+      "support_level": "direct",
+      "decision": "include",
+      "reason": "Keyed note describes the service, the backflow preventer, and the enclosure. Water utility distribution piping, 33 14 00."
+    },
+    {
+      "id": "cand-008",
+      "division": "33",
+      "candidate": "New gas service and meter",
+      "sheet_number": "C-201",
+      "location": "Keyed utility note 3",
+      "quote": "NEW GAS SERVICE AND METER BY THE UTILITY COMPANY UNDER ITS OWN PERMIT. NOT IN CONTRACT.",
+      "support_level": "by_others",
+      "decision": "exclude",
+      "reason": "Keyed note assigns the service to the utility company under its own permit and marks it not in contract."
+    },
+    {
+      "id": "cand-009",
+      "division": "26",
+      "candidate": "Electrical service conduit and pull vault",
+      "sheet_number": "C-201",
+      "location": "Keyed utility note 4",
+      "quote": "ELECTRICAL SERVICE CONDUIT AND PULL VAULT, SEE E-101.",
+      "support_level": "direct",
+      "decision": "include",
+      "reason": "Keyed utility note 4 calls for the service conduit and the pull vault, so the site electrical work was carried as included scope."
+    },
+    {
+      "id": "cand-010",
+      "division": "03",
+      "candidate": "Cast-in-place footings F-1 continuous 24 in wide by 12 in deep and F-2 spread 5 ft square by 18 in, reinforced per the footing schedule",
+      "sheet_number": "S-101",
+      "location": "Footing schedule, rows F-1 and F-2",
+      "quote": "F-1 CONTINUOUS FOOTING 24 IN WIDE X 12 IN DEEP (3) #5 CONTINUOUS / F-2 SPREAD FOOTING 5'-0\" SQUARE X 18 IN #5 AT 10 IN EACH WAY",
+      "support_level": "schedule",
+      "decision": "include",
+      "reason": "Footing schedule defines both footing types. Concrete footings, 03 30 00, carried as one cast-in-place footing item with both schedule rows."
+    },
+    {
+      "id": "cand-011",
+      "division": "03",
+      "candidate": "6 in slab on grade, 4000 psi, over a 10 mil vapor retarder over 6 in compacted aggregate base, reinforced with #4 at 18 in each way, with saw cut control joints",
+      "sheet_number": "S-101",
+      "location": "Foundation note 1",
+      "quote": "SLAB ON GRADE: 6 IN CONCRETE, 4000 PSI, OVER A 10 MIL VAPOR RETARDER OVER 6 IN COMPACTED AGGREGATE BASE. REINFORCE WITH #4 AT 18 IN EACH WAY. SAW CUT CONTROL JOINTS AS SHOWN.",
+      "support_level": "direct",
+      "decision": "include",
+      "reason": "Foundation note describes the slab assembly. Slabs on grade, 03 30 00."
+    },
+    {
+      "id": "cand-012",
+      "division": "03",
+      "candidate": "8 in cast-in-place concrete foundation walls, 4000 psi, formed and placed on the footings shown",
+      "sheet_number": "S-101",
+      "location": "Foundation note 2",
+      "quote": "FOUNDATION WALLS ARE 8 IN CAST-IN-PLACE CONCRETE, 4000 PSI, FORMED AND PLACED ON THE FOOTINGS SHOWN.",
+      "support_level": "direct",
+      "decision": "include",
+      "reason": "Foundation note describes the walls. Cast-in-place concrete, 03 30 00, kept separate from the footings and the slab."
+    },
+    {
+      "id": "cand-013",
+      "division": "05",
+      "candidate": "Structural steel HSS 6x6x1/4 columns and W12x26 roof beams, shop primed, with field bolted connections",
+      "sheet_number": "S-301",
+      "location": "Detail 1/S-301",
+      "quote": "STRUCTURAL STEEL COLUMNS HSS 6X6X1/4 AND ROOF BEAMS W12X26, SHOP PRIMED, FIELD BOLTED CONNECTIONS.",
+      "support_level": "direct",
+      "decision": "include",
+      "reason": "Detail describes the frame. Structural steel framing, 05 12 00."
+    },
+    {
+      "id": "cand-014",
+      "division": "04",
+      "candidate": "8 in concrete masonry unit screen wall at the mechanical yard, grouted solid, with #5 vertical at 32 in on center and a cast stone cap",
+      "sheet_number": "S-301",
+      "location": "Detail 4/S-301",
+      "quote": "8 IN CONCRETE MASONRY UNIT SCREEN WALL, GROUTED SOLID, WITH #5 VERTICAL AT 32 IN ON CENTER AND A CAST STONE CAP.",
+      "support_level": "direct",
+      "decision": "include",
+      "reason": "Detail describes the masonry wall. Unit masonry, 04 20 00."
+    },
+    {
+      "id": "cand-015",
+      "division": "13",
+      "candidate": "Alternate pre-engineered metal building frame",
+      "sheet_number": "S-301",
+      "location": "Detail 5/S-301",
+      "quote": "TYPICAL DETAILS RETAINED FROM THE SCHEMATIC PHASE. NOT USED ON THIS PROJECT. THE BUILDING IS CONVENTIONALLY FRAMED PER 1/S-301.",
+      "support_level": "direct",
+      "decision": "exclude",
+      "reason": "Detail is marked not used on this project. Recorded so the ledger shows the detail was read and deliberately not carried."
+    },
+    {
+      "id": "cand-016",
+      "division": "02",
+      "candidate": "Remove existing metal siding and girts on the north wall of the existing building to expose the structure at the new connection",
+      "sheet_number": "A-101",
+      "location": "Keyed demolition note 1",
+      "quote": "REMOVE EXISTING METAL SIDING AND GIRTS ON THE NORTH WALL OF THE EXISTING BUILDING TO EXPOSE THE STRUCTURE AT THE NEW CONNECTION.",
+      "support_level": "direct",
+      "decision": "include",
+      "reason": "Keyed note describes the removal. Selective demolition, 02 41 19."
+    },
+    {
+      "id": "cand-017",
+      "division": "02",
+      "candidate": "Remove two existing 3070 hollow metal doors and frames at the north wall and turn the hardware over to the District",
+      "sheet_number": "A-101",
+      "location": "Keyed demolition note 2",
+      "quote": "REMOVE TWO EXISTING 3070 HOLLOW METAL DOORS AND FRAMES AT THE NORTH WALL. TURN THE HARDWARE OVER TO THE DISTRICT.",
+      "support_level": "direct",
+      "decision": "include",
+      "reason": "Keyed note describes the removal and the salvage. Selective demolition, 02 41 19."
+    },
+    {
+      "id": "cand-018",
+      "division": "09",
+      "candidate": "Partition type P1: 3-5/8 in metal studs at 16 in on center with 5/8 in type X gypsum board each side, full height to deck, with sound attenuation batts in the stud cavity",
+      "sheet_number": "A-102",
+      "location": "Keyed plan note 1, partition type P1",
+      "quote": "PARTITION TYPE P1: 3-5/8 IN METAL STUDS AT 16 IN ON CENTER WITH 5/8 IN TYPE X GYPSUM BOARD EACH SIDE, FULL HEIGHT TO DECK, WITH SOUND ATTENUATION BATTS IN THE STUD CAVITY.",
+      "support_level": "direct",
+      "decision": "include",
+      "reason": "Partition type defines the assembly. Gypsum board assemblies, 09 21 16. The sound attenuation batts are named as part of the partition type and are merged into this candidate rather than carried separately in Division 07.",
+      "notes": "Split the batts out to Division 07 21 16 if the estimator's cost code list separates insulation from the partition assembly."
+    },
+    {
+      "id": "cand-019",
+      "division": "08",
+      "candidate": "Two 12 ft wide by 14 ft high insulated sectional overhead doors with electric operators at the Wash Bay 101 exterior wall",
+      "sheet_number": "A-102",
+      "location": "Keyed plan note 2",
+      "quote": "(2) 12 FT WIDE BY 14 FT HIGH INSULATED SECTIONAL OVERHEAD DOORS WITH ELECTRIC OPERATORS AT THE WASH BAY 101 EXTERIOR WALL.",
+      "support_level": "direct",
+      "decision": "include",
+      "reason": "Keyed note names the doors and the operators. Sectional doors, 08 36 13."
+    },
+    {
+      "id": "cand-020",
+      "division": "08",
+      "candidate": "Personnel doors, frames, hardware, and windows",
+      "sheet_number": "A-102",
+      "related_sheets": [
+        "A-601"
+      ],
+      "location": "Keyed plan note 3",
+      "quote": "PERSONNEL DOORS, FRAMES, HARDWARE, AND WINDOWS PER THE SCHEDULE ON SHEET A-601.",
+      "support_level": "reference_only",
+      "decision": "review",
+      "reason": "A-102 points to the schedule on A-601 and does not show the doors, frames, hardware sets, or windows itself. A-601 is a scanned sheet and OCR recovered fewer than twenty words, so no door mark, frame type, or hardware set is confirmed. Stays under review until a native A-601 arrives."
+    },
+    {
+      "id": "cand-021",
+      "division": "10",
+      "candidate": "Fiberglass reinforced panel wainscot, 8 ft high, on all Wash Bay 101 walls",
+      "sheet_number": "A-102",
+      "location": "Keyed plan note 4",
+      "quote": "FIBERGLASS REINFORCED PANEL WAINSCOT, 8 FT HIGH, ON ALL WASH BAY 101 WALLS.",
+      "support_level": "direct",
+      "decision": "include",
+      "reason": "Keyed note describes the panel and its extent. Wall protection, 10 26 00."
+    },
+    {
+      "id": "cand-022",
+      "division": "07",
+      "candidate": "60 mil TPO single ply membrane roofing, mechanically attached, over polyisocyanurate insulation, R-30 minimum, on the metal deck",
+      "sheet_number": "A-103",
+      "location": "Keyed roof note 1",
+      "quote": "60 MIL TPO SINGLE PLY MEMBRANE ROOFING, MECHANICALLY ATTACHED, OVER POLYISOCYANURATE INSULATION, R-30 MINIMUM, OVER THE METAL DECK.",
+      "support_level": "direct",
+      "decision": "include",
+      "reason": "Keyed note describes the roof assembly. Thermoplastic membrane roofing, 07 54 23."
+    },
+    {
+      "id": "cand-023",
+      "division": "07",
+      "candidate": "Prefinished metal coping and edge flashing at all roof edges and parapets",
+      "sheet_number": "A-103",
+      "location": "Keyed roof note 2",
+      "quote": "PREFINISHED METAL COPING AND EDGE FLASHING AT ALL ROOF EDGES AND PARAPETS.",
+      "support_level": "direct",
+      "decision": "include",
+      "reason": "Keyed note describes the sheet metal work. Sheet metal flashing and trim, 07 62 00, kept separate from the membrane."
+    },
+    {
+      "id": "cand-024",
+      "division": "07",
+      "candidate": "Prefinished 26 gage concealed fastener metal wall panel on the addition, profile and color to match the existing building",
+      "sheet_number": "A-201",
+      "location": "Keyed elevation note 1",
+      "quote": "PREFINISHED 26 GAGE CONCEALED FASTENER METAL WALL PANEL ON THE ADDITION, PROFILE AND COLOR TO MATCH THE EXISTING BUILDING.",
+      "support_level": "direct",
+      "decision": "include",
+      "reason": "Keyed note describes the panel. Metal wall panels, 07 42 13."
+    },
+    {
+      "id": "cand-025",
+      "division": "07",
+      "candidate": "Fluid-applied air and water barrier over exterior sheathing, lapped at all openings and transitions",
+      "sheet_number": "A-301",
+      "location": "Detail 1/A-301",
+      "quote": "FLUID-APPLIED AIR AND WATER BARRIER OVER EXTERIOR SHEATHING, LAPPED AT ALL OPENINGS AND TRANSITIONS.",
+      "support_level": "direct",
+      "decision": "include",
+      "reason": "Wall section describes the barrier. Weather barriers, 07 27 00."
+    },
+    {
+      "id": "cand-026",
+      "division": "06",
+      "candidate": "Continuous 2x fire-retardant treated wood nailer at the parapet and at the roof edge, bolted to the structure",
+      "sheet_number": "A-301",
+      "location": "Detail 3/A-301",
+      "quote": "CONTINUOUS 2X FIRE-RETARDANT TREATED WOOD NAILER AT THE PARAPET AND AT THE ROOF EDGE, BOLTED TO THE STRUCTURE.",
+      "support_level": "direct",
+      "decision": "include",
+      "reason": "Parapet detail describes the nailer. Miscellaneous rough carpentry, 06 10 53, even though it serves the Division 07 roof edge."
+    },
+    {
+      "id": "cand-027",
+      "division": "09",
+      "candidate": "Sealed concrete floor finish SC-1, densifier and penetrating sealer, two coats, in Wash Bay 101 and Storage 104",
+      "sheet_number": "A-501",
+      "location": "Finish schedule, row SC-1",
+      "quote": "SC-1 SEALED CONCRETE, DENSIFIER AND PENETRATING SEALER, WASH BAY 101, STORAGE 104, TWO COATS",
+      "support_level": "schedule",
+      "decision": "include",
+      "reason": "Finish schedule row defines the product and the rooms. Concrete floor finish, 09 61 00."
+    },
+    {
+      "id": "cand-028",
+      "division": "09",
+      "candidate": "2x2 acoustical ceiling tile and suspended grid ACT-1 at 9 ft 0 in above finished floor in Office 103",
+      "sheet_number": "A-501",
+      "location": "Finish schedule, row ACT-1",
+      "quote": "ACT-1 2X2 ACOUSTICAL CEILING TILE AND SUSPENDED GRID, OFFICE 103, 9'-0\" AFF",
+      "support_level": "schedule",
+      "decision": "include",
+      "reason": "Finish schedule row defines the ceiling and the room. Acoustical ceilings, 09 51 00."
+    },
+    {
+      "id": "cand-029",
+      "division": "23",
+      "candidate": "Packaged rooftop unit RTU-1, 5 ton, gas heat and electric cooling, serving Office 103, set on a curb",
+      "sheet_number": "M-101",
+      "location": "Equipment schedule, row RTU-1",
+      "quote": "RTU-1 PACKAGED ROOFTOP UNIT, 5 TON, GAS HEAT AND ELECTRIC COOLING, OFFICE 103, ON CURB",
+      "support_level": "schedule",
+      "decision": "include",
+      "reason": "Equipment schedule row defines the unit and the area served. Packaged outdoor HVAC equipment, 23 74 00."
+    },
+    {
+      "id": "cand-030",
+      "division": "23",
+      "candidate": "Wash bay exhaust fan EF-2, 2,400 CFM, wall mounted, with damper",
+      "sheet_number": "M-101",
+      "location": "Equipment schedule, row EF-2",
+      "quote": "EF-2 WASH BAY EXHAUST FAN, 2,400 CFM, WALL MOUNTED, WASH BAY 101, WITH DAMPER",
+      "support_level": "schedule",
+      "decision": "include",
+      "reason": "Equipment schedule row defines the fan. Power ventilators, 23 34 00."
+    },
+    {
+      "id": "cand-031",
+      "division": "23",
+      "candidate": "Test and balance of all new and relocated air devices with the report submitted before substantial completion",
+      "sheet_number": "M-101",
+      "location": "Mechanical note 1",
+      "quote": "TEST AND BALANCE ALL NEW AND RELOCATED AIR DEVICES AND SUBMIT THE REPORT BEFORE SUBSTANTIAL COMPLETION.",
+      "support_level": "direct",
+      "decision": "include",
+      "reason": "Mechanical note states the requirement. Testing, adjusting, and balancing for HVAC, 23 05 93."
+    },
+    {
+      "id": "cand-032",
+      "division": "23",
+      "candidate": "Thermostats and DDC points",
+      "sheet_number": "M-101",
+      "location": "Mechanical note 2",
+      "quote": "THERMOSTATS AND DDC POINTS ARE FURNISHED, INSTALLED, AND PROGRAMMED BY THE DISTRICT'S CONTROLS VENDOR UNDER A SEPARATE CONTRACT.",
+      "support_level": "direct",
+      "decision": "include",
+      "reason": "Mechanical note 2 names thermostats and DDC points, so they were carried with the rest of the Division 23 mechanical work."
+    },
+    {
+      "id": "cand-033",
+      "division": "22",
+      "candidate": "Floor mounted flush valve water closet WC-1 in Restroom 105",
+      "sheet_number": "P-101",
+      "location": "Fixture schedule, row WC-1",
+      "quote": "WC-1 FLOOR MOUNTED FLUSH VALVE WATER CLOSET, RESTROOM 105",
+      "support_level": "schedule",
+      "decision": "include",
+      "reason": "Fixture schedule row defines the fixture and the room. Plumbing fixtures, 22 42 00."
+    },
+    {
+      "id": "cand-034",
+      "division": "22",
+      "candidate": "Trench drain with a sand and oil interceptor in Wash Bay 101, discharging to the sanitary system",
+      "sheet_number": "P-101",
+      "location": "Plumbing note 1",
+      "quote": "PROVIDE A TRENCH DRAIN WITH A SAND AND OIL INTERCEPTOR IN WASH BAY 101, DISCHARGING TO THE SANITARY SYSTEM.",
+      "support_level": "direct",
+      "decision": "include",
+      "reason": "Plumbing note describes the drain and the interceptor. Sanitary waste interceptors, 22 13 23."
+    },
+    {
+      "id": "cand-035",
+      "division": "26",
+      "candidate": "New 208Y/120V, 225 A panel LA in Mechanics Room 102, fed from the existing main switchboard",
+      "sheet_number": "E-101",
+      "location": "Electrical note 1",
+      "quote": "PROVIDE A NEW 208Y/120V, 225 A PANEL 'LA' IN MECHANICS ROOM 102, FED FROM THE EXISTING MAIN SWITCHBOARD.",
+      "support_level": "direct",
+      "decision": "include",
+      "reason": "Electrical note describes the panel and its feed. Panelboards, 26 24 16."
+    },
+    {
+      "id": "cand-036",
+      "division": "26",
+      "candidate": "Empty 3/4 in conduit stub-ups from the SCADA panel location to the accessible ceiling",
+      "sheet_number": "E-101",
+      "related_sheets": [
+        "G-000"
+      ],
+      "location": "Electrical note 2",
+      "quote": "PROVIDE EMPTY 3/4 IN CONDUIT STUB-UPS FROM THE SCADA PANEL LOCATION TO THE ACCESSIBLE CEILING, SEE GN-2 ON G-000.",
+      "support_level": "direct",
+      "decision": "include",
+      "reason": "Electrical note assigns the empty conduit to the contractor even though the SCADA equipment itself is by the District's vendor (cand-003). Conduits, 26 05 33."
+    },
+    {
+      "id": "cand-037",
+      "division": "26",
+      "candidate": "Lighting fixture type L1, LED high bay, 4000K, wet listed, suspended in Wash Bay 101",
+      "sheet_number": "E-101",
+      "location": "Lighting fixture schedule, type L1",
+      "quote": "L1 LED HIGH BAY, 4000K, WET LISTED, SUSPENDED, WASH BAY 101",
+      "support_level": "schedule",
+      "decision": "include",
+      "reason": "Lighting fixture schedule row defines the fixture, the mounting, and the room. Interior lighting, 26 51 00."
+    },
+    {
+      "id": "cand-038",
+      "division": "10",
+      "candidate": "Room identification signage, ADA tactile with braille, at Office 103, Mechanics Room 102, and Restroom 105",
+      "sheet_number": "A-702",
+      "location": "Signage details 1/A-702 and signage schedule",
+      "quote": "ROOM IDENTIFICATION SIGNS, ADA TACTILE WITH GRADE 2 BRAILLE, AT EACH ROOM SHOWN ON THE SIGNAGE SCHEDULE.",
+      "support_level": "direct",
+      "decision": "include",
+      "reason": "Signage details sheet defines the sign type and the rooms. Signage, 10 14 00."
+    },
+    {
+      "id": "cand-039",
+      "division": "26",
+      "candidate": "Automatic transfer switch and standby generator connection at the new service",
+      "sheet_number": "E-401",
+      "location": "One-line diagram, E-401",
+      "quote": "AUTOMATIC TRANSFER SWITCH, 225 A, WITH STANDBY GENERATOR CONNECTION AND EXTERIOR CAMLOCK BOX.",
+      "support_level": "direct",
+      "decision": "include",
+      "reason": "One-line diagram shows the transfer switch and the generator connection. Transfer switches, 26 36 00."
+    }
+  ],
+  "assumptions": [
+    {
+      "text": "The existing 12 in ductile iron water main across the site is protected in place and potholed for depth before excavation; no relocation is shown or carried.",
+      "source": "C-101, keyed site note 3",
+      "candidate_ids": [
+        "cand-005"
+      ]
+    },
+    {
+      "text": "Sound attenuation batts named in partition type P1 are carried inside the Division 09 partition assembly rather than separately in Division 07.",
+      "source": "A-102, keyed plan note 1",
+      "candidate_ids": [
+        "cand-018"
+      ]
+    }
+  ],
+  "exclusions": [
+    {
+      "text": "Existing operations building finishes are not in contract.",
+      "source": "A-501, finish note 1"
+    },
+    {
+      "text": "Special inspections per IBC Chapter 17 are arranged and paid for by the owner.",
+      "source": "S-001, design criteria"
+    }
+  ],
+  "rfis": [
+    {
+      "text": "A-601 is a scanned raster sheet and OCR recovered fewer than twenty words. Request a native PDF of the door and window schedule so door marks, frame types, glazing, and hardware sets can be read.",
+      "source": "A-601",
+      "candidate_ids": [
+        "cand-020"
+      ]
+    }
+  ],
+  "coverage_ledger": [
+    {
+      "kind": "sheet",
+      "source": "G-000",
+      "title": "Cover Sheet, Sheet Index, and General Notes",
+      "status": "reviewed",
+      "candidate_ids": [
+        "cand-001",
+        "cand-002",
+        "cand-003"
+      ],
+      "reason": "Sheet index and general notes GN-1 through GN-4 read in full. GN-1 is a standards-only note and carries no work."
+    },
+    {
+      "kind": "sheet",
+      "source": "A-002",
+      "title": "Code Plan and Life Safety Plan",
+      "status": "reviewed",
+      "candidate_ids": [],
+      "reason": "No scope. Code analysis, occupant load, and the egress diagram only; the sheet says exit signage and emergency lighting are shown diagrammatically for code review and directs devices to the electrical sheets."
+    },
+    {
+      "kind": "sheet",
+      "source": "C-101",
+      "title": "Site Demolition and Grading Plan",
+      "status": "reviewed",
+      "candidate_ids": [
+        "cand-004",
+        "cand-005"
+      ],
+      "reason": "Three keyed site notes read. Note 3 is protect-in-place of an existing main and was recorded as an assumption, not scope."
+    },
+    {
+      "kind": "sheet",
+      "source": "C-201",
+      "title": "Site Utility Plan",
+      "status": "reviewed",
+      "candidate_ids": [
+        "cand-006",
+        "cand-007",
+        "cand-008",
+        "cand-009"
+      ],
+      "reason": "Four keyed utility notes read."
+    },
+    {
+      "kind": "sheet",
+      "source": "S-001",
+      "title": "Structural General Notes and Design Criteria",
+      "status": "reviewed",
+      "candidate_ids": [],
+      "reason": "No scope. Design criteria, load values, and code references only. The special inspection note assigns that cost to the owner and was recorded as an exclusion."
+    },
+    {
+      "kind": "sheet",
+      "source": "S-101",
+      "title": "Foundation Plan and Schedules",
+      "status": "reviewed",
+      "candidate_ids": [
+        "cand-010",
+        "cand-011",
+        "cand-012"
+      ],
+      "reason": "Footing schedule and both foundation notes read."
+    },
+    {
+      "kind": "sheet",
+      "source": "S-301",
+      "title": "Structural Sections and Details",
+      "status": "reviewed",
+      "candidate_ids": [
+        "cand-013",
+        "cand-014",
+        "cand-015"
+      ],
+      "reason": "Details 1, 4, and 5 read. Detail 5 is marked not used on this project."
+    },
+    {
+      "kind": "sheet",
+      "source": "A-101",
+      "title": "Demolition Plan",
+      "status": "reviewed",
+      "candidate_ids": [
+        "cand-016",
+        "cand-017"
+      ],
+      "reason": "Both keyed demolition notes read."
+    },
+    {
+      "kind": "sheet",
+      "source": "A-102",
+      "title": "Floor Plan",
+      "status": "reviewed",
+      "candidate_ids": [
+        "cand-018",
+        "cand-019",
+        "cand-020",
+        "cand-021"
+      ],
+      "reason": "Four keyed plan notes read. Note 3 points to A-601, which is unreadable."
+    },
+    {
+      "kind": "sheet",
+      "source": "A-103",
+      "title": "Roof Plan",
+      "status": "reviewed",
+      "candidate_ids": [
+        "cand-022",
+        "cand-023"
+      ],
+      "reason": "Both keyed roof notes read."
+    },
+    {
+      "kind": "sheet",
+      "source": "A-201",
+      "title": "Exterior Elevations",
+      "status": "reviewed",
+      "candidate_ids": [
+        "cand-024"
+      ],
+      "reason": "One keyed elevation note read."
+    },
+    {
+      "kind": "sheet",
+      "source": "A-301",
+      "title": "Wall Sections",
+      "status": "reviewed",
+      "candidate_ids": [
+        "cand-025",
+        "cand-026"
+      ],
+      "reason": "Details 1 and 3 read."
+    },
+    {
+      "kind": "sheet",
+      "source": "A-501",
+      "title": "Interior Finish Plan and Finish Schedule",
+      "status": "reviewed",
+      "candidate_ids": [
+        "cand-027",
+        "cand-028"
+      ],
+      "reason": "Finish schedule rows SC-1 and ACT-1 read. Finish note 1 recorded as a blanket exclusion."
+    },
+    {
+      "kind": "sheet",
+      "source": "A-601",
+      "title": "Door and Window Schedule",
+      "status": "unreadable",
+      "candidate_ids": [
+        "cand-020"
+      ],
+      "reason": "Scanned raster sheet. OCR recovered fewer than twenty words and no schedule rows. Door, frame, hardware, and window scope stays under review and an RFI is open."
+    },
+    {
+      "kind": "sheet",
+      "source": "M-101",
+      "title": "Mechanical Plan and Equipment Schedule",
+      "status": "reviewed",
+      "candidate_ids": [
+        "cand-029",
+        "cand-030",
+        "cand-031",
+        "cand-032"
+      ],
+      "reason": "Equipment schedule rows RTU-1 and EF-2 and both mechanical notes read."
+    },
+    {
+      "kind": "sheet",
+      "source": "P-101",
+      "title": "Plumbing Plan and Fixture Schedule",
+      "status": "reviewed",
+      "candidate_ids": [
+        "cand-033",
+        "cand-034"
+      ],
+      "reason": "Fixture schedule row WC-1 and plumbing note 1 read."
+    },
+    {
+      "kind": "sheet",
+      "source": "E-101",
+      "title": "Power and Lighting Plan and Fixture Schedule",
+      "status": "reviewed",
+      "candidate_ids": [
+        "cand-035",
+        "cand-036",
+        "cand-037"
+      ],
+      "reason": "Lighting fixture schedule row L1 and both electrical notes read."
+    },
+    {
+      "kind": "probe",
+      "source": "demolition",
+      "status": "covered",
+      "candidate_ids": [
+        "cand-004",
+        "cand-016",
+        "cand-017"
+      ],
+      "reason": "Hits on C-101 note 1 and A-101 notes 1 and 2."
+    },
+    {
+      "kind": "probe",
+      "source": "concrete",
+      "status": "covered",
+      "candidate_ids": [
+        "cand-010",
+        "cand-011",
+        "cand-012"
+      ],
+      "reason": "Hits on the S-101 footing schedule and foundation notes 1 and 2."
+    },
+    {
+      "kind": "probe",
+      "source": "blocking",
+      "status": "covered",
+      "candidate_ids": [
+        "cand-002",
+        "cand-026"
+      ],
+      "reason": "Hits on G-000 GN-3 and A-301 detail 3 (nailer)."
+    },
+    {
+      "kind": "probe",
+      "source": "casework",
+      "status": "needs_followup",
+      "candidate_ids": [
+        "cand-002"
+      ],
+      "reason": "Only hit is the word casework inside GN-3. No casework, millwork, countertop, or cabinet appears on any plan, elevation, or detail in the set."
+    },
+    {
+      "kind": "probe",
+      "source": "firestopping",
+      "status": "no_hits",
+      "candidate_ids": [],
+      "reason": "No hits for firestop, fire-rated, rated, or penetration. A-002 records the building as non-sprinklered type II-B and no rated assembly is called out."
+    },
+    {
+      "kind": "probe",
+      "source": "sealant",
+      "status": "no_hits",
+      "candidate_ids": [],
+      "reason": "No hits for sealant, caulk, or joint. Nothing in the extracted text calls for exterior or interior sealant."
+    },
+    {
+      "kind": "probe",
+      "source": "roofing",
+      "status": "covered",
+      "candidate_ids": [
+        "cand-022",
+        "cand-023"
+      ],
+      "reason": "Hits on A-103 notes 1 and 2 and on A-301 detail 3 at the roof edge."
+    },
+    {
+      "kind": "probe",
+      "source": "door hardware",
+      "status": "reference_only",
+      "candidate_ids": [
+        "cand-020"
+      ],
+      "reason": "Hit on A-102 note 3 only, which points to A-601. A-601 is unreadable, so no hardware set surfaced."
+    },
+    {
+      "kind": "probe",
+      "source": "glazing",
+      "status": "needs_followup",
+      "candidate_ids": [
+        "cand-020"
+      ],
+      "reason": "Only hit is the word windows in A-102 note 3. Window types, sizes, and glazing are on the unreadable A-601."
+    },
+    {
+      "kind": "probe",
+      "source": "gypsum board",
+      "status": "covered",
+      "candidate_ids": [
+        "cand-018"
+      ],
+      "reason": "Hit on A-102 note 1, partition type P1. Only one partition type appears in the extracted text."
+    },
+    {
+      "kind": "probe",
+      "source": "acoustical ceiling",
+      "status": "covered",
+      "candidate_ids": [
+        "cand-028"
+      ],
+      "reason": "Hit on the A-501 finish schedule row ACT-1."
+    },
+    {
+      "kind": "probe",
+      "source": "painting",
+      "status": "no_hits",
+      "candidate_ids": [],
+      "reason": "No hits for paint, PT, coating, or stain. The finish schedule carries floor and ceiling codes only; wall finish outside the FRP wainscot is an open question."
+    },
+    {
+      "kind": "probe",
+      "source": "wall protection",
+      "status": "covered",
+      "candidate_ids": [
+        "cand-021"
+      ],
+      "reason": "Hit on A-102 note 4, FRP wainscot. No corner guard or crash rail hits."
+    },
+    {
+      "kind": "probe",
+      "source": "sprinkler",
+      "status": "no_hits",
+      "candidate_ids": [],
+      "reason": "No hits for sprinkler, fire protection, or head. A-002 records the building as non-sprinklered, so the silence is consistent with the code plan."
+    },
+    {
+      "kind": "probe",
+      "source": "plumbing fixtures",
+      "status": "covered",
+      "candidate_ids": [
+        "cand-033",
+        "cand-034"
+      ],
+      "reason": "Hits on the P-101 fixture schedule row WC-1 and plumbing note 1."
+    },
+    {
+      "kind": "probe",
+      "source": "HVAC",
+      "status": "covered",
+      "candidate_ids": [
+        "cand-029",
+        "cand-030",
+        "cand-031",
+        "cand-032"
+      ],
+      "reason": "Hits on the M-101 equipment schedule and both mechanical notes."
+    },
+    {
+      "kind": "probe",
+      "source": "electrical",
+      "status": "covered",
+      "candidate_ids": [
+        "cand-035",
+        "cand-036",
+        "cand-037"
+      ],
+      "reason": "Hits on the E-101 lighting fixture schedule and electrical notes 1 and 2, and on C-201 note 4."
+    },
+    {
+      "kind": "probe",
+      "source": "fire alarm",
+      "status": "no_hits",
+      "candidate_ids": [],
+      "reason": "No hits for fire alarm, strobe, horn, pull station, or smoke detector on any readable sheet."
+    },
+    {
+      "kind": "source",
+      "source": "G-000 general note GN-1 (standards compliance)",
+      "status": "excluded",
+      "candidate_ids": [],
+      "reason": "Standards-only administrative note. No work described, so no candidate."
+    },
+    {
+      "kind": "source",
+      "source": "A-501 finish note 1 (existing building finishes NIC)",
+      "status": "excluded",
+      "candidate_ids": [],
+      "reason": "Blanket exclusion recorded in the exclusions list, not as a candidate."
+    }
+  ]
+}

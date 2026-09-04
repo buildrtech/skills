@@ -1,0 +1,121 @@
+{
+  "project": "Alder Creek Elementary School Classroom Addition",
+  "estimateDate": "2026-09-01",
+  "preparedBy": "Pinewood Construction Group",
+  "preparedFor": "Alder Creek Unified School District",
+  "divisions": [
+    {
+      "code": "02",
+      "name": "Existing Conditions",
+      "lineItems": [
+        { "description": "Selective demolition of corridor wall and canopy", "quantity": "1 LS", "totalCents": 4250000 },
+        { "description": "Tree protection and site clearing", "quantity": "0.6 AC", "totalCents": 1875000 }
+      ],
+      "totalCents": 6125000
+    },
+    {
+      "code": "03",
+      "name": "Concrete",
+      "lineItems": [
+        { "description": "Spread footings and foundation walls", "quantity": "210 CY", "totalCents": 16800000 },
+        { "description": "Slab-on-grade with vapor barrier", "quantity": "12,400 SF", "totalCents": 11160000 },
+        { "description": "Site concrete walks and ramps", "quantity": "1 LS", "totalCents": 2790000 }
+      ],
+      "totalCents": 30750000
+    },
+    {
+      "code": "05",
+      "name": "Metals",
+      "lineItems": [
+        { "description": "Structural steel framing and roof deck", "quantity": "38 TN", "totalCents": 26100000 },
+        { "description": "Canopy steel and miscellaneous metals", "quantity": "1 LS", "totalCents": 4420000 }
+      ],
+      "totalCents": 30520000
+    },
+    {
+      "code": "07",
+      "name": "Thermal and Moisture Protection",
+      "lineItems": [
+        { "description": "TPO roofing and insulation", "quantity": "12,900 SF", "totalCents": 15480000 },
+        { "description": "Metal wall panels and flashing", "quantity": "6,200 SF", "totalCents": 9920000 }
+      ],
+      "totalCents": 25400000
+    },
+    {
+      "code": "08",
+      "name": "Openings",
+      "lineItems": [
+        { "description": "Aluminum storefront and windows", "quantity": "1,150 SF", "totalCents": 9200000 },
+        { "description": "Hollow metal doors, frames, and hardware", "quantity": "22 EA", "totalCents": 3960000 }
+      ],
+      "totalCents": 13160000
+    },
+    {
+      "code": "09",
+      "name": "Finishes",
+      "lineItems": [
+        { "description": "Gypsum board partitions and ceilings", "quantity": "24,800 SF", "totalCents": 13640000 },
+        { "description": "Acoustic ceiling tile", "quantity": "11,200 SF", "totalCents": 4760000 },
+        { "description": "Resilient flooring and carpet tile", "quantity": "12,400 SF", "totalCents": 7440000 },
+        { "description": "Painting and wall protection", "quantity": "1 LS", "totalCents": 3300000 }
+      ],
+      "totalCents": 29410000
+    },
+    {
+      "code": "22",
+      "name": "Plumbing",
+      "lineItems": [
+        { "description": "Fixtures, piping, and water heater", "quantity": "1 LS", "totalCents": 11830000 }
+      ],
+      "totalCents": 11830000
+    },
+    {
+      "code": "23",
+      "name": "Heating Ventilating and Air Conditioning",
+      "lineItems": [
+        { "description": "Rooftop units, ductwork, and controls", "quantity": "12,400 SF", "totalCents": 28620000 },
+        { "description": "Testing, adjusting, and balancing", "quantity": "1 LS", "totalCents": 1280000 }
+      ],
+      "totalCents": 29900000
+    },
+    {
+      "code": "26",
+      "name": "Electrical",
+      "lineItems": [
+        { "description": "Lighting, power, and distribution", "quantity": "1 LS", "totalCents": 22470000 },
+        { "description": "Fire alarm and low-voltage rough-in", "quantity": "1 LS", "totalCents": 5890000 }
+      ],
+      "totalCents": 28360000
+    },
+    {
+      "code": "31",
+      "name": "Earthwork",
+      "lineItems": [
+        { "description": "Mass excavation, grading, and export", "quantity": "3,100 CY", "totalCents": 7130000 },
+        { "description": "Aggregate base and subgrade preparation", "quantity": "1 LS", "totalCents": 2460000 }
+      ],
+      "totalCents": 9590000
+    }
+  ],
+  "alternates": [
+    { "description": "Alternate 1: Covered play structure at north courtyard", "totalCents": 6480000 },
+    { "description": "Alternate 2: Deduct - substitute VCT for carpet tile in classrooms", "totalCents": -1820000 }
+  ],
+  "markups": [
+    { "description": "General conditions (26 weeks)", "totalCents": 18720000 },
+    { "description": "Builder's risk insurance and bond", "totalCents": 4730000 },
+    { "description": "Estimating contingency", "totalCents": 10750000 },
+    { "description": "Fee", "totalCents": 8600000 }
+  ],
+  "totals": {
+    "subtotalCents": 215045000,
+    "markupCents": 42800000,
+    "grandTotalCents": 257845000
+  },
+  "notes": [
+    "Pricing is based on the 90% construction documents dated 2026-08-20.",
+    "Excludes furniture, technology equipment, and district-furnished playground equipment. Alternates are priced separately and are not included in the total.",
+    "Estimating contingency is carried at approximately 5% of direct cost.",
+    "Discrepancy as exported: the Division 09 Finishes subtotal is exported as $294,100 but its four line items above sum to $291,400, a difference of $2,700. Every figure on this page is shown exactly as exported; the estimate should be corrected at the source."
+  ]
+}

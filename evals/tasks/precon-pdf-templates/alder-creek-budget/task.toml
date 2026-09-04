@@ -1,0 +1,35 @@
+schema_version = "1.4"
+
+[task]
+name = "buildr/precon-pdf-templates-alder-creek-budget"
+description = "Turn a synthetic CSV budget export into a print-ready HTML budget document with the requested theme, keeping every figure as exported and surfacing the one division subtotal that does not foot."
+authors = []
+keywords = ["construction", "precon-pdf-templates", "skills"]
+
+[metadata]
+author_name = "Buildr"
+skill = "precon-pdf-templates"
+family = "outcome"
+difficulty = "medium"
+category = "document-generation"
+tags = ["skills", "construction", "deterministic-verifier"]
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 1800.0
+
+[environment]
+build_timeout_sec = 900.0
+cpus = 2
+memory_mb = 4096
+storage_mb = 10240
+gpus = 0
+mcp_servers = []
+
+[verifier.env]
+
+[environment.env]
+
+[solution.env]

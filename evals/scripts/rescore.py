@@ -61,7 +61,14 @@ def rescore(trial_dir: Path) -> dict | None:
         details = Path(tmp) / "reward-details.json"
         if details.is_file():
             shutil.copy2(details, vdir / "reward-details.json")
-    data.setdefault("verifier_result", {})["rewards"] = rewards
+    if not isinstance(data.get("verifier_result"), dict):
+        data["verifier_result"] = {}
+    data["verifier_result"]["rewards"] = rewards
+    exc = data.get("exception_info") or {}
+    if exc.get("exception_type") in ("RewardFileNotFoundError", "VerifierOutputParseError"):
+        # The agent finished; only the verifier failed. Rescoring supersedes it.
+        data["superseded_exception_info"] = exc
+        data["exception_info"] = None
     data["rescored_at"] = datetime.now(timezone.utc).isoformat()
     result_path.write_text(json.dumps(data, indent=2))
     return rewards
