@@ -15,7 +15,7 @@
 #                ~/.claude/.credentials.json is used with CLAUDE_FORCE_OAUTH=1.
 #   codex        OPENAI_API_KEY, or CODEX_FORCE_AUTH_JSON=1 to use ~/.codex/auth.json.
 #
-# Models: override with CLAUDE_MODEL / CODEX_MODEL.
+# Models: override with CLAUDE_MODEL / CODEX_MODEL. Attempts per cell: ATTEMPTS (default 1).
 set -euo pipefail
 
 lane="${1:?lane}"
@@ -29,11 +29,12 @@ cd "$REPO"
 
 CLAUDE_MODEL="${CLAUDE_MODEL:-anthropic/claude-sonnet-5}"
 CODEX_MODEL="${CODEX_MODEL:-openai/gpt-5.6-sol}"
+ATTEMPTS="${ATTEMPTS:-1}"
 
 stamp="$(date +%Y%m%d-%H%M%S)"
 job="$(basename "$(dirname "$task")")-$(basename "$task")__${lane}__${cond}__${stamp}"
 
-args=(run -p "$task" -o evals/jobs --job-name "$job" -n 1 -y --artifact /app/output)
+args=(run -p "$task" -o evals/jobs --job-name "$job" -k "$ATTEMPTS" -n 4 -y --artifact /app/output)
 
 case "$cond" in
   with-skills) args+=(--skills ./skills) ;;

@@ -2,9 +2,9 @@
 """Summarize Harbor jobs under evals/jobs into one table.
 
 Usage:
-    python3 evals/scripts/report.py [jobs-dir] [--markdown]
+    python3 evals/scripts/report.py [jobs-dir] [--markdown] [--cells]
 
-One row per trial: lane, condition, model, reward dimensions, whether the
+One row per trial (or per task x lane x condition cell with --cells): lane, condition, model, reward dimensions, whether the
 agent read the target skill, cost, tokens, and wall time. Condition and lane
 are parsed from the job name written by run.sh
 (<task>__<lane>__<with-skills|baseline>__<stamp>).
@@ -60,6 +60,7 @@ def rows(jobs_dir: Path) -> list[dict]:
         data = json.loads(result.read_text())
         job = result.parents[1].name
         parts = job.split("__")
+        task_name = parts[0] if len(parts) > 2 else "?"
         lane = parts[1] if len(parts) > 2 else data.get("agent_info", {}).get("name", "?")
         cond = parts[2] if len(parts) > 3 else "?"
         rewards = (data.get("verifier_result") or {}).get("rewards") or {}
@@ -76,6 +77,7 @@ def rows(jobs_dir: Path) -> list[dict]:
         out.append(
             {
                 "job": job,
+                "task": task_name,
                 "lane": lane,
                 "cond": cond,
                 "model": ((data.get("agent_info") or {}).get("model_info") or {}).get("name")
@@ -101,15 +103,42 @@ def fmt(v) -> str:
     return str(v)
 
 
+def aggregate(data: list[dict]) -> list[dict]:
+    """One row per (task, lane, cond): mean of each dimension, n trials, mean cost."""
+    from collections import defaultdict
+    from statistics import mean, pstdev
+
+    cells: dict[tuple, list[dict]] = defaultdict(list)
+    for r in data:
+        cells[(r["task"], r["lane"], r["cond"])].append(r)
+    out = []
+    for (task, lane, cond), rs in sorted(cells.items()):
+        row = {"task": task, "lane": lane, "cond": cond, "model": rs[0]["model"], "n": len(rs)}
+        for d in DIMS:
+            vals = [r[d] for r in rs if r[d] is not None]
+            row[d] = mean(vals) if vals else None
+            row[d + "_sd"] = pstdev(vals) if len(vals) > 1 else None
+        row["skill_used"] = f"{sum(1 for r in rs if r['skill_used'] == 'yes')}/{len(rs)}"
+        costs = [r["cost_usd"] for r in rs if r["cost_usd"] is not None]
+        row["cost_usd"] = mean(costs) if costs else None
+        row["errors"] = sum(1 for r in rs if r["error"])
+        out.append(row)
+    return out
+
+
 def main(argv: list[str]) -> int:
     md = "--markdown" in argv
-    argv = [a for a in argv if a != "--markdown"]
+    agg = "--cells" in argv
+    argv = [a for a in argv if a not in ("--markdown", "--cells")]
     jobs_dir = Path(argv[0]) if argv else REPO / "evals" / "jobs"
     data = rows(jobs_dir)
     if not data:
         print(f"no results under {jobs_dir}")
         return 1
-    cols = ["lane", "cond", "model", *DIMS, "skill_used", "cost_usd", "in_tok", "out_tok", "secs", "error"]
+    cols = ["task", "lane", "cond", "model", *DIMS, "skill_used", "cost_usd", "in_tok", "out_tok", "secs", "error"]
+    if agg:
+        data = aggregate(data)
+        cols = ["task", "lane", "cond", "model", "n", "reward", "reward_sd", "soft_score", "soft_score_sd", "correctness", "boundaries", "format", "grounding", "skill_used", "cost_usd", "errors"]
     if md:
         print("| " + " | ".join(cols) + " |")
         print("|" + "---|" * len(cols))

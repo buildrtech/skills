@@ -17,8 +17,8 @@ evals/
     solution/               oracle path and the known-good reference output
   scripts/
     run.sh                  run one task in one lane and condition
-    check_fixtures.py       prove the verifier on known-good, wrong, shortcut, missing
-    report.py               table of results across jobs
+    check_fixtures.py       prove the verifier on the cases under tests/fixtures/cases
+    report.py               table of results across jobs (--cells for per-cell means)
   jobs/                     run output (gitignored)
 ```
 
@@ -46,7 +46,9 @@ evals/scripts/run.sh claude-code with-skills
 evals/scripts/run.sh claude-code baseline
 evals/scripts/run.sh codex with-skills
 evals/scripts/run.sh codex baseline
-python3 evals/scripts/report.py
+ATTEMPTS=3 evals/scripts/run.sh claude-code with-skills   # variance: 3 trials in one job
+python3 evals/scripts/report.py            # one row per trial
+python3 evals/scripts/report.py --cells    # mean and sd per task x lane x condition
 harbor view jobs -o evals/jobs   # trajectory viewer
 ```
 
@@ -60,6 +62,9 @@ header of `run.sh`. Nothing is printed.
    are visible to the agent and cannot be the eval input.
 3. Verifier truth comes from a hidden fixture under `tests/fixtures/`, never
    from the memo's own claims.
-4. Run `check_fixtures.py` until known-good passes and every wrong, shortcut,
-   and missing case fails.
+4. Add cases under `tests/fixtures/cases/<name>/` (an `expect` file saying
+   pass or fail, plus a `workspace/` overlay or a `files` mapping of
+   repo-relative sources to /app paths). Every task needs at least
+   `known-good`, `shortcut-shipped-sample`, one `wrong-*`, and `missing`.
+   Run `check_fixtures.py` until every case behaves.
 5. Run `nop` and `oracle` through Harbor before any model trial.
