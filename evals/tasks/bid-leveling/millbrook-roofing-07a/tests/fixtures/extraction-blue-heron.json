@@ -1,0 +1,46 @@
+{
+  "bidder_name": "Blue Heron Roofing & Sheet Metal LLC",
+  "source_files": ["blue-heron-quote.eml"],
+  "document_role": "email",
+  "trade_scope": "Bid package 07A: low-slope roofing, tapered insulation, and sheet metal (07 26 00, 07 22 16, 07 54 23, 07 62 00, 07 72 33)",
+  "total_bid_amount_in_cents": 57190000,
+  "scopes_of_work": [
+    {"scope_key": "tapered_insulation", "scope": "Tapered polyiso insulation, R-30 average, crickets to drains (07 22 16)", "status": "included", "amount_in_cents": null, "evidence_ref": "BH-1"},
+    {"scope_key": "cover_board", "scope": "1/2\" gypsum cover board", "status": "included", "amount_in_cents": null, "evidence_ref": "BH-1"},
+    {"scope_key": "tpo_membrane", "scope": "60-mil TPO membrane, fully adhered (07 54 23)", "status": "included", "amount_in_cents": null, "evidence_ref": "BH-1"},
+    {"scope_key": "sheet_metal", "scope": "Sheet metal coping, edge metal, and counterflashing (07 62 00)", "status": "included", "amount_in_cents": null, "evidence_ref": "BH-1"},
+    {"scope_key": "curb_flashing", "scope": "Flashing of mechanical curbs and pipe penetrations", "status": "included", "amount_in_cents": null, "evidence_ref": "BH-1"},
+    {"scope_key": "roof_hatch", "scope": "Roof hatch, furnish and install (07 72 33)", "status": "included", "amount_in_cents": null, "evidence_ref": "BH-2"},
+    {"scope_key": "hoisting", "scope": "Hoisting of roofing materials to the roof", "status": "included", "amount_in_cents": null, "evidence_ref": "BH-1"},
+    {"scope_key": "fall_protection", "scope": "Perimeter warning line and fall protection for own work", "status": "included", "amount_in_cents": null, "evidence_ref": "BH-1"}
+  ],
+  "excluded_scopes": [
+    {"scope_key": "vapor_retarder", "scope": "Self-adhered vapor retarder over metal deck (07 26 00)", "status": "excluded", "note": "\"Vapor retarder by others\"", "evidence_ref": "BH-2"},
+    {"scope_key": "walkway_pads", "scope": "Walkway pads at rooftop units and roof hatch", "status": "omitted", "note": "Not mentioned anywhere in the email", "evidence_ref": "BH-4"},
+    {"scope_key": "ndl_warranty", "scope": "20-year manufacturer NDL system warranty", "status": "unknown", "note": "\"Manufacturer's standard 20-year membrane warranty\"; a standard membrane warranty is not the NDL system warranty the spec calls for", "evidence_ref": "BH-3"}
+  ],
+  "alternate_lines": [
+    {"alternate_key": "alt_1_80mil_tpo", "label": "Alternate 1: 80-mil TPO membrane in lieu of 60-mil", "kind": "add", "solicited": true, "amount_in_cents": 1875000, "evidence_ref": "BH-5"}
+  ],
+  "unit_price_lines": [
+    {"description": "Added pipe penetration flashing", "unit": "EA", "unit_price_in_cents": 38500, "quantity": null, "evidence_ref": "BH-5"}
+  ],
+  "priced_qualifications": [],
+  "review_items": [
+    {"description": "Quote is an email body with no attached proposal; ask for a signed proposal on letterhead before award.", "evidence_ref": "BH-4"},
+    {"description": "Warranty wording is \"standard 20-year membrane warranty\"; confirm whether the 20-year NDL system warranty in 07 54 23 is priced.", "evidence_ref": "BH-3"},
+    {"description": "Price is good for 30 days from August 25, 2026; confirm award timing against that window.", "evidence_ref": "BH-6"}
+  ],
+  "qualifications": [
+    {"text": "Tax included. Bond not included.", "evidence_ref": "BH-6"},
+    {"text": "Includes own crane picks and own fall protection.", "evidence_ref": "BH-1"}
+  ],
+  "evidence": [
+    {"ref": "BH-1", "source_file": "blue-heron-quote.eml", "location": "email body, paragraph 1", "quote": "We can do the Millbrook garage roof for $571,900: tapered iso to the drains, cover board, 60 mil TPO fully adhered, all coping and edge metal, and flashing at the curbs and pipe penetrations. Includes our own crane picks and our fall protection."},
+    {"ref": "BH-2", "source_file": "blue-heron-quote.eml", "location": "email body, paragraph 2", "quote": "Vapor retarder by others. Roof hatch furnished and set by us."},
+    {"ref": "BH-3", "source_file": "blue-heron-quote.eml", "location": "email body, paragraph 3", "quote": "Manufacturer's standard 20-year membrane warranty included."},
+    {"ref": "BH-4", "source_file": "blue-heron-quote.eml", "location": "whole email", "quote": "No mention of walkway pads; no attachment."},
+    {"ref": "BH-5", "source_file": "blue-heron-quote.eml", "location": "email body, paragraphs 4-5", "quote": "Alt 1, 80 mil: add $18,750. Unit price for added pipe penetration flashings: $385 each."},
+    {"ref": "BH-6", "source_file": "blue-heron-quote.eml", "location": "email body, paragraph 6", "quote": "Tax included. Bond not included. Price good for 30 days."}
+  ]
+}

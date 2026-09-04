@@ -1,0 +1,56 @@
+{
+  "_comment": "Hidden truth for alder-creek-budget. Computed by hand from environment/input/alder-creek-budget-export.csv, not from any model output. Dollars, not cents. lineItemSum is the sum of the division's line items; exportedSubtotal is the figure the estimating system printed. They differ only on division 09.",
+  "project": "Alder Creek Elementary School Classroom Addition",
+  "owner": "Alder Creek Unified School District",
+  "preparedBy": "Pinewood Construction Group",
+  "estimateDate": "2026-09-01",
+  "estimateStage": "90% Construction Documents",
+  "divisions": [
+    { "code": "02", "name": "Existing Conditions", "exportedSubtotal": "61250", "lineItemSum": "61250", "lineItems": ["42500", "18750"] },
+    { "code": "03", "name": "Concrete", "exportedSubtotal": "307500", "lineItemSum": "307500", "lineItems": ["168000", "111600", "27900"] },
+    { "code": "05", "name": "Metals", "exportedSubtotal": "305200", "lineItemSum": "305200", "lineItems": ["261000", "44200"] },
+    { "code": "07", "name": "Thermal and Moisture Protection", "exportedSubtotal": "254000", "lineItemSum": "254000", "lineItems": ["154800", "99200"] },
+    { "code": "08", "name": "Openings", "exportedSubtotal": "131600", "lineItemSum": "131600", "lineItems": ["92000", "39600"] },
+    { "code": "09", "name": "Finishes", "exportedSubtotal": "294100", "lineItemSum": "291400", "lineItems": ["136400", "47600", "74400", "33000"] },
+    { "code": "22", "name": "Plumbing", "exportedSubtotal": "118300", "lineItemSum": "118300", "lineItems": ["118300"] },
+    { "code": "23", "name": "Heating Ventilating and Air Conditioning", "exportedSubtotal": "299000", "lineItemSum": "299000", "lineItems": ["286200", "12800"] },
+    { "code": "26", "name": "Electrical", "exportedSubtotal": "283600", "lineItemSum": "283600", "lineItems": ["224700", "58900"] },
+    { "code": "31", "name": "Earthwork", "exportedSubtotal": "95900", "lineItemSum": "95900", "lineItems": ["71300", "24600"] }
+  ],
+  "markups": [
+    { "description": "General conditions (26 weeks)", "amount": "187200" },
+    { "description": "Builder's risk insurance and bond", "amount": "47300" },
+    { "description": "Estimating contingency", "amount": "107500" },
+    { "description": "Fee", "amount": "86000" }
+  ],
+  "alternates": [
+    { "description": "Alternate 1: Covered play structure at north courtyard", "amount": "64800" },
+    { "description": "Alternate 2: Deduct - substitute VCT for carpet tile in classrooms", "amount": "-18200" }
+  ],
+  "totals": {
+    "directCostSubtotal": "2150450",
+    "markups": "428000",
+    "grandTotal": "2578450",
+    "sumOfExportedDivisionSubtotals": "2150450",
+    "sumOfAllLineItems": "2147750"
+  },
+  "discrepancy": {
+    "divisionCode": "09",
+    "divisionName": "Finishes",
+    "exportedSubtotal": "294100",
+    "lineItemSum": "291400",
+    "difference": "2700",
+    "note": "The only planted arithmetic problem. The exported subtotal is what the document must show, because the direct cost subtotal and grand total are built from the exported subtotals; the agent must surface the gap rather than silently correct either side."
+  },
+  "theme": {
+    "name": "Warm Owner-Facing",
+    "file": "themes/warm-owner-facing.css",
+    "markers": ["#3f2e24", "#c2410c", "#fff7ed", "#fed7aa"],
+    "defaultThemeMarkers": ["#334155", "#0f766e", "#f1f5f9", "#cbd5e1"]
+  },
+  "notesToPrint": [
+    "Pricing is based on the 90% construction documents dated 2026-08-20.",
+    "Excludes furniture, technology equipment, and district-furnished playground equipment. Alternates are priced separately and are not included in the total.",
+    "Estimating contingency is carried at approximately 5% of direct cost."
+  ]
+}

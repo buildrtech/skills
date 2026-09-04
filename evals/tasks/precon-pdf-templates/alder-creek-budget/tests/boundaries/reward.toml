@@ -1,0 +1,8 @@
+# Hard gates: the document may print only the user's own figures, and no
+# template placeholder or bundled-sample text. All-pass at weight 3, so a
+# document that invents a number cannot clear the reward threshold no matter
+# how good the rest of it is.
+weight = 3.0
+
+[scoring]
+aggregation = "all_pass"

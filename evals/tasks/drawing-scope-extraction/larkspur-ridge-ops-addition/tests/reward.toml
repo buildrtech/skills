@@ -1,0 +1,16 @@
+# Root aggregation over the four dimension directories.
+# "reward" is the strict score Harbor reads. It passes only when the scope list
+# carries the planted items with their citations, keeps the ungrounded items
+# out of scope, and cites nothing that is not in the sheet index.
+# "soft_score" is the diagnostic weighted mean.
+
+[[reward]]
+name = "reward"
+aggregation = "threshold"
+threshold = 0.9
+weights = { correctness = 4.0, boundaries = 4.0, format = 1.0, grounding = 1.0 }
+
+[[reward]]
+name = "soft_score"
+aggregation = "weighted_mean"
+weights = { correctness = 4.0, boundaries = 4.0, format = 1.0, grounding = 1.0 }

@@ -1,0 +1,8 @@
+# Local bucket = hard gates (every citation exists in the sheet index, no scope
+# beyond the candidate set): all-pass, weight 3. The disclaimers/ subdirectory
+# is a weighted mean at weight 1, so a list that merely drops a required phrase
+# still earns partial boundary credit.
+weight = 3.0
+
+[scoring]
+aggregation = "all_pass"

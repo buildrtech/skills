@@ -1,0 +1,48 @@
+{
+  "bidder_name": "Ironwood Roofing Systems, Inc.",
+  "source_files": ["ironwood-proposal.pdf"],
+  "document_role": "bid_proposal",
+  "trade_scope": "Bid package 07A: low-slope roofing, tapered insulation, and sheet metal (07 26 00, 07 22 16, 07 54 23, 07 62 00, 07 72 33)",
+  "total_bid_amount_in_cents": 61240000,
+  "scopes_of_work": [
+    {"scope_key": "vapor_retarder", "scope": "Self-adhered vapor retarder over metal deck (07 26 00)", "status": "included", "amount_in_cents": null, "evidence_ref": "IR-1"},
+    {"scope_key": "tapered_insulation", "scope": "Tapered polyiso insulation, R-30 average, crickets to drains (07 22 16)", "status": "included", "amount_in_cents": null, "evidence_ref": "IR-1"},
+    {"scope_key": "cover_board", "scope": "1/2\" gypsum cover board", "status": "included", "amount_in_cents": null, "evidence_ref": "IR-1"},
+    {"scope_key": "tpo_membrane", "scope": "60-mil TPO membrane, fully adhered (07 54 23)", "status": "included", "amount_in_cents": null, "evidence_ref": "IR-1"},
+    {"scope_key": "sheet_metal", "scope": "Sheet metal coping, edge metal, and counterflashing (07 62 00)", "status": "included", "amount_in_cents": null, "evidence_ref": "IR-2"},
+    {"scope_key": "curb_flashing", "scope": "Flashing of mechanical curbs and pipe penetrations", "status": "included", "amount_in_cents": null, "evidence_ref": "IR-1"},
+    {"scope_key": "walkway_pads", "scope": "Walkway pads at rooftop units and roof hatch", "status": "included", "amount_in_cents": null, "evidence_ref": "IR-1"},
+    {"scope_key": "hoisting", "scope": "Hoisting of roofing materials to the roof", "status": "included", "amount_in_cents": null, "evidence_ref": "IR-3"},
+    {"scope_key": "fall_protection", "scope": "Perimeter warning line and fall protection for own work", "status": "included", "amount_in_cents": null, "evidence_ref": "IR-3"},
+    {"scope_key": "ndl_warranty", "scope": "20-year manufacturer NDL system warranty", "status": "included", "amount_in_cents": null, "evidence_ref": "IR-3"}
+  ],
+  "excluded_scopes": [
+    {"scope_key": "roof_hatch", "scope": "Roof hatch, furnish and install (07 72 33)", "status": "excluded", "note": "\"Roof hatch by others\"", "evidence_ref": "IR-4"}
+  ],
+  "alternate_lines": [
+    {"alternate_key": "alt_1_80mil_tpo", "label": "Alternate 1: 80-mil TPO membrane in lieu of 60-mil", "kind": "add", "solicited": true, "amount_in_cents": 2130000, "evidence_ref": "IR-5"}
+  ],
+  "unit_price_lines": [
+    {"description": "Additional tapered insulation, furnished and installed", "unit": "SF", "unit_price_in_cents": 675, "quantity": null, "evidence_ref": "IR-6"}
+  ],
+  "priced_qualifications": [
+    {"description": "Performance and payment bond not included; add 1.5% if required", "amount_in_cents": null, "evidence_ref": "IR-7"}
+  ],
+  "review_items": [
+    {"description": "Proposal is valid for 45 days from August 25, 2026; confirm award timing against that window.", "evidence_ref": "IR-7"}
+  ],
+  "qualifications": [
+    {"text": "Sales tax included.", "evidence_ref": "IR-7"},
+    {"text": "Crane and hoisting priced at two picks.", "evidence_ref": "IR-3"},
+    {"text": "Roof drains and overflow drains, metal wall panels, and curbs excluded (outside 07A).", "evidence_ref": "IR-4"}
+  ],
+  "evidence": [
+    {"ref": "IR-1", "source_file": "ironwood-proposal.pdf", "location": "page 1, Scope of Work", "quote": "Furnish and install self-adhered vapor retarder over the metal deck, tapered polyisocyanurate insulation to R-30 average with crickets to drains per A-401 as revised by Addendum 1, 1/2\" gypsum cover board, and 60-mil TPO membrane, fully adhered, per Section 07 54 23. Flash all mechanical curbs and pipe penetrations furnished by others. Walkway pads at rooftop units and at the hatch per A-401."},
+    {"ref": "IR-2", "source_file": "ironwood-proposal.pdf", "location": "page 1, Sheet Metal", "quote": "Shop-fabricated coping, edge metal, and counterflashing per Section 07 62 00, 24 ga. prefinished, color per architect."},
+    {"ref": "IR-3", "source_file": "ironwood-proposal.pdf", "location": "page 2, General Conditions", "quote": "Crane and hoisting of our materials included, two picks. Perimeter warning line and fall protection for our crew included. Twenty-year manufacturer NDL system warranty included."},
+    {"ref": "IR-4", "source_file": "ironwood-proposal.pdf", "location": "page 2, Exclusions", "quote": "Roof hatch by others. Roof drains and overflow drains NIC. Metal wall panels NIC. Curbs by others."},
+    {"ref": "IR-5", "source_file": "ironwood-proposal.pdf", "location": "page 2, Alternates", "quote": "Alternate No. 1, 80-mil TPO membrane in lieu of 60-mil: ADD $21,300.00."},
+    {"ref": "IR-6", "source_file": "ironwood-proposal.pdf", "location": "page 2, Unit Prices", "quote": "Additional tapered insulation, furnished and installed: $6.75 per SF."},
+    {"ref": "IR-7", "source_file": "ironwood-proposal.pdf", "location": "page 2, Terms", "quote": "Base bid $612,400.00. Sales tax included. Performance and payment bond not included; add 1.5% if required. Proposal valid 45 days from August 25, 2026."}
+  ]
+}

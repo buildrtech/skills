@@ -1,0 +1,35 @@
+schema_version = "1.4"
+
+[task]
+name = "buildr/drawing-scope-extraction-larkspur-ridge-ops-addition"
+description = "Extract a CSI-division scope list from a synthetic 18-sheet permit set and a first-pass candidate file with planted bad sheet citations, mis-tagged support levels, a misfiled division, and a missing coverage ledger entry."
+authors = []
+keywords = ["construction", "drawing-scope-extraction", "skills"]
+
+[metadata]
+author_name = "Buildr"
+skill = "drawing-scope-extraction"
+family = "outcome"
+difficulty = "medium"
+category = "document-review"
+tags = ["skills", "construction", "deterministic-verifier"]
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 1800.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 4096
+storage_mb = 10240
+gpus = 0
+mcp_servers = []
+
+[verifier.env]
+
+[environment.env]
+
+[solution.env]
