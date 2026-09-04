@@ -140,6 +140,22 @@ NEGATIONS = (
 )
 
 
+# A line that reports a sheet as missing, dropped, or flagged is not a
+# citation. The phrase list above is kept for readability; the regex catches
+# the many ways a memo can say the same thing ("do not appear", "neither
+# sheet exists", "not found", "sent to RFI").
+NEGATION_RE = re.compile(
+    r"\b(?:not|no|neither|never|nor|missing|absent|phantom|non-?existent|nonexistent|"
+    r"isn'?t|aren'?t|doesn'?t|don'?t|cannot|can'?t|dropped|excluded|removed|omitted|"
+    r"rfi|flag(?:ged|s)?|unknown|unresolved|unverified|unreadable|could not|couldn'?t)\b",
+    re.IGNORECASE,
+)
+
+
+def is_negated(line: str) -> bool:
+    return has_phrase(line, *NEGATIONS) or NEGATION_RE.search(line) is not None
+
+
 def scope_text(workspace: Path) -> str:
     path = workspace / SCOPE_LIST
     if not path.is_file():
@@ -245,7 +261,7 @@ def citation_lines(text: str) -> list[str]:
     no recognizable citation lines, fall back to every line that is not
     reporting a missing sheet.
     """
-    lines = [line for line in text.splitlines() if not has_phrase(line, *NEGATIONS)]
+    lines = [line for line in text.splitlines() if not is_negated(line)]
     picked = [
         line
         for line in lines
@@ -258,7 +274,7 @@ def citation_lines(text: str) -> list[str]:
 
 def grounded_lines(text: str) -> list[str]:
     """Every line that is not reporting a missing sheet."""
-    return [line for line in text.splitlines() if not has_phrase(line, *NEGATIONS)]
+    return [line for line in text.splitlines() if not is_negated(line)]
 
 
 def sheet_ids(text: str) -> list[str]:
