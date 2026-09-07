@@ -14,7 +14,7 @@ from typing import Any
 import yaml
 
 REQUIRED_FRONTMATTER_FIELDS = ("name", "description")
-REQUIRED_METADATA_FIELDS = ("tier", "stages", "version")
+REQUIRED_METADATA_FIELDS = ("tier", "stages", "version", "summary")
 REQUIRED_FILES = (
     Path("SKILL.md"),
     Path("examples") / "sample-prompts.md",
@@ -136,6 +136,10 @@ def _validate_frontmatter(skill_root: Path, frontmatter: Any, body: str) -> list
         if not isinstance(value, str):
             errors.append(f"metadata.{key} must be a string (the Agent Skills spec only allows string values)")
 
+    summary = metadata.get("summary")
+    if isinstance(summary, str) and len(summary) > 200:
+        errors.append("metadata.summary exceeds 200 characters")
+
     tier = metadata.get("tier")
     if isinstance(tier, str) and tier not in TIERS:
         errors.append(f"metadata.tier must be one of {', '.join(TIERS)}")
@@ -210,6 +214,14 @@ def validate_skill_tree(skill_root: Path) -> list[str]:
                 errors.append(f"all entries must be regular files: {relative_path.as_posix()}")
             elif _is_excluded_file(relative_path):
                 errors.append(f"remove generated or OS file from the skill: {relative_path.as_posix()}")
+
+    samples = skill_root / "samples"
+    for prefix in ("input-", "output-"):
+        if not samples.is_dir() or not any(
+            p.is_file() and not p.is_symlink() and p.name.startswith(prefix)
+            for p in samples.iterdir()
+        ):
+            errors.append(f"missing synthetic sample: samples/{prefix}<name>.<format>")
 
     total_size = 0
     for file_path in collect_files(skill_root):

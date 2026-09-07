@@ -13,6 +13,7 @@ Usage:
 from __future__ import annotations
 
 import json
+import os
 import shutil
 import subprocess
 import sys
@@ -22,6 +23,33 @@ from pathlib import Path
 
 REPO = Path(__file__).resolve().parents[2]
 REWARDKIT = ["uvx", "--from", "harbor-rewardkit==0.2.0", "python", "-m", "rewardkit"]
+
+
+def reject_links(root: Path) -> None:
+    """Artifacts are untrusted: do not copy or let verifiers follow symlinks."""
+    if root.is_symlink():
+        raise ValueError(f"symlink is not allowed: {root}")
+    for current, dirs, files in os.walk(root, followlinks=False):
+        for name in dirs + files:
+            path = Path(current) / name
+            if path.is_symlink():
+                raise ValueError(f"symlink is not allowed: {path}")
+
+
+def atomic_json(path: Path, data: dict) -> None:
+    """Keep the prior record intact until a complete replacement is ready."""
+    temporary = None
+    try:
+        with tempfile.NamedTemporaryFile(mode="w", dir=path.parent, prefix=f".{path.name}.", delete=False) as stream:
+            temporary = Path(stream.name)
+            json.dump(data, stream, indent=2)
+            stream.write("\n")
+            stream.flush()
+            os.fsync(stream.fileno())
+        temporary.replace(path)
+    finally:
+        if temporary is not None:
+            temporary.unlink(missing_ok=True)
 
 
 def rescore(trial_dir: Path) -> dict | None:
@@ -35,6 +63,8 @@ def rescore(trial_dir: Path) -> dict | None:
         task_path = REPO / task_path
     if not (task_path / "tests").is_dir():
         return None
+    reject_links(art)
+    reject_links(task_path / "environment")
     with tempfile.TemporaryDirectory() as tmp:
         ws = Path(tmp) / "app"
         ws.mkdir()
@@ -70,7 +100,7 @@ def rescore(trial_dir: Path) -> dict | None:
         data["superseded_exception_info"] = exc
         data["exception_info"] = None
     data["rescored_at"] = datetime.now(timezone.utc).isoformat()
-    result_path.write_text(json.dumps(data, indent=2))
+    atomic_json(result_path, data)
     return rewards
 
 
