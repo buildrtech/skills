@@ -84,11 +84,12 @@ def build_entry(skill_root: Path, plugins: dict[str, list[str]]) -> dict:
     file_entries = [file_entry(skill_root, p) for p in collect_files(skill_root)]
     files = [entry["path"] for entry in file_entries]
     tier = metadata.get("tier", "neutral")
-    first_plugin = (plugins.get(name) or ["all"])[0]
+    first_plugin = next(iter(plugins.get(name, [])), None)
 
     return {
         "name": name,
         "description": frontmatter["description"],
+        "summary": metadata["summary"],
         "license": frontmatter.get("license"),
         "tier": tier,
         "stages": split_csv(metadata.get("stages")),
@@ -102,7 +103,7 @@ def build_entry(skill_root: Path, plugins: dict[str, list[str]]) -> dict:
             "claude_plugin": [
                 f"/plugin marketplace add {REPO_SLUG}",
                 f"/plugin install {first_plugin}@buildr",
-            ],
+            ] if first_plugin else [],
             "paste": body.strip(),
         },
         "sample_prompts": read_optional(skill_root, "examples/sample-prompts.md"),

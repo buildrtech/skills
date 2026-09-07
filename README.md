@@ -10,7 +10,8 @@ Browse the catalog with sample prompts and sample output at
 
 ## Install
 
-Pick whichever fits your setup. All three install the same files.
+Choose a folder install for the complete skill, or copy instructions with the
+required resources as described below.
 
 **Skills CLI** (any supported agent):
 
@@ -29,37 +30,41 @@ npx skills add buildrtech/skills --all
 
 **Paste into your agent instructions:** open any `skills/<name>/SKILL.md`,
 copy everything below the frontmatter into your `CLAUDE.md` or `AGENTS.md`.
-Skills that ship `references/` or `scripts/` work best installed as folders,
-but the body alone is enough for most of them.
+Copy the complete skill folder alongside those instructions, including its
+references, scripts, assets, and templates, and identify its local path for the
+agent. Pasting the body alone does not supply those files or install runtime
+dependencies. For chat-only tools without file execution, provide the referenced
+text and inputs as attachments; script or PDF workflows still require a runtime.
 
 ## Skills
 
 | Skill | Stage | Tier | What it does |
 |---|---|---|---|
-| [rfp-intake](skills/rfp-intake) | Business development, Preconstruction | Neutral | Run a bid/no-bid intake review on an RFP or bid invitation. |
-| [bid-leveling](skills/bid-leveling) | Preconstruction, Estimating | Neutral | Level subcontractor bids for one trade package into a bid tab or bid comparison matrix. |
-| [drawing-scope-extraction](skills/drawing-scope-extraction) | Preconstruction, Estimating | Neutral | Extract a scope of work from a construction drawing set, grouped by CSI division, with every item cited to a sheet, detail, or note. |
-| [precon-pdf-templates](skills/precon-pdf-templates) | Business development, Preconstruction, Estimating | Neutral | Produce polished PDFs for general contractor and preconstruction workflows from bundled HTML templates and themes. |
-| [rfi-drafter](skills/rfi-drafter) | Operations, Preconstruction | Neutral | Draft a Request for Information (RFI) for a general contractor from a described drawing or specification conflict, citing the sheets, details, and spec paragraphs the user provides, proposing a resolution when the documents support one, and producing an RFI log row. |
-| [pay-app-review](skills/pay-app-review) | Operations, Forecasting | Neutral | Check a contractor's or subcontractor's progress payment application (AIA G702/G703-style application and continuation sheet, or any schedule-of-values billing) for math, continuity, retainage, change order, and stored materials problems, then prepare a review memo with a hold/release list for a human decision. |
-| [construction-connectors](skills/construction-connectors) | Operations, Preconstruction, Estimating | Neutral | Work safely and accurately over construction software MCP servers and connectors (project management, cost, drawings, takeoff, BIM). |
-| [workforce-planning](skills/workforce-planning) | Workforce, Forecasting | Buildr-connected | Analyze and plan construction workforce staffing over Buildr workforce data through the Buildr MCP server. |
-| [financial-forecasting](skills/financial-forecasting) | Forecasting, Operations | Buildr-connected | Analyze Buildr financial forecasts through the Buildr MCP server. |
+| [bid-leveling](skills/bid-leveling) | Preconstruction, Estimating | Neutral | Compare subcontractor bids on a common scope basis, with sourced plugs, unresolved gaps, and traceable alternate prices. |
+| [construction-connectors](skills/construction-connectors) | Operations, Preconstruction, Estimating | Neutral | Read and reconcile connected construction records, prepare exact changes, and verify each recorded outcome. |
+| [drawing-scope-extraction](skills/drawing-scope-extraction) | Preconstruction, Estimating | Neutral | Turn drawing sheets into a cited scope list by CSI division, with exclusions, open questions, and review coverage. |
+| [financial-forecasting](skills/financial-forecasting) | Forecasting, Operations | Buildr-connected | Review revenue, profit, project margins, and billing positions with traceable actuals and forecasts. |
+| [pay-app-review](skills/pay-app-review) | Operations, Forecasting | Neutral | Review a progress payment application for billing discrepancies and missing documents, with a sourced hold list for a human decision. |
+| [precon-pdf-templates](skills/precon-pdf-templates) | Business development, Preconstruction, Estimating | Neutral | Turn supplied construction budgets, proposals, reports, milestone estimates, and team bios into print-ready documents with source figures preserved. |
+| [rfi-drafter](skills/rfi-drafter) | Operations, Preconstruction | Neutral | Draft a source-backed RFI and matching log row with a supported proposal, clear deadlines, and unresolved conditions made explicit. |
+| [rfp-intake](skills/rfp-intake) | Business development, Preconstruction | Neutral | Turn a solicitation and its addenda into a cited bid/no-bid review with current requirements, risks, and a conditional recommendation. |
+| [workforce-planning](skills/workforce-planning) | Workforce, Forecasting | Buildr-connected | Identify staffing capacity, candidate constraints, and uncovered demand before proposing verified assignment changes. |
 
-All ten v1 skills have shipped. See [ROADMAP.md](ROADMAP.md) for what is next.
+The catalog contains nine skills. See [ROADMAP.md](ROADMAP.md) for what is next.
 
 ## Tiers
 
 - **Neutral** skills work with whatever documents and data you hand the
   agent. They never require a Buildr account and never mention Buildr.
-- **Buildr-connected** skills read and write Buildr data through the Buildr
-  MCP server. They are marked in the catalog and in each skill's
-  `metadata.tier`.
+- **Buildr-connected** skills use discovered Buildr MCP capabilities when a
+  connection is available. They can also analyze explicitly supplied exports;
+  proposed remote changes require authorization and verified tool support.
+  They are marked in the catalog and each skill's `metadata.tier`.
 
 ## What every skill ships with
 
 - `SKILL.md`: the instructions, under 500 lines, with a `metadata` block that
-  drives the catalog (tier, workflow stages, version).
+  drives the catalog (human summary, tier, workflow stages, version).
 - `examples/sample-prompts.md`: prompts that should and should not trigger it.
 - `samples/`: a synthetic input and the output the skill is expected to
   produce, so you can judge it before installing.
@@ -74,6 +79,8 @@ Pull requests are welcome. Read [CONTRIBUTING.md](CONTRIBUTING.md) and
 pip install pyyaml
 python3 tools/validate_skills.py
 python3 tools/build_catalog.py
+python3 tools/validate_marketplace.py
+python3 -m unittest discover -s tools/tests -v
 ```
 
 ## Disclaimer

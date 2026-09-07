@@ -20,7 +20,10 @@ requests are welcome and go through the same review.
   `examples/sample-prompts.md`, and a `samples/` pair (synthetic input and
   expected output). Synthetic means invented. Never include a real
   solicitation, contract, bid, drawing, or customer data.
-- `python3 tools/validate_skills.py` passes.
+- `python3 tools/validate_skills.py` and `python3 tools/validate_marketplace.py` pass.
+- Run targeted script tests and relevant existing verifier fixture checks.
+  Preserve the previous revision and record a bounded fresh-context comparison
+  with unfamiliar synthetic inputs; follow the verification section of the spec.
 - `python3 tools/build_catalog.py` has been run and `catalog.json` is
   committed.
 - If the skill belongs in a plugin group, add it to

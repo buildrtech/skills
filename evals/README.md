@@ -52,6 +52,11 @@ python3 evals/scripts/report.py --cells    # mean and sd per task x lane x condi
 harbor view jobs -o evals/jobs   # trajectory viewer
 ```
 
+`CONCURRENCY` defaults to 1; increase it only within an agreed evaluation budget.
+`ATTEMPTS` defaults to 1. Extra Harbor arguments follow `--`, with or without
+an explicit task path. Wrapper diagnostics omit arguments because they can
+contain credentials. API keys take precedence over inherited force-login flags.
+
 Credentials are read from the environment or the local CLI logins; see the
 header of `run.sh`. Nothing is printed.
 
@@ -68,3 +73,15 @@ header of `run.sh`. Nothing is printed.
    `known-good`, `shortcut-shipped-sample`, one `wrong-*`, and `missing`.
    Run `check_fixtures.py` until every case behaves.
 5. Run `nop` and `oracle` through Harbor before any model trial.
+
+## Reviewing revisions
+
+Keep the six existing task families and their hidden fixtures. Compare revisions
+against a preserved Git baseline with unfamiliar inputs; see
+[the authoring spec](../docs/skill-spec.md#verification). Existing samples are
+smoke tests, not proof of skill lift. A fresh-thread result is not a ChatGPT.com
+or Claude.ai UI test. Synthetic MCP replay is not live integration proof.
+
+Rescoring rejects symlink artifacts before invoking a verifier, and replaces the
+trial result atomically after serialization. Run shared regression checks with
+`python3 -m unittest discover -s tools/tests -v`.

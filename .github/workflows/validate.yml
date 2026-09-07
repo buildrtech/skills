@@ -18,13 +18,7 @@ jobs:
         run: python3 tools/validate_skills.py
       - name: Check catalog.json is current
         run: python3 tools/build_catalog.py --check
-      - name: Check marketplace.json parses and lists real skills
-        run: |
-          python3 - <<'PY'
-          import json, pathlib, sys
-          m = json.loads(pathlib.Path(".claude-plugin/marketplace.json").read_text())
-          missing = [s for p in m["plugins"] for s in p.get("skills", []) if not pathlib.Path(s, "SKILL.md").is_file()]
-          if missing:
-              print("marketplace.json references missing skills:", missing); sys.exit(1)
-          print("ok   marketplace.json")
-          PY
+      - name: Check marketplace coverage
+        run: python3 tools/validate_marketplace.py
+      - name: Test shared validation and eval tooling
+        run: python3 -m unittest discover -s tools/tests -v

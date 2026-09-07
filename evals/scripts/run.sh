@@ -20,8 +20,12 @@ set -euo pipefail
 
 lane="${1:?lane}"
 cond="${2:?with-skills|baseline}"
-task="${3:-evals/tasks/pay-app-review/harborview-app3}"
-shift 3 2>/dev/null || shift $#
+shift 2
+task="evals/tasks/pay-app-review/harborview-app3"
+if [ "$#" -gt 0 ] && [ "$1" != "--" ]; then
+  task="$1"
+  shift
+fi
 if [ "${1:-}" = "--" ]; then shift; fi
 
 REPO="$(cd "$(dirname "$0")/../.." && pwd)"
@@ -30,11 +34,13 @@ cd "$REPO"
 CLAUDE_MODEL="${CLAUDE_MODEL:-anthropic/claude-sonnet-5}"
 CODEX_MODEL="${CODEX_MODEL:-openai/gpt-5.6-sol}"
 ATTEMPTS="${ATTEMPTS:-1}"
+CONCURRENCY="${CONCURRENCY:-1}"
+[[ "$ATTEMPTS" =~ ^[1-9][0-9]*$ ]] && [[ "$CONCURRENCY" =~ ^[1-9][0-9]*$ ]] || { echo "ATTEMPTS and CONCURRENCY must be positive integers" >&2; exit 2; }
 
 stamp="$(date +%Y%m%d-%H%M%S)"
 job="$(basename "$(dirname "$task")")-$(basename "$task")__${lane}__${cond}__${stamp}"
 
-args=(run -p "$task" -o evals/jobs --job-name "$job" -k "$ATTEMPTS" -n 4 -y --artifact /app/output)
+args=(run -p "$task" -o evals/jobs --job-name "$job" -k "$ATTEMPTS" -n "$CONCURRENCY" -y --artifact /app/output)
 
 case "$cond" in
   with-skills) args+=(--skills ./skills) ;;
@@ -48,7 +54,9 @@ case "$lane" in
     ;;
   claude-code)
     args+=(-a claude-code -m "$CLAUDE_MODEL")
-    if [ -z "${ANTHROPIC_API_KEY:-}" ] && [ -z "${CLAUDE_CODE_OAUTH_TOKEN:-}" ]; then
+    if [ -n "${ANTHROPIC_API_KEY:-}" ]; then
+      unset CLAUDE_FORCE_OAUTH
+    elif [ -z "${CLAUDE_CODE_OAUTH_TOKEN:-}" ]; then
       creds="$HOME/.claude/.credentials.json"
       [ -f "$creds" ] || { echo "no ANTHROPIC_API_KEY, CLAUDE_CODE_OAUTH_TOKEN, or $creds" >&2; exit 2; }
       CLAUDE_CODE_OAUTH_TOKEN="$(python3 -c 'import json,sys;print(json.load(open(sys.argv[1]))["claudeAiOauth"]["accessToken"])' "$creds")"
@@ -61,7 +69,9 @@ case "$lane" in
     ;;
   codex)
     args+=(-a codex -m "$CODEX_MODEL")
-    if [ -z "${OPENAI_API_KEY:-}" ]; then
+    if [ -n "${OPENAI_API_KEY:-}" ]; then
+      unset CODEX_FORCE_AUTH_JSON
+    else
       [ -f "$HOME/.codex/auth.json" ] || { echo "no OPENAI_API_KEY or ~/.codex/auth.json" >&2; exit 2; }
       export CODEX_FORCE_AUTH_JSON=1
       echo "codex: using ~/.codex/auth.json (ChatGPT auth)" >&2
@@ -70,5 +80,5 @@ case "$lane" in
   *) echo "unknown lane: $lane" >&2; exit 2 ;;
 esac
 
-echo "harbor ${args[*]} $*" >&2
+echo "Starting Harbor evaluation (arguments omitted; may contain credentials)" >&2
 exec harbor "${args[@]}" "$@"
