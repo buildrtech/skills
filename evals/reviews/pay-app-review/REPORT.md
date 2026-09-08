@@ -2,8 +2,7 @@
 
 **Revision 1.1.0 is verified locally.** Eight CLI regression tests and all six
 verifier controls pass. The completed fresh Codex comparison is a **6/6 versus
-6/6 outcome tie**, with improved script behavior in the revision. No commits,
-production writes, or edits outside the three owned directories by this worker.
+6/6 outcome tie**, with improved script behavior in the revision. No production writes or edits outside the three owned directories by this worker.
 
 ## Changes and control evidence
 

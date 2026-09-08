@@ -87,9 +87,10 @@ No push, merge, production write, marketing snapshot edit, or global skill edit
 was performed in this skills environment. The final catalog is `catalog.json` (921614 bytes), SHA-256
 `bb56596391c8b322c0d9d8e0321bd824458769be7c96466bf7e82235459ae070`.
 Root independently synced and accepted this exact catalog. Shared changes are
-in local commit `07d397a`; the integration commit containing this report records
-the nine skill revisions and final evidence. Its exact SHA is sent to root after
-commit, with clean-worktree evidence. No marketing snapshot was edited here.
+in local commit `07d397a`. Source/evaluation integration is committed locally as
+`4b42325bc00d076246b3a0a1b8bdab2277ead272`; this documentation follow-up records
+that completed state. Final validation, marketplace/catalog checks and staged
+whitespace checks passed. No marketing snapshot was edited here.
 
 ## Authoring and evidence basis
 
