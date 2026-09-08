@@ -229,3 +229,37 @@ def table_rows(section: str) -> list[str]:
             continue
         rows.append(s)
     return rows[1:] if rows else []  # drop the header row
+
+
+CRITERION_AREAS = (
+    r"owner|relationship", r"delivery|contract", r"schedule",
+    r"bond|insurance", r"licens|prequal|qualification", r"wage|labor",
+    r"scope|fit", r"competition", r"risk allocation", r"document",
+)
+RATING = re.compile(r"\b(?:favorable|neutral|unfavorable|unknown)\b", re.I)
+
+
+def rated_criteria_count(text: str) -> int:
+    """Count distinct criteria with explicit ratings and explanatory content.
+
+    Accept default table cells or labeled bullets, independent of headings.
+    A blank rating or a copied dates table cannot satisfy this check.
+    """
+    found = set()
+    for line in logical_lines(text):
+        s = line.strip().replace("**", "")
+        if s.startswith("|"):
+            cells = [c.strip() for c in s.strip("|").split("|")]
+            if len(cells) < 3 or not RATING.fullmatch(cells[1]) or not cells[2]:
+                continue
+            label = cells[0]
+        else:
+            match = re.match(r"^[-*+]\s+([^:]+):\s*(favorable|neutral|unfavorable|unknown)\b[\s:;,.—–-]+(.+)", s, re.I)
+            if not match:
+                continue
+            label = match[1]
+        for i, area in enumerate(CRITERION_AREAS):
+            if re.search(area, label, re.I):
+                found.add(i)
+                break
+    return len(found)

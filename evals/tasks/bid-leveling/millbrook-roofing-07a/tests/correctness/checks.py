@@ -82,15 +82,16 @@ def leveled_ranking(workspace: Path) -> bool:
     text = comparison_text(workspace)
     if not text:
         return False
-    headline = lines_mentioning(text, "lowest complete leveled total")
-    if not any("cardinal" in line.lower() for line in headline):
+    # Ranking is substantive; the exact headline and headings are format diagnostics.
+    headline = [line for line in text.splitlines()[:20]
+                if has_phrase(line, "lowest") and has_phrase(line, "complete", "fully scoped")
+                and has_phrase(line, "leveled", "leveling")]
+    if not any("cardinal" in line.lower() and has_amount(line, "580850") for line in headline):
         return False
-    if not line_states_amount(text, "lowest complete leveled total", 580850):
-        return False
-    # The raw low bidder is not the leveled low bidder; saying so is the point.
     for line in lines_mentioning(text, "lowest"):
         low = line.lower()
-        if "blue heron" in low and "complete" not in low:
+        # A correct comparison can explicitly contrast the raw low with the leveled low.
+        if "blue heron" in low and not has_phrase(low, "base", "raw", "incomplete", "unresolved"):
             return False
     incomplete = lines_mentioning(text, "Blue Heron")
     return any(("incomplete" in ln.lower() or "unresolved" in ln.lower()) for ln in incomplete)
@@ -148,8 +149,8 @@ def planted_flags(workspace: Path) -> float:
 # gap keeps a wrong total and cannot reach the reward threshold on the others.
 rk.comparison_exists(weight=1.0)
 rk.leveled_totals(weight=1.0)
-rk.all_leveled_totals_match(weight=6.0)
-rk.leveled_ranking(weight=2.0)
+rk.all_leveled_totals_match(weight=10.0)
+rk.leveled_ranking(weight=10.0)
 rk.plugs_and_adjustment(weight=3.0)
 rk.gaps_named(weight=3.0)
 rk.planted_flags(weight=2.0)

@@ -1,0 +1,62 @@
+[
+  {
+    "lane": "baseline",
+    "command": [
+      "python3",
+      "/tmp/skills-takeover-baseline-9a62032/skills/pay-app-review/scripts/check_pay_app.py",
+      "evals/reviews/pay-app-review/fresh-pair/input/elm-current.csv",
+      "--prior",
+      "evals/reviews/pay-app-review/fresh-pair/input/elm-prior.csv",
+      "--contract-sum",
+      "20000",
+      "--change-orders",
+      "0",
+      "--retainage",
+      "5",
+      "--g702-completed",
+      "7000",
+      "--g702-retainage",
+      "350",
+      "--g702-earned",
+      "6650",
+      "--g702-previous",
+      "4500",
+      "--g702-due",
+      "2150",
+      "--g702-balance",
+      "13350"
+    ],
+    "exit": 1
+  },
+  {
+    "lane": "revised",
+    "command": [
+      "python3",
+      "skills/pay-app-review/scripts/check_pay_app.py",
+      "evals/reviews/pay-app-review/fresh-pair/input/elm-current.csv",
+      "--prior",
+      "evals/reviews/pay-app-review/fresh-pair/input/elm-prior.csv",
+      "--contract-sum",
+      "20000",
+      "--change-orders",
+      "0",
+      "--retainage",
+      "5",
+      "--g702-completed",
+      "7000",
+      "--g702-retainage",
+      "350",
+      "--g702-earned",
+      "6650",
+      "--g702-previous",
+      "4500",
+      "--g702-due",
+      "2150",
+      "--g702-balance",
+      "13350",
+      "--prior-certified",
+      "4500"
+    ],
+    "exit": 0
+  }
+]

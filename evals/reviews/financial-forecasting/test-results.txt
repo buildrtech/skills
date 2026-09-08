@@ -1,0 +1,11 @@
+test_actual_cli_with_independent_expected_values (test_forecast_math.ForecastMathTest.test_actual_cli_with_independent_expected_values) ... ok
+test_existing_sample_harbor_arithmetic (test_forecast_math.ForecastMathTest.test_existing_sample_harbor_arithmetic) ... ok
+test_ids_required (test_forecast_math.ForecastMathTest.test_ids_required) ... ok
+test_missing_nonfinite_and_boolean_amounts_rejected (test_forecast_math.ForecastMathTest.test_missing_nonfinite_and_boolean_amounts_rejected) ... ok
+test_nonpositive_eac_preserves_input_and_marks_undefined (test_forecast_math.ForecastMathTest.test_nonpositive_eac_preserves_input_and_marks_undefined) ... ok
+test_zero_contract_and_uncapped_completion (test_forecast_math.ForecastMathTest.test_zero_contract_and_uncapped_completion) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.041s
+
+OK

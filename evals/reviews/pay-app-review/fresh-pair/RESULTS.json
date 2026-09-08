@@ -1,0 +1,80 @@
+{
+  "baseline": {
+    "thread": "thr_eedv9mxebb",
+    "execution": {
+      "model": "gpt-6-astra",
+      "serviceTier": "default",
+      "reasoningLevel": "medium",
+      "permissionMode": "auto",
+      "source": "client/turn/requested"
+    },
+    "actual_start_utc": "2026-09-08T00:02:57.687000+00:00",
+    "completed_utc": "2026-09-08T00:05:32.778000+00:00",
+    "elapsed_seconds": 155.091,
+    "trace": "/home/mikeastock/.bb/thread-storage/thr_enucp8t8e3/pay-app-pair/baseline-log.json",
+    "output_directory": "/home/mikeastock/.bb/thread-storage/thr_enucp8t8e3/pay-app-pair/baseline/output",
+    "output_sha256": {
+      "output/cedar-review.md": "4cdd8c8234a58211f9f2e2b1e54dcb5f065a376b857acdaeff72929d190b715e",
+      "output/elm-checker-raw.md": "2c79b400ce16d1e5648a7f0cf7dd27f49b8d585a5673a8f36742c0967bca8639",
+      "output/elm-review.md": "a1e9d5e1a8a12a7a6ba79332de3768400538d5a0e62699b9c81c5edd194e4d06"
+    },
+    "commands_count": 8,
+    "input_and_skill_unchanged": true,
+    "substantive_rubric": {
+      "separate_records": true,
+      "cedar_readable_arithmetic": true,
+      "cedar_unreadable_amount_preserved": true,
+      "cedar_unknown_terms_and_totals_open": true,
+      "elm_certificates_and_current_due": true,
+      "human_payment_decision_preserved": true
+    },
+    "grading_method": "Worker reviewed both final memos and complete tool execution events against hidden PROPOSAL.md; no LLM judge call."
+  },
+  "revised": {
+    "thread": "thr_hz39e6knn4",
+    "execution": {
+      "model": "gpt-6-astra",
+      "serviceTier": "default",
+      "reasoningLevel": "medium",
+      "permissionMode": "auto",
+      "source": "client/turn/requested"
+    },
+    "actual_start_utc": "2026-09-08T00:05:46.667000+00:00",
+    "completed_utc": "2026-09-08T00:08:06.786000+00:00",
+    "elapsed_seconds": 140.119,
+    "trace": "/home/mikeastock/.bb/thread-storage/thr_enucp8t8e3/pay-app-pair/revised-log.json",
+    "output_directory": "/home/mikeastock/.bb/thread-storage/thr_enucp8t8e3/pay-app-pair/revised/output",
+    "output_sha256": {
+      "output/cedar-full-checker.txt": "0facaf01ae03dffecaaebca29a258de2fab08193a3eb09b3d86cbf776e6950e4",
+      "output/cedar-full-command.txt": "ec50ea0b0dfc05642003b6f932c1313b6f012fe2bea3c1dba264a6caf8668a37",
+      "output/cedar-readable-L1-checker.txt": "105818386cad3b9a70e67b6514ac955bf7b689c88265d5e5ccf1a42b86a5b847",
+      "output/cedar-readable-L1-command.txt": "50bbfafc6853aebd7c9bd81cc2980c97de843422dc9d942fa8b93a983dabb009",
+      "output/cedar-readable-L1.csv": "40c2b2029767946fb2492df5037c14dc9b215262171a2ccb55d0975e6de78d59",
+      "output/cedar-review.md": "5ca018e584e75160410f85f22a4946be5275a6e914add00d8aa875650c4938c6",
+      "output/elm-checker.txt": "54abee3e497a8db9a4a04e6a18ae0fe4310a1c9edf0e8e194fd21086684483d9",
+      "output/elm-command.txt": "a5da5afb732632c58a09d93779677bacee8a15b066bcefb0e01cc5e1dd34059a",
+      "output/elm-review.md": "0c3b22c315846e382ab709e2813f6f5cd04a3433406205aafde01e682d47518b"
+    },
+    "commands_count": 8,
+    "input_and_skill_unchanged": true,
+    "substantive_rubric": {
+      "separate_records": true,
+      "cedar_readable_arithmetic": true,
+      "cedar_unreadable_amount_preserved": true,
+      "cedar_unknown_terms_and_totals_open": true,
+      "elm_certificates_and_current_due": true,
+      "human_payment_decision_preserved": true
+    },
+    "grading_method": "Worker reviewed both final memos and complete tool execution events against hidden PROPOSAL.md; no LLM judge call."
+  },
+  "excluded_runs": [
+    {
+      "thread": "thr_s4u7i9xyz3",
+      "provider": "claude-code",
+      "classification": "coordinator-canceled/unpaired",
+      "skill_failure": false,
+      "paired_revision_run": false,
+      "artifacts": "/home/mikeastock/.bb/thread-storage/thr_hpvpiweaze/claude-pairs/pay-app-review/"
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+
+evals/tasks/bid-leveling/millbrook-roofing-07a
+case                                       reward soft_sco boundari correctn   format groundin  expect
+known-good                                   1.00     1.00     1.00     1.00     1.00     1.00  pass  ok
+missing                                      0.00     0.00     0.00     0.00     0.00     0.00  fail  ok
+shortcut-shipped-sample                      0.00     0.29     0.25     0.08     0.71     0.89  fail  ok
+wrong-awards                                 0.00     0.70     0.25     1.00     1.00     1.00  fail  ok
+wrong-gap-missed                             0.00     0.85     1.00     0.63     1.00     1.00  fail  ok
+wrong-raw-ranking                            0.00     0.54     0.75     0.18     0.71     1.00  fail  ok
+
+all fixtures behaved as expected

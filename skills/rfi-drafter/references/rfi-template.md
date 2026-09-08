@@ -57,10 +57,16 @@ direction." followed by what information would allow a proposal.>
 - **To.** Address the party contractually responsible for answering, usually
   the architect of record, even when the engineer of record will write the
   answer. Put the engineer on cc.
-- **Response needed by.** Downstream activity date minus the time the team
-  needs to act on the answer, never earlier than today. When the project
-  turnaround is known and the needed-by date is shorter, say so in the
-  Impact section so the design team sees why.
+- **Response needed by.** Preserve the user's requested date. If deriving
+  one, subtract the stated lead time from the waiting activity date and show
+  the calculation. Distinguish calendar days from working days; state any
+  assumed Monday-Friday calendar and unknown holidays. Use the supplied
+  issue/as-of date, not the runtime date, for historical drafts. If the
+  derived deadline has passed, show it as missed and flag the activity risk;
+  ask for a revised activity or expedited response date rather than silently
+  moving the deadline to today. Leave unknown lead times/dates as placeholders.
+  Compare with the contractual turnaround only when its duration and day
+  basis are supplied; flag a shorter requested turnaround in Impact.
 - **Discipline.** The discipline whose drawing or spec has to change, or
   "multiple" when the answer requires coordination between disciplines.
 

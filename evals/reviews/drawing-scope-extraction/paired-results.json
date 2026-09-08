@@ -1,0 +1,42 @@
+{
+  "baseline": {
+    "checks": {
+      "backing_included": true,
+      "explicit_shelves_included": false,
+      "dependent_hardware_review": true,
+      "hardware_primary_corrected": true,
+      "owner_sensors_excluded": true,
+      "four_real_sheets_with_unreadable_schedule": true,
+      "quotes_in_primary_sheet_text": true,
+      "valid_output_from_bundled_renderer": true
+    },
+    "passed": 7,
+    "total": 8,
+    "decisions": {
+      "cand-001": "include",
+      "cand-002": "review",
+      "cand-003": "review",
+      "cand-004": "exclude"
+    }
+  },
+  "revised": {
+    "checks": {
+      "backing_included": true,
+      "explicit_shelves_included": true,
+      "dependent_hardware_review": true,
+      "hardware_primary_corrected": true,
+      "owner_sensors_excluded": true,
+      "four_real_sheets_with_unreadable_schedule": true,
+      "quotes_in_primary_sheet_text": true,
+      "valid_output_from_bundled_renderer": true
+    },
+    "passed": 8,
+    "total": 8,
+    "decisions": {
+      "cand-001": "include",
+      "cand-002": "include",
+      "cand-003": "review",
+      "cand-004": "exclude"
+    }
+  }
+}

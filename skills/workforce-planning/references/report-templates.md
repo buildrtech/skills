@@ -1,7 +1,7 @@
 # Report templates
 
 Lead with the finding, then the detail. Every employee appears as id and
-name, every project and assignment as id and name. Each section says which
+name, every project as id and supplied name, and every assignment by id. Each section says which
 operation the facts came from and the window they cover. Use only the
 sections the question needs; a bench question does not need a staffing
 proposal.
@@ -12,15 +12,16 @@ proposal.
 # <Question in one line>: <window start> to <window end> (end exclusive)
 
 **Finding:** <the answer in one or two sentences>
-**Source:** Buildr MCP, <operations used>, read <date>
+**Source:** <live Buildr operations OR supplied offline/synthetic source>, read/as-of <date>; <completeness>
 **Window:** <start> to <end>, end date exclusive. <how the window was resolved>
 ```
 
 ## Utilization summary
 
-One row per employee in scope. Utilization is the capacity-weighted average
-of the employee's periods across the window, capped at 100 for the team
-average row. Peak is the highest single period.
+One row per employee in scope. Utilization is the calendar-day-weighted average
+of the employee's periods across the window, with each period capped at 100 before weighting for the team
+average row. State the headcount denominator; unknown intervals prevent a
+complete window average. Peak is the highest single period.
 
 ```
 ## Utilization summary
@@ -42,7 +43,7 @@ user's definition), inside the window. Exclude time off; say so.
 
 | Employee | Role | Bench start | Bench end (excl.) | Days | Last assignment | Next assignment |
 |---|---|---|---|---|---|---|
-| emp_0093 Marcus Bell | Superintendent | 2026-10-03 | (none in window) | 302 | asg_0371 Cedar Mill Warehouse | none |
+| emp_0093 Marcus Bell | Superintendent | 2026-11-01 | 2027-08-01 | 273 | asg_0371 Cedar Mill Warehouse | none |
 ```
 
 ## Demand list
@@ -67,7 +68,7 @@ what it means.
 
 | Employee | Type | Period | Detail | Assignments involved |
 |---|---|---|---|---|
-| emp_0121 Priya Natarajan | Overallocated | 2027-02-01 to 2027-02-15 | 100% assigned during time off tof_0052 | asg_0402 |
+| emp_0121 Priya Natarajan | Time off overlap | 2027-02-01 to 2027-02-15 | 100% assigned during time off tof_0052 | asg_0402 |
 ```
 
 Conflict types: Overallocated (above 100), Time off overlap, Dismissed
@@ -83,15 +84,16 @@ certification, experience) then availability. State every disqualifier.
 
 | Rank | Employee | Role | <Certification> | Relevant experience | Capacity in window | Disqualifier |
 |---|---|---|---|---|---|---|
-| 1 | emp_0107 Dana Whitfield | Superintendent | Valid, expires 2028-03-14 | 2 K-12 projects (assignment-derived) | 0% until 2026-12-19, then 100% | Conflict Nov 2 to Dec 18 |
+| 1 | emp_0107 Dana Whitfield | Superintendent | Valid, expires 2028-03-14 | 1 K-12 project (assignment-derived) | 0% until 2026-12-19; 100% afterward except March 15–21 time off | Occupied Nov 2–Dec 18; unavailable March 15–21 |
 | 2 | emp_0093 Marcus Bell | Superintendent | Expired 2026-06-30 | 1 K-12 project (previous employer) | 100% entire window | OSHA 30 expired in Buildr |
 ```
 
 ## Staffing proposal
 
 The dry run. Numbered, one row per assignment change, with side effects
-and the resulting utilization for every affected employee. End with the
-confirmation question and nothing after it.
+and the projected allocation for every affected employee. Include residual
+unfilled rows where coverage is split. For live changes awaiting authorization,
+end with the specific confirmation question. Offline replay ends at the proposal.
 
 ```
 ## Staffing proposal (dry run, nothing applied)
@@ -100,10 +102,10 @@ confirmation question and nothing after it.
 
 | # | Action | Assignment | Employee | Project | Role | Start | End (excl.) | % | Reason |
 |---|---|---|---|---|---|---|---|---|---|
-| 1 | Update | asg_0410 | emp_0107 Dana Whitfield | proj_0031 Ridgeview | Superintendent | 2026-12-19 | 2027-08-01 | 100 | Fill demand once Lakeside ends |
-| 2 | Update | asg_0388 | emp_0107 Dana Whitfield | proj_0027 Lakeside Clinic TI | Superintendent | 2026-06-01 | 2026-11-02 | 100 | Shorten to make room |
-| 3 | Create | (new) | emp_0107 Dana Whitfield | proj_0027 Lakeside Clinic TI | Superintendent | 2026-11-02 | 2026-12-19 | 50 | Split closeout coverage |
-| 4 | Create | (new) | emp_0107 Dana Whitfield | proj_0031 Ridgeview | Superintendent | 2026-11-02 | 2026-12-19 | 50 | Mobilization coverage |
+| 1 | <action> | <existing ID or new-row label> | <employee or unfilled> | <project> | <role> | <start> | <end> | <allocation> | <reason> |
+
+**Residual demand:** <original requirement = filled + still unfilled, by interval;
+include unavailable coverage during time off>
 
 **Side effects**
 - <project that loses coverage, by how much, for what dates>

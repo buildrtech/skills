@@ -1,0 +1,17 @@
+{
+  "baseline_thread": "thr_99rywwrr6n",
+  "baseline_environment": "env_4ap5zny3r5",
+  "baseline_status": "completed; runtime stopped",
+  "revised_thread": "thr_pd5uamwkm2",
+  "revised_status": "completed; runtime stopped",
+  "queued_message": null,
+  "model": "gpt-6-astra",
+  "reasoning": "medium",
+  "service_tier": "default",
+  "permission_mode": "auto",
+  "storage": "/home/mikeastock/.bb/thread-storage/thr_4wnqeue5ke/paired/",
+  "fresh_result": "15/15 baseline and revision: tie",
+  "run_cap_seconds": 600,
+  "revised_environment": "env_gmr5cbi9dj",
+  "slot": "released to coordinator before grading"
+}

@@ -11,6 +11,8 @@ scope sheet or spec sections for the package when you have them.
 - "Give me the leveled comparison as an Excel workbook so I can hand it to the PM."
 - "Which of these roofing bids are missing the tapered insulation, and what questions should I send each bidder?"
 
+- "Compare two separately identified options from the same company with the other bid; preserve each option and its alternate labels."
+
 Prompts that should not trigger this skill:
 
 - "Estimate this drywall package from scratch." (a takeoff and pricing pass with the user's own cost data, not leveling)

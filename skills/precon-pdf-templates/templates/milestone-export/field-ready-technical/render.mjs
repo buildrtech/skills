@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import { readFileSync, writeFileSync } from "node:fs";
+import { formatMoney, runGenerator } from "../../../scripts/generator-utils.mjs";
 
 function escapeHtml(value) {
   return String(value ?? "")
@@ -9,14 +9,6 @@ function escapeHtml(value) {
     .replaceAll(">", "&gt;")
     .replaceAll('"', "&quot;")
     .replaceAll("'", "&#39;");
-}
-
-function formatMoney(cents) {
-  return new Intl.NumberFormat("en-US", {
-    style: "currency",
-    currency: "USD",
-    maximumFractionDigits: 0,
-  }).format(Number(cents ?? 0) / 100);
 }
 
 function renderList(items) {
@@ -57,10 +49,14 @@ function render(data) {
   <meta charset="utf-8">
   <title>Milestone Export</title>
   <style>
+    @page { size: letter; margin: 0.45in; }
     :root { --ink: #1f2937; --muted: #6b7280; --primary: #334155; --accent: #0f766e; --surface: #f1f5f9; --border: #cbd5e1; --font-body: "Liberation Sans", "DejaVu Sans", sans-serif; }
     body { margin: 0; color: var(--ink); font-family: var(--font-body); font-size: 10.5pt; line-height: 1.4; }
-    .pdf-page { box-sizing: border-box; min-height: 10in; page-break-after: always; padding: 0.5in; }
+    .pdf-page { box-sizing: border-box; page-break-after: always; padding: 0; }
     .pdf-page:last-of-type { page-break-after: auto; }
+    h1, h2 { break-after: avoid; }
+    tr { break-inside: avoid; }
+    .division { break-after: avoid; }
     .keep-together { break-inside: avoid; }
     h1 { color: var(--primary); font-size: 25pt; margin: 0; }
     h2 { background: var(--surface); border-left: 5px solid var(--accent); color: var(--primary); font-size: 13pt; padding: 8px 10px; }
@@ -113,12 +109,4 @@ function render(data) {
 `;
 }
 
-const [inputPath, outputPath] = process.argv.slice(2);
-if (!inputPath || !outputPath) {
-  console.error("Usage: node render.mjs input.json output.html");
-  process.exit(1);
-}
-
-const data = JSON.parse(readFileSync(inputPath, "utf8"));
-const html = render(data);
-writeFileSync(outputPath, html);
+runGenerator(render);

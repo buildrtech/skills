@@ -61,6 +61,8 @@ class CatalogContractTest(unittest.TestCase):
         errors = validate(bad, {'one'})
         self.assertTrue(any('duplicate' in e for e in errors))
         self.assertTrue(any('unknown' in e for e in errors))
+        for name in ('', [], None):
+            self.assertTrue(validate({'plugins': [{'name': name, 'skills': []}]}, {'one'}))
 
 
 if __name__ == '__main__':

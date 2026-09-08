@@ -83,3 +83,37 @@ instructions. Record observations before optimizing prompts or graders.
   sequential per pair, at most two evaluator threads active. No broad matrix or
   chat-surface claims. Skill review workers are the nine direct child threads;
   independent evaluator threads are their children.
+
+## Skill worker registry
+
+All nine direct children use project `proj_sxhtrh8yts`, environment
+`env_9qgefd7zm7`, parent `thr_hpvpiweaze`.
+
+| Skill | Child thread |
+|---|---|
+| bid-leveling | `thr_kefaywjbew` |
+| construction-connectors | `thr_r2pnqxusb4` |
+| drawing-scope-extraction | `thr_hxa96szkr5` |
+| financial-forecasting | `thr_qat4v7xjpq` |
+| pay-app-review | `thr_enucp8t8e3` |
+| precon-pdf-templates | `thr_mtamhw7f8u` |
+| rfi-drafter | `thr_tvachgvz9u` |
+| rfp-intake | `thr_4wnqeue5ke` |
+| workforce-planning | `thr_gm9p2zc9t4` |
+
+## Reproducing preserved baseline files
+
+The Git object is the durable baseline; `/tmp` execution copies may expire.
+To reconstruct an isolated copy without changing this checkout:
+
+```sh
+baseline_dir=$(mktemp -d /tmp/skills-baseline-9a62032.XXXXXX)
+git archive 9a62032 skills evals | tar -x -C "$baseline_dir"
+```
+
+Pass that root to replay tools that accept a baseline override. Reports retain
+original commands and hashes so a reconstruction can be checked before use.
+Full fresh-thread transcripts live at the thread-storage paths recorded in
+per-skill reports; bounded task inputs, artifacts and grading evidence are in
+`evals/reviews/`. Historical/fresh scores describe the verifier revision used
+and are not interchangeable.

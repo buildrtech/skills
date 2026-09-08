@@ -6,9 +6,11 @@ Date: February 16, 2027
 Give me the Q1 forecast for work in progress and tell me which projects
 moved margin more than two points since the last close.
 
-Context the agent should discover, not assume (synthetic account state):
+Illustrative synthetic context (no executable MCP fixture is bundled here;
+the companion output includes additional illustrative amounts that cannot be
+recovered from this request alone):
 
-- Buildr MCP server is connected with read and write scopes.
+- Assume a fictional Buildr connection for the demonstration only.
 - The `wip` tab holds four projects: prj_1001 Harbor Street Parking
   Structure, prj_1002 Cedar Ridge Middle School Renovation, prj_1003
   Northgate Distribution Center, prj_1004 Riverside Clinic Tenant

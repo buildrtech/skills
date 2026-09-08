@@ -49,8 +49,7 @@ shown under Formulas.
   $400,000 dated October 2026, already in contract value; none pending). The
   closed period records the new EAC but not the reason; ask the project
   manager what drove the January reforecast. The project is 60.0% complete
-  and overbilled by $310,000, so the margin fade will show up as the
-  overbilling unwinds over the remaining months.
+  and overbilled by $310,000, the data does not establish how future billing will change.
 - **Cedar Ridge Middle School Renovation (prj_1002): +2.5 points.** EAC
   fell from $7,462,000 (cp_1002_2026-12) to $7,257,000 (cp_1002_2027-01), a
   $205,000 reduction on an $8,200,000 contract. No change orders on the
@@ -71,9 +70,8 @@ for completeness.
 | Riverside Clinic Tenant Improvement | prj_1004 | 25.0% | $900,000 | $1,050,000 | $150,000 | cp_1004_2027-01 |
 | **Net** | | | **$28,420,000** | **$28,700,000** | **$280,000 overbilled** | |
 
-Riverside's $150,000 overbilling at 25% complete is consistent with
-mobilization and a front-loaded schedule of values; nothing in the data
-suggests otherwise. Cedar Ridge's underbilling is the one to watch given it
+Riverside's $150,000 overbilling at 25% complete is measured; mobilization
+or front-loaded billing could explain it, but no supplied record establishes that cause. Cedar Ridge's underbilling is the one to watch given it
 has no pending change orders to explain it.
 
 ## Sources

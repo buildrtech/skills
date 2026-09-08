@@ -30,8 +30,7 @@ from common import (  # noqa: E402
     has_phrase,
     keyword_lines,
     memo_text,
-    section_body,
-    table_rows,
+    rated_criteria_count,
 )
 
 
@@ -117,11 +116,10 @@ def addendum_change_noted(workspace: Path) -> bool:
 @criterion(description="go/no-go scorecard present with a rating per criterion")
 def scorecard_present(workspace: Path) -> bool:
     text = memo_text(workspace)
-    body = section_body(text, "go/no-go scorecard") or section_body(text, "scorecard")
-    if not body:
-        return False
-    rows = [r for r in table_rows(body) if r.count("|") >= 3]
-    return len(rows) >= 6
+    # Organization is not a user requirement. Match rated criteria in tables
+    # or bullets anywhere, rather than requiring one exact heading.
+    return rated_criteria_count(text) >= 6
+
 
 
 @criterion(description="a bid/no-bid recommendation is given, with a value")

@@ -1,0 +1,62 @@
+{
+  "submissions": [
+    {
+      "submission_id": "a",
+      "bidder_name": "Alder Masonry",
+      "source_files": [
+        "a.txt"
+      ],
+      "document_role": "quote",
+      "trade_scope": "Masonry",
+      "total_bid_amount_in_cents": 1000000,
+      "scopes_of_work": [
+        {
+          "scope_key": "wall",
+          "scope": "Wall",
+          "evidence_ref": "E"
+        }
+      ],
+      "excluded_scopes": [
+        {
+          "scope_key": "cleanup",
+          "scope": "Cleanup",
+          "status": "excluded",
+          "evidence_ref": "E"
+        }
+      ],
+      "alternate_lines": [
+        {
+          "alternate_key": "finish",
+          "label": "Stone finish",
+          "printed_label": "Alt 1",
+          "kind": "add",
+          "solicited": true,
+          "amount_in_cents": 20000,
+          "evidence_ref": "E"
+        },
+        {
+          "alternate_key": "finish",
+          "label": "Stone finish",
+          "printed_label": "Alt 1",
+          "kind": "add",
+          "solicited": true,
+          "amount_in_cents": 99000,
+          "evidence_ref": "E"
+        }
+      ],
+      "unit_price_lines": [],
+      "priced_qualifications": [],
+      "review_items": [],
+      "qualifications": [],
+      "evidence": [
+        {
+          "ref": "E",
+          "source_file": "a.txt",
+          "location": "quote",
+          "quote": "Wall included, cleanup excluded; stone finish add $200."
+        }
+      ]
+    }
+  ],
+  "decisions": null
+}

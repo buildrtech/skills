@@ -10,16 +10,17 @@ Client configuration:
 { "type": "http", "url": "https://mcp.buildr.com/mcp" }
 ```
 
-Login is OAuth. Request the `read` and `write` scopes; `write` is only used
-in the confirmed mutation step. If the connection fails, the OAuth flow does
+Login is OAuth. Use read access for reviews; request write access only
+when needed for the confirmed mutation step. If the connection fails, the OAuth flow does
 not complete, or the two tools below do not appear, stop and tell the user
 to ask their Buildr admin whether the MCP server is enabled for their
-account. It is rolling out and is not enabled everywhere yet. Do not retry
+account. Availability must be checked for the current account. Do not retry
 with guessed URLs or tool names.
 
 ## The two tools
 
-The server exposes exactly two tools. Both take `code` (a string holding the
+The documented interface uses two tools; verify their current schemas in tool
+discovery. These examples use `code` (a string holding the
 body of an async JavaScript arrow function) and an optional `timeout`. The
 return value of the function body is the tool result.
 
@@ -80,9 +81,10 @@ Writes (only after a confirmed dry run):
 | `createFinancialsPrimeContract` | Records a prime contract. |
 | `createFinancialsChangeOrder` | Records a change order. |
 
-There are no other operation ids to use for this work. If `codemode.search`
-returns something not in these tables, describe it and ask before relying
-on it.
+These are candidate operation ids, not an exhaustive current API contract.
+Use discovered descriptions to verify names, permissions, units, cumulative
+versus period amounts, pagination, and response shapes. If an operation is
+unavailable, report the missing capability. Do not substitute a guessed API.
 
 ## Pagination and volume
 
@@ -109,9 +111,11 @@ Field names in that loop are illustrative; use the ones `describe` returns.
 1. Read the current state (project, forecast periods, closed periods).
 2. Produce the dry run: operation, project id, month, each field's current
    and proposed value, and the source of the proposed value.
-3. Wait for an explicit yes from the user.
-4. Run one `execute` per mutation. Do not batch several months in one call
-   unless the user confirmed the whole sequence and the sequence is valid.
+3. Obtain explicit approval of this exact dry run; existing exact approval
+   suffices. Re-read before writing and rebuild the proposal if state changed.
+4. Run one `execute` per mutation in the confirmed contiguous sequence.
+   Verify each result before proceeding; on failure stop and report which
+   months succeeded. Never blindly retry an uncertain mutation.
 5. Re-read with the matching `get...ById` operation and
    `listFinancialsBillingPeriods` and report the verified values.
 

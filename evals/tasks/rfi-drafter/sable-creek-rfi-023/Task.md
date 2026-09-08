@@ -74,7 +74,7 @@ no-impact statement) plus weighted disclaimers under `boundaries/disclaimers/`.
 | rfi_exists | RFI at /app/output/rfi-023.md | file | length > 1500 | bool |
 | conflict_sources_cited | S-001 Note 5, 03 30 00 2.6.C, the returned M-2 submittal, 3/S-101 | RFI text | token co-occurrence | fraction |
 | strengths_stated | 3,500 psi and 4,000 psi both stated | RFI text | psi tokens | bool |
-| question_leads_with_ask | question section opens with "Please ..." | RFI text | first line | bool |
+| question_leads_with_ask | question section opens with a confirmation/direction request | RFI text | request-opening pattern | bool |
 | resolution_proposed | suggested resolution names 4,000 psi per 2.6.C, not withheld | RFI section | tokens | bool |
 | precedence_note_cited | S-001 Note 1, more stringent governs | RFI text | tokens | bool |
 | response_date_present | 2026-10-19 in the header table | RFI header | date parse | bool |
@@ -115,3 +115,26 @@ no-impact statement) plus weighted disclaimers under `boundaries/disclaimers/`.
   as "verified". After rescoring: with-skills 6/6 reward 1, baseline 0/6.
 - Remaining questions: `question_leads_with_ask` and `unreviewed_marked`
   are still opinionated but were met by every with-skill trial.
+
+## Takeover revision (2026-09-07)
+
+- The reference previously applied the 3 percent air limit unconditionally.
+  Paragraph 2.6.C limits it to interior hard-troweled slabs; neither condition
+  is established for Area B. The revised oracle retains the supported strength
+  and w/cm proposal and asks for applicability confirmation. M-3 is a returned
+  wall/pier mix, not automatically a compliant slab mix or automatically
+  disqualified by air content. Semantic applicability still requires human
+  review; the token verifier does not establish it.
+- `valid-equivalent-headings` preserves the original reference except for
+  "Clarification requested", "Proposed resolution", and "Could you confirm".
+  The old verifier rejects it (reward 0). Content extraction now recognizes
+  these equivalent sections/requests; format remains independently scored.
+  The original withheld-resolution, invented-reference, and directive negative
+  controls remain unchanged. Added equivalent-heading withheld-resolution and
+  "Please proceed" controls prevent the broadened request parser hiding errors.
+- Local deterministic fixture results and baseline evidence are in
+  `evals/reviews/rfi-drafter/`. Fresh model evaluation awaits coordinator scheduling.
+
+- Date extraction strips Markdown blockquote markers before parsing wrapped
+  dates. The supplied October 19 date was previously missed across lines;
+  the known-good grounding score rises from 0.94 to 1.00 without changing truth.

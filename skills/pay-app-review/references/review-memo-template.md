@@ -1,6 +1,6 @@
 # Review memo template
 
-Use this layout at step 10. Lead with the status. Paste the script's two
+Use this default layout at step 10; equivalent headings are acceptable. Lead with the status. Paste the script's two
 tables unchanged. Every amount in the memo cites where it came from: the
 application (file or page and line and column), the contract terms the
 reviewer supplied, or the script's arithmetic on those. The memo prepares a
@@ -42,7 +42,7 @@ approval, certification, or rejection.
 | Stored materials rules | | contract clause |
 | Lien waiver requirement | | contract clause |
 | Certified payroll requirement | required / not required | contract clause |
-| Prior application certified | amount, date | prior certificate |
+| Cumulative prior certificates | amount, through date | certificate history |
 
 ## Script findings
 

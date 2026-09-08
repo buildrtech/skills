@@ -1,0 +1,83 @@
+{
+  "set_name": "Juniper Transit Break Room",
+  "sheet_count": 4,
+  "candidates": [
+    {
+      "id": "cand-001",
+      "division": "06",
+      "candidate": "Wood backing",
+      "sheet_number": "G-010",
+      "location": "Note 1",
+      "quote": "PROVIDE WOOD BACKING AT NEW WALL-MOUNTED SHELVES.",
+      "support_level": "direct",
+      "decision": "include",
+      "reason": "First pass; needs source verification."
+    },
+    {
+      "id": "cand-002",
+      "division": "06",
+      "candidate": "Plastic laminate shelves",
+      "sheet_number": "A-110",
+      "location": "Note 1",
+      "quote": "PROVIDE PLASTIC LAMINATE SHELVES IN STAFF ROOM.",
+      "support_level": "direct",
+      "decision": "include",
+      "reason": "First pass; needs source verification.",
+      "related_sheets": [
+        "A-610"
+      ]
+    },
+    {
+      "id": "cand-003",
+      "division": "08",
+      "candidate": "New door hardware",
+      "sheet_number": "A-610",
+      "location": "Note 1",
+      "quote": "NEW DOOR HARDWARE PER A-610 SCHEDULE.",
+      "support_level": "direct",
+      "decision": "include",
+      "reason": "First pass; needs source verification."
+    },
+    {
+      "id": "cand-004",
+      "division": "25",
+      "candidate": "Temperature sensors",
+      "sheet_number": "M-110",
+      "location": "Note 1",
+      "quote": "TEMPERATURE SENSORS FURNISHED AND INSTALLED BY OWNER UNDER SEPARATE CONTRACT.",
+      "support_level": "direct",
+      "decision": "include",
+      "reason": "First pass; needs source verification."
+    }
+  ],
+  "coverage_ledger": [
+    {
+      "kind": "sheet",
+      "source": "G-010",
+      "status": "reviewed",
+      "reason": "Prior extraction status; verify source text.",
+      "candidate_ids": []
+    },
+    {
+      "kind": "sheet",
+      "source": "A-110",
+      "status": "reviewed",
+      "reason": "Prior extraction status; verify source text.",
+      "candidate_ids": []
+    },
+    {
+      "kind": "sheet",
+      "source": "A-610",
+      "status": "unreadable",
+      "reason": "Prior extraction status; verify source text.",
+      "candidate_ids": []
+    },
+    {
+      "kind": "sheet",
+      "source": "M-110",
+      "status": "reviewed",
+      "reason": "Prior extraction status; verify source text.",
+      "candidate_ids": []
+    }
+  ]
+}

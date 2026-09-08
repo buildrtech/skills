@@ -14,6 +14,7 @@ def validate(manifest, names):
         name = plugin.get('name')
         if not isinstance(name, str) or not name.strip() or name in groups:
             errors.append('plugin names must be unique non-empty strings')
+            continue
         members = plugin.get('skills', [])
         if not isinstance(members, list) or any(not isinstance(p, str) for p in members):
             errors.append(f'{name}: skills must be a list of paths')

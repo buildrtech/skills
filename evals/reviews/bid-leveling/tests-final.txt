@@ -1,0 +1,23 @@
+WARN `--no-project` was provided, but no project was found
+INFO add_decision: Id::<PubGrubPackage>(0) @ 0a0.dev0 without checking dependencies
+INFO add_decision: Id::<PubGrubPackage>(1) @ 3.1.5 without checking dependencies
+INFO add_decision: Id::<PubGrubPackage>(2) @ 2.0.0 without checking dependencies
+test_alternate_sign_and_null (test_level_bids.BidLevelingTests.test_alternate_sign_and_null) ... ok
+test_bad_decisions_fail_before_arithmetic (test_level_bids.BidLevelingTests.test_bad_decisions_fail_before_arithmetic) ... ok
+test_conflicting_alternate_scope_or_kind_is_rejected (test_level_bids.BidLevelingTests.test_conflicting_alternate_scope_or_kind_is_rejected) ... ok
+test_duplicate_alternate_is_rejected (test_level_bids.BidLevelingTests.test_duplicate_alternate_is_rejected) ... ok
+test_duplicate_alternate_with_scope_namespace_collision (test_level_bids.BidLevelingTests.test_duplicate_alternate_with_scope_namespace_collision) ... ok
+test_duplicate_plugs_never_double_count (test_level_bids.BidLevelingTests.test_duplicate_plugs_never_double_count) ... ok
+test_duplicate_submission_is_rejected (test_level_bids.BidLevelingTests.test_duplicate_submission_is_rejected) ... ok
+test_missing_or_invalid_evidence (test_level_bids.BidLevelingTests.test_missing_or_invalid_evidence) ... ok
+test_printed_alternate_reconciliation (test_level_bids.BidLevelingTests.test_printed_alternate_reconciliation) ... ok
+test_same_company_submissions_and_targeted_plug (test_level_bids.BidLevelingTests.test_same_company_submissions_and_targeted_plug) ... ok
+test_sample_and_existing_fixture_arithmetic (test_level_bids.BidLevelingTests.test_sample_and_existing_fixture_arithmetic) ... ok
+test_scope_conflict_cannot_hide_a_gap (test_level_bids.BidLevelingTests.test_scope_conflict_cannot_hide_a_gap) ... ok
+test_voluntary_alternates_are_isolated (test_level_bids.BidLevelingTests.test_voluntary_alternates_are_isolated) ... ok
+test_xlsx_same_submission_and_alternate_tables (test_level_bids.BidLevelingTests.test_xlsx_same_submission_and_alternate_tables) ... ok
+
+----------------------------------------------------------------------
+Ran 14 tests in 1.428s
+
+OK

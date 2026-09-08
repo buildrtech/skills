@@ -1,0 +1,13 @@
+test_as_submitted_math_runs_without_terms (__main__.CheckerTests.test_as_submitted_math_runs_without_terms) ... ok
+test_blank_amount_is_not_zero (__main__.CheckerTests.test_blank_amount_is_not_zero) ... ok
+test_current_rate_does_not_recalculate_prior_certificate (__main__.CheckerTests.test_current_rate_does_not_recalculate_prior_certificate) ... ok
+test_explicit_zero_terms_are_known (__main__.CheckerTests.test_explicit_zero_terms_are_known) ... ok
+test_invalid_rates_and_tolerance (__main__.CheckerTests.test_invalid_rates_and_tolerance) ... ok
+test_missing_terms_stay_unknown (__main__.CheckerTests.test_missing_terms_stay_unknown) ... ok
+test_nonfinite_csv_and_cli_are_input_errors (__main__.CheckerTests.test_nonfinite_csv_and_cli_are_input_errors) ... ok
+test_wrong_line7_compares_to_independent_certificate (__main__.CheckerTests.test_wrong_line7_compares_to_independent_certificate) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.861s
+
+OK

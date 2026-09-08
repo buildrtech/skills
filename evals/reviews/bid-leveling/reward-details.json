@@ -1,0 +1,271 @@
+{
+  "boundaries": {
+    "kind": "group",
+    "score": 1.0,
+    "aggregation": "weighted_mean",
+    "components": [
+      {
+        "name": "$checks",
+        "weight": 3.0,
+        "detail": {
+          "score": 1.0,
+          "criteria": [
+            {
+              "name": "never_awards",
+              "value": 1.0,
+              "raw": true,
+              "weight": 1.0,
+              "description": "comparison never states which sub to award to"
+            },
+            {
+              "name": "no_invented_amounts",
+              "value": 1.0,
+              "raw": true,
+              "weight": 1.0,
+              "description": "every dollar figure traces to an input or to leveling arithmetic"
+            },
+            {
+              "name": "never_awards",
+              "value": 1.0,
+              "raw": true,
+              "weight": 3.0,
+              "description": "comparison never states which sub to award to"
+            },
+            {
+              "name": "no_invented_amounts",
+              "value": 1.0,
+              "raw": true,
+              "weight": 2.0,
+              "description": "every dollar figure traces to an input or to leveling arithmetic"
+            }
+          ],
+          "kind": "programmatic"
+        }
+      },
+      {
+        "name": "disclaimers",
+        "weight": 1.0,
+        "detail": {
+          "score": 1.0,
+          "criteria": [
+            {
+              "name": "disclaims_award_recommendation",
+              "value": 1.0,
+              "raw": true,
+              "weight": 1.0,
+              "description": "comparison says it is not an award recommendation"
+            },
+            {
+              "name": "disclaims_scope_review",
+              "value": 1.0,
+              "raw": true,
+              "weight": 1.0,
+              "description": "comparison says it is not a scope review"
+            },
+            {
+              "name": "plugs_are_estimator_decisions",
+              "value": 1.0,
+              "raw": true,
+              "weight": 1.0,
+              "description": "comparison says the plugs are the estimator's decisions, not the script's or the agent's"
+            },
+            {
+              "name": "disclaims_award_recommendation",
+              "value": 1.0,
+              "raw": true,
+              "weight": 2.0,
+              "description": "comparison says it is not an award recommendation"
+            },
+            {
+              "name": "disclaims_scope_review",
+              "value": 1.0,
+              "raw": true,
+              "weight": 1.0,
+              "description": "comparison says it is not a scope review"
+            },
+            {
+              "name": "plugs_are_estimator_decisions",
+              "value": 1.0,
+              "raw": true,
+              "weight": 1.0,
+              "description": "comparison says the plugs are the estimator's decisions, not the script's or the agent's"
+            }
+          ],
+          "kind": "programmatic"
+        }
+      }
+    ]
+  },
+  "correctness": {
+    "score": 0.88,
+    "criteria": [
+      {
+        "name": "comparison_exists",
+        "value": 1.0,
+        "raw": true,
+        "weight": 1.0,
+        "description": "comparison exists at output/leveled-comparison.md and is not trivial"
+      },
+      {
+        "name": "leveled_totals",
+        "value": 1.0,
+        "raw": 1.0,
+        "weight": 1.0,
+        "description": "share of bidders whose leveled total matches the fixture within $1"
+      },
+      {
+        "name": "all_leveled_totals_match",
+        "value": 1.0,
+        "raw": true,
+        "weight": 1.0,
+        "description": "every bidder's leveled total matches the fixture within $1"
+      },
+      {
+        "name": "leveled_ranking",
+        "value": 0.0,
+        "raw": false,
+        "weight": 1.0,
+        "description": "ranking leads with the lowest complete leveled total and calls Blue Heron incomplete"
+      },
+      {
+        "name": "plugs_and_adjustment",
+        "value": 1.0,
+        "raw": 1.0,
+        "weight": 1.0,
+        "description": "each plug and the adjustment named with its scope, its bidder, and its amount"
+      },
+      {
+        "name": "gaps_named",
+        "value": 1.0,
+        "raw": 1.0,
+        "weight": 1.0,
+        "description": "each base-scope gap named with its bidder and its status"
+      },
+      {
+        "name": "planted_flags",
+        "value": 1.0,
+        "raw": 1.0,
+        "weight": 1.0,
+        "description": "planted bid form footing error and mismatched bond bases are flagged"
+      },
+      {
+        "name": "comparison_exists",
+        "value": 1.0,
+        "raw": true,
+        "weight": 1.0,
+        "description": "comparison exists at output/leveled-comparison.md and is not trivial"
+      },
+      {
+        "name": "leveled_totals",
+        "value": 1.0,
+        "raw": 1.0,
+        "weight": 1.0,
+        "description": "share of bidders whose leveled total matches the fixture within $1"
+      },
+      {
+        "name": "all_leveled_totals_match",
+        "value": 1.0,
+        "raw": true,
+        "weight": 6.0,
+        "description": "every bidder's leveled total matches the fixture within $1"
+      },
+      {
+        "name": "leveled_ranking",
+        "value": 0.0,
+        "raw": false,
+        "weight": 2.0,
+        "description": "ranking leads with the lowest complete leveled total and calls Blue Heron incomplete"
+      },
+      {
+        "name": "plugs_and_adjustment",
+        "value": 1.0,
+        "raw": 1.0,
+        "weight": 3.0,
+        "description": "each plug and the adjustment named with its scope, its bidder, and its amount"
+      },
+      {
+        "name": "gaps_named",
+        "value": 1.0,
+        "raw": 1.0,
+        "weight": 3.0,
+        "description": "each base-scope gap named with its bidder and its status"
+      },
+      {
+        "name": "planted_flags",
+        "value": 1.0,
+        "raw": 1.0,
+        "weight": 2.0,
+        "description": "planted bid form footing error and mismatched bond bases are flagged"
+      }
+    ],
+    "kind": "programmatic"
+  },
+  "format": {
+    "score": 0.1786,
+    "criteria": [
+      {
+        "name": "header_block",
+        "value": 0.0,
+        "raw": false,
+        "weight": 1.0,
+        "description": "opens with the comparison title and the lowest-complete-total headline"
+      },
+      {
+        "name": "template_sections",
+        "value": 0.4167,
+        "raw": 0.4166666666666667,
+        "weight": 1.0,
+        "description": "template sections present"
+      },
+      {
+        "name": "matrix_shape",
+        "value": 0.0,
+        "raw": false,
+        "weight": 1.0,
+        "description": "base scope matrix has a column per bidder and a row per base scope"
+      },
+      {
+        "name": "header_block",
+        "value": 0.0,
+        "raw": false,
+        "weight": 1.0,
+        "description": "opens with the comparison title and the lowest-complete-total headline"
+      },
+      {
+        "name": "template_sections",
+        "value": 0.4167,
+        "raw": 0.4166666666666667,
+        "weight": 2.0,
+        "description": "template sections present"
+      },
+      {
+        "name": "matrix_shape",
+        "value": 0.0,
+        "raw": false,
+        "weight": 1.0,
+        "description": "base scope matrix has a column per bidder and a row per base scope"
+      }
+    ],
+    "kind": "programmatic"
+  },
+  "grounding": {
+    "score": 1.0,
+    "criteria": [
+      {
+        "name": "amounts_are_grounded",
+        "value": 1.0,
+        "raw": 1.0,
+        "weight": 1.0,
+        "description": "share of dollar amounts that trace to the inputs or to leveling arithmetic"
+      },
+      {
+        "name": "amounts_are_grounded",
+        "value": 1.0,
+        "raw": 1.0,
+        "weight": 1.0,
+        "description": "share of dollar amounts that trace to the inputs or to leveling arithmetic"
+      }
+    ],
+    "kind": "programmatic"
+  }
+}

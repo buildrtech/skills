@@ -1,0 +1,312 @@
+{
+  "set_name": "Juniper Transit Break Room",
+  "sheet_count": 4,
+  "candidates": [
+    {
+      "id": "cand-001",
+      "division": "06",
+      "candidate": "Wood backing",
+      "sheet_number": "G-010",
+      "location": "GN-1",
+      "quote": "PROVIDE WOOD BACKING AT NEW WALL-MOUNTED SHELVES.",
+      "support_level": "direct",
+      "decision": "include",
+      "reason": "Verified verbatim against G-010 GN-1. Explicit wood backing requirement; Division 06 rough carpentry.",
+      "notes": "Backing is explicitly required. Shelf layout remains unresolved separately; no dimensions or extent inferred."
+    },
+    {
+      "id": "cand-002",
+      "division": "06",
+      "candidate": "Plastic laminate shelves in staff room",
+      "sheet_number": "A-110",
+      "location": "Note 1",
+      "quote": "PROVIDE PLASTIC LAMINATE SHELVES IN STAFF ROOM. DIMENSIONED LAYOUT SEE A-610.",
+      "support_level": "direct",
+      "decision": "review",
+      "reason": "A-110 Note 1 directly requires shelves, but their dimensioned layout depends on unreadable A-610. Keep under review until the layout is verified. Division 06 for plastic laminate architectural shelving.",
+      "related_sheets": [
+        "A-610"
+      ],
+      "notes": "A-610 is a referenced dependency only; no layout was read there."
+    },
+    {
+      "id": "cand-003",
+      "division": "08",
+      "candidate": "New door hardware",
+      "sheet_number": "A-110",
+      "location": "Note 2",
+      "quote": "NEW DOOR HARDWARE PER A-610 SCHEDULE.",
+      "support_level": "reference_only",
+      "decision": "review",
+      "reason": "Corrected prior attribution: the quote is on A-110 Note 2, not A-610. Hardware is defined by the unreadable A-610 schedule; no schedule rows or hardware sets can be verified. Division 08 for door hardware.",
+      "related_sheets": [
+        "A-610"
+      ],
+      "notes": "A-610 is a referenced dependency only, not verified schedule evidence."
+    },
+    {
+      "id": "cand-004",
+      "division": "23",
+      "candidate": "Temperature sensors",
+      "sheet_number": "M-110",
+      "location": "Note 1",
+      "quote": "TEMPERATURE SENSORS FURNISHED AND INSTALLED BY OWNER UNDER SEPARATE CONTRACT.",
+      "support_level": "by_others",
+      "decision": "exclude",
+      "reason": "M-110 Note 1 explicitly assigns both furnishing and installation to the owner under a separate contract. Division 23 is the mechanical temperature-control placement judgment; the text does not establish an integrated automation or DDC system to justify prior Division 25."
+    }
+  ],
+  "coverage_ledger": [
+    {
+      "kind": "sheet",
+      "source": "G-010",
+      "title": "General notes",
+      "status": "reviewed",
+      "reason": "Read all supplied extracted text: GN-1 verifies backing. Text-only review; no PDF inspected.",
+      "candidate_ids": [
+        "cand-001"
+      ]
+    },
+    {
+      "kind": "sheet",
+      "source": "A-110",
+      "title": "Room plan",
+      "status": "reviewed",
+      "reason": "Read both supplied notes in full. Shelves and hardware depend on unreadable A-610 and remain under review. No PDF inspected.",
+      "candidate_ids": [
+        "cand-002",
+        "cand-003"
+      ]
+    },
+    {
+      "kind": "sheet",
+      "source": "A-610",
+      "title": "Door schedule",
+      "status": "unreadable",
+      "reason": "Supplied index reports scan and prior OCR with no legible rows; no new OCR performed and no native PDF supplied. No independent scope extracted. Candidate IDs mark unresolved dependencies, not verified content.",
+      "candidate_ids": [
+        "cand-002",
+        "cand-003"
+      ]
+    },
+    {
+      "kind": "sheet",
+      "source": "M-110",
+      "title": "Mechanical notes",
+      "status": "reviewed",
+      "reason": "Read all supplied extracted text: Note 1 assigns temperature sensors to owner. Exclusion only; no included scope. No PDF inspected.",
+      "candidate_ids": [
+        "cand-004"
+      ]
+    },
+    {
+      "kind": "probe",
+      "source": "demolition [terms: demolition, remove, existing to remain, salvage, relocate]",
+      "status": "no_hits",
+      "candidate_ids": [],
+      "reason": "No matches in supplied sheet text; does not establish absence on unreadable A-610 or unprovided PDF content."
+    },
+    {
+      "kind": "probe",
+      "source": "concrete [terms: concrete, slab, pad, patch, level, core drill]",
+      "status": "no_hits",
+      "candidate_ids": [],
+      "reason": "No matches in supplied sheet text; does not establish absence on unreadable A-610 or unprovided PDF content."
+    },
+    {
+      "kind": "probe",
+      "source": "blocking [terms: blocking, backing, nailer, plywood, in-wall support]",
+      "status": "covered",
+      "candidate_ids": [
+        "cand-001"
+      ],
+      "reason": "Matches: G-010 text line 1. Backing verified and included."
+    },
+    {
+      "kind": "probe",
+      "source": "casework [terms: casework, millwork, cabinet, countertop, shelving, plam]",
+      "status": "no_hits",
+      "candidate_ids": [],
+      "reason": "No matches in supplied sheet text; does not establish absence on unreadable A-610 or unprovided PDF content."
+    },
+    {
+      "kind": "probe",
+      "source": "firestopping [terms: firestopping, firestop, fire-rated, rated, UL, penetration]",
+      "status": "excluded",
+      "candidate_ids": [],
+      "reason": "Substring-only false positives: UL in SCHEDULE on A-110 Note 2 and schedule in the A-610 unreadability notice. No firestopping work stated; A-610 remains unreadable."
+    },
+    {
+      "kind": "probe",
+      "source": "sealant [terms: sealant, caulk, acoustical seal, joint]",
+      "status": "no_hits",
+      "candidate_ids": [],
+      "reason": "No matches in supplied sheet text; does not establish absence on unreadable A-610 or unprovided PDF content."
+    },
+    {
+      "kind": "probe",
+      "source": "roofing [terms: roofing, roof, flashing, curb, membrane]",
+      "status": "no_hits",
+      "candidate_ids": [],
+      "reason": "No matches in supplied sheet text; does not establish absence on unreadable A-610 or unprovided PDF content."
+    },
+    {
+      "kind": "probe",
+      "source": "door hardware [terms: door hardware, hardware set, HW, lockset, closer, cylinder, keyed]",
+      "status": "needs_followup",
+      "candidate_ids": [
+        "cand-003"
+      ],
+      "reason": "Matches: A-110 text line 2. Referenced layout/schedule unresolved; affected items remain under review."
+    },
+    {
+      "kind": "probe",
+      "source": "access panels [terms: access panels, access door, AP, ceiling access]",
+      "status": "no_hits",
+      "candidate_ids": [],
+      "reason": "No matches in supplied sheet text; does not establish absence on unreadable A-610 or unprovided PDF content."
+    },
+    {
+      "kind": "probe",
+      "source": "glazing [terms: glazing, glass, tempered, storefront, sidelite, mirror, film]",
+      "status": "no_hits",
+      "candidate_ids": [],
+      "reason": "No matches in supplied sheet text; does not establish absence on unreadable A-610 or unprovided PDF content."
+    },
+    {
+      "kind": "probe",
+      "source": "gypsum board [terms: gypsum board, GWB, gyp, partition type, stud, furring, soffit]",
+      "status": "no_hits",
+      "candidate_ids": [],
+      "reason": "No matches in supplied sheet text; does not establish absence on unreadable A-610 or unprovided PDF content."
+    },
+    {
+      "kind": "probe",
+      "source": "acoustical ceiling [terms: acoustical ceiling, ACT, ceiling tile, grid, lay-in, ceiling height]",
+      "status": "excluded",
+      "candidate_ids": [],
+      "reason": "Substring-only false positive: ACT in CONTRACT on M-110 Note 1. No acoustical ceiling work stated."
+    },
+    {
+      "kind": "probe",
+      "source": "resilient flooring [terms: resilient flooring, LVT, VCT, base, RB, carpet, CPT, tile, transition]",
+      "status": "no_hits",
+      "candidate_ids": [],
+      "reason": "No matches in supplied sheet text; does not establish absence on unreadable A-610 or unprovided PDF content."
+    },
+    {
+      "kind": "probe",
+      "source": "painting [terms: painting, paint, PT, finish, coating, stain]",
+      "status": "no_hits",
+      "candidate_ids": [],
+      "reason": "No matches in supplied sheet text; does not establish absence on unreadable A-610 or unprovided PDF content."
+    },
+    {
+      "kind": "probe",
+      "source": "toilet accessories [terms: toilet accessories, grab bar, dispenser, accessory, TA]",
+      "status": "excluded",
+      "candidate_ids": [],
+      "reason": "Substring-only false positives: TA in STAFF on A-110 Note 1 and INSTALLED on M-110 Note 1. No toilet accessory work stated."
+    },
+    {
+      "kind": "probe",
+      "source": "wall protection [terms: wall protection, corner guard, FRP, crash rail, wainscot]",
+      "status": "no_hits",
+      "candidate_ids": [],
+      "reason": "No matches in supplied sheet text; does not establish absence on unreadable A-610 or unprovided PDF content."
+    },
+    {
+      "kind": "probe",
+      "source": "sprinkler [terms: sprinkler, fire protection, FP, head, sprink]",
+      "status": "no_hits",
+      "candidate_ids": [],
+      "reason": "No matches in supplied sheet text; does not establish absence on unreadable A-610 or unprovided PDF content."
+    },
+    {
+      "kind": "probe",
+      "source": "plumbing fixtures [terms: plumbing fixtures, sink, faucet, fixture, rough-in, cap, waste, vent, water heater]",
+      "status": "no_hits",
+      "candidate_ids": [],
+      "reason": "No matches in supplied sheet text; does not establish absence on unreadable A-610 or unprovided PDF content."
+    },
+    {
+      "kind": "probe",
+      "source": "HVAC [terms: HVAC, diffuser, grille, VAV, exhaust, thermostat, duct, T&B, balance]",
+      "status": "no_hits",
+      "candidate_ids": [],
+      "reason": "No matches in supplied sheet text; does not establish absence on unreadable A-610 or unprovided PDF content."
+    },
+    {
+      "kind": "probe",
+      "source": "electrical [terms: electrical, fixture, lighting, receptacle, circuit, panel, sensor, dimmer, fire alarm, data, access control]",
+      "status": "excluded",
+      "candidate_ids": [
+        "cand-004"
+      ],
+      "reason": "Matches: M-110 text line 1. Sensors are owner work and excluded; search category does not determine CSI division."
+    },
+    {
+      "kind": "probe",
+      "source": "shelves / laminate / layout [terms: shelves, plastic laminate, dimensioned layout]",
+      "status": "needs_followup",
+      "candidate_ids": [
+        "cand-001",
+        "cand-002"
+      ],
+      "reason": "Matches: A-110 text line 1, G-010 text line 1. Backing verified and included. Referenced layout/schedule unresolved; affected items remain under review."
+    },
+    {
+      "kind": "probe",
+      "source": "hardware / schedule [terms: hardware, schedule]",
+      "status": "needs_followup",
+      "candidate_ids": [
+        "cand-003"
+      ],
+      "reason": "Matches: A-110 text line 2, A-610 text line 1. Referenced layout/schedule unresolved; affected items remain under review. A-610 match is an unreadability notice, not schedule evidence."
+    },
+    {
+      "kind": "probe",
+      "source": "temperature sensors / owner [terms: temperature sensors, owner, separate contract]",
+      "status": "excluded",
+      "candidate_ids": [
+        "cand-004"
+      ],
+      "reason": "Matches: M-110 text line 1. Sensors are owner work and excluded; search category does not determine CSI division."
+    },
+    {
+      "kind": "probe",
+      "source": "thermostat / controls / DDC / BMS [terms: thermostat, controls, DDC, BMS]",
+      "status": "no_hits",
+      "candidate_ids": [],
+      "reason": "No matches in supplied sheet text; does not establish absence on unreadable A-610 or unprovided PDF content."
+    },
+    {
+      "kind": "source",
+      "source": "A-610 schedule and A-110 referenced dimensioned layout",
+      "status": "needs_followup",
+      "candidate_ids": [
+        "cand-002",
+        "cand-003"
+      ],
+      "reason": "No readable schedule rows or layout available. Prior OCR failure reported by input; no OCR-derived quotes used. Both dependent candidates remain under review."
+    }
+  ],
+  "assumptions": [],
+  "exclusions": [],
+  "rfis": [
+    {
+      "text": "What is the dimensioned staff-room shelf layout referenced on A-610? The supplied A-610 text has no readable content to verify it; shelves remain under review.",
+      "source": "A-110 Note 1; A-610 unreadable",
+      "candidate_ids": [
+        "cand-002"
+      ]
+    },
+    {
+      "text": "What door hardware does the A-610 schedule require? No legible rows are available, so hardware remains under review.",
+      "source": "A-110 Note 2; A-610 unreadable",
+      "candidate_ids": [
+        "cand-003"
+      ]
+    }
+  ]
+}

@@ -73,7 +73,13 @@ def has_phrase(text: str, *phrases: str) -> bool:
 def section(text: str, heading: str) -> str:
     """Body of the first '## <heading>' section (case-insensitive) up to the next heading."""
     low = text.lower()
-    m = re.search(r"^#{1,3}\s+" + re.escape(heading.lower()) + r"\b.*$", low, re.MULTILINE)
+    aliases = {
+        "question": ("question", "clarification requested"),
+        "suggested resolution": ("suggested resolution", "proposed resolution"),
+    }
+    names = aliases.get(heading.lower(), (heading.lower(),))
+    pattern = "(?:" + "|".join(re.escape(name) for name in names) + ")"
+    m = re.search(r"^#{1,3}\s+" + pattern + r"\b.*$", low, re.MULTILINE)
     if not m:
         return ""
     start = m.end()
@@ -83,6 +89,8 @@ def section(text: str, heading: str) -> str:
 
 
 def dates(text: str) -> set[str]:
+    # Quoted source excerpts can wrap dates across Markdown blockquote lines.
+    text = re.sub(r"(?m)^\s*>[ \t]?", "", text)
     out: set[str] = set()
     for m in DATE_WORDS.finditer(text):
         mon = MONTHS.get(m.group(1).lower())

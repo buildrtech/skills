@@ -1,25 +1,25 @@
 {
   "plugs": [
     {
-      "bidder_name": "Ironwood Roofing Systems, Inc.",
+      "submission_id": "ironwood-base",
       "scope_key": "roof_hatch",
       "amount_in_cents": 685000,
       "source": "Estimator (D. Okafor, 8/27) carried Cardinal's itemized roof hatch line, bid form row 8, as the plug."
     },
     {
-      "bidder_name": "Blue Heron Roofing & Sheet Metal LLC",
+      "submission_id": "blue-heron-base",
       "scope_key": "vapor_retarder",
       "amount_in_cents": 3860000,
       "source": "Estimator (D. Okafor, 8/27): self-adhered vapor retarder from the 7/28 estimate, line 07 26 00."
     },
     {
-      "bidder_name": "Blue Heron Roofing & Sheet Metal LLC",
+      "submission_id": "blue-heron-base",
       "scope_key": "walkway_pads",
       "amount_in_cents": 420000,
       "source": "Estimator (D. Okafor, 8/27) carried Cardinal's itemized walkway pad line, bid form row 7, as the plug."
     },
     {
-      "bidder_name": "Cardinal Commercial Roofing Co.",
+      "submission_id": "cardinal-base",
       "scope_key": "hoisting",
       "amount_in_cents": 950000,
       "source": "Estimator (D. Okafor, 8/27): Lakeshore Crane quote dated 8/12 for two crane days at the garage, GC estimate line 01 54 00."
@@ -27,7 +27,7 @@
   ],
   "adjustments": [
     {
-      "bidder_name": "Cardinal Commercial Roofing Co.",
+      "submission_id": "cardinal-base",
       "amount_in_cents": -2740000,
       "description": "Remove metal wall panels at mechanical screen (07 42 13); carried in the metal panel package 07B",
       "source": "Cardinal bid form row 12 shows the panel line at $27,400 inside the total (CC-2)."

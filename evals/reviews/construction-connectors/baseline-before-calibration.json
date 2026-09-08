@@ -1,0 +1,16 @@
+{
+  "checks": {
+    "mode": true,
+    "scope": false,
+    "unique_records": true,
+    "pagination_complete": true,
+    "outcomes": true,
+    "confirmed_sheet_links": true,
+    "live_writes_performed": true,
+    "retry_permitted_by_request": true,
+    "overdue_ids": true,
+    "missing_due_ids": true,
+    "unresolved_sheet_links": true
+  },
+  "pass": false
+}

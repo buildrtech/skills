@@ -1,13 +1,105 @@
 {
   "type": "object",
-  "required": ["project", "milestone", "summary", "inclusions", "divisions"],
+  "required": [
+    "project",
+    "milestone",
+    "summary",
+    "inclusions",
+    "divisions"
+  ],
   "properties": {
-    "project": { "type": "string" },
-    "milestone": { "type": "string" },
-    "summary": { "type": "object" },
-    "inclusions": { "type": "array", "items": { "type": "string" } },
-    "exclusions": { "type": "array", "items": { "type": "string" } },
-    "divisions": { "type": "array" },
-    "approvals": { "type": "array" }
+    "project": {
+      "type": "string"
+    },
+    "milestone": {
+      "type": "string"
+    },
+    "summary": {
+      "type": "object",
+      "required": [
+        "estimateDate",
+        "grossSquareFeet",
+        "constructionCostCents",
+        "costPerSquareFootCents"
+      ],
+      "properties": {
+        "estimateDate": {
+          "type": "string"
+        },
+        "grossSquareFeet": {
+          "type": "string"
+        },
+        "constructionCostCents": {
+          "type": "integer",
+          "minimum": -9007199254740991,
+          "maximum": 9007199254740991
+        },
+        "costPerSquareFootCents": {
+          "type": "integer",
+          "minimum": -9007199254740991,
+          "maximum": 9007199254740991
+        }
+      }
+    },
+    "inclusions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "exclusions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "divisions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "code",
+          "name",
+          "totalCents"
+        ],
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "notes": {
+            "type": "string"
+          },
+          "totalCents": {
+            "type": "integer",
+            "minimum": -9007199254740991,
+            "maximum": 9007199254740991
+          }
+        }
+      }
+    },
+    "approvals": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "name",
+          "status"
+        ],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          },
+          "date": {
+            "type": "string"
+          }
+        }
+      }
+    }
   }
 }

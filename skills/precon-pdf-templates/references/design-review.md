@@ -1,6 +1,6 @@
 # Design review
 
-Assume the first render has problems. Inspect the PDF as pages before
+Inspect the PDF as pages before
 delivery, not just the HTML in a browser: page breaks, repeated table
 headers, and print margins only show up in the PDF.
 
@@ -12,7 +12,7 @@ first converter that is installed:
 ```bash
 # Headless Chrome / Chromium (binary may be chromium, chromium-browser, or chrome)
 google-chrome --headless --disable-gpu --no-pdf-header-footer \
-  --print-to-pdf=document.pdf document.html
+  --print-to-pdf=/path/to/job/document.pdf file:///path/to/job/document.html
 
 # WeasyPrint
 weasyprint document.html document.pdf
@@ -24,8 +24,9 @@ user to open it in a browser and print to PDF with headers and footers off.
 
 Chrome honors `page-break-after`, `break-inside: avoid`, and
 `thead { display: table-header-group }`, which the templates rely on.
-WeasyPrint honors them too but ignores `min-height` on `.pdf-page`, so
-short pages may not fill; that is cosmetic.
+Converter support differs, especially for grid layouts in milestone and
+proposal documents. Inspect the actual PDF; successful conversion alone is
+not a layout check. Generators declare US Letter with 0.45-inch page margins.
 
 ## Render pages to images (optional)
 
@@ -33,7 +34,6 @@ Rendering pages to PNG lets you look at every page at once. Skip this step
 if neither tool is installed and review the PDF directly instead.
 
 ```bash
-rm -f page_*.png
 # ImageMagick 7 (needs Ghostscript)
 magick -density 150 document.pdf -background white -alpha remove -quality 90 page_%02d.png
 # or ImageMagick 6
@@ -62,10 +62,12 @@ overflowed or a `min-height` pushed content onto a blank page.
   line items) rather than reading as a raw export.
 - Folio and footer page numbers are sequential and correct.
 - Source HTML and data file are saved next to the PDF for revisions.
-- Family-specific checks in the template's `qa.md` pass.
+- Family-specific checks in the generator's `qa.md` pass, where supplied.
 
 ## Required loop
 
-Generate, convert, inspect, list issues, fix the HTML or data, reconvert,
-and reinspect the affected pages. Do not declare success until at least one
-fix-and-verify pass is complete, and tell the user what was fixed.
+Generate, convert, inspect, and list issues. Fix actual layout or transcription
+errors, reconvert, and reinspect affected pages. Preserve source discrepancies
+and report them instead of changing the figures. If no issues are found,
+record that result without making a gratuitous change. If inspection cannot
+run, identify the unverified parts in the delivery note.

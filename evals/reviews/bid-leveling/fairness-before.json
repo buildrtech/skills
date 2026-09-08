@@ -1,0 +1,8 @@
+{
+  "boundaries": 1.0,
+  "correctness": 0.88,
+  "format": 0.1786,
+  "grounding": 1.0,
+  "reward": 0.0,
+  "soft_score": 0.8699
+}

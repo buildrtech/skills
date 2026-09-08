@@ -1,0 +1,15 @@
+Section,Division,Description,Quantity,Amount
+Direct cost,03 Concrete,Footing placement,12 CY,2150.25
+Direct cost,03 Concrete,Slab reinforcement,1800 SF,4649.18
+Direct cost,03 Concrete,Division 03 subtotal,,6800.43
+Direct cost,09 Finishes,Acoustic panels,740 SF,1999.95
+Direct cost,09 Finishes,Door touch-up,6 EA,300.30
+Direct cost,09 Finishes,Division 09 subtotal,,2300.25
+Direct cost,26 Electrical,Panel connection,1 LS,1000.00
+Direct cost,26 Electrical,Division 26 subtotal,,1000.00
+Markup,,Insurance and bond,,475.25
+Total,,Direct cost subtotal,,10100.68
+Total,,Markups,,475.25
+Total,,Grand total,,10575.93
+Alternate,,Add entry canopy,,825.40
+Alternate,,Deduct decorative lighting,,-1200.17

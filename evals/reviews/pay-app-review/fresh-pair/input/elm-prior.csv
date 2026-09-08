@@ -1,0 +1,2 @@
+item,description,scheduled_value,previous_completed,this_period,stored_materials,total_completed,percent_complete,balance_to_finish,retainage
+P1,Painting,20000,2000,3000,0,5000,25,15000,500

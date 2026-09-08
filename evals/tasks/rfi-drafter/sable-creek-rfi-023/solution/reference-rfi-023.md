@@ -64,8 +64,8 @@ placing at either strength.
   interior slabs to receive a hard-troweled finish."
 - Section 03 30 00, paragraph 2.6.D: foundation walls and piers at 4,000
   psi, maximum w/cm 0.45, air content 5.5 percent plus or minus 1.5 percent
-  (the approved 4,000 psi mix M-3 is air entrained to this paragraph and is
-  not a hard-troweled slab mix).
+  (returned mix M-3 is designated for walls and piers; its suitability for
+  Area B requires confirmation).
 - Submittal 03 30 00-02, Concrete Design Mixtures, returned September 21,
   2026 by Tremont Engineering Group, "No Exceptions Taken": mix M-2, slabs
   on grade, 3,500 psi, maximum w/cm 0.48, not air entrained, noted "Per
@@ -77,18 +77,19 @@ placing at either strength.
 
 ## Suggested resolution
 
-Place the Area B slab on grade at 4,000 psi at 28 days with a maximum w/cm
-of 0.45 and 3 percent maximum air, per Section 03 30 00, paragraph 2.6.C,
-on the basis that S-001 General Note 1 makes the more stringent requirement
-govern where the drawings and specifications conflict. The contractor would
-resubmit slab mix M-2 as a revised design mixture at those values under
-paragraph 1.4.B and S-001 Note 9 for the Structural Engineer's review before
-placement; the approved 4,000 psi mix M-3 is not proposed for the slab
-because its 5.5 percent air content exceeds the 3 percent maximum in
-paragraph 2.6.C for hard-troweled slabs. Offered for the design team's
-confirmation; if the Structural Engineer instead directs in writing that
-3,500 psi governs under Note 1, please confirm that mix M-2 may be placed as
-returned on Submittal 03 30 00-02.
+For the design team's confirmation, propose 4,000 psi at 28 days with a
+maximum w/cm of 0.45 per Section 03 30 00, paragraph 2.6.C, based on the
+more stringent requirement rule in S-001 General Note 1. The contractor
+would resubmit a revised slab mix M-2 under paragraph 1.4.B and S-001 Note 9
+for review before placement. The 3 percent maximum air content applies only
+to interior slabs receiving a hard-troweled finish; the supplied excerpts
+establish neither condition for Area B. Please confirm Area B's location
+classification and finish before applying that air limit. Mix M-3 is
+returned for walls and piers, so its 4,000 psi strength alone does not
+establish slab suitability; its 5.5 percent air would exceed the limit if
+those conditions apply. If the Structural Engineer directs otherwise in
+writing under Note 1, please confirm both the strength and w/cm requirements
+and whether the returned M-2 meets them.
 
 ## Impact
 

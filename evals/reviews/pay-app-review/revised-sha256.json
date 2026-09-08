@@ -1,0 +1,12 @@
+{
+  "skills/pay-app-review/SKILL.md": "d05d84b49b3e04b7d4ab3b3dc718ca00a531545ce36b60a3bb020e85916a420e",
+  "skills/pay-app-review/examples/sample-prompts.md": "a7fbe6da2fb9c24e52ed3e5cf9d49dc57de304662ae9f347451e75717264cbad",
+  "skills/pay-app-review/references/checks.md": "46640477d029907263c7ffa95df8b22dfc95bd5b0f4d274930fd458c92f9aa2e",
+  "skills/pay-app-review/references/g702-g703-fields.md": "110890fb0c773d8215544a7346c88ed01ddce61a30e0a79c1351d2361ab59731",
+  "skills/pay-app-review/references/review-memo-template.md": "a647a663a337b33d94268ff7cc1194288972ba743b0bee41f8834ec39e09bb5b",
+  "skills/pay-app-review/samples/input-cover-sheet.md": "e2198940def1b2d711e25672f04c0f51b27307dd54feea4078612e90b4a26a96",
+  "skills/pay-app-review/samples/input-pay-app-1.csv": "cfdeb86752092238b3da7c948743282acec759825f846e0a77a987f613cbec0a",
+  "skills/pay-app-review/samples/input-pay-app-2.csv": "ebffbc5e0f0829bbc71a0b80691c0908a8705cbc8ed323f664fa2f73894059d4",
+  "skills/pay-app-review/samples/output-review-memo.md": "6e09b72289b270ab5472fcd182cbde21d9b657b6b13e752e0f1718cec426fe05",
+  "skills/pay-app-review/scripts/check_pay_app.py": "be1457bd1bfd4167bb82dd68b03db1ff91eaef152edd007ca96aa4bfbba0bc44"
+}

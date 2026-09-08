@@ -59,7 +59,8 @@ and most to a project id. The Agentic APIs use the same OAuth tokens.
 - Two rate limits: an hourly window and a 10-second spike window. Responses
   carry `X-Rate-Limit-Limit`, `X-Rate-Limit-Remaining`, and
   `X-Rate-Limit-Reset` (Unix seconds). On `429`, wait until the reset time
-  and retry with backoff and jitter. Errors (400, 403, 404) count against
+  and retry reads with backoff and jitter. For writes, follow the
+  mutation checklist; never blindly retry or skip a throttled row. Errors (400, 403, 404) count against
   the limit too. Procore's docs give example values only and say limits
   vary by account; third-party integrators commonly cite 3,600 per hour as
   a default that can be raised on request.
@@ -149,8 +150,6 @@ execution.
 - Text-based search only; no visual search.
 - Token budgets belong to the AI client, not Bluebeam; large drawing sets
   need paging by page ranges.
-- Bluebeam published introductory Max pricing of 590 USD per user per year
-  locked through 2027 renewals; confirm current pricing with Bluebeam.
 
 **Sources.**
 

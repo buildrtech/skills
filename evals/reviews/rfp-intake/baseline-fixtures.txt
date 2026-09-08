@@ -1,0 +1,10 @@
+
+evals/tasks/rfp-intake/brannock-fire-station-4
+case                                       reward soft_sco boundari correctn   format groundin  expect
+known-good                                   1.00     1.00     1.00     1.00     1.00     1.00  pass  ok
+missing                                      0.00     0.00     0.00     0.00     0.00     0.00  fail  ok
+shortcut-shipped-sample                      0.00     0.38     0.18     0.48     1.00     0.22  fail  ok
+wrong-no-bid-decision                        0.00     0.60     0.25     0.82     0.71     1.00  fail  ok
+wrong-thin-review                            0.00     0.65     0.75     0.51     0.50     1.00  fail  ok
+
+all fixtures behaved as expected

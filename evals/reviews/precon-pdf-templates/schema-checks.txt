@@ -1,0 +1,10 @@
+INFO add_decision: Id::<PubGrubPackage>(0) @ 0a0.dev0 without checking dependencies
+INFO add_decision: Id::<PubGrubPackage>(1) @ 4.26.0 without checking dependencies
+INFO add_decision: Id::<PubGrubPackage>(2) @ 26.1.0 without checking dependencies
+INFO add_decision: Id::<PubGrubPackage>(3) @ 2025.9.1 without checking dependencies
+INFO add_decision: Id::<PubGrubPackage>(4) @ 0.37.0 without checking dependencies
+INFO add_decision: Id::<PubGrubPackage>(5) @ 2026.6.3 without checking dependencies
+Installed 5 packages in 4ms
+construction-budget-export: schema and sample validation passed; required money negatives rejected where applicable
+milestone-export: schema and sample validation passed; required money negatives rejected where applicable
+employee-resume: schema and sample validation passed; required money negatives rejected where applicable

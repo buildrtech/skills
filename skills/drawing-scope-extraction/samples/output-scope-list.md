@@ -94,7 +94,7 @@ Drawing-backed scope only. No quantities or pricing. Each item cites the sheet a
 
 ### Review items
 
-Drawing-backed but unresolved. Each stays off the included list until the question in its reason is answered.
+Unresolved references, inferences, or drawing evidence. Each stays off the included list until the question in its reason is answered.
 
 #### Division 08: Openings
 

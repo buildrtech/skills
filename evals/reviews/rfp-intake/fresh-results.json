@@ -1,0 +1,42 @@
+{
+  "rubric": "FRESH-RUBRIC.md",
+  "scorer": "coordinating AI worker; manual source comparison, not independent judge",
+  "outcome": "tie",
+  "baseline_score": 15,
+  "revised_score": 15,
+  "possible_score": 15,
+  "hard_failures": [],
+  "model": "gpt-6-astra",
+  "provider": "codex",
+  "reasoning": "medium",
+  "service_tier": "default",
+  "permission_mode": "auto",
+  "runs": {
+    "baseline": {
+      "thread": "thr_99rywwrr6n",
+      "environment": "env_4ap5zny3r5",
+      "start_ms": 1788825480456,
+      "end_ms": 1788825572004,
+      "elapsed_seconds": 91.548,
+      "files": {
+        "/home/mikeastock/.bb/thread-storage/thr_4wnqeue5ke/paired/baseline-transcript.json": "b70a4ab65d44d69d7ae34d2df0a0f9fa3a9f5ff1339e288a7fb255b5f40a374c",
+        "/home/mikeastock/.bb/thread-storage/thr_4wnqeue5ke/paired/baseline/output/intake-review.md": "e5edeab6202a36297c303a33bfdf8715a1cb776012fafd7bfba3b8d966e08661"
+      },
+      "word_count": 2432,
+      "status": "completed; runtime stopped"
+    },
+    "revised": {
+      "thread": "thr_pd5uamwkm2",
+      "environment": "env_gmr5cbi9dj",
+      "start_ms": 1788825616669,
+      "end_ms": 1788825743570,
+      "elapsed_seconds": 126.901,
+      "files": {
+        "/home/mikeastock/.bb/thread-storage/thr_4wnqeue5ke/paired/revised-transcript.json": "82ae5a0ae4d37c3ec227d0665dd11d0613e8133c699d6789188290722302cc77",
+        "/home/mikeastock/.bb/thread-storage/thr_4wnqeue5ke/paired/revised/output/intake-review.md": "67576fedb94ff82c62b859d1ba94d386b6d626d53d35c3cf4a93cb4a8764940d"
+      },
+      "word_count": 3158,
+      "status": "completed; runtime stopped"
+    }
+  }
+}

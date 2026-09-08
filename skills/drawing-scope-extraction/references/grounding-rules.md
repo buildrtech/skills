@@ -45,8 +45,8 @@ recording the first candidate.
 
 | `decision` | Meaning |
 |---|---|
-| `include` | Goes on the scope list under its division. |
-| `review` | Drawing-backed but unresolved: ambiguous text, OCR uncertainty, a referenced sheet that is missing or unreadable, or an inference. Listed separately under its division with the reason. |
+| `include` | Goes on the scope list under its division; the primary cited sheet must be `reviewed` or `reviewed_ocr`. |
+| `review` | Unresolved evidence: ambiguous text, OCR uncertainty, a referenced sheet that is missing or unreadable, or an inference. Listed separately under its division with the reason. |
 | `exclude` | Recorded so the ledger is complete, but not scope for the user: by others, NIC, reference only, or text that does not describe work. |
 
 ## Describing a candidate
@@ -80,6 +80,9 @@ it; never generate it backward from the candidate list.
 - Every sheet in the inventory has a status: `reviewed`, `reviewed_ocr`,
   `unreadable`, or `not_reviewed`. A sheet that was skipped is
   `not_reviewed` with the reason; it is never silently omitted.
+- Keep work dependent on an unreadable or unreviewed sheet under review.
+  A readable primary sheet may independently establish an item even when a
+  related sheet is unavailable; explain that distinction in the reason.
 - Every probe that was run has a ledger entry, including probes with no
   hits. For each hit, record what concrete items surfaced and whether each
   became a candidate, was merged into another candidate, was excluded with a

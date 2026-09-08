@@ -211,3 +211,16 @@ and E-401 in its RFIs.
   keyword vocabulary when two content words appear in the input candidates
   (structural steel frame, LED high-bay fixture, sewer cleanouts were real
   items scored as invented); then 3/3.
+
+## Takeover regression, 2026-09-07
+
+The added `wrong-required-work-excluded` fixture moves all required work except
+Division 06 into exclusions. The original verifier awarded reward/soft_score
+1.0 despite 31 required items being excluded. `expected_scope_items` now checks
+included items in the included-scope section; non-included candidates retain
+existing presence and weak-support checks. A coarse boundary gate also requires at least half of required items to
+remain included: the weighted root otherwise still passes this negative at
+0.92. This floor catches wholesale exclusion while detailed recall stays a
+soft correctness score. No heading or format requirement was tightened. The original fixtures remain unchanged. See
+`evals/reviews/drawing-scope-extraction/REPORT.md` for paired deterministic
+results and the fresh model evaluation proposal awaiting coordinator scheduling.

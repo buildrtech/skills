@@ -45,7 +45,7 @@ python3 scripts/check_pay_app.py samples/input-pay-app-2.csv \
   --contract-sum 2450000 --change-orders 18500 --retainage 10 \
   --g702-change-orders 0 --g702-contract-sum-to-date 2450000 \
   --g702-completed 738500 --g702-retainage 71550 --g702-earned 666950 \
-  --g702-previous 323100 --g702-due 343850 --g702-balance 1783050
+  --prior-certified 323100 --g702-previous 323100 --g702-due 343850 --g702-balance 1783050
 ```
 
 Exit code 1 (error-severity findings present). Output unchanged:
@@ -84,7 +84,7 @@ Exit code 1 (error-severity findings present). Output unchanged:
 | 8 | Current payment due | 382,050.00 | 343,850.00 | (38,200.00) |
 | 9 | Balance to finish, including retainage | 1,763,350.00 | 1,783,050.00 | 19,700.00 |
 
-Lines checked: 12. Retainage basis: 10% of completed work, 10% of stored materials. Tolerance: 0.01. Percent-jump threshold: 50% of scheduled value in one period.
+Lines checked: 12. Retainage basis: 10.00% of completed work, 10.00% of stored materials; explicit per-line overrides apply. Tolerance: 0.01. Percent-jump threshold: 50% of scheduled value in one period.
 
 This output prepares a review. It is not an approval, certification, or rejection of payment.
 

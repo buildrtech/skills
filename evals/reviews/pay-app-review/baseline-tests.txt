@@ -1,0 +1,166 @@
+test_as_submitted_math_runs_without_terms (__main__.CheckerTests.test_as_submitted_math_runs_without_terms) ... FAIL
+test_blank_amount_is_not_zero (__main__.CheckerTests.test_blank_amount_is_not_zero) ... FAIL
+test_current_rate_does_not_recalculate_prior_certificate (__main__.CheckerTests.test_current_rate_does_not_recalculate_prior_certificate) ... FAIL
+test_explicit_zero_terms_are_known (__main__.CheckerTests.test_explicit_zero_terms_are_known) ... FAIL
+test_invalid_rates_and_tolerance (__main__.CheckerTests.test_invalid_rates_and_tolerance) ... FAIL
+test_missing_terms_stay_unknown (__main__.CheckerTests.test_missing_terms_stay_unknown) ... FAIL
+test_nonfinite_csv_and_cli_are_input_errors (__main__.CheckerTests.test_nonfinite_csv_and_cli_are_input_errors) ...
+  test_nonfinite_csv_and_cli_are_input_errors (__main__.CheckerTests.test_nonfinite_csv_and_cli_are_input_errors) (value='NaN') ... FAIL
+  test_nonfinite_csv_and_cli_are_input_errors (__main__.CheckerTests.test_nonfinite_csv_and_cli_are_input_errors) (value='Infinity') ... FAIL
+  test_nonfinite_csv_and_cli_are_input_errors (__main__.CheckerTests.test_nonfinite_csv_and_cli_are_input_errors) (value='-Infinity') ... FAIL
+test_wrong_line7_compares_to_independent_certificate (__main__.CheckerTests.test_wrong_line7_compares_to_independent_certificate) ... FAIL
+
+======================================================================
+FAIL: test_as_submitted_math_runs_without_terms (__main__.CheckerTests.test_as_submitted_math_runs_without_terms)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/mikeastock/.bb/worktrees/env_9qgefd7zm7/skills/evals/reviews/pay-app-review/test_checker.py", line 74, in test_as_submitted_math_runs_without_terms
+    self.assertEqual(r.returncode, 1, r.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 2 != 1 : usage: check_pay_app.py [-h] --contract-sum CONTRACT_SUM
+                        [--change-orders CHANGE_ORDERS]
+                        [--retainage RETAINAGE]
+                        [--stored-retainage STORED_RETAINAGE] [--prior PRIOR]
+                        [--jump-threshold JUMP_THRESHOLD]
+                        [--tolerance TOLERANCE]
+                        [--g702-change-orders G702_CHANGE_ORDERS]
+                        [--g702-contract-sum-to-date G702_CONTRACT_SUM_TO_DATE]
+                        [--g702-completed G702_COMPLETED]
+                        [--g702-retainage G702_RETAINAGE]
+                        [--g702-earned G702_EARNED]
+                        [--g702-previous G702_PREVIOUS] [--g702-due G702_DUE]
+                        [--g702-balance G702_BALANCE]
+                        current
+check_pay_app.py: error: the following arguments are required: --contract-sum
+
+
+======================================================================
+FAIL: test_blank_amount_is_not_zero (__main__.CheckerTests.test_blank_amount_is_not_zero)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/mikeastock/.bb/worktrees/env_9qgefd7zm7/skills/evals/reviews/pay-app-review/test_checker.py", line 41, in test_blank_amount_is_not_zero
+    self.assertEqual(r.returncode, 2)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+AssertionError: 1 != 2
+
+======================================================================
+FAIL: test_current_rate_does_not_recalculate_prior_certificate (__main__.CheckerTests.test_current_rate_does_not_recalculate_prior_certificate)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/mikeastock/.bb/worktrees/env_9qgefd7zm7/skills/evals/reviews/pay-app-review/test_checker.py", line 60, in test_current_rate_does_not_recalculate_prior_certificate
+    self.assertEqual(r.returncode, 0, r.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 2 != 0 : usage: check_pay_app.py [-h] --contract-sum CONTRACT_SUM
+                        [--change-orders CHANGE_ORDERS]
+                        [--retainage RETAINAGE]
+                        [--stored-retainage STORED_RETAINAGE] [--prior PRIOR]
+                        [--jump-threshold JUMP_THRESHOLD]
+                        [--tolerance TOLERANCE]
+                        [--g702-change-orders G702_CHANGE_ORDERS]
+                        [--g702-contract-sum-to-date G702_CONTRACT_SUM_TO_DATE]
+                        [--g702-completed G702_COMPLETED]
+                        [--g702-retainage G702_RETAINAGE]
+                        [--g702-earned G702_EARNED]
+                        [--g702-previous G702_PREVIOUS] [--g702-due G702_DUE]
+                        [--g702-balance G702_BALANCE]
+                        current
+check_pay_app.py: error: unrecognized arguments: --prior-certified 90
+
+
+======================================================================
+FAIL: test_explicit_zero_terms_are_known (__main__.CheckerTests.test_explicit_zero_terms_are_known)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/mikeastock/.bb/worktrees/env_9qgefd7zm7/skills/evals/reviews/pay-app-review/test_checker.py", line 86, in test_explicit_zero_terms_are_known
+    self.assertEqual(r.returncode, 1)  # submitted retainage 10 conflicts with explicit zero
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+AssertionError: 2 != 1
+
+======================================================================
+FAIL: test_invalid_rates_and_tolerance (__main__.CheckerTests.test_invalid_rates_and_tolerance)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/mikeastock/.bb/worktrees/env_9qgefd7zm7/skills/evals/reviews/pay-app-review/test_checker.py", line 81, in test_invalid_rates_and_tolerance
+    self.assertEqual(r.returncode, 2)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+AssertionError: 1 != 2
+
+======================================================================
+FAIL: test_missing_terms_stay_unknown (__main__.CheckerTests.test_missing_terms_stay_unknown)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/mikeastock/.bb/worktrees/env_9qgefd7zm7/skills/evals/reviews/pay-app-review/test_checker.py", line 33, in test_missing_terms_stay_unknown
+    self.assertEqual(r.returncode, 0, r.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 2 != 0 : usage: check_pay_app.py [-h] --contract-sum CONTRACT_SUM
+                        [--change-orders CHANGE_ORDERS]
+                        [--retainage RETAINAGE]
+                        [--stored-retainage STORED_RETAINAGE] [--prior PRIOR]
+                        [--jump-threshold JUMP_THRESHOLD]
+                        [--tolerance TOLERANCE]
+                        [--g702-change-orders G702_CHANGE_ORDERS]
+                        [--g702-contract-sum-to-date G702_CONTRACT_SUM_TO_DATE]
+                        [--g702-completed G702_COMPLETED]
+                        [--g702-retainage G702_RETAINAGE]
+                        [--g702-earned G702_EARNED]
+                        [--g702-previous G702_PREVIOUS] [--g702-due G702_DUE]
+                        [--g702-balance G702_BALANCE]
+                        current
+check_pay_app.py: error: the following arguments are required: --contract-sum
+
+
+======================================================================
+FAIL: test_nonfinite_csv_and_cli_are_input_errors (__main__.CheckerTests.test_nonfinite_csv_and_cli_are_input_errors) (value='NaN')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/mikeastock/.bb/worktrees/env_9qgefd7zm7/skills/evals/reviews/pay-app-review/test_checker.py", line 51, in test_nonfinite_csv_and_cli_are_input_errors
+    self.assertEqual(r.returncode, 2)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+AssertionError: 1 != 2
+
+======================================================================
+FAIL: test_nonfinite_csv_and_cli_are_input_errors (__main__.CheckerTests.test_nonfinite_csv_and_cli_are_input_errors) (value='Infinity')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/mikeastock/.bb/worktrees/env_9qgefd7zm7/skills/evals/reviews/pay-app-review/test_checker.py", line 51, in test_nonfinite_csv_and_cli_are_input_errors
+    self.assertEqual(r.returncode, 2)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+AssertionError: 1 != 2
+
+======================================================================
+FAIL: test_nonfinite_csv_and_cli_are_input_errors (__main__.CheckerTests.test_nonfinite_csv_and_cli_are_input_errors) (value='-Infinity')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/mikeastock/.bb/worktrees/env_9qgefd7zm7/skills/evals/reviews/pay-app-review/test_checker.py", line 51, in test_nonfinite_csv_and_cli_are_input_errors
+    self.assertEqual(r.returncode, 2)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+AssertionError: 1 != 2
+
+======================================================================
+FAIL: test_wrong_line7_compares_to_independent_certificate (__main__.CheckerTests.test_wrong_line7_compares_to_independent_certificate)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/mikeastock/.bb/worktrees/env_9qgefd7zm7/skills/evals/reviews/pay-app-review/test_checker.py", line 66, in test_wrong_line7_compares_to_independent_certificate
+    self.assertEqual(r.returncode, 1, r.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 2 != 1 : usage: check_pay_app.py [-h] --contract-sum CONTRACT_SUM
+                        [--change-orders CHANGE_ORDERS]
+                        [--retainage RETAINAGE]
+                        [--stored-retainage STORED_RETAINAGE] [--prior PRIOR]
+                        [--jump-threshold JUMP_THRESHOLD]
+                        [--tolerance TOLERANCE]
+                        [--g702-change-orders G702_CHANGE_ORDERS]
+                        [--g702-contract-sum-to-date G702_CONTRACT_SUM_TO_DATE]
+                        [--g702-completed G702_COMPLETED]
+                        [--g702-retainage G702_RETAINAGE]
+                        [--g702-earned G702_EARNED]
+                        [--g702-previous G702_PREVIOUS] [--g702-due G702_DUE]
+                        [--g702-balance G702_BALANCE]
+                        current
+check_pay_app.py: error: the following arguments are required: --contract-sum
+
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.436s
+
+FAILED (failures=10)

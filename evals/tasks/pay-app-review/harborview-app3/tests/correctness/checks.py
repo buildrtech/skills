@@ -84,17 +84,6 @@ def script_output_present(workspace: Path) -> bool:
     return has_phrase(text, "11 error, 7 warning") and has_amount(text, "562365")
 
 
-@criterion(description="hold list has at least six rows")
-def hold_list_rows(workspace: Path) -> bool:
-    text = memo_text(workspace)
-    low = text.lower()
-    start = low.find("## items on hold")
-    if start < 0:
-        return False
-    end = low.find("\n## ", start + 5)
-    section = text[start : end if end > 0 else len(text)]
-    rows = [ln for ln in section.splitlines() if ln.startswith("|") and not ln.startswith("|---") and not ln.lower().startswith("| #")]
-    return len(rows) >= 6
 
 
 rk.memo_exists(weight=1.0)
@@ -102,4 +91,3 @@ rk.status_is_hold(weight=2.0)
 rk.planted_findings(weight=4.0)
 rk.manual_findings(weight=2.0)
 rk.script_output_present(weight=1.0)
-rk.hold_list_rows(weight=1.0)

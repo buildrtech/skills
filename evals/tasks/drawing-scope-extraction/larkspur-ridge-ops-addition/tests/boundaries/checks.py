@@ -21,6 +21,7 @@ from common import (  # noqa: E402
     ITEMS,
     SHEETS,
     citation_lines,
+    cited_with_sheet,
     included_section,
     scope_text,
     sheet_ids,
@@ -101,5 +102,15 @@ def _candidate_words(workspace: Path) -> set[str]:
     return words - STOPWORDS
 
 
+@criterion(description="the included scope retains most required work, rather than moving it to exclusions")
+def required_work_retained(workspace: Path) -> bool:
+    included = included_section(scope_text(workspace))
+    required = [(keywords, sheet) for keywords, sheet, decision in ITEMS.values() if decision == "include"]
+    # Keep this coarse: the detailed recall score belongs to correctness.
+    # This gate catches wholesale exclusion while tolerating lexical misses.
+    return sum(cited_with_sheet(included, keywords, sheet) for keywords, sheet in required) / len(required) >= 0.5
+
+
+rk.required_work_retained(weight=1.0)
 rk.citations_exist(weight=1.0)
 rk.no_extra_scope(weight=1.0)

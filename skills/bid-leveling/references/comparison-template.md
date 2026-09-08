@@ -73,10 +73,10 @@ those files, so the first extraction's row order sets the matrix order.
 bidders whose totals are complete: a stated base bid and no unresolved base
 gaps. If no bidder is complete it says so. One line follows for each
 incomplete bidder, listing the gaps holding it up. Lead the presentation
-with these lines, in the same words. A bidder that is lowest but
+with these results. A bidder that is lowest but
 incomplete is not "low"; say what would have to be resolved first.
 
-**Summary.** One row per bidder. `Plugs` and `Adjustments` show `none`
+**Summary.** One row per submission, labeled with company name and submission ID. `Plugs` and `Adjustments` show `none`
 when nothing was recorded. `Leveled total` carries `(incomplete)` when any
 base gap has no plug. `Documents` lists the source files, which is how the
 reader knows an email quote from a signed proposal.
@@ -110,7 +110,9 @@ putting bonds and taxes on a common basis. Each names its source.
 `not offered`. `Solicited` distinguishes alternates the bid documents asked
 for from ones a bidder volunteered (`no (bidder-proposed)`). A price of
 `priced: not stated` means the bidder offered the alternate without a
-number. Nothing here is in a leveled total. When presenting, point out
+number. Each price cell preserves the printed alternate label and evidence ref,
+plus a mapping note where printed labels differ. Voluntary options remain
+separate per submission. Nothing here is in a leveled total. When presenting, point out
 solicited alternates where a bidder is missing and bidder-proposed
 alternates that would change the comparison if accepted.
 
@@ -134,7 +136,7 @@ other two sections are visible but do not count.
 extractions: things a person must confirm with the bidder or the documents.
 `Leveling check` items are flags the script raised while building the
 model (itemized lines that do not sum to the total, rows not addressed,
-plugs ignored, duplicate bidders, mismatched trade scopes). Every leveling
+plugs ignored, mismatched trade scopes). Every leveling
 check should be either fixed in the inputs or explained in the
 presentation. This list, with the unresolved gaps, is the source for the
 questions to send each bidder.
@@ -157,7 +159,7 @@ scope review. Repeat the last one when presenting.
 The comparison is the deliverable, but the user usually wants it read to
 them first. A good presentation, in order:
 
-1. The headline lines, verbatim.
+1. The lowest complete total and all incomplete submissions.
 2. What it took to get there: the plugs and adjustments in plain language
    with their sources, and which gaps are still unresolved.
 3. What could move the ranking: unresolved gaps, priced qualifications on

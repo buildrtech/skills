@@ -25,8 +25,17 @@ resolve it.
 
 ## Output template
 
-Lead with the recommendation. Keep the whole review readable in one screen
-before the detail sections.
+Lead with a short recommendation and reason, followed by complete detail.
+Headings and table layout are defaults, not an exact-string contract. In a
+full intake, every applicable criterion needs a rating, reason, and evidence or
+an explicit unknown. Documented project requirements do not establish that the
+bidder has the experience, capacity, or appetite to meet them.
+
+Before delivery, reconcile all supplied addenda and check each source section
+for omissions. Include bond calculation basis, all insurance limits and
+endorsements, forms and alternates, submission logistics, post-bid deadlines,
+and conditions for rejection. List referenced materials that were not supplied;
+a sheet count is not evidence of design completeness.
 
 ```
 # Intake review: <project name>
@@ -37,7 +46,7 @@ before the detail sections.
 ## Key dates
 | Milestone | Date | Source |
 |---|---|---|
-| Questions deadline | | <doc, page> |
+| Questions deadline | | <doc, page or section> |
 | Pre-bid meeting / site visit | | |
 | Addenda (last issued) | | |
 | Bid due | | |

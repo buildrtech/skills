@@ -1,8 +1,10 @@
 # Plan and log: close out overdue RFIs on Ridgeview
 
-All tool names below are examples taken from the connected server's
-inventory during this run. They are not vendor-official names and will
-differ on other servers.
+SYNTHETIC ILLUSTRATION ONLY. All records, tool names, user replies, and
+outcomes below are authored examples, not captured execution. No remote
+system was read or changed. This is not an independently replayable fixture.
+The response ids and exact text below are also authored examples. A real
+proposal must obtain them from record detail before requesting approval.
 
 ## 1. Inventory
 
@@ -29,9 +31,8 @@ match for "Ridgeview": **Ridgeview Elementary Classroom Addition**
 (project id 88214, project number 26-014). Company 1102 has no project
 containing "Ridgeview".
 
-Question asked and answered before proceeding: "Ridgeview Elementary
-Classroom Addition (88214) under Northwind Builders (1101)? Reply yes."
-User: yes.
+One match across the visible companies resolves scope; report its name and
+ids and proceed with reads. No additional yes is needed for this read.
 
 ## 3. Read-only pass
 
@@ -63,16 +64,17 @@ Each of the four was read individually with `get_rfi`. Findings:
 ## 4. Dry run
 
 Server: `pm-connector`
+Account: Northwind Builders (1101)
 Project: Ridgeview Elementary Classroom Addition (88214)
 
 | # | Record | Id | Field | Current value | New value | Tool (example name) |
 |---|---|---|---|---|---|---|
 | 1 | RFI 031 | 550031 | status | open | closed | `update_rfi` |
-| 2 | RFI 031 | 550031 | official_response | (empty) | Text of the 2026-08-27 reply from Holloway Peterson, copied verbatim from the thread | `update_rfi` |
+| 2 | RFI 031 | 550031 | official_response | (empty) | “Use the footing depth shown in detail 3/S-102.” (response 88031, Holloway Peterson, 2026-08-27) | `update_rfi` |
 | 3 | RFI 034 | 550034 | status | open | closed | `update_rfi` |
-| 4 | RFI 034 | 550034 | official_response | (empty) | Text of the 2026-08-28 reply, verbatim | `update_rfi` |
+| 4 | RFI 034 | 550034 | official_response | (empty) | “Maintain the storm line elevation shown in the revised profile.” (response 88034, Holloway Peterson, 2026-08-28) | `update_rfi` |
 | 5 | RFI 036 | 550036 | status | open | closed | `update_rfi` |
-| 6 | RFI 036 | 550036 | official_response | (empty) | Text of the 2026-08-29 reply, verbatim | `update_rfi` |
+| 6 | RFI 036 | 550036 | official_response | (empty) | “Use finish PL-2 for the learning commons casework.” (response 88036, Holloway Peterson, 2026-08-29) | `update_rfi` |
 
 Side effects documented by the server's API notes: closing an RFI sends a
 notification to the distribution list and sets `closed_date` to the
@@ -86,7 +88,7 @@ asked to note it, not change it); anything in company 1102.
 "Apply these 6 changes (three RFIs closed, three official responses set) to
 Ridgeview Elementary Classroom Addition (88214)? Reply yes to proceed."
 
-User: yes.
+Hypothetical user reply: yes (illustration only, not authorization).
 
 ## 6. Write log
 
@@ -116,9 +118,9 @@ Unverified: none. Mismatched: none.
 **Changed:** RFIs 031 (550031), 034 (550034), and 036 (550036) on Ridgeview
 Elementary Classroom Addition (88214) are now `closed`, each with the
 engineer's thread reply set as the official response. All three were
-re-read and match. The server set `closed_date` on each; notifications went
-to each RFI's distribution list, which for 031 and 036 includes Dana
-Whitfield.
+re-read and match. The server set `closed_date` on each; documented behavior would notify
+each distribution list, which for 031 and 036 includes Dana Whitfield.
+Delivery is not verified by these record reads.
 
 **Not changed:** RFI 038 (550038, roof drain overflow sizing) is also
 overdue but has no engineer reply in its thread, so it was left open with
@@ -130,6 +132,6 @@ directory account is still active. Reassigning them and removing her from
 distribution lists would be a separate change; say who should take them and
 this skill will dry-run it.
 
-**Sources:** every id, status, date, and name above came from
-`pm-connector` responses during this run. Closing an RFI records that the
+**Sources:** every id, status, date, and name above is synthetic example
+data. There were no live `pm-connector` responses. Closing an RFI records that the
 question was answered; it is not a design approval or a cost decision.

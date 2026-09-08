@@ -1,0 +1,2 @@
+Decisions file validation failed:
+  - decisions.json: plugs[1]: duplicate plug for ('a', 'cleanup'); keep one sourced decision

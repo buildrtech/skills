@@ -54,7 +54,7 @@ def question_leads_with_ask(workspace: Path) -> bool:
     if not body:
         return False
     first = body.splitlines()[0].strip().lower()
-    return first.startswith("please ")
+    return re.match(r"(?:please\s+(?:confirm|advise)|(?:could|would) you\s+(?:please\s+)?confirm|confirm whether)\b", first) is not None
 
 
 @criterion(description="suggested resolution proposes 4,000 psi per 2.6.C and is not withheld")

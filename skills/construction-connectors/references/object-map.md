@@ -33,7 +33,10 @@ hold a comparable object.
 
 ## Field notes that prevent common mistakes
 
-- **Scope ids first.** Procore calls need a company id and usually a
+- **Scope ids first.** IDs are local to server, account, project, and object
+  type. Preserve that namespace; matching numbers across systems do not
+  establish a relationship. Use an explicit link or confirmed mapping.
+ Procore calls need a company id and usually a
   project id. Autodesk calls need a hub id and a project id, and the project
   id format differs between Data Management (prefixed) and ACC Build APIs
   (unprefixed). JobTread scopes most records to an Organization and a Job.

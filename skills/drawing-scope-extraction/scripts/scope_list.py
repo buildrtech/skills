@@ -20,6 +20,7 @@ Standard library only.
 from __future__ import annotations
 
 import json
+import re
 import sys
 from collections import defaultdict
 from pathlib import Path
@@ -105,8 +106,8 @@ def load(path: Path) -> dict:
     try:
         with path.open(encoding="utf-8") as handle:
             data = json.load(handle)
-    except FileNotFoundError:
-        fail([f"file not found: {path}"])
+    except (OSError, UnicodeError) as error:
+        fail([f"cannot read {path}: {error}"])
     except json.JSONDecodeError as error:
         fail([f"{path} is not valid JSON: {error}"])
     if not isinstance(data, dict):
@@ -139,6 +140,32 @@ def validate(data: dict) -> list[str]:
         errors.append("candidates must be a list")
     if not isinstance(data["coverage_ledger"], list):
         errors.append("coverage_ledger must be a list")
+    if errors:
+        return errors
+
+    # Validate optional containers before iterating or rendering their values.
+    if "sheet_count" in data and (
+        type(data["sheet_count"]) is not int or data["sheet_count"] < 0
+    ):
+        errors.append("sheet_count must be a non-negative integer")
+    groups = [("candidates", ("related_sheets",), ("spec_section", "notes", "cost_code")),
+              ("coverage_ledger", ("candidate_ids",), ("title",)),
+              *((name, ("candidate_ids",), ()) for name in ("assumptions", "exclusions", "rfis"))]
+    for name, arrays, strings in groups:
+        entries = data.get(name, [])
+        if not isinstance(entries, list):
+            errors.append(f"{name} must be a list")
+            continue
+        for index, entry in enumerate(entries):
+            if not isinstance(entry, dict):
+                continue  # Required object checks below provide the location.
+            for key in arrays:
+                if key in entry and (not isinstance(entry[key], list) or
+                                     not all(non_empty_string(v) for v in entry[key])):
+                    errors.append(f"{name}[{index}].{key} must be a list of non-empty strings")
+            for key in strings:
+                if key in entry and not isinstance(entry[key], str):
+                    errors.append(f"{name}[{index}].{key} must be a string")
     if errors:
         return errors
 
@@ -188,6 +215,8 @@ def validate(data: dict) -> list[str]:
             if cid in seen_ids:
                 errors.append(f"{label}: duplicate candidate id")
             seen_ids.add(cid)
+            if not re.fullmatch(r"cand-[0-9]{3,}", cid):
+                errors.append(f"{label}: id must match cand-001 or a longer numeric suffix")
         if missing:
             errors.append(f"{label}: missing or empty {', '.join(missing)}")
             continue
@@ -209,6 +238,8 @@ def validate(data: dict) -> list[str]:
             errors.append(f"{label}: spec_requirement candidates must name spec_section")
         if candidate["sheet_number"] not in sheets:
             errors.append(f"{label}: sheet_number '{candidate['sheet_number']}' is not a sheet in the coverage ledger")
+        elif decision == "include" and sheets[candidate["sheet_number"]]["status"] not in ("reviewed", "reviewed_ocr"):
+            errors.append(f"{label}: included scope requires a reviewed primary sheet; use review until the source is readable")
         for related in candidate.get("related_sheets", []) or []:
             if related not in sheets:
                 errors.append(f"{label}: related sheet '{related}' is not a sheet in the coverage ledger")
@@ -377,7 +408,7 @@ def render(data: dict) -> str:
         out.append("### Review items")
         out.append("")
         out.append(
-            "Drawing-backed but unresolved. Each stays off the included list until "
+            "Unresolved references, inferences, or drawing evidence. Each stays off the included list until "
             "the question in its reason is answered."
         )
         out.append("")

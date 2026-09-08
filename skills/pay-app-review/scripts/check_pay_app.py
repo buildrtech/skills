@@ -115,6 +115,8 @@ def parse_amount(raw: str | None, *, default: Decimal | None = None) -> Decimal 
         value = Decimal(text)
     except InvalidOperation as exc:
         raise ValueError(f"cannot parse amount {raw!r}") from exc
+    if not value.is_finite():
+        raise ValueError(f"amount must be finite: {raw!r}")
     return -value if negative else value
 
 
@@ -141,16 +143,24 @@ def read_sov(path: Path) -> list[Line]:
             if item.lower() in {"total", "totals", "grand total"}:
                 continue
             try:
+                amounts = {}
+                for name in REQUIRED_COLUMNS[2:]:
+                    amount = parse_amount(cell(name))
+                    if amount is None:
+                        raise ValueError(f"{name} is blank; supply an explicit amount or resolve the unreadable cell")
+                    amounts[name] = amount
                 line = Line(
                     row=index,
                     item=item or f"row {index}",
                     description=description,
-                    scheduled_value=parse_amount(cell("scheduled_value"), default=Decimal(0)),
-                    previous_completed=parse_amount(cell("previous_completed"), default=Decimal(0)),
-                    this_period=parse_amount(cell("this_period"), default=Decimal(0)),
-                    stored_materials=parse_amount(cell("stored_materials"), default=Decimal(0)),
+                    scheduled_value=amounts["scheduled_value"],
+                    previous_completed=amounts["previous_completed"],
+                    this_period=amounts["this_period"],
+                    stored_materials=amounts["stored_materials"],
                     retainage_pct=parse_amount(cell("retainage_pct")),
                 )
+                if line.retainage_pct is not None and not 0 <= line.retainage_pct <= 100:
+                    raise ValueError("retainage_pct must be between 0 and 100")
                 for name in ("total_completed", "percent_complete", "balance_to_finish", "retainage"):
                     line.stated[name] = parse_amount(cell(name))
             except ValueError as exc:
@@ -167,10 +177,12 @@ def close(a: Decimal | None, b: Decimal | None, tolerance: Decimal) -> bool:
     return abs(a - b) <= tolerance
 
 
-def line_retainage(line: Line, work_pct: Decimal, stored_pct: Decimal) -> Decimal:
+def line_retainage(line: Line, work_pct: Decimal | None, stored_pct: Decimal | None) -> Decimal | None:
     if line.retainage_pct is not None:
         rate = line.retainage_pct / 100
         return (line.total_completed * rate).quantize(CENT, ROUND_HALF_UP)
+    if work_pct is None or stored_pct is None:
+        return None
     work = line.work_completed * work_pct / 100
     stored = line.stored_materials * stored_pct / 100
     return (work + stored).quantize(CENT, ROUND_HALF_UP)
@@ -273,21 +285,15 @@ def check_continuity(lines: list[Line], prior: list[Line], tolerance: Decimal) -
     return findings
 
 
-def g702(lines: list[Line], prior: list[Line] | None, args: argparse.Namespace) -> dict[str, Decimal | None]:
+def g702(lines: list[Line], args: argparse.Namespace) -> dict[str, Decimal | None]:
     sov_total = sum((l.scheduled_value for l in lines), Decimal(0))
     completed = sum((l.total_completed for l in lines), Decimal(0))
-    retainage = sum((line_retainage(l, args.retainage, args.stored_retainage) for l in lines), Decimal(0))
-    earned = completed - retainage
-    previous: Decimal | None
-    if args.g702_previous is not None:
-        previous = args.g702_previous
-    elif prior is not None:
-        prior_completed = sum((l.total_completed for l in prior), Decimal(0))
-        prior_ret = sum((line_retainage(l, args.retainage, args.stored_retainage) for l in prior), Decimal(0))
-        previous = prior_completed - prior_ret
-    else:
-        previous = None
-    contract_to_date = args.contract_sum + args.change_orders
+    line_retainages = [line_retainage(l, args.retainage, args.stored_retainage) for l in lines]
+    retainage = sum(line_retainages, Decimal(0)) if all(v is not None for v in line_retainages) else None
+    earned = subtract(completed, retainage)
+    previous = args.prior_certified
+    contract_to_date = (args.contract_sum + args.change_orders
+                        if args.contract_sum is not None and args.change_orders is not None else None)
     return {
         "sov_total": sov_total,
         "contract_to_date": contract_to_date,
@@ -297,9 +303,13 @@ def g702(lines: list[Line], prior: list[Line] | None, args: argparse.Namespace) 
         "retainage": retainage,
         "earned": earned,
         "previous": previous,
-        "due": (earned - previous) if previous is not None else None,
-        "balance": contract_to_date - earned,
+        "due": subtract(earned, previous),
+        "balance": subtract(contract_to_date, earned),
     }
+
+
+def subtract(a: Decimal | None, b: Decimal | None) -> Decimal | None:
+    return a - b if a is not None and b is not None else None
 
 
 def check_totals(totals: dict[str, Decimal | None], prior: list[Line] | None, args: argparse.Namespace) -> list[Finding]:
@@ -322,45 +332,53 @@ def check_totals(totals: dict[str, Decimal | None], prior: list[Line] | None, ar
     if args.g702_retainage is not None and not close(args.g702_retainage, totals["retainage"], tol):
         diff = args.g702_retainage - totals["retainage"]
         hint = ""
-        stored_ret = (totals["stored"] * args.stored_retainage / 100).quantize(CENT, ROUND_HALF_UP)
+        stored_ret = ((totals["stored"] * args.stored_retainage / 100).quantize(CENT, ROUND_HALF_UP)
+                      if args.stored_retainage is not None else Decimal(0))
         if stored_ret > 0 and close(-diff, stored_ret, tol):
             hint = f" The shortfall equals {args.stored_retainage}% of stored materials ({money(totals['stored'])}), so retainage appears not to have been applied to stored materials."
+        basis = ("sum of independently supplied per-line retainage terms"
+                 if args.retainage is None or args.stored_retainage is None
+                 else f"{args.retainage}% of completed work {money(totals['work_completed'])} plus {args.stored_retainage}% of stored materials {money(totals['stored'])}")
         findings.append(Finding("error", ref, "Line 5", "retainage",
-                                f"Retainage as submitted is {money(args.g702_retainage)} but {args.retainage}% of completed work {money(totals['work_completed'])} plus {args.stored_retainage}% of stored materials {money(totals['stored'])} = {money(totals['retainage'])}; difference {money(diff)}.{hint}"))
+                                f"Retainage as submitted is {money(args.g702_retainage)} but {basis} = {money(totals['retainage'])}; difference {money(diff)}.{hint}"))
     if args.g702_earned is not None:
         stated_basis = args.g702_completed if args.g702_completed is not None else totals["completed"]
         stated_ret = args.g702_retainage if args.g702_retainage is not None else totals["retainage"]
-        if not close(args.g702_earned, stated_basis - stated_ret, tol):
+        if not close(args.g702_earned, subtract(stated_basis, stated_ret), tol):
             findings.append(Finding("error", ref, "Line 6", "earned-math",
-                                    f"Total earned less retainage as submitted is {money(args.g702_earned)} but Line 4 - Line 5 as submitted = {money(stated_basis)} - {money(stated_ret)} = {money(stated_basis - stated_ret)}."))
+                                    f"Total earned less retainage as submitted is {money(args.g702_earned)} but Line 4 - Line 5 as submitted = {money(stated_basis)} - {money(stated_ret)} = {money(subtract(stated_basis, stated_ret))}."))
         if not close(args.g702_earned, totals["earned"], tol):
             findings.append(Finding("warning", ref, "Line 6", "earned-recomputed",
                                     f"Total earned less retainage recomputed from the schedule and contract terms is {money(totals['earned'])}, versus {money(args.g702_earned)} as submitted; difference {money(args.g702_earned - totals['earned'])}."))
-    if prior is not None and args.g702_previous is not None:
-        prior_completed = sum((l.total_completed for l in prior), Decimal(0))
-        prior_ret = sum((line_retainage(l, args.retainage, args.stored_retainage) for l in prior), Decimal(0))
-        prior_earned = prior_completed - prior_ret
-        if not close(args.g702_previous, prior_earned, tol):
-            findings.append(Finding("error", ref, "Line 7", "previous-certificates",
-                                    f"Less previous certificates as submitted is {money(args.g702_previous)} but the prior application's total earned less retainage is {money(prior_earned)}; difference {money(args.g702_previous - prior_earned)}."))
+    if args.prior_certified is not None and not close(args.g702_previous, args.prior_certified, tol):
+        findings.append(Finding("error", ref, "Line 7", "previous-certificates",
+                                f"Less previous certificates as submitted is {money(args.g702_previous)} but the independently supplied cumulative prior certified amount is {money(args.prior_certified)}; difference {money(args.g702_previous - args.prior_certified)}."))
     if args.g702_due is not None:
         stated_earned = args.g702_earned if args.g702_earned is not None else totals["earned"]
         stated_prev = args.g702_previous if args.g702_previous is not None else totals["previous"]
-        if stated_prev is not None and not close(args.g702_due, stated_earned - stated_prev, tol):
+        if stated_prev is not None and not close(args.g702_due, subtract(stated_earned, stated_prev), tol):
             findings.append(Finding("error", ref, "Line 8", "due-math",
-                                    f"Current payment due as submitted is {money(args.g702_due)} but Line 6 - Line 7 as submitted = {money(stated_earned)} - {money(stated_prev)} = {money(stated_earned - stated_prev)}."))
+                                    f"Current payment due as submitted is {money(args.g702_due)} but Line 6 - Line 7 as submitted = {money(stated_earned)} - {money(stated_prev)} = {money(subtract(stated_earned, stated_prev))}."))
         if totals["due"] is not None and not close(args.g702_due, totals["due"], tol):
             findings.append(Finding("warning", ref, "Line 8", "due-recomputed",
                                     f"Current payment due recomputed from the schedule and contract terms is {money(totals['due'])}, versus {money(args.g702_due)} as submitted; difference {money(args.g702_due - totals['due'])}."))
     if args.g702_balance is not None:
         stated_ctd = args.g702_contract_sum_to_date if args.g702_contract_sum_to_date is not None else totals["contract_to_date"]
         stated_earned = args.g702_earned if args.g702_earned is not None else totals["earned"]
-        if not close(args.g702_balance, stated_ctd - stated_earned, tol):
+        if not close(args.g702_balance, subtract(stated_ctd, stated_earned), tol):
             findings.append(Finding("error", ref, "Line 9", "balance-math",
-                                    f"Balance to finish including retainage as submitted is {money(args.g702_balance)} but Line 3 - Line 6 as submitted = {money(stated_ctd)} - {money(stated_earned)} = {money(stated_ctd - stated_earned)}."))
+                                    f"Balance to finish including retainage as submitted is {money(args.g702_balance)} but Line 3 - Line 6 as submitted = {money(stated_ctd)} - {money(stated_earned)} = {money(subtract(stated_ctd, stated_earned))}."))
     if prior is None:
-        findings.append(Finding("warning", ref, "Line 7 / G703 D", "no-prior",
-                                "No prior-period schedule was provided, so column D continuity and Line 7 were not verified against the previous certificate."))
+        findings.append(Finding("warning", ref, "G703 D", "no-prior",
+                                "No prior-period schedule was provided, so column D continuity was not verified."))
+    for column, check, missing in (
+        ("Line 3", "missing-contract-terms", totals["contract_to_date"] is None),
+        ("Line 5", "missing-retainage-terms", totals["retainage"] is None),
+        ("Line 7", "missing-prior-certificate", args.prior_certified is None),
+    ):
+        if missing:
+            findings.append(Finding("warning", ref, column, check,
+                                    "Independent supporting input was not supplied; this check and dependent computed totals remain unverified (n/a)."))
     return findings
 
 
@@ -376,7 +394,7 @@ def render(findings: list[Finding], totals: dict[str, Decimal | None], args: arg
         for n, f in enumerate(findings, start=1):
             out.append(f"| {n} | {f.severity} | {f.line} | {f.column} | {f.check} | {f.message} |")
     else:
-        out.append("No findings. Every check passed within the stated tolerance.")
+        out.append("No findings in the checks run. Missing as-submitted values are unverified.")
     out.append("")
     out.append("## G702 summary: computed from the schedule and contract terms versus as submitted")
     out.append("")
@@ -398,7 +416,7 @@ def render(findings: list[Finding], totals: dict[str, Decimal | None], args: arg
     row("8", "Current payment due", totals["due"], args.g702_due)
     row("9", "Balance to finish, including retainage", totals["balance"], args.g702_balance)
     out.append("")
-    out.append(f"Lines checked: {len(lines)}. Retainage basis: {args.retainage}% of completed work, {args.stored_retainage}% of stored materials. "
+    out.append(f"Lines checked: {len(lines)}. Retainage basis: {pct(args.retainage)} of completed work, {pct(args.stored_retainage)} of stored materials; explicit per-line overrides apply. "
                f"Tolerance: {money(args.tolerance)}. Percent-jump threshold: {args.jump_threshold}% of scheduled value in one period.")
     out.append("")
     out.append("This output prepares a review. It is not an approval, certification, or rejection of payment.")
@@ -406,7 +424,10 @@ def render(findings: list[Finding], totals: dict[str, Decimal | None], args: arg
 
 
 def decimal_arg(text: str) -> Decimal:
-    value = parse_amount(text)
+    try:
+        value = parse_amount(text)
+    except ValueError as exc:
+        raise argparse.ArgumentTypeError(str(exc)) from exc
     if value is None:
         raise argparse.ArgumentTypeError("expected a number")
     return value
@@ -415,10 +436,11 @@ def decimal_arg(text: str) -> Decimal:
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("current", type=Path, help="current period schedule of values CSV")
-    parser.add_argument("--contract-sum", type=decimal_arg, required=True, help="original contract sum (G702 Line 1)")
-    parser.add_argument("--change-orders", type=decimal_arg, default=Decimal(0), help="net approved change orders from the change order log (default 0)")
-    parser.add_argument("--retainage", type=decimal_arg, default=Decimal(0), help="retainage percent on completed work, e.g. 10 (default 0)")
+    parser.add_argument("--contract-sum", type=decimal_arg, default=None, help="original contract sum from contract; omit if unknown")
+    parser.add_argument("--change-orders", type=decimal_arg, default=None, help="net approved change orders from the log; explicit 0 if none, omit if unknown")
+    parser.add_argument("--retainage", type=decimal_arg, default=None, help="retainage percent on completed work; explicit 0 if none, omit if unknown")
     parser.add_argument("--stored-retainage", type=decimal_arg, default=None, help="retainage percent on stored materials (default: same as --retainage)")
+    parser.add_argument("--prior-certified", type=decimal_arg, default=None, help="cumulative amount of all previous certificates, independently sourced; never infer from the current Line 7 or current retainage rate")
     parser.add_argument("--prior", type=Path, default=None, help="prior period schedule of values CSV, same layout")
     parser.add_argument("--jump-threshold", type=decimal_arg, default=Decimal(50), help="flag lines billing at least this percent of scheduled value in one period (default 50)")
     parser.add_argument("--tolerance", type=decimal_arg, default=Decimal("0.01"), help="rounding tolerance in currency units (default 0.01)")
@@ -435,7 +457,14 @@ def build_parser() -> argparse.ArgumentParser:
 
 
 def main(argv: list[str] | None = None) -> int:
-    args = build_parser().parse_args(argv)
+    parser = build_parser()
+    args = parser.parse_args(argv)
+    for name in ("retainage", "stored_retainage"):
+        value = getattr(args, name)
+        if value is not None and not 0 <= value <= 100:
+            parser.error(f"--{name.replace(chr(95), chr(45))} must be between 0 and 100")
+    if args.tolerance < 0 or args.jump_threshold < 0:
+        parser.error("tolerance and jump threshold must be nonnegative")
     if args.stored_retainage is None:
         args.stored_retainage = args.retainage
     try:
@@ -448,7 +477,7 @@ def main(argv: list[str] | None = None) -> int:
     findings = check_lines(lines, prior, args)
     if prior is not None:
         findings.extend(check_continuity(lines, prior, args.tolerance))
-    totals = g702(lines, prior, args)
+    totals = g702(lines, args)
     findings.extend(check_totals(totals, prior, args))
     print(render(findings, totals, args, lines))
     return 1 if any(f.severity == "error" for f in findings) else 0

@@ -34,8 +34,8 @@ in this document.
 - Markups $428,000 equal the four markup rows ($187,200 + $47,300 +
   $107,500 + $86,000).
 - Grand total $2,578,450 equals $2,150,450 + $428,000.
-- Estimating contingency $107,500 is 5.00% of the $2,150,450 direct cost,
-  matching the handoff note.
+- Estimating contingency $107,500 is approximately 5% of the $2,150,450
+  direct cost (exactly 5% would be $107,522.50), matching the rounded handoff note.
 - Alternate 1 ($64,800) and Alternate 2 (-$18,200) are shown in their own
   table and are excluded from the grand total, as the export intends.
 
