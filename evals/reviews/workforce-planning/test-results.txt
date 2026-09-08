@@ -1,0 +1,17 @@
+test_cap_before_weighting (test_periods.PeriodReplay.test_cap_before_weighting) ... ok
+test_empty_data_is_unknown (test_periods.PeriodReplay.test_empty_data_is_unknown) ... ok
+test_gap_breaks_zero_run (test_periods.PeriodReplay.test_gap_breaks_zero_run) ... ok
+test_invalid_dates_flags_and_allocation_rejected (test_periods.PeriodReplay.test_invalid_dates_flags_and_allocation_rejected) ... ok
+test_leap_year_and_adjacent_zero_rows_merge (test_periods.PeriodReplay.test_leap_year_and_adjacent_zero_rows_merge) ... ok
+test_missing_period_is_unknown_not_free (test_periods.PeriodReplay.test_missing_period_is_unknown_not_free) ... ok
+test_partial_capacity_and_time_off (test_periods.PeriodReplay.test_partial_capacity_and_time_off) ... ok
+test_real_cli (test_periods.PeriodReplay.test_real_cli) ... ok
+test_reject_duplicate_or_overlapping_computed_periods (test_periods.PeriodReplay.test_reject_duplicate_or_overlapping_computed_periods) ... ok
+test_sample_conserves_demand_and_negative_control_fails (test_periods.PeriodReplay.test_sample_conserves_demand_and_negative_control_fails) ... ok
+test_sample_dana_two_runs_not_225_day_bench (test_periods.PeriodReplay.test_sample_dana_two_runs_not_225_day_bench) ... ok
+test_time_off_breaks_bench_even_at_zero (test_periods.PeriodReplay.test_time_off_breaks_bench_even_at_zero) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 0.047s
+
+OK

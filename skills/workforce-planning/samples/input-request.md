@@ -5,9 +5,10 @@
 > Who can superintend the Ridgeview job from November through July? Needs
 > OSHA 30. And what does that do to their current assignments?
 
-The Buildr MCP server is connected with read and write scope. Everything
-below is what the account returned; it is synthetic and every id is a
-placeholder.
+This is an explicitly synthetic offline replay, not a live account response.
+All IDs are placeholders. The tables are complete for the described scope;
+assignment and period end dates are exclusive, certification expiration dates
+are inclusive. No connection, permission, or actual mutation is established.
 
 ## Project (`listProjects`, `getProjectById`)
 

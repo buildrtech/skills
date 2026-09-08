@@ -1,4 +1,5 @@
 {
+  "submission_id": "northgate-base",
   "bidder_name": "Northgate Drywall & Acoustics",
   "source_files": ["northgate-proposal.pdf"],
   "document_role": "bid_proposal",
@@ -19,7 +20,7 @@
     {"scope_key": "firestopping", "scope": "Firestopping at rated penetrations by this trade", "status": "excluded", "note": "\"Firestopping NIC\"", "evidence_ref": "NG-4"}
   ],
   "alternate_lines": [
-    {"alternate_key": "alt_1_level5_corridors", "label": "Alternate 1: Level 5 finish at all corridors", "kind": "add", "solicited": true, "amount_in_cents": 1840000, "evidence_ref": "NG-5"}
+    {"alternate_key": "alt_1_level5_corridors", "printed_label": "Alternate No. 1", "reconciliation_note": "Package Alternate 1: Level 5 finish at all corridors", "label": "Alternate 1: Level 5 finish at all corridors", "kind": "add", "solicited": true, "amount_in_cents": 1840000, "evidence_ref": "NG-5"}
   ],
   "unit_price_lines": [
     {"description": "Additional soffit or bulkhead, framed and finished", "unit": "LF", "unit_price_in_cents": 4200, "quantity": null, "evidence_ref": "NG-6"}

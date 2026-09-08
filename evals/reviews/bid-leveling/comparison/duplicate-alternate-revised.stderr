@@ -1,0 +1,3 @@
+Extraction validation failed. Fix the JSON, do not hand-edit the comparison:
+  - bids.json: duplicate row key 'finish'; reconcile it before comparison
+  - bids.json: duplicate row key 'finish'; reconcile it before comparison

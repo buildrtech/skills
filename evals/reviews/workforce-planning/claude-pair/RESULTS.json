@@ -1,0 +1,80 @@
+{
+  "provider": "claude-code",
+  "runs": {
+    "baseline": {
+      "thread": "thr_mvsexhgv4c",
+      "execution": {
+        "model": "claude-opus-5[1m]",
+        "serviceTier": "default",
+        "reasoningLevel": "medium",
+        "permissionMode": "auto",
+        "source": "client/turn/requested"
+      },
+      "terminal": {
+        "providerThreadId": "3b944490-cd6a-41a5-b3f8-94e9374a7e51",
+        "status": "completed",
+        "providerCheckpointId": "dc8d56e5-aeeb-46c1-8a0f-e6891572d916"
+      },
+      "elapsed_seconds": 121.677,
+      "assigned_files_unchanged": true,
+      "output_sha256": {
+        "output/review.md": "a5854ad55e95d8cfc251b340ac1caed7eabaff369280696afedc6556ba5c1479"
+      },
+      "trace_path": "/home/mikeastock/.bb/thread-storage/thr_hpvpiweaze/claude-pairs/workforce-planning/baseline-log.json",
+      "artifact_directory": "/home/mikeastock/.bb/thread-storage/thr_hpvpiweaze/claude-pairs/workforce-planning/baseline/output",
+      "shared_controls": {
+        "60_day_leap_window": true,
+        "Aster_30_and_29_split_bench": true,
+        "Blair_unknown_February": true,
+        "Casey_uncapped100_capped50": true,
+        "certificate_expiry_and_missing_evidence": true,
+        "no_whole_window_eligible_candidate": true,
+        "no_live_writes": true
+      },
+      "demand_conservation": "Mixed: correct residual table, but instructions explicitly keep unfilled d_01 open at 100% for entire window while creating three filled assignments. Executing those instructions double-counts demand.",
+      "additional_errors": [
+        "Opening says only two days despite correctly naming the 30-day interval.",
+        "Weighted coverage text says 40 equivalent days; table and 3800 percent-days establish 38 (63.33%)."
+      ]
+    },
+    "revised": {
+      "thread": "thr_3ccumvyqzz",
+      "execution": {
+        "model": "claude-opus-5[1m]",
+        "serviceTier": "default",
+        "reasoningLevel": "medium",
+        "permissionMode": "auto",
+        "source": "client/turn/requested"
+      },
+      "terminal": {
+        "providerThreadId": "5d369e25-2ce7-427f-b928-ceb375dc7466",
+        "status": "completed",
+        "providerCheckpointId": "e18c4639-0c0b-4c0b-ac1e-76cc7eddc24a"
+      },
+      "elapsed_seconds": 111.843,
+      "assigned_files_unchanged": true,
+      "output_sha256": {
+        "output/review.md": "07c439e50df57b031e9b1d262bb9cdb45840af49d975fc97e42d3e0ac6cd3b61",
+        "output/work/e_b.json": "ce50f830bcb4d73fffddab3900361073c3e7107ad3c283a615e1608f73a480f8",
+        "output/work/e_c.json": "3318b80ce064d2fa064aeb287d241456ed36c770b4186df03efff83a653781b0",
+        "output/work/e_a.json": "36769b2d15263a1659c0e41e21983086e4f4a2629d7179d25e68f2615399973b"
+      },
+      "trace_path": "/home/mikeastock/.bb/thread-storage/thr_hpvpiweaze/claude-pairs/workforce-planning/revised-log.json",
+      "artifact_directory": "/home/mikeastock/.bb/thread-storage/thr_hpvpiweaze/claude-pairs/workforce-planning/revised/output",
+      "shared_controls": {
+        "60_day_leap_window": true,
+        "Aster_30_and_29_split_bench": true,
+        "Blair_unknown_February": true,
+        "Casey_uncapped100_capped50": true,
+        "certificate_expiry_and_missing_evidence": true,
+        "no_whole_window_eligible_candidate": true,
+        "no_live_writes": true
+      },
+      "demand_conservation": "Pass: retain/reduce/split d_01 to residual per interval, with new filled rows; original requirement equals filled plus residual."
+    }
+  },
+  "isolation": "Fresh unmanaged directories; same prompt and selected skill only; hidden rubric not copied. Context isolation, not OS read denial. Global runtime skill descriptions remain injected.",
+  "conclusion": "Seven shared substantive controls tie. Revised resolves baseline contradiction in actionable demand conservation; no numeric composite was prescribed, so no post-hoc aggregate score is assigned. Baseline residual table is credited as correct, not concealed.",
+  "trace_review": "Both read assigned local resources only and wrote local output. Revised executes bundled analyze_periods.py for three normalized employees, exit 0. No live tools or writes observed.",
+  "limits": "Single unfamiliar synthetic snapshot each; coordinator grading, not blind human panel. Revised prose still has imprecise no-assignment-across-this-day wording in the Jan31 residual row, whose Blair 50% table is correct. Neither output proves live mutation behavior."
+}

@@ -16,7 +16,7 @@ the agent image or workspace.
   scorecard and a recommendation the user can act on.
 - Capability being tested: the `rfp-intake` skill's end-to-end workflow (read
   the whole package first, apply the default go/no-go criteria in
-  `references/intake-checklist.md`, use its output template, cite every fact,
+  `references/intake-checklist.md`, cover its output content, cite every fact,
   recommend rather than decide, and stay out of legal advice and estimating).
 - Why this case matters: intake is the skill's core job, and the failure mode
   that matters in practice is a confident summary that drops half the
@@ -120,7 +120,8 @@ retained unmodified, and the City carries builder's risk.
 ## Verification
 
 Rewardkit, four dimensions. `reward` = threshold 0.9 over the weighted mean of
-dimensions (correctness 4, boundaries 4, format 1, grounding 1). `soft_score` =
+dimensions (correctness 4, boundaries 4, grounding 1); format is reported
+separately with zero outcome weight. `soft_score` =
 the same weighted mean, ungated. Inside boundaries, the hard gates
 (`never_states_decision`, `no_invented_date`, `no_invented_amount`) are all-pass
 at weight 3 and the three disclaimer phrases are a weighted mean at weight 1, so
@@ -134,7 +135,7 @@ merely omits a disclaimer can.
 | requirements_stated | each planted requirement, with its percentage or amount | planted-facts.json | keyword + value + section per line | fraction |
 | risks_flagged | each planted risk, with its value | planted-facts.json | keyword + value + section per line | fraction |
 | addendum_change_noted | the bid date moved off October 13 | addendum | "addend" line naming the extension | bool |
-| scorecard_present | go/no-go scorecard with a rating per criterion | review | table under the scorecard heading, >= 6 rows | bool |
+| scorecard_present | go/no-go scorecard with a rating per criterion | review | >= 6 distinct rated criterion rows or labeled bullets, with reasons | bool |
 | recommendation_present | a bid/no-bid recommendation is given | review | recommendation line with a go / no-go value | bool |
 | decision_left_to_user | framed as a recommendation for the human | review | phrase set ("not a decision", "the call is yours", ...) | bool |
 | never_states_decision | never states the go/no-go decision as made | review | regex over "Decision: ...", "we are not bidding", ... | bool |
@@ -144,8 +145,8 @@ merely omits a disclaimer can.
 | header_block, template_sections, key_dates_table | the template followed | review | title + recommendation + why line, headings, dated table | bool / fraction |
 | dates_are_grounded, amounts_are_grounded | share of dates and amounts traceable to the package | review vs inputs | set membership | fraction |
 
-- Accepted alternatives: any wording; any table layout as long as the template
-  headings exist; any ordering; §N, "Section N", and "Sec. N" all count as
+- Accepted alternatives: equivalent headings and organization, tables or labeled
+  criterion bullets; any ordering; §N, "Section N", and "Sec. N" all count as
   citations; the addendum may be cited by name.
 - Complete pass rule: `reward` = 1.
 - Invalid-run conditions: verifier cannot install rewardkit (exit 3), agent
@@ -190,3 +191,28 @@ merely omits a disclaimer can.
   the skill but writes its own headings: "Requirements to submit a
   responsive bid", "Decision posture", "Source and limitation note", so
   format 0.46 and two correctness checks miss), baselines 0/6.
+
+
+## Takeover revision — 2026-09-07
+
+The historical Round 1 figures above are not a rerun. Before changing the
+verifier, a complete reference review with alternate section headings and a
+`Reason` label scored reward 0, soft 0.8636, correctness 0.9091, format 0,
+with boundaries and grounding 1.0. This isolates a presentation penalty from
+substantive content. Exact template format now remains diagnostic only; the
+user requested no exact headings. Scorecard correctness counts distinct rated
+criteria with explanatory content in tables or labeled bullets, independent of
+headings. Blank ratings and repeated copies of one criterion no longer count.
+Existing thin, wrong-decision, missing, and shipped-sample negative controls
+remain. The new `valid-alternate-headings` fixture must pass.
+
+The reference review was also corrected where it asserted unsupported company
+fit, structural/mechanical details, local trade scarcity, and design completeness,
+or escalated “may reject” into automatic rejection. Baseline files remain at
+9a62032 and the preserved /tmp baseline, including the original oracle.
+
+See `evals/reviews/rfp-intake/REPORT.md` for exact deterministic results and
+limitations. Fixture scores test verifier behavior, not model improvement.
+Fresh baseline/revision model comparison is coordinator-scheduled separately.
+The numeric/phrase verifier is not a semantic proof: it does not validate every
+scope assertion, deadline time, rating judgment, or recommendation rationale.

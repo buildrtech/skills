@@ -1,0 +1,62 @@
+{
+  "employee_id": "emp_0107",
+  "window": [
+    "2026-11-01",
+    "2027-08-01"
+  ],
+  "provenance": {
+    "mode": "synthetic fixture replay",
+    "source": "skills/workforce-planning/samples/input-request.md",
+    "as_of": "2026-09-03"
+  },
+  "complete": true,
+  "unknown_intervals": [],
+  "bench": [
+    {
+      "start": "2026-12-19",
+      "end": "2027-03-15",
+      "days": 86
+    },
+    {
+      "start": "2027-03-22",
+      "end": "2027-08-01",
+      "days": 132
+    }
+  ],
+  "capacity": [
+    {
+      "start": "2026-11-01",
+      "end": "2026-12-19",
+      "available_percent": 0,
+      "meets_allocation": false,
+      "overallocated": false,
+      "time_off": false
+    },
+    {
+      "start": "2026-12-19",
+      "end": "2027-03-15",
+      "available_percent": 100,
+      "meets_allocation": true,
+      "overallocated": false,
+      "time_off": false
+    },
+    {
+      "start": "2027-03-15",
+      "end": "2027-03-22",
+      "available_percent": 0,
+      "meets_allocation": false,
+      "overallocated": false,
+      "time_off": true
+    },
+    {
+      "start": "2027-03-22",
+      "end": "2027-08-01",
+      "available_percent": 100,
+      "meets_allocation": true,
+      "overallocated": false,
+      "time_off": false
+    }
+  ],
+  "average_utilization": 17.582417582417584,
+  "capped_average_utilization": 17.582417582417584
+}

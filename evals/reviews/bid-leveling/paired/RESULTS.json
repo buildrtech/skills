@@ -1,0 +1,70 @@
+{
+  "provider": "codex",
+  "execution_settings": "Identical spawn flags; provider/model/reasoning/service tier omitted in both, using project defaults. Exact resolved model ID not exposed in captured events.",
+  "isolation": "Separate unmanaged directories and fresh threads; only INPUT.md and assigned skill copied. Global runtime skill descriptions still injected; no outside-resource reads observed in completed command traces. This is context isolation, not an OS read-denial boundary.",
+  "runs": {
+    "baseline": {
+      "thread": "thr_k9nesni24h",
+      "status": "completed",
+      "start_ms": 1788825746143,
+      "end_ms": 1788825805992,
+      "elapsed_seconds": 59.849,
+      "artifact_rubric": {
+        "three_submission_columns": true,
+        "sourced_plug_only_welded": true,
+        "totals_and_completeness": true,
+        "motor_alternate_mapping": true,
+        "voluntary_gate_separate": true,
+        "printed_labels_and_citations": true,
+        "bidder_questions": true,
+        "no_award_or_invented_plug": true
+      },
+      "assigned_files_unchanged": true,
+      "output_sha256": {
+        "output/build_comparison.py": "83a68051ad312017010f619cabd6bc8a9e2359b8e35efcb0bffbe86c7bed826b",
+        "output/decisions.json": "9366849063df649100abeb5a57fb54b9d64f65e52a5bce9198ac7690cdaf98cf",
+        "output/leveled-comparison.md": "a1fbb476c352b450090fdaaafc6756542135fe97da7b5be1850293888187e208",
+        "output/quarry.json": "8106eeec831451ff416d596b90fb2e1ca99aa7eecb953e28233f6c11b72b869d",
+        "output/script-comparison.md": "dd8ab041e173fb9e202530428f89711ef4f2f2e8fbb0bfa3bf3f24ba36775ff2",
+        "output/vale-bolted.json": "5f2da88b90f9a53a39bec45387cc9706cedf89e8527088cf492c2a39e226afd4",
+        "output/vale-welded.json": "44ca3ad2528a9a79bf84be1ce6119dbc6c58ba88fd14c7a7b2697aa01759dc0f"
+      },
+      "input_sha256": "d1fe49af2cb5a2c3df25c6497c480781642d268f9a38ff45ba60cd5f2fbd2130",
+      "skill_sha256": "1e6a1db576ea2d5ad53a086f847d84f5479912b3b1ccb98654ced91c753b40fa",
+      "script_sha256": "c20c20efd4e4dc79fb7916083b31dac4303ee9bfbde9b258c001023293f60e9a",
+      "trace_path": "/home/mikeastock/.bb/thread-storage/thr_kefaywjbew/fencing-pair/baseline-log.json",
+      "artifact_path": "/home/mikeastock/.bb/thread-storage/thr_kefaywjbew/fencing-pair/baseline/output/leveled-comparison.md"
+    },
+    "revised": {
+      "thread": "thr_8c7uyeacdr",
+      "status": "provider_usage_limit_after_artifact",
+      "start_ms": 1788825818509,
+      "end_ms": 1788825858188,
+      "elapsed_seconds": 39.679,
+      "artifact_rubric": {
+        "three_submission_columns": true,
+        "sourced_plug_only_welded": true,
+        "totals_and_completeness": true,
+        "motor_alternate_mapping": true,
+        "voluntary_gate_separate": true,
+        "printed_labels_and_citations": true,
+        "bidder_questions": true,
+        "no_award_or_invented_plug": true
+      },
+      "assigned_files_unchanged": true,
+      "output_sha256": {
+        "output/estimator-decisions.json": "0e05a3a7ea2e1f2e02822a9075abd78e0351eaf659e97f802abbacf0eab49730",
+        "output/leveled-comparison.md": "f66b6d2ce3ac1976bc61ba852315f80b43a2f3d05306e32ad81346313b3a5635",
+        "output/quarry.json": "fca68a59aa91694486582ee3005257a3244b5b2a5872ae8a7805472f9fb9e87e",
+        "output/vale-bolted.json": "99cac797132da6b9045ccd5e92de95ff63690ae339dd52dd5b07715cb8ac391b",
+        "output/vale-welded.json": "f3a27ca529efde48e35b49b490f5efb478adfccc6eda7466e0735312ce59985c"
+      },
+      "input_sha256": "d1fe49af2cb5a2c3df25c6497c480781642d268f9a38ff45ba60cd5f2fbd2130",
+      "skill_sha256": "857bad6e0e0002334d81337f60eff778fb1c51d71fa4e7434572f21681fb50c4",
+      "script_sha256": "0ad8cc40fe4209121618a018dec830989a990680276e887ce054f951dfe46e59",
+      "trace_path": "/home/mikeastock/.bb/thread-storage/thr_kefaywjbew/fencing-pair/revised-log.json",
+      "artifact_path": "/home/mikeastock/.bb/thread-storage/thr_kefaywjbew/fencing-pair/revised/output/leveled-comparison.md"
+    }
+  },
+  "conclusion": "Artifact-level substantive tie, n=1 per condition. Baseline completed using name-suffix/crosswalk workarounds; revised used native IDs/mapping but terminal provider failure precludes a clean end-to-end pair. No retry by worker."
+}

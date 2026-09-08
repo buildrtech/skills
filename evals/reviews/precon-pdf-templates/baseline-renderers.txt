@@ -1,0 +1,565 @@
+✔ construction-budget-export: shipped sample matches actual renderer (63.757ms)
+✖ construction-budget-export: warm theme resolves outside skill cwd (40.365234ms)
+✔ milestone-export: shipped sample matches actual renderer (35.805748ms)
+✖ milestone-export: warm theme resolves outside skill cwd (33.994306ms)
+✔ employee-resume: shipped sample matches actual renderer (30.772373ms)
+✖ employee-resume: warm theme resolves outside skill cwd (31.465571ms)
+✖ budget: cents, negative deduct, zero, escaped input and mismatched exported totals survive (37.242798ms)
+✖ budget: missing, null, fractional, string and unsafe cents fail before output (37.922661ms)
+✖ milestone: cost per SF preserves the supplied $67.93 (40.292007ms)
+✖ milestone: missing construction cost fails without inventing zero (47.96887ms)
+✖ resume: absent optional meta never claims years experience (38.874744ms)
+✖ unknown theme and extra arguments fail without output (40.817551ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 3
+ℹ fail 9
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 540.156
+
+✖ failing tests:
+
+test at evals/reviews/precon-pdf-templates/test-renderers.mjs:27:3
+✖ construction-budget-export: warm theme resolves outside skill cwd (40.365234ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /--primary: #3f2e24/. Input:
+
+  '<!doctype html>\n' +
+    '<html>\n' +
+    '<head>\n' +
+    '  <meta charset="utf-8">\n' +
+    '  <title>Construction Budget Export</title>\n' +
+    '  <style>\n' +
+    '    :root { --ink: #1f2937; --muted: #6b7280; --primary: #334155; --accent: #0f766e; --surface: #f1f5f9; --border: #cbd5e1; --font-body: "Liberation Sans", "DejaVu Sans", sans-serif; }\n' +
+    '    body { margin: 0; color: var(--ink); font-family: var(--font-body); font-size: 10pt; line-height: 1.35; }\n' +
+    '    .pdf-page { box-sizing: border-box; min-height: 10in; page-break-after: always; padding: 0.45in; }\n' +
+    '    .pdf-page:last-of-type { page-break-after: auto; }\n' +
+    '    .keep-together { break-inside: avoid; }\n' +
+    '    h1 { color: var(--primary); font-size: 24pt; margin: 0; }\n' +
+    '    h2 { background: var(--surface); border-left: 5px solid var(--accent); color: var(--primary); font-size: 13pt; padding: 7px 9px; }\n' +
+    '    table { width: 100%; border-collapse: collapse; margin-bottom: 14px; }\n' +
+    '    thead { display: table-header-group; }\n' +
+    '    th { background: var(--primary); color: #ffffff; font-size: 7.5pt; padding: 6px; text-align: left; text-transform: uppercase; }\n' +
+    '    td { border: 1px solid var(--border); padding: 5px 6px; vertical-align: top; }\n' +
+    '    .numeric { font-variant-numeric: tabular-nums; text-align: right; white-space: nowrap; }\n' +
+    '    .division td { background: var(--surface); color: var(--primary); font-weight: 800; }\n' +
+    '    .meta { color: var(--muted); margin: 4px 0 6px; }\n' +
+    '    .meta + .meta { margin-bottom: 18px; }\n' +
+    '    .totals { margin-left: auto; width: 45%; }\n' +
+    '    .totals tr:last-child td { background: var(--primary); color: #ffffff; font-weight: 800; }\n' +
+    '  </style>\n' +
+    '</head>\n' +
+    '<body>\n' +
+    '  <section class="pdf-page">\n' +
+    '    <p>Construction Budget Export</p>\n' +
+    '    <h1>Riverside Medical Office</h1>\n' +
+    '    <p class="meta">Estimate date: 2026-05-15</p>\n' +
+    '    \n' +
+    '    <h2>Division Detail</h2>\n' +
+    '    <table>\n' +
+    '      <thead><tr><th>Description</th><th>Quantity</th><th>Division</th><th class="numeric">Total</th></tr></thead>\n' +
+    '      <tbody><tr class="division"><td colspan="3">Division 02 — Existing Conditions</td><td class="numeric">$259,000</td></tr>\n' +
+    '<tr>\n' +
+    '          <td>Selective demolition and disposal</td>\n' +
+    '          <td>1 LS</td>\n' +
+    '          <td>02</td>\n' +
+    '          <td class="numeric">$185,000</td>\n' +
+    '        </tr>\n' +
+    '<tr>\n' +
+    '          <td>Temporary partitions and infection control</td>\n' +
+    '          <td>16 weeks</td>\n' +
+    '          <td>02</td>\n' +
+    '          <td class="numeric">$74,000</td>\n' +
+    '        </tr>\n' +
+    '<tr class="division"><td colspan="3">Division 09 — Finishes</td><td class="numeric">$637,000</td></tr>\n' +
+    '<tr>\n' +
+    '          <td>Walls, ceilings, and resilient flooring</td>\n' +
+    '          <td>18,400 SF</td>\n' +
+    '          <td>09</td>\n' +
+    '          <td class="numeric">$416,000</td>\n' +
+    '        </tr>\n' +
+    '<tr>\n' +
+    '          <td>Casework and exam-room accessories</td>\n' +
+    '          <td>24 rooms</td>\n' +
+    '          <td>09</td>\n' +
+    '          <td class="numeric">$221,000</td>\n' +
+    '        </tr>\n' +
+    '<tr class="division"><td colspan="3">Division 26 — Electrical</td><td class="numeric">$552,000</td></tr>\n' +
+    '<tr>\n' +
+    '          <td>Lighting, power, low-voltage rough-in</td>\n' +
+    '          <td>1 LS</td>\n' +
+    '          <td>26</td>\n' +
+    '          <td class="numeric">$314,000</td>\n' +
+    '        </tr>\n' +
+    '<tr>\n' +
+    '          <td>Panel upgrades and gear allowance</td>\n' +
+    '          <td>1 LS</td>\n' +
+    '          <td>26</td>\n' +
+    '          <td class="numeric">$238,000</td>\n' +
+    '        </tr></tbody>\n' +
+    '    </table>\n' +
+    '    <div class="keep-together">\n' +
+    '      <h2>Alternates</h2>\n' +
+    '      <table><thead><tr><th>Alternate</th><th class="numeric">Total</th></tr></thead><tbody><tr><td>Upgrade exam-room casework package</td><td class="numeric">$84,000</td></tr>\n' +
+    '<tr><td>After-hours accelerated work shifts</td><td class="numeric">$61,000</td></tr></tbody></table>\n' +
+    '      <h2>Markups</h2>\n' +
+    '      <table><thead><tr><th>Markup</th><th class="numeric">Total</th></tr></thead><tbody><tr><td>General conditions</td><td class="numeric">$142,500</td></tr>\n' +
+    '<tr><td>Insurance and bond</td><td class="numeric">$58,500</td></tr></tbody></table>\n' +
+    '      <table class="totals">\n' +
+    '        <tbody>\n' +
+    '          <tr><td>Subtotal</td><td class="numeric">$1,056,000</td></tr>\n' +
+    '          <tr><td>Markups</td><td class="numeric">$201,000</td></tr>\n' +
+    '          <tr><td>Total</td><td class="numeric">$1,250,000</td></tr>\n' +
+    '        </tbody>\n' +
+    '      </table>\n' +
+    '    </div>\n' +
+    '    <h2>Notes</h2>\n' +
+    '    <ul><li>Pricing excludes owner-furnished medical equipment and permit fees.</li>\n' +
+    '<li>Estimate assumes two-phase construction with continued facility operation.</li></ul>\n' +
+    '  </section>\n' +
+    '</body>\n' +
+    '</html>\n'
+
+      at TestContext.<anonymous> (file:///home/mikeastock/.bb/worktrees/env_9qgefd7zm7/skills/evals/reviews/precon-pdf-templates/test-renderers.mjs:30:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1397:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:969:18)
+      at Test.postRun (node:internal/test_runner/test:1537:19)
+      at Test.run (node:internal/test_runner/test:1462:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: '<!doctype html>\n<html>\n<head>\n  <meta charset="utf-8">\n  <title>Construction Budget Export</title>\n  <style>\n    :root { --ink: #1f2937; --muted: #6b7280; --primary: #334155; --accent: #0f766e; --surface: #f1f5f9; --border: #cbd5e1; --font-body: "Liberation Sans", "DejaVu Sans", sans-serif; }\n    body { margin: 0; color: var(--ink); font-family: var(--font-body); font-size: 10pt; line-height: 1.35; }\n    .pdf-page { box-sizing: border-box; min-height: 10in; page-break-after: always; padding: 0.45in; }\n    .pdf-page:last-of-type { page-break-after: auto; }\n    .keep-together { break-inside: avoid; }\n    h1 { color: var(--primary); font-size: 24pt; margin: 0; }\n    h2 { background: var(--surface); border-left: 5px solid var(--accent); color: var(--primary); font-size: 13pt; padding: 7px 9px; }\n    table { width: 100%; border-collapse: collapse; margin-bottom: 14px; }\n    thead { display: table-header-group; }\n    th { background: var(--primary); color: #ffffff; font-size: 7.5pt; padding: 6px; text-align: left; text-transform: uppercase; }\n    td { border: 1px solid var(--border); padding: 5px 6px; vertical-align: top; }\n    .numeric { font-variant-numeric: tabular-nums; text-align: right; white-space: nowrap; }\n    .division td { background: var(--surface); color: var(--primary); font-weight: 800; }\n    .meta { color: var(--muted); margin: 4px 0 6px; }\n    .meta + .meta { margin-bottom: 18px; }\n    .totals { margin-left: auto; width: 45%; }\n    .totals tr:last-child td { background: var(--primary); color: #ffffff; font-weight: 800; }\n  </style>\n</head>\n<body>\n  <section class="pdf-page">\n    <p>Construction Budget Export</p>\n    <h1>Riverside Medical Office</h1>\n    <p class="meta">Estimate date: 2026-05-15</p>\n    \n    <h2>Division Detail</h2>\n    <table>\n      <thead><tr><th>Description</th><th>Quantity</th><th>Division</th><th class="numeric">Total</th></tr></thead>\n      <tbody><tr class="division"><td colspan="3">Division 02 — Existing Conditions</td><td class="numeric">$259,000</td></tr>\n<tr>\n          <td>Selective demolition and disposal</td>\n          <td>1 LS</td>\n          <td>02</td>\n          <td class="numeric">$185,000</td>\n        </tr>\n<tr>\n          <td>Temporary partitions and infection control</td>\n          <td>16 weeks</td>\n          <td>02</td>\n          <td class="numeric">$74,000</td>\n        </tr>\n<tr class="division"><td colspan="3">Division 09 — Finishes</td><td class="numeric">$637,000</td></tr>\n<tr>\n          <td>Walls, ceilings, and resilient flooring</td>\n          <td>18,400 SF</td>\n          <td>09</td>\n          <td class="numeric">$416,000</td>\n        </tr>\n<tr>\n          <td>Casework and exam-room accessories</td>\n          <td>24 rooms</td>\n          <td>09</td>\n          <td class="numeric">$221,000</td>\n        </tr>\n<tr class="division"><td colspan="3">Division 26 — Electrical</td><td class="numeric">$552,000</td></tr>\n<tr>\n          <td>Lighting, power, low-voltage rough-in</td>\n          <td>1 LS</td>\n          <td>26</td>\n          <td class="numeric">$314,000</td>\n        </tr>\n<tr>\n          <td>Panel upgrades and gear allowance</td>\n          <td>1 LS</td>\n          <td>26</td>\n          <td class="numeric">$238,000</td>\n        </tr></tbody>\n    </table>\n    <div class="keep-together">\n      <h2>Alternates</h2>\n      <table><thead><tr><th>Alternate</th><th class="numeric">Total</th></tr></thead><tbody><tr><td>Upgrade exam-room casework package</td><td class="numeric">$84,000</td></tr>\n<tr><td>After-hours accelerated work shifts</td><td class="numeric">$61,000</td></tr></tbody></table>\n      <h2>Markups</h2>\n      <table><thead><tr><th>Markup</th><th class="numeric">Total</th></tr></thead><tbody><tr><td>General conditions</td><td class="numeric">$142,500</td></tr>\n<tr><td>Insurance and bond</td><td class="numeric">$58,500</td></tr></tbody></table>\n      <table class="totals">\n        <tbody>\n          <tr><td>Subtotal</td><td class="numeric">$1,056,000</td></tr>\n          <tr><td>Markups</td><td class="numeric">$201,000</td></tr>\n          <tr><td>Total</td><td class="numeric">$1,250,000</td></tr>\n        </tbody>\n      </table>\n    </div>\n    <h2>Notes</h2>\n    <ul><li>Pricing excludes owner-furnished medical equipment and permit fees.</li>\n<li>Estimate assumes two-phase construction with continued facility operation.</li></ul>\n  </section>\n</body>\n</html>\n',
+    expected: /--primary: #3f2e24/,
+    operator: 'match',
+    diff: 'simple'
+  }
+
+test at evals/reviews/precon-pdf-templates/test-renderers.mjs:27:3
+✖ milestone-export: warm theme resolves outside skill cwd (33.994306ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /--primary: #3f2e24/. Input:
+
+  '<!doctype html>\n' +
+    '<html>\n' +
+    '<head>\n' +
+    '  <meta charset="utf-8">\n' +
+    '  <title>Milestone Export</title>\n' +
+    '  <style>\n' +
+    '    :root { --ink: #1f2937; --muted: #6b7280; --primary: #334155; --accent: #0f766e; --surface: #f1f5f9; --border: #cbd5e1; --font-body: "Liberation Sans", "DejaVu Sans", sans-serif; }\n' +
+    '    body { margin: 0; color: var(--ink); font-family: var(--font-body); font-size: 10.5pt; line-height: 1.4; }\n' +
+    '    .pdf-page { box-sizing: border-box; min-height: 10in; page-break-after: always; padding: 0.5in; }\n' +
+    '    .pdf-page:last-of-type { page-break-after: auto; }\n' +
+    '    .keep-together { break-inside: avoid; }\n' +
+    '    h1 { color: var(--primary); font-size: 25pt; margin: 0; }\n' +
+    '    h2 { background: var(--surface); border-left: 5px solid var(--accent); color: var(--primary); font-size: 13pt; padding: 8px 10px; }\n' +
+    '    table { width: 100%; border-collapse: collapse; }\n' +
+    '    thead { display: table-header-group; }\n' +
+    '    th { background: var(--primary); color: #ffffff; font-size: 7.5pt; padding: 6px; text-align: left; text-transform: uppercase; }\n' +
+    '    td { border: 1px solid var(--border); padding: 7px; vertical-align: top; }\n' +
+    '    .numeric { font-variant-numeric: tabular-nums; text-align: right; white-space: nowrap; }\n' +
+    '    .meta { color: var(--muted); margin: 4px 0 18px; }\n' +
+    '    .summary-grid { display: grid; gap: 10px; grid-template-columns: repeat(4, 1fr); }\n' +
+    '    .summary-card { background: var(--surface); border-top: 4px solid var(--accent); padding: 10px; }\n' +
+    '    .summary-card strong { display: block; font-size: 14pt; }\n' +
+    '    .columns { display: grid; gap: 18px; grid-template-columns: 1fr 1fr; }\n' +
+    '  </style>\n' +
+    '</head>\n' +
+    '<body>\n' +
+    '  <section class="pdf-page">\n' +
+    '    <p>Milestone Export</p>\n' +
+    '    <h1>Riverside Medical Office</h1>\n' +
+    '    <p class="meta">Design Development · 2026-05-15</p>\n' +
+    '    <div class="summary-grid keep-together">\n' +
+    '      <div class="summary-card"><span>Milestone</span><strong>Design Development</strong></div>\n' +
+    '      <div class="summary-card"><span>Area</span><strong>18,400 SF</strong></div>\n' +
+    '      <div class="summary-card"><span>Cost</span><strong>$1,250,000</strong></div>\n' +
+    '      <div class="summary-card"><span>Cost / SF</span><strong>$68</strong></div>\n' +
+    '    </div>\n' +
+    '    <div class="columns">\n' +
+    '      <div>\n' +
+    '        <h2>Inclusions</h2>\n' +
+    '        <ul><li>Selective demolition and phased infection-control barriers.</li>\n' +
+    '<li>Exam-room finish upgrades with casework allowance.</li>\n' +
+    '<li>Lighting, power, low-voltage rough-in, and panel upgrades.</li></ul>\n' +
+    '      </div>\n' +
+    '      <div>\n' +
+    '        <h2>Exclusions</h2>\n' +
+    '        <ul><li>Owner-furnished medical equipment.</li>\n' +
+    '<li>Permit fees and utility company charges.</li>\n' +
+    '<li>Hazardous material remediation beyond identified allowances.</li></ul>\n' +
+    '      </div>\n' +
+    '    </div>\n' +
+    '    <h2>Division Totals</h2>\n' +
+    '    <table>\n' +
+    '      <thead><tr><th>Code</th><th>Division</th><th>Notes</th><th class="numeric">Total</th></tr></thead>\n' +
+    '      <tbody><tr>\n' +
+    '        <td>Division 02</td>\n' +
+    '        <td>Existing Conditions</td>\n' +
+    '        <td>Includes temporary controls for occupied work.</td>\n' +
+    '        <td class="numeric">$259,000</td>\n' +
+    '      </tr>\n' +
+    '<tr>\n' +
+    '        <td>Division 09</td>\n' +
+    '        <td>Finishes</td>\n' +
+    '        <td>Includes baseline casework package.</td>\n' +
+    '        <td class="numeric">$637,000</td>\n' +
+    '      </tr>\n' +
+    '<tr>\n' +
+    '        <td>Division 26</td>\n' +
+    '        <td>Electrical</td>\n' +
+    '        <td>Includes gear allowance pending final cut sheets.</td>\n' +
+    '        <td class="numeric">$552,000</td>\n' +
+    '      </tr></tbody>\n' +
+    '    </table>\n' +
+    '    <h2>Approvals</h2>\n' +
+    '    <table>\n' +
+    '      <thead><tr><th>Name</th><th>Status</th><th>Date</th></tr></thead>\n' +
+    '      <tbody><tr>\n' +
+    '        <td>Owner Representative</td>\n' +
+    '        <td>Pending</td>\n' +
+    '        <td></td>\n' +
+    '      </tr>\n' +
+    '<tr>\n' +
+    '        <td>Contractor Preconstruction</td>\n' +
+    '        <td>Issued</td>\n' +
+    '        <td>2026-05-15</td>\n' +
+    '      </tr></tbody>\n' +
+    '    </table>\n' +
+    '  </section>\n' +
+    '</body>\n' +
+    '</html>\n'
+
+      at TestContext.<anonymous> (file:///home/mikeastock/.bb/worktrees/env_9qgefd7zm7/skills/evals/reviews/precon-pdf-templates/test-renderers.mjs:30:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1397:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:969:18)
+      at Test.postRun (node:internal/test_runner/test:1537:19)
+      at Test.run (node:internal/test_runner/test:1462:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:969:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: '<!doctype html>\n<html>\n<head>\n  <meta charset="utf-8">\n  <title>Milestone Export</title>\n  <style>\n    :root { --ink: #1f2937; --muted: #6b7280; --primary: #334155; --accent: #0f766e; --surface: #f1f5f9; --border: #cbd5e1; --font-body: "Liberation Sans", "DejaVu Sans", sans-serif; }\n    body { margin: 0; color: var(--ink); font-family: var(--font-body); font-size: 10.5pt; line-height: 1.4; }\n    .pdf-page { box-sizing: border-box; min-height: 10in; page-break-after: always; padding: 0.5in; }\n    .pdf-page:last-of-type { page-break-after: auto; }\n    .keep-together { break-inside: avoid; }\n    h1 { color: var(--primary); font-size: 25pt; margin: 0; }\n    h2 { background: var(--surface); border-left: 5px solid var(--accent); color: var(--primary); font-size: 13pt; padding: 8px 10px; }\n    table { width: 100%; border-collapse: collapse; }\n    thead { display: table-header-group; }\n    th { background: var(--primary); color: #ffffff; font-size: 7.5pt; padding: 6px; text-align: left; text-transform: uppercase; }\n    td { border: 1px solid var(--border); padding: 7px; vertical-align: top; }\n    .numeric { font-variant-numeric: tabular-nums; text-align: right; white-space: nowrap; }\n    .meta { color: var(--muted); margin: 4px 0 18px; }\n    .summary-grid { display: grid; gap: 10px; grid-template-columns: repeat(4, 1fr); }\n    .summary-card { background: var(--surface); border-top: 4px solid var(--accent); padding: 10px; }\n    .summary-card strong { display: block; font-size: 14pt; }\n    .columns { display: grid; gap: 18px; grid-template-columns: 1fr 1fr; }\n  </style>\n</head>\n<body>\n  <section class="pdf-page">\n    <p>Milestone Export</p>\n    <h1>Riverside Medical Office</h1>\n    <p class="meta">Design Development · 2026-05-15</p>\n    <div class="summary-grid keep-together">\n      <div class="summary-card"><span>Milestone</span><strong>Design Development</strong></div>\n      <div class="summary-card"><span>Area</span><strong>18,400 SF</strong></div>\n      <div class="summary-card"><span>Cost</span><strong>$1,250,000</strong></div>\n      <div class="summary-card"><span>Cost / SF</span><strong>$68</strong></div>\n    </div>\n    <div class="columns">\n      <div>\n        <h2>Inclusions</h2>\n        <ul><li>Selective demolition and phased infection-control barriers.</li>\n<li>Exam-room finish upgrades with casework allowance.</li>\n<li>Lighting, power, low-voltage rough-in, and panel upgrades.</li></ul>\n      </div>\n      <div>\n        <h2>Exclusions</h2>\n        <ul><li>Owner-furnished medical equipment.</li>\n<li>Permit fees and utility company charges.</li>\n<li>Hazardous material remediation beyond identified allowances.</li></ul>\n      </div>\n    </div>\n    <h2>Division Totals</h2>\n    <table>\n      <thead><tr><th>Code</th><th>Division</th><th>Notes</th><th class="numeric">Total</th></tr></thead>\n      <tbody><tr>\n        <td>Division 02</td>\n        <td>Existing Conditions</td>\n        <td>Includes temporary controls for occupied work.</td>\n        <td class="numeric">$259,000</td>\n      </tr>\n<tr>\n        <td>Division 09</td>\n        <td>Finishes</td>\n        <td>Includes baseline casework package.</td>\n        <td class="numeric">$637,000</td>\n      </tr>\n<tr>\n        <td>Division 26</td>\n        <td>Electrical</td>\n        <td>Includes gear allowance pending final cut sheets.</td>\n        <td class="numeric">$552,000</td>\n      </tr></tbody>\n    </table>\n    <h2>Approvals</h2>\n    <table>\n      <thead><tr><th>Name</th><th>Status</th><th>Date</th></tr></thead>\n      <tbody><tr>\n        <td>Owner Representative</td>\n        <td>Pending</td>\n        <td></td>\n      </tr>\n<tr>\n        <td>Contractor Preconstruction</td>\n        <td>Issued</td>\n        <td>2026-05-15</td>\n      </tr></tbody>\n    </table>\n  </section>\n</body>\n</html>\n',
+    expected: /--primary: #3f2e24/,
+    operator: 'match',
+    diff: 'simple'
+  }
+
+test at evals/reviews/precon-pdf-templates/test-renderers.mjs:27:3
+✖ employee-resume: warm theme resolves outside skill cwd (31.465571ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /--primary: #3f2e24/. Input:
+
+  '<!doctype html>\n' +
+    '<html>\n' +
+    '<head>\n' +
+    '  <meta charset="utf-8">\n' +
+    '  <title>Employee Resume</title>\n' +
+    '  <style>\n' +
+    '    :root { --ink: #1f2937; --muted: #6b7280; --primary: #334155; --accent: #0f766e; --surface: #f1f5f9; --border: #cbd5e1; --font-body: "Liberation Sans", "DejaVu Sans", sans-serif; }\n' +
+    '    body { margin: 0; color: var(--ink); font-family: var(--font-body); font-size: 10.5pt; line-height: 1.45; }\n' +
+    '    .pdf-page { box-sizing: border-box; min-height: 10in; page-break-after: always; padding: 0.55in; }\n' +
+    '    .pdf-page:last-of-type { page-break-after: auto; }\n' +
+    '    .keep-together { break-inside: avoid; }\n' +
+    '    h1 { color: var(--primary); font-size: 28pt; margin: 0; }\n' +
+    '    h2 { background: var(--surface); border-left: 5px solid var(--accent); color: var(--primary); font-size: 14pt; padding: 8px 10px; }\n' +
+    '    table { width: 100%; border-collapse: collapse; }\n' +
+    '    thead { display: table-header-group; }\n' +
+    '    th { background: var(--primary); color: #ffffff; font-size: 7.5pt; padding: 6px; text-align: left; text-transform: uppercase; }\n' +
+    '    td { border: 1px solid var(--border); padding: 7px; vertical-align: top; }\n' +
+    '    .meta { color: var(--muted); font-size: 11pt; margin: 6px 0 18px; }\n' +
+    '    .chips span { background: var(--surface); border: 1px solid var(--border); display: inline-block; margin: 0 6px 6px 0; padding: 4px 8px; }\n' +
+    '    .summary { border-left: 4px solid var(--accent); padding-left: 12px; }\n' +
+    '  </style>\n' +
+    '</head>\n' +
+    '<body>\n' +
+    '  <section class="pdf-page">\n' +
+    '    <p>Employee Resume</p>\n' +
+    '    <h1>Jordan Lee</h1>\n' +
+    '    <p class="meta">Senior Estimator · Denver, CO · 12 years experience</p>\n' +
+    '    <div class="summary keep-together">Jordan brings disciplined conceptual estimating and trade partner coverage for healthcare, multifamily, and adaptive reuse pursuits.</div>\n' +
+    '    <h2>Certifications</h2>\n' +
+    '    <div class="chips"><span>LEED AP BD+C</span>\n' +
+    '<span>ASPE Certified Professional Estimator</span>\n' +
+    '<span>OSHA 30</span></div>\n' +
+    '    <h2>Project Experience</h2>\n' +
+    '    <table>\n' +
+    '      <thead><tr><th>Project / Role</th><th>Value</th><th>Relevant experience</th></tr></thead>\n' +
+    '      <tbody><tr>\n' +
+    '        <td><strong>Riverside Medical Office Renovation</strong><br>Lead estimator</td>\n' +
+    '        <td>$1.25M</td>\n' +
+    '        <td>Built phased budget options for an occupied clinical environment with infection-control constraints.</td>\n' +
+    '      </tr>\n' +
+    '<tr>\n' +
+    '        <td><strong>Union Station Mixed-Use Core</strong><br>Preconstruction manager</td>\n' +
+    '        <td>$42M</td>\n' +
+    '        <td>Led milestone estimates from schematic design through GMP reconciliation.</td>\n' +
+    '      </tr>\n' +
+    '<tr>\n' +
+    '        <td><strong>Northfield Public Safety Center</strong><br>Estimator</td>\n' +
+    '        <td>$18M</td>\n' +
+    '        <td>Coordinated civil, structural, and MEP scope leveling across early bid packages.</td>\n' +
+    '      </tr></tbody>\n' +
+    '    </table>\n' +
+    '    <h2>Differentiators</h2>\n' +
+    '    <ul><li>Turns incomplete documents into clear assumptions and owner decision logs.</li>\n' +
+    '<li>Balances trade coverage with transparent escalation and contingency strategy.</li>\n' +
+    '<li>Experienced in occupied healthcare renovation phasing.</li></ul>\n' +
+    '  </section>\n' +
+    '</body>\n' +
+    '</html>\n'
+
+      at TestContext.<anonymous> (file:///home/mikeastock/.bb/worktrees/env_9qgefd7zm7/skills/evals/reviews/precon-pdf-templates/test-renderers.mjs:30:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1397:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:969:18)
+      at Test.postRun (node:internal/test_runner/test:1537:19)
+      at Test.run (node:internal/test_runner/test:1462:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:969:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: '<!doctype html>\n<html>\n<head>\n  <meta charset="utf-8">\n  <title>Employee Resume</title>\n  <style>\n    :root { --ink: #1f2937; --muted: #6b7280; --primary: #334155; --accent: #0f766e; --surface: #f1f5f9; --border: #cbd5e1; --font-body: "Liberation Sans", "DejaVu Sans", sans-serif; }\n    body { margin: 0; color: var(--ink); font-family: var(--font-body); font-size: 10.5pt; line-height: 1.45; }\n    .pdf-page { box-sizing: border-box; min-height: 10in; page-break-after: always; padding: 0.55in; }\n    .pdf-page:last-of-type { page-break-after: auto; }\n    .keep-together { break-inside: avoid; }\n    h1 { color: var(--primary); font-size: 28pt; margin: 0; }\n    h2 { background: var(--surface); border-left: 5px solid var(--accent); color: var(--primary); font-size: 14pt; padding: 8px 10px; }\n    table { width: 100%; border-collapse: collapse; }\n    thead { display: table-header-group; }\n    th { background: var(--primary); color: #ffffff; font-size: 7.5pt; padding: 6px; text-align: left; text-transform: uppercase; }\n    td { border: 1px solid var(--border); padding: 7px; vertical-align: top; }\n    .meta { color: var(--muted); font-size: 11pt; margin: 6px 0 18px; }\n    .chips span { background: var(--surface); border: 1px solid var(--border); display: inline-block; margin: 0 6px 6px 0; padding: 4px 8px; }\n    .summary { border-left: 4px solid var(--accent); padding-left: 12px; }\n  </style>\n</head>\n<body>\n  <section class="pdf-page">\n    <p>Employee Resume</p>\n    <h1>Jordan Lee</h1>\n    <p class="meta">Senior Estimator · Denver, CO · 12 years experience</p>\n    <div class="summary keep-together">Jordan brings disciplined conceptual estimating and trade partner coverage for healthcare, multifamily, and adaptive reuse pursuits.</div>\n    <h2>Certifications</h2>\n    <div class="chips"><span>LEED AP BD+C</span>\n<span>ASPE Certified Professional Estimator</span>\n<span>OSHA 30</span></div>\n    <h2>Project Experience</h2>\n    <table>\n      <thead><tr><th>Project / Role</th><th>Value</th><th>Relevant experience</th></tr></thead>\n      <tbody><tr>\n        <td><strong>Riverside Medical Office Renovation</strong><br>Lead estimator</td>\n        <td>$1.25M</td>\n        <td>Built phased budget options for an occupied clinical environment with infection-control constraints.</td>\n      </tr>\n<tr>\n        <td><strong>Union Station Mixed-Use Core</strong><br>Preconstruction manager</td>\n        <td>$42M</td>\n        <td>Led milestone estimates from schematic design through GMP reconciliation.</td>\n      </tr>\n<tr>\n        <td><strong>Northfield Public Safety Center</strong><br>Estimator</td>\n        <td>$18M</td>\n        <td>Coordinated civil, structural, and MEP scope leveling across early bid packages.</td>\n      </tr></tbody>\n    </table>\n    <h2>Differentiators</h2>\n    <ul><li>Turns incomplete documents into clear assumptions and owner decision logs.</li>\n<li>Balances trade coverage with transparent escalation and contingency strategy.</li>\n<li>Experienced in occupied healthcare renovation phasing.</li></ul>\n  </section>\n</body>\n</html>\n',
+    expected: /--primary: #3f2e24/,
+    operator: 'match',
+    diff: 'simple'
+  }
+
+test at evals/reviews/precon-pdf-templates/test-renderers.mjs:36:1
+✖ budget: cents, negative deduct, zero, escaped input and mismatched exported totals survive (37.242798ms)
+  AssertionError [ERR_ASSERTION]: $123.45
+      at TestContext.<anonymous> (file:///home/mikeastock/.bb/worktrees/env_9qgefd7zm7/skills/evals/reviews/precon-pdf-templates/test-renderers.mjs:44:79)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1397:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:969:18)
+      at Test.postRun (node:internal/test_runner/test:1537:19)
+      at Test.run (node:internal/test_runner/test:1462:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:969:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at evals/reviews/precon-pdf-templates/test-renderers.mjs:48:1
+✖ budget: missing, null, fractional, string and unsafe cents fail before output (37.922661ms)
+  AssertionError [ERR_ASSERTION]: Expected "actual" to be strictly unequal to: 0
+      at TestContext.<anonymous> (file:///home/mikeastock/.bb/worktrees/env_9qgefd7zm7/skills/evals/reviews/precon-pdf-templates/test-renderers.mjs:52:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1397:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:969:18)
+      at Test.postRun (node:internal/test_runner/test:1537:19)
+      at Test.run (node:internal/test_runner/test:1462:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:969:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: 0,
+    operator: 'notStrictEqual',
+    diff: 'simple'
+  }
+
+test at evals/reviews/precon-pdf-templates/test-renderers.mjs:56:1
+✖ milestone: cost per SF preserves the supplied $67.93 (40.292007ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /\$67\.93/. Input:
+
+  '<!doctype html>\n' +
+    '<html>\n' +
+    '<head>\n' +
+    '  <meta charset="utf-8">\n' +
+    '  <title>Milestone Export</title>\n' +
+    '  <style>\n' +
+    '    :root { --ink: #1f2937; --muted: #6b7280; --primary: #334155; --accent: #0f766e; --surface: #f1f5f9; --border: #cbd5e1; --font-body: "Liberation Sans", "DejaVu Sans", sans-serif; }\n' +
+    '    body { margin: 0; color: var(--ink); font-family: var(--font-body); font-size: 10.5pt; line-height: 1.4; }\n' +
+    '    .pdf-page { box-sizing: border-box; min-height: 10in; page-break-after: always; padding: 0.5in; }\n' +
+    '    .pdf-page:last-of-type { page-break-after: auto; }\n' +
+    '    .keep-together { break-inside: avoid; }\n' +
+    '    h1 { color: var(--primary); font-size: 25pt; margin: 0; }\n' +
+    '    h2 { background: var(--surface); border-left: 5px solid var(--accent); color: var(--primary); font-size: 13pt; padding: 8px 10px; }\n' +
+    '    table { width: 100%; border-collapse: collapse; }\n' +
+    '    thead { display: table-header-group; }\n' +
+    '    th { background: var(--primary); color: #ffffff; font-size: 7.5pt; padding: 6px; text-align: left; text-transform: uppercase; }\n' +
+    '    td { border: 1px solid var(--border); padding: 7px; vertical-align: top; }\n' +
+    '    .numeric { font-variant-numeric: tabular-nums; text-align: right; white-space: nowrap; }\n' +
+    '    .meta { color: var(--muted); margin: 4px 0 18px; }\n' +
+    '    .summary-grid { display: grid; gap: 10px; grid-template-columns: repeat(4, 1fr); }\n' +
+    '    .summary-card { background: var(--surface); border-top: 4px solid var(--accent); padding: 10px; }\n' +
+    '    .summary-card strong { display: block; font-size: 14pt; }\n' +
+    '    .columns { display: grid; gap: 18px; grid-template-columns: 1fr 1fr; }\n' +
+    '  </style>\n' +
+    '</head>\n' +
+    '<body>\n' +
+    '  <section class="pdf-page">\n' +
+    '    <p>Milestone Export</p>\n' +
+    '    <h1>Riverside Medical Office</h1>\n' +
+    '    <p class="meta">Design Development · 2026-05-15</p>\n' +
+    '    <div class="summary-grid keep-together">\n' +
+    '      <div class="summary-card"><span>Milestone</span><strong>Design Development</strong></div>\n' +
+    '      <div class="summary-card"><span>Area</span><strong>18,400 SF</strong></div>\n' +
+    '      <div class="summary-card"><span>Cost</span><strong>$1,250,000</strong></div>\n' +
+    '      <div class="summary-card"><span>Cost / SF</span><strong>$68</strong></div>\n' +
+    '    </div>\n' +
+    '    <div class="columns">\n' +
+    '      <div>\n' +
+    '        <h2>Inclusions</h2>\n' +
+    '        <ul><li>Selective demolition and phased infection-control barriers.</li>\n' +
+    '<li>Exam-room finish upgrades with casework allowance.</li>\n' +
+    '<li>Lighting, power, low-voltage rough-in, and panel upgrades.</li></ul>\n' +
+    '      </div>\n' +
+    '      <div>\n' +
+    '        <h2>Exclusions</h2>\n' +
+    '        <ul><li>Owner-furnished medical equipment.</li>\n' +
+    '<li>Permit fees and utility company charges.</li>\n' +
+    '<li>Hazardous material remediation beyond identified allowances.</li></ul>\n' +
+    '      </div>\n' +
+    '    </div>\n' +
+    '    <h2>Division Totals</h2>\n' +
+    '    <table>\n' +
+    '      <thead><tr><th>Code</th><th>Division</th><th>Notes</th><th class="numeric">Total</th></tr></thead>\n' +
+    '      <tbody><tr>\n' +
+    '        <td>Division 02</td>\n' +
+    '        <td>Existing Conditions</td>\n' +
+    '        <td>Includes temporary controls for occupied work.</td>\n' +
+    '        <td class="numeric">$259,000</td>\n' +
+    '      </tr>\n' +
+    '<tr>\n' +
+    '        <td>Division 09</td>\n' +
+    '        <td>Finishes</td>\n' +
+    '        <td>Includes baseline casework package.</td>\n' +
+    '        <td class="numeric">$637,000</td>\n' +
+    '      </tr>\n' +
+    '<tr>\n' +
+    '        <td>Division 26</td>\n' +
+    '        <td>Electrical</td>\n' +
+    '        <td>Includes gear allowance pending final cut sheets.</td>\n' +
+    '        <td class="numeric">$552,000</td>\n' +
+    '      </tr></tbody>\n' +
+    '    </table>\n' +
+    '    <h2>Approvals</h2>\n' +
+    '    <table>\n' +
+    '      <thead><tr><th>Name</th><th>Status</th><th>Date</th></tr></thead>\n' +
+    '      <tbody><tr>\n' +
+    '        <td>Owner Representative</td>\n' +
+    '        <td>Pending</td>\n' +
+    '        <td></td>\n' +
+    '      </tr>\n' +
+    '<tr>\n' +
+    '        <td>Contractor Preconstruction</td>\n' +
+    '        <td>Issued</td>\n' +
+    '        <td>2026-05-15</td>\n' +
+    '      </tr></tbody>\n' +
+    '    </table>\n' +
+    '  </section>\n' +
+    '</body>\n' +
+    '</html>\n'
+
+      at TestContext.<anonymous> (file:///home/mikeastock/.bb/worktrees/env_9qgefd7zm7/skills/evals/reviews/precon-pdf-templates/test-renderers.mjs:57:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1397:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:969:18)
+      at Test.postRun (node:internal/test_runner/test:1537:19)
+      at Test.run (node:internal/test_runner/test:1462:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:969:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: '<!doctype html>\n<html>\n<head>\n  <meta charset="utf-8">\n  <title>Milestone Export</title>\n  <style>\n    :root { --ink: #1f2937; --muted: #6b7280; --primary: #334155; --accent: #0f766e; --surface: #f1f5f9; --border: #cbd5e1; --font-body: "Liberation Sans", "DejaVu Sans", sans-serif; }\n    body { margin: 0; color: var(--ink); font-family: var(--font-body); font-size: 10.5pt; line-height: 1.4; }\n    .pdf-page { box-sizing: border-box; min-height: 10in; page-break-after: always; padding: 0.5in; }\n    .pdf-page:last-of-type { page-break-after: auto; }\n    .keep-together { break-inside: avoid; }\n    h1 { color: var(--primary); font-size: 25pt; margin: 0; }\n    h2 { background: var(--surface); border-left: 5px solid var(--accent); color: var(--primary); font-size: 13pt; padding: 8px 10px; }\n    table { width: 100%; border-collapse: collapse; }\n    thead { display: table-header-group; }\n    th { background: var(--primary); color: #ffffff; font-size: 7.5pt; padding: 6px; text-align: left; text-transform: uppercase; }\n    td { border: 1px solid var(--border); padding: 7px; vertical-align: top; }\n    .numeric { font-variant-numeric: tabular-nums; text-align: right; white-space: nowrap; }\n    .meta { color: var(--muted); margin: 4px 0 18px; }\n    .summary-grid { display: grid; gap: 10px; grid-template-columns: repeat(4, 1fr); }\n    .summary-card { background: var(--surface); border-top: 4px solid var(--accent); padding: 10px; }\n    .summary-card strong { display: block; font-size: 14pt; }\n    .columns { display: grid; gap: 18px; grid-template-columns: 1fr 1fr; }\n  </style>\n</head>\n<body>\n  <section class="pdf-page">\n    <p>Milestone Export</p>\n    <h1>Riverside Medical Office</h1>\n    <p class="meta">Design Development · 2026-05-15</p>\n    <div class="summary-grid keep-together">\n      <div class="summary-card"><span>Milestone</span><strong>Design Development</strong></div>\n      <div class="summary-card"><span>Area</span><strong>18,400 SF</strong></div>\n      <div class="summary-card"><span>Cost</span><strong>$1,250,000</strong></div>\n      <div class="summary-card"><span>Cost / SF</span><strong>$68</strong></div>\n    </div>\n    <div class="columns">\n      <div>\n        <h2>Inclusions</h2>\n        <ul><li>Selective demolition and phased infection-control barriers.</li>\n<li>Exam-room finish upgrades with casework allowance.</li>\n<li>Lighting, power, low-voltage rough-in, and panel upgrades.</li></ul>\n      </div>\n      <div>\n        <h2>Exclusions</h2>\n        <ul><li>Owner-furnished medical equipment.</li>\n<li>Permit fees and utility company charges.</li>\n<li>Hazardous material remediation beyond identified allowances.</li></ul>\n      </div>\n    </div>\n    <h2>Division Totals</h2>\n    <table>\n      <thead><tr><th>Code</th><th>Division</th><th>Notes</th><th class="numeric">Total</th></tr></thead>\n      <tbody><tr>\n        <td>Division 02</td>\n        <td>Existing Conditions</td>\n        <td>Includes temporary controls for occupied work.</td>\n        <td class="numeric">$259,000</td>\n      </tr>\n<tr>\n        <td>Division 09</td>\n        <td>Finishes</td>\n        <td>Includes baseline casework package.</td>\n        <td class="numeric">$637,000</td>\n      </tr>\n<tr>\n        <td>Division 26</td>\n        <td>Electrical</td>\n        <td>Includes gear allowance pending final cut sheets.</td>\n        <td class="numeric">$552,000</td>\n      </tr></tbody>\n    </table>\n    <h2>Approvals</h2>\n    <table>\n      <thead><tr><th>Name</th><th>Status</th><th>Date</th></tr></thead>\n      <tbody><tr>\n        <td>Owner Representative</td>\n        <td>Pending</td>\n        <td></td>\n      </tr>\n<tr>\n        <td>Contractor Preconstruction</td>\n        <td>Issued</td>\n        <td>2026-05-15</td>\n      </tr></tbody>\n    </table>\n  </section>\n</body>\n</html>\n',
+    expected: /\$67\.93/,
+    operator: 'match',
+    diff: 'simple'
+  }
+
+test at evals/reviews/precon-pdf-templates/test-renderers.mjs:59:1
+✖ milestone: missing construction cost fails without inventing zero (47.96887ms)
+  AssertionError [ERR_ASSERTION]: Expected "actual" to be strictly unequal to: 0
+      at TestContext.<anonymous> (file:///home/mikeastock/.bb/worktrees/env_9qgefd7zm7/skills/evals/reviews/precon-pdf-templates/test-renderers.mjs:61:48)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1397:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:969:18)
+      at Test.postRun (node:internal/test_runner/test:1537:19)
+      at Test.run (node:internal/test_runner/test:1462:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:969:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: 0,
+    operator: 'notStrictEqual',
+    diff: 'simple'
+  }
+
+test at evals/reviews/precon-pdf-templates/test-renderers.mjs:63:1
+✖ resume: absent optional meta never claims years experience (38.874744ms)
+  AssertionError [ERR_ASSERTION]: The input was expected to not match the regular expression /years experience|undefined|NaN/. Input:
+
+  '<!doctype html>\n' +
+    '<html>\n' +
+    '<head>\n' +
+    '  <meta charset="utf-8">\n' +
+    '  <title>Employee Resume</title>\n' +
+    '  <style>\n' +
+    '    :root { --ink: #1f2937; --muted: #6b7280; --primary: #334155; --accent: #0f766e; --surface: #f1f5f9; --border: #cbd5e1; --font-body: "Liberation Sans", "DejaVu Sans", sans-serif; }\n' +
+    '    body { margin: 0; color: var(--ink); font-family: var(--font-body); font-size: 10.5pt; line-height: 1.45; }\n' +
+    '    .pdf-page { box-sizing: border-box; min-height: 10in; page-break-after: always; padding: 0.55in; }\n' +
+    '    .pdf-page:last-of-type { page-break-after: auto; }\n' +
+    '    .keep-together { break-inside: avoid; }\n' +
+    '    h1 { color: var(--primary); font-size: 28pt; margin: 0; }\n' +
+    '    h2 { background: var(--surface); border-left: 5px solid var(--accent); color: var(--primary); font-size: 14pt; padding: 8px 10px; }\n' +
+    '    table { width: 100%; border-collapse: collapse; }\n' +
+    '    thead { display: table-header-group; }\n' +
+    '    th { background: var(--primary); color: #ffffff; font-size: 7.5pt; padding: 6px; text-align: left; text-transform: uppercase; }\n' +
+    '    td { border: 1px solid var(--border); padding: 7px; vertical-align: top; }\n' +
+    '    .meta { color: var(--muted); font-size: 11pt; margin: 6px 0 18px; }\n' +
+    '    .chips span { background: var(--surface); border: 1px solid var(--border); display: inline-block; margin: 0 6px 6px 0; padding: 4px 8px; }\n' +
+    '    .summary { border-left: 4px solid var(--accent); padding-left: 12px; }\n' +
+    '  </style>\n' +
+    '</head>\n' +
+    '<body>\n' +
+    '  <section class="pdf-page">\n' +
+    '    <p>Employee Resume</p>\n' +
+    '    <h1>Casey</h1>\n' +
+    '    <p class="meta">Estimator ·  ·  years experience</p>\n' +
+    '    <div class="summary keep-together"></div>\n' +
+    '    <h2>Certifications</h2>\n' +
+    '    <div class="chips"></div>\n' +
+    '    <h2>Project Experience</h2>\n' +
+    '    <table>\n' +
+    '      <thead><tr><th>Project / Role</th><th>Value</th><th>Relevant experience</th></tr></thead>\n' +
+    '      <tbody></tbody>\n' +
+    '    </table>\n' +
+    '    <h2>Differentiators</h2>\n' +
+    '    <ul></ul>\n' +
+    '  </section>\n' +
+    '</body>\n' +
+    '</html>\n'
+
+      at TestContext.<anonymous> (file:///home/mikeastock/.bb/worktrees/env_9qgefd7zm7/skills/evals/reviews/precon-pdf-templates/test-renderers.mjs:66:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1397:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:969:18)
+      at Test.postRun (node:internal/test_runner/test:1537:19)
+      at Test.run (node:internal/test_runner/test:1462:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:969:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: '<!doctype html>\n<html>\n<head>\n  <meta charset="utf-8">\n  <title>Employee Resume</title>\n  <style>\n    :root { --ink: #1f2937; --muted: #6b7280; --primary: #334155; --accent: #0f766e; --surface: #f1f5f9; --border: #cbd5e1; --font-body: "Liberation Sans", "DejaVu Sans", sans-serif; }\n    body { margin: 0; color: var(--ink); font-family: var(--font-body); font-size: 10.5pt; line-height: 1.45; }\n    .pdf-page { box-sizing: border-box; min-height: 10in; page-break-after: always; padding: 0.55in; }\n    .pdf-page:last-of-type { page-break-after: auto; }\n    .keep-together { break-inside: avoid; }\n    h1 { color: var(--primary); font-size: 28pt; margin: 0; }\n    h2 { background: var(--surface); border-left: 5px solid var(--accent); color: var(--primary); font-size: 14pt; padding: 8px 10px; }\n    table { width: 100%; border-collapse: collapse; }\n    thead { display: table-header-group; }\n    th { background: var(--primary); color: #ffffff; font-size: 7.5pt; padding: 6px; text-align: left; text-transform: uppercase; }\n    td { border: 1px solid var(--border); padding: 7px; vertical-align: top; }\n    .meta { color: var(--muted); font-size: 11pt; margin: 6px 0 18px; }\n    .chips span { background: var(--surface); border: 1px solid var(--border); display: inline-block; margin: 0 6px 6px 0; padding: 4px 8px; }\n    .summary { border-left: 4px solid var(--accent); padding-left: 12px; }\n  </style>\n</head>\n<body>\n  <section class="pdf-page">\n    <p>Employee Resume</p>\n    <h1>Casey</h1>\n    <p class="meta">Estimator ·  ·  years experience</p>\n    <div class="summary keep-together"></div>\n    <h2>Certifications</h2>\n    <div class="chips"></div>\n    <h2>Project Experience</h2>\n    <table>\n      <thead><tr><th>Project / Role</th><th>Value</th><th>Relevant experience</th></tr></thead>\n      <tbody></tbody>\n    </table>\n    <h2>Differentiators</h2>\n    <ul></ul>\n  </section>\n</body>\n</html>\n',
+    expected: /years experience|undefined|NaN/,
+    operator: 'doesNotMatch',
+    diff: 'simple'
+  }
+
+test at evals/reviews/precon-pdf-templates/test-renderers.mjs:68:1
+✖ unknown theme and extra arguments fail without output (40.817551ms)
+  AssertionError [ERR_ASSERTION]: Expected "actual" to be strictly unequal to: 0
+      at TestContext.<anonymous> (file:///home/mikeastock/.bb/worktrees/env_9qgefd7zm7/skills/evals/reviews/precon-pdf-templates/test-renderers.mjs:71:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1397:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:969:18)
+      at Test.postRun (node:internal/test_runner/test:1537:19)
+      at Test.run (node:internal/test_runner/test:1462:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:969:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: 0,
+    operator: 'notStrictEqual',
+    diff: 'simple'
+  }

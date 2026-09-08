@@ -1,134 +1,37 @@
-# Buildr MCP server
+# Buildr connection and discovery
 
-How this skill talks to Buildr. Read this before the first tool call.
+Read before live tool use. This package contains no live API schema or proof
+that a particular account exposes workforce operations. Use the authenticated
+Buildr MCP connection configured in the user's client. If absent or failing,
+report the observed connection/auth error and request connection or an export;
+do not claim an account rollout state or diagnose scopes without evidence.
 
-## Connection
+Inspect the actual MCP tool listing and input schemas. If the connection
+exposes code-mode `search` and `execute`, inspect their schemas and discovery
+help before supplying code. Discover workforce operations, then describe each
+operation needed for the request. The names in data-model.md are lookup hints
+from prior examples, not guaranteed callable APIs. Never synthesize endpoint,
+parameter, filter, pagination, or response names from them.
 
-Add the server to the agent's MCP client configuration:
+Use discovered read operations for roles, employees, assignments, time off,
+utilization periods, and any required project/certification/experience data.
+Follow the documented pagination termination condition. Preserve filters,
+window, read timestamp, and completeness; repeated cursors or missing pages
+are an incomplete read, not an empty result. Confirm whether date bounds are
+exclusive and how open-ended periods and missing intervals are represented.
+If that contract cannot be established, report uncertain intervals.
 
-```json
-{ "type": "http", "url": "https://mcp.buildr.com/mcp" }
-```
+Keep discovery and reads separate from mutations. Before any authorized write,
+describe the mutation and verify actual permission; do not infer permission
+from tool availability. Return identifiers and stored fields for verification.
+A read-only connection can deliver analysis and a dry run.
 
-The server uses OAuth login. On first use the agent opens a browser login
-for the user's Buildr account. Two scopes exist: `read` (all list and show
-operations) and `write` (create, update, dismiss, and delete operations).
-Analysis needs `read`; staffing changes need `write`.
+On unknown operation or invalid parameter, return to discovery. On validation
+failure, report the relevant error and revise the affected proposal. On partial
+failure or timeout, stop and re-read affected state before any retry; a timed-out
+write may have succeeded. Do not assume transactional batches or an undo API.
 
-If the connection fails, the login does not complete, or the two tools do
-not appear, tell the user to ask their Buildr admin whether the MCP server
-is enabled for their account. It is rolling out, so a healthy Buildr account
-can still be missing it. Stop there; do not answer from memory or guess at
-the account's data.
-
-## The two tools
-
-The server exposes exactly two tools. Do not look for or invent others.
-
-| Tool | Purpose | Touches account data | Parameters |
-|---|---|---|---|
-| `search` | Discover operations and their parameter and response shapes | Never | `code: string`, `timeout?: number` |
-| `execute` | Run operations against the account | Yes; mutations are immediate | `code: string`, `timeout?: number` |
-
-`code` is the body of an async JavaScript arrow function. The server wraps
-it, runs it, and returns whatever the body returns. Use `await` freely and
-`return` a value; anything not returned is lost.
-
-Inside `search`, two helpers are available:
-
-- `codemode.search(query)` returns the operations matching a keyword, with
-  their operationIds and one-line descriptions.
-- `codemode.describe(operationId)` returns the parameters and the response
-  shape for one operation. The operationId is written with the `buildr.`
-  prefix, for example `codemode.describe("buildr.listWorkforceAssignments")`.
-
-Inside `execute`, the `buildr` object exposes every operation as an async
-function: `await buildr.<operationId>(args)`.
-
-## Operations this skill uses
-
-Reads: `listWorkforceEmployees`, `showWorkforceEmployee`,
-`listWorkforceRoles`, `listWorkforceAssignments`, `showWorkforceAssignment`,
-`listWorkforceEmployeeUtilizationPeriods`, `listWorkforceTimeOffs`,
-`listWorkforceCertificationTypes`, `listWorkforceEmployeeCertifications`,
-`listWorkforceEmployeeExperiences`, `listWorkforcePreviousEmployerExperiences`,
-`listProjects`, `getProjectById`, `listProjectStages`.
-
-Writes: `createWorkforceEmployee`, `updateWorkforceEmployee`,
-`dismissWorkforceEmployee`, `createWorkforceRole`,
-`createWorkforceAssignment`, `updateWorkforceAssignment`,
-`deleteWorkforceAssignment`, `createWorkforceTimeOff`.
-
-Parameter names, filter names, pagination, and response fields are whatever
-`codemode.describe` returns for the account. The examples in this skill use
-plausible snake_case names so the pattern is clear; confirm each one before
-relying on it.
-
-## Code-mode pattern
-
-Discover once per session, read in as few round trips as the API allows,
-compute locally in the agent, and write only after the user confirms.
-
-Discovery with `search`:
-
-```js
-const ops = await codemode.search("workforce");
-const assignments = await codemode.describe("buildr.listWorkforceAssignments");
-const periods = await codemode.describe("buildr.listWorkforceEmployeeUtilizationPeriods");
-const certs = await codemode.describe("buildr.listWorkforceEmployeeCertifications");
-return { ops, assignments, periods, certs };
-```
-
-Reading with `execute`, paging until the list is exhausted:
-
-```js
-const all = [];
-let page = 1;
-while (true) {
-  const res = await buildr.listWorkforceAssignments({
-    start_date_before: "2027-08-01",
-    end_date_after: "2026-11-01",
-    page,
-  });
-  all.push(...res.data);
-  if (!res.next_page) break;
-  page = res.next_page;
-}
-return all;
-```
-
-Writing with `execute`, after confirmation, returning what the server
-actually stored so it can be compared with the dry run:
-
-```js
-const updated = await buildr.updateWorkforceAssignment({
-  id: "asg_0410",
-  employee_id: "emp_0107",
-});
-return updated;
-```
-
-Keep each `execute` body small and single-purpose. A body that reads,
-computes, and writes in one call cannot be stopped between the dry run and
-the mutation, which defeats the confirmation gate.
-
-## Error handling
-
-- Connection or auth failure: stop and tell the user to check with their
-  Buildr admin that the MCP server is enabled for the account. Do not
-  proceed with partial data.
-- Unknown operation or unexpected parameter: re-run `codemode.describe`
-  for that operation and fix the call. Do not guess at alternate names.
-- Permission error on a write: the login likely has only the `read`
-  scope. Report the dry run as the deliverable and tell the user which
-  scope is missing.
-- Validation error on a write (dates, allocation, role mismatch): report
-  the server's message verbatim, fix only what the message names, and
-  re-present the corrected item for confirmation rather than retrying
-  silently.
-- Failure partway through a batch: stop at the first error. Report which
-  changes were applied and which were not, re-read the affected
-  assignments, and let the user decide whether to continue.
-- Timeouts on large accounts: narrow the date window or add the operation's
-  employee, project, or role filters and read in smaller pieces. Pass a
-  larger `timeout` only when the read is legitimately large.
+For supplied exports and fixtures, skip MCP calls entirely. Label results
+"offline snapshot" or "synthetic fixture replay" and name the supplied source.
+Such a replay tests local rules only, not OAuth, tool discovery, schemas,
+pagination, permissions, mutation behavior, or current account data.

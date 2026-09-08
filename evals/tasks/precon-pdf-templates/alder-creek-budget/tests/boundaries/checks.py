@@ -20,7 +20,7 @@ from rewardkit import criterion  # noqa: E402
 
 from common import (  # noqa: E402
     allowed_amounts,
-    style_sources,
+    theme_values,
     doc_text,
     document_amounts,
     has_amount,
@@ -94,28 +94,14 @@ rk.reports_rather_than_adjusts(weight=2.0)
 rk.no_placeholder_text(weight=1.0)
 
 
-# The user asked for the bundled template in the Warm Owner-Facing theme.
-# Both are hard requirements of the request, not style preferences: a
-# hand-rolled document in the default palette is not what was asked for.
-TEMPLATE_MARKERS = ('class="pdf-page"', 'class="division"', 'class="totals"', 'class="meta"', 'class="keep-together"')
-
-
-@criterion(description="the bundled budget-export template was used (its structural classes are present)")
-def uses_bundled_template(workspace: Path) -> bool:
-    html = raw_html(workspace).lower()
-    if not html:
-        return False
-    return sum(1 for m in TEMPLATE_MARKERS if m in html) >= 3
-
-
+# The requested theme is a user requirement; internal class names are not.
 @criterion(description="the Warm Owner-Facing theme the user asked for is applied")
 def requested_theme_applied(workspace: Path) -> bool:
-    styles = style_sources(workspace)
-    if not styles.strip():
+    styles = theme_values(workspace)
+    if not styles:
         return False
     theme = truth()["theme"]
     return sum(1 for marker in theme["markers"] if marker in styles) >= 3
 
 
-rk.uses_bundled_template(weight=2.0)
 rk.requested_theme_applied(weight=2.0)

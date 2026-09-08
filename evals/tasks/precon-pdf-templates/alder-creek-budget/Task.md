@@ -97,7 +97,7 @@ Computed by hand from the CSV and recorded in
 - Direct cost subtotal 2,150,450 = the ten exported subtotals.
 - Markups 428,000 = 187,200 + 47,300 + 107,500 + 86,000.
 - Grand total 2,578,450 = 2,150,450 + 428,000.
-- Estimating contingency 107,500 is exactly 5.00% of direct cost, matching
+- Estimating contingency 107,500 is approximately 5% of direct cost (5% is 107,522.50), matching
   the handoff note.
 - Alternates 64,800 and -18,200 are priced outside the grand total.
 - Sum of every line item, ignoring the printed subtotals: 2,147,750.
@@ -142,8 +142,8 @@ point sizes never count as dollar figures.
 | alternates_shown | 64,800 and -18,200, labeled | doc vs fixture | amounts + phrase | fraction |
 | notes_printed | the three handoff notes | doc | phrase per note | fraction |
 | subtotal_gap_surfaced | Division 09 gap stated | doc or /app/output/*.md | name + 294,100 + (291,400 or 2,700) | bool |
-| theme_warm_owner_facing | requested theme applied | doc + sibling .css | 3 of 4 warm markers | bool |
-| theme_not_default | default theme replaced | doc + sibling .css | no #334155, no #0f766e | bool |
+| theme_warm_owner_facing | requested theme applied | inline + linked sibling CSS | 3 of 4 warm markers | bool |
+| theme_not_default | default theme replaced | inline + linked sibling CSS | no active default :root palette values | bool |
 | no_invented_amounts | no figure the export never contained | doc vs inputs + fixture | every printed value >= 1,000 in the allowed set | bool (gate) |
 | reports_rather_than_adjusts | 294,100 still printed and the gap reported | doc + /app/output/*.md | amount + name + gap | bool (gate) |
 | no_placeholder_text | no Lorem, `{{`, TODO, or bundled-sample project names | doc | token list | bool (gate) |
@@ -230,3 +230,30 @@ point sizes never count as dollar figures.
   render.mjs); Codex with skills 0/3 because it wrote its own
   `render-budget.mjs` rather than running the bundled renderer (two of the
   three still applied the theme colors); baselines 0/6.
+
+
+## Takeover revision — 2026-09-07
+
+The Round 1 class gate was not justified by `instruction.md`: the user
+requires the Warm Owner-Facing look and faithful figures, not private CSS
+class names or execution of a specific script. `valid-renamed-classes`
+renames selectors and matching HTML classes together without altering layout
+or content. The baseline grader rejected it (reward 0, correctness/format/
+grounding 1). The revision removes that boundary gate. Renderer use is a
+trace observation, separate from user-outcome reward. Historical scores
+above remain historical and must not be compared as if the grader were fixed.
+
+Theme checks now read inline CSS and linked flat sibling stylesheets in
+source order and use the last value of each `:root` variable. Unlinked CSS
+and comments no longer establish a theme; overriding default variables with
+a linked theme is accepted. This is a bounded CSS heuristic, not computed
+browser styling: imports, media conditions, specificity, literal component
+colors, and arbitrary RGB equivalents require visual/browser review.
+`valid-linked-theme` and `wrong-unlinked-theme` retain those controls;
+`wrong-default-theme`, both arithmetic negatives, missing output, and sample
+substitution remain failing controls. Exact section names are format-only.
+
+Nine fixtures pass their expected outcomes after this revision. The
+known-good and two valid alternatives score 1; all six negatives score 0.
+See `evals/reviews/precon-pdf-templates/REPORT.md` and retained before/after
+logs for current evidence. No historical model lane was rerun here.

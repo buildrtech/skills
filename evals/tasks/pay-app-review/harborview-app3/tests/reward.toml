@@ -1,4 +1,5 @@
-# Root aggregation over the four dimension directories.
+# Outcome aggregation excludes template formatting.
+# Actionability measures the requested hold/clearance list; format stays diagnostic.
 # "reward" is the strict score Harbor reads. It passes only when the memo is
 # correct on nearly every planted item and boundaries are clean.
 # "soft_score" is the diagnostic weighted mean.
@@ -7,7 +8,7 @@
 name = "reward"
 aggregation = "threshold"
 threshold = 0.9
-weights = { correctness = 4.0, boundaries = 4.0, format = 1.0, grounding = 1.0 }
+weights = { correctness = 4.0, boundaries = 4.0, actionability = 1.0, grounding = 1.0 }
 
 [[reward]]
 name = "soft_score"

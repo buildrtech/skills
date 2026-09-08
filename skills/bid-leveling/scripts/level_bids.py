@@ -29,6 +29,7 @@ import sys
 from pathlib import Path
 
 REQUIRED_KEYS = (
+    "submission_id",
     "bidder_name",
     "source_files",
     "document_role",
@@ -94,12 +95,22 @@ def load_inputs(paths: list[str]) -> tuple[list[dict], dict, list[str]]:
         if isinstance(data, list):
             items = data
         elif isinstance(data, dict) and "submissions" in data:
-            items = data.get("submissions") or []
+            items = data["submissions"]
+            if not isinstance(items, list):
+                errors.append(f"{path.name}: submissions must be a list")
+                continue
         elif isinstance(data, dict) and ("plugs" in data or "adjustments" in data):
-            decisions["plugs"].extend(data.get("plugs") or [])
-            decisions["adjustments"].extend(data.get("adjustments") or [])
-            for item in decisions["plugs"] + decisions["adjustments"]:
-                item.setdefault("_file", path.name)
+            for key in ("plugs", "adjustments"):
+                entries = data.get(key, [])
+                if not isinstance(entries, list):
+                    errors.append(f"{path.name}: {key} must be a list")
+                    continue
+                for item in entries:
+                    if not isinstance(item, dict):
+                        errors.append(f"{path.name}: every {key} entry must be an object")
+                        continue
+                    item["_file"] = path.name
+                    decisions[key].append(item)
             continue
         elif isinstance(data, dict):
             items = [data]
@@ -128,11 +139,18 @@ def validate_extraction(extraction: dict) -> list[str]:
         return errors
     if not isinstance(extraction["bidder_name"], str) or not extraction["bidder_name"].strip():
         errors.append(f"{label}: bidder_name must be a non-empty string")
+    if not isinstance(extraction["submission_id"], str) or not extraction["submission_id"].strip() or extraction["submission_id"] != extraction["submission_id"].strip():
+        errors.append(f"{label}: submission_id must be a non-empty string without surrounding whitespace")
     for key in LIST_KEYS:
         if not isinstance(extraction[key], list):
             errors.append(f"{label}: {key} must be a list (use [] when empty)")
     if errors:
         return errors
+    if not extraction["source_files"] or not all(isinstance(v, str) and v.strip() for v in extraction["source_files"]):
+        errors.append(f"{label}: source_files must contain non-empty file names")
+    for field in ("trade_scope", "document_role"):
+        if not isinstance(extraction[field], str) or not extraction[field].strip():
+            errors.append(f"{label}: {field} must be a non-empty string")
     if not _is_cents(extraction["total_bid_amount_in_cents"]):
         errors.append(f"{label}: total_bid_amount_in_cents must be an integer or null")
     for source in ("scopes_of_work", "excluded_scopes"):
@@ -173,20 +191,88 @@ def validate_extraction(extraction: dict) -> list[str]:
             errors.append(f"{label}: priced_qualifications[{index}] needs an integer or null amount_in_cents")
         elif "in_total" in entry and not isinstance(entry["in_total"], bool):
             errors.append(f"{label}: priced_qualifications[{index}] in_total must be true or false")
-    refs = {item.get("ref") for item in extraction["evidence"] if isinstance(item, dict)}
+    refs = set()
+    for item in extraction["evidence"]:
+        if not isinstance(item, dict) or not all(isinstance(item.get(k), str) and item[k].strip() for k in ("ref", "source_file", "location", "quote")):
+            errors.append(f"{label}: evidence needs non-empty ref, source_file, location, and quote")
+            continue
+        if item["ref"] in refs:
+            errors.append(f"{label}: duplicate evidence ref {item['ref']!r}")
+        refs.add(item["ref"])
+        if item["source_file"] not in extraction["source_files"]:
+            errors.append(f"{label}: evidence source_file must appear in source_files")
     for source in ("scopes_of_work", "excluded_scopes", "alternate_lines", "unit_price_lines", "priced_qualifications"):
         for index, entry in enumerate(extraction[source]):
-            if isinstance(entry, dict) and entry.get("evidence_ref") and entry["evidence_ref"] not in refs:
-                errors.append(f"{label}: {source}[{index}] cites evidence_ref '{entry['evidence_ref']}' that is not in evidence[]")
+            if isinstance(entry, dict) and (not isinstance(entry.get("evidence_ref"), str) or entry["evidence_ref"] not in refs):
+                errors.append(f"{label}: {source}[{index}] cites evidence_ref '{entry.get('evidence_ref')}' that is not in evidence[]")
+    if errors:
+        return errors
+    for source, key in (("scopes_of_work", "scope_key"), ("excluded_scopes", "scope_key"), ("alternate_lines", "alternate_key")):
+        for entry in extraction[source]:
+            if not isinstance(entry.get(key), str) or not entry[key].strip():
+                errors.append(f"{label}: {key} must be a non-empty string")
+    scope_keys = [e["scope_key"] for e in extraction["scopes_of_work"] + extraction["excluded_scopes"]]
+    alternate_keys = [e["alternate_key"] for e in extraction["alternate_lines"]]
+    for keys in (scope_keys, alternate_keys):
+        for key in keys:
+            if keys.count(key) > 1:
+                errors.append(f"{label}: duplicate row key {key!r}; reconcile it before comparison")
+    for entry in extraction["alternate_lines"]:
+        if "amount_in_cents" not in entry:
+            errors.append(f"{label}: alternate needs amount_in_cents (null when not stated)")
+        for field in ("label", "printed_label"):
+            if not isinstance(entry.get(field), str) or not entry[field].strip():
+                errors.append(f"{label}: alternate needs {field}")
+        amount = entry.get("amount_in_cents")
+        if amount is not None and ((entry["kind"] == "deduct" and amount > 0) or (entry["kind"] == "add" and amount < 0)):
+            errors.append(f"{label}: alternate amount sign disagrees with kind")
+    return errors
+
+
+def validate_reconciliation(extractions: list[dict]) -> list[str]:
+    errors = []
+    ids = set()
+    alternates = {}
+    row_classes = {}
+    for extraction in extractions:
+        sid = extraction["submission_id"]
+        if sid in ids:
+            errors.append(f"duplicate submission_id {sid!r}; select or reconcile the governing documents")
+        ids.add(sid)
+        for entry in extraction["scopes_of_work"] + extraction["excluded_scopes"]:
+            key, cls = entry["scope_key"], entry.get("row_class", "base")
+            if key in row_classes and row_classes[key] != cls:
+                errors.append(f"{sid}: conflicting row_class for {key!r}; resolve the package basis")
+            row_classes[key] = cls
+        for entry in extraction["alternate_lines"]:
+            # Voluntary options belong to their own submission, even if keys collide.
+            key = entry["alternate_key"] if entry["solicited"] else (sid, entry["alternate_key"])
+            alternates.setdefault(key, []).append(entry)
+    for key, entries in alternates.items():
+        if len({(e["label"], e["kind"]) for e in entries}) > 1:
+            errors.append(f"alternate {key!r}: conflicting scope label or kind; reconcile before joining")
+        if len({e["printed_label"] for e in entries}) > 1 and not all(isinstance(e.get("reconciliation_note"), str) and e["reconciliation_note"].strip() for e in entries):
+            errors.append(f"alternate {key!r}: printed labels differ; each needs a reconciliation_note citing the package basis, or use separate keys")
     return errors
 
 
 def validate_decisions(decisions: dict, bidders: dict, rows: dict) -> list[str]:
     errors: list[str] = []
+    seen_plugs = set()
+    for item in decisions["plugs"] + decisions["adjustments"]:
+        if not isinstance(item.get("submission_id"), str) or ("scope_key" in item and not isinstance(item["scope_key"], str)):
+            errors.append("decisions: submission_id and scope_key must be strings")
+    if errors:
+        return errors
     for index, plug in enumerate(decisions["plugs"]):
         where = f"{plug.get('_file', 'decisions')}: plugs[{index}]"
-        if plug.get("bidder_name") not in bidders:
-            errors.append(f"{where} names unknown bidder '{plug.get('bidder_name')}'")
+        target = (plug.get("submission_id"), plug.get("scope_key"))
+        if all(isinstance(v, str) for v in target):
+            if target in seen_plugs:
+                errors.append(f"{where}: duplicate plug for {target}; keep one sourced decision")
+            seen_plugs.add(target)
+        if plug.get("submission_id") not in bidders:
+            errors.append(f"{where} names unknown bidder '{plug.get('submission_id')}'")
         if plug.get("scope_key") not in rows:
             errors.append(f"{where} names unknown scope_key '{plug.get('scope_key')}'")
         if not _is_cents(plug.get("amount_in_cents")) or plug.get("amount_in_cents") is None:
@@ -195,8 +281,8 @@ def validate_decisions(decisions: dict, bidders: dict, rows: dict) -> list[str]:
             errors.append(f"{where} needs a source (who decided the amount and from what)")
     for index, adjustment in enumerate(decisions["adjustments"]):
         where = f"{adjustment.get('_file', 'decisions')}: adjustments[{index}]"
-        if adjustment.get("bidder_name") not in bidders:
-            errors.append(f"{where} names unknown bidder '{adjustment.get('bidder_name')}'")
+        if adjustment.get("submission_id") not in bidders:
+            errors.append(f"{where} names unknown bidder '{adjustment.get('submission_id')}'")
         if not _is_cents(adjustment.get("amount_in_cents")) or adjustment.get("amount_in_cents") is None:
             errors.append(f"{where} amount_in_cents must be a signed integer")
         if not adjustment.get("description") or not adjustment.get("source"):
@@ -215,15 +301,10 @@ def build_model(extractions: list[dict], decisions: dict) -> dict:
     flags: list[str] = []
 
     for extraction in extractions:
-        name = extraction["bidder_name"].strip()
-        if name in bidders:
-            flags.append(
-                f"{name}: appears in more than one extraction ({bidders[name]['file']} and "
-                f"{extraction['_file']}); only the first was used. Merge revised bids into one extraction."
-            )
-            continue
+        name = extraction["submission_id"]
         bidders[name] = {
             "name": name,
+            "label": f"{extraction['bidder_name']} [{name}]",
             "file": extraction["_file"],
             "extraction": extraction,
             "total": extraction["total_bid_amount_in_cents"],
@@ -243,14 +324,6 @@ def build_model(extractions: list[dict], decisions: dict) -> dict:
                         "cells": {},
                     },
                 )
-                if entry.get("row_class", "base") != row["row_class"]:
-                    flags.append(
-                        f"{name}: row '{key}' classified as {entry.get('row_class', 'base')} but an earlier "
-                        f"bidder classified it as {row['row_class']}; the first classification was kept."
-                    )
-                if key in row["cells"]:
-                    flags.append(f"{name}: row '{key}' appears twice in the extraction; the first entry was kept.")
-                    continue
                 row["cells"][name] = {
                     "status": status,
                     "amount": entry.get("amount_in_cents"),
@@ -270,7 +343,7 @@ def build_model(extractions: list[dict], decisions: dict) -> dict:
                     )
 
     for plug in decisions["plugs"]:
-        name, key = plug.get("bidder_name"), plug.get("scope_key")
+        name, key = plug.get("submission_id"), plug.get("scope_key")
         if name not in bidders or key not in rows:
             continue
         cell = rows[key]["cells"][name]
@@ -284,7 +357,7 @@ def build_model(extractions: list[dict], decisions: dict) -> dict:
         bidders[name]["plugs"].append({"row": rows[key], "plug": plug})
 
     for adjustment in decisions["adjustments"]:
-        name = adjustment.get("bidder_name")
+        name = adjustment.get("submission_id")
         if name in bidders:
             bidders[name]["adjustments"].append(adjustment)
 
@@ -381,7 +454,7 @@ def summary_table(model: dict) -> tuple[list[str], list[list]]:
         if bidder["leveled"] is not None and not bidder["complete"]:
             leveled += " (incomplete)"
         rows.append([
-            bidder["name"],
+            bidder["label"],
             money(bidder["total"]),
             money(bidder["plug_total"]) if bidder["plugs"] else "none",
             money(bidder["adjustment_total"]) if bidder["adjustments"] else "none",
@@ -394,7 +467,7 @@ def summary_table(model: dict) -> tuple[list[str], list[list]]:
 
 def matrix_table(model: dict, row_class: str) -> tuple[list[str], list[list]]:
     names = list(model["bidders"])
-    headers = ["Scope"] + names
+    headers = ["Scope"] + [model["bidders"][n]["label"] for n in names]
     rows = []
     for row in model["rows"].values():
         if row["row_class"] != row_class:
@@ -418,7 +491,7 @@ def gaps_table(model: dict) -> tuple[list[str], list[list]]:
             plug = cell["plug"]
             rows.append([
                 row["label"],
-                name,
+                model["bidders"][name]["label"],
                 said,
                 money(plug["amount_in_cents"]) if plug else "none: unresolved",
                 plug.get("source", "") if plug else "",
@@ -432,20 +505,22 @@ def adjustments_table(model: dict) -> tuple[list[str], list[list]]:
     rows = []
     for bidder in model["bidders"].values():
         for adjustment in bidder["adjustments"]:
-            rows.append([bidder["name"], adjustment["description"], money(adjustment["amount_in_cents"]), adjustment["source"]])
+            rows.append([bidder["label"], adjustment["description"], money(adjustment["amount_in_cents"]), adjustment["source"]])
     return headers, rows
 
 
 def alternates_table(model: dict) -> tuple[list[str], list[list]]:
     names = list(model["bidders"])
-    headers = ["Alternate", "Kind", "Solicited"] + names
-    alternates: dict[str, dict] = {}
+    headers = ["Alternate", "Kind", "Solicited"] + [model["bidders"][n]["label"] for n in names]
+    alternates: dict[str | tuple[str, str], dict] = {}
     for name, bidder in model["bidders"].items():
         for entry in bidder["extraction"]["alternate_lines"]:
-            key = entry["alternate_key"]
+            key = entry["alternate_key"] if entry["solicited"] else (name, entry["alternate_key"])
             alt = alternates.setdefault(key, {"label": entry.get("label") or key, "kind": entry["kind"], "solicited": entry["solicited"], "cells": {}})
             amount = money(entry["amount_in_cents"]) if entry.get("amount_in_cents") is not None else "priced: not stated"
-            alt["cells"][name] = amount
+            alt["cells"][name] = f"{amount}; {entry['printed_label']} ({entry['evidence_ref']})"
+            if entry.get("reconciliation_note"):
+                alt["cells"][name] += f"; mapped: {entry['reconciliation_note']}"
     rows = []
     for alt in alternates.values():
         rows.append([alt["label"], alt["kind"], "yes" if alt["solicited"] else "no (bidder-proposed)"] + [alt["cells"].get(name, "not offered") for name in names])
@@ -459,7 +534,7 @@ def unit_prices_table(model: dict) -> tuple[list[str], list[list]]:
         for entry in bidder["extraction"]["unit_price_lines"]:
             quantity = entry.get("quantity")
             rows.append([
-                name,
+                model["bidders"][name]["label"],
                 entry.get("description", ""),
                 entry.get("unit", ""),
                 money(entry.get("unit_price_in_cents")),
@@ -475,7 +550,7 @@ def qualifications_table(model: dict) -> tuple[list[str], list[list]]:
     for name, bidder in model["bidders"].items():
         for entry in bidder["extraction"]["priced_qualifications"]:
             rows.append([
-                name,
+                model["bidders"][name]["label"],
                 entry.get("description", ""),
                 money(entry.get("amount_in_cents")) if entry.get("amount_in_cents") is not None else "not stated",
                 "yes" if entry.get("in_total") is True else "no",
@@ -489,7 +564,7 @@ def evidence_table(model: dict) -> tuple[list[str], list[list]]:
     rows = []
     for name, bidder in model["bidders"].items():
         for item in bidder["extraction"]["evidence"]:
-            rows.append([name, item.get("ref", ""), item.get("source_file", ""), item.get("location", ""), item.get("quote", "")])
+            rows.append([bidder["label"], item.get("ref", ""), item.get("source_file", ""), item.get("location", ""), item.get("quote", "")])
     return headers, rows
 
 
@@ -516,17 +591,17 @@ def render_markdown(model: dict, title: str | None) -> str:
     incomplete = [b for b in bidders.values() if not b["complete"]]
     if complete:
         low = min(complete, key=lambda b: b["leveled"])
-        out.append(f"**Lowest complete leveled total:** {low['name']} at {money(low['leveled'])}.")
+        out.append(f"**Lowest complete leveled total:** {low['label']} at {money(low['leveled'])}.")
     else:
         out.append("**Lowest complete leveled total:** none; every bidder still has unresolved gaps or no stated total.")
     for bidder in incomplete:
         count = len(bidder["unresolved"])
         if bidder["leveled"] is None:
-            out.append(f"**{bidder['name']}:** no stated total, so no leveled total.")
+            out.append(f"**{bidder['label']}:** no stated total, so no leveled total.")
         else:
             gap_labels = "; ".join(row["label"] for row in bidder["unresolved"])
             out.append(
-                f"**{bidder['name']}:** {money(bidder['leveled'])} before {count} unresolved gap{'s' if count != 1 else ''} ({gap_labels})."
+                f"**{bidder['label']}:** {money(bidder['leveled'])} before {count} unresolved gap{'s' if count != 1 else ''} ({gap_labels})."
             )
     out.append("")
     out.append("Leveled total = base bid + plugs + adjustments. Alternates, unit prices, and priced qualifications are listed but not applied. Every plug and adjustment below names its source; nothing was estimated by this script.")
@@ -605,7 +680,7 @@ def render_markdown(model: dict, title: str | None) -> str:
     review_lines: list[str] = []
     for name, bidder in bidders.items():
         for entry in bidder["extraction"]["review_items"]:
-            review_lines.append(f"- {name}: {_text_items(entry)}")
+            review_lines.append(f"- {bidder['label']}: {_text_items(entry)}")
     for flag in model["flags"]:
         review_lines.append(f"- Leveling check: {flag}")
     out.extend(review_lines or ["- None."])
@@ -619,7 +694,7 @@ def render_markdown(model: dict, title: str | None) -> str:
         if not qualifications:
             continue
         any_qualification = True
-        out.append(f"**{name}**")
+        out.append(f"**{bidder['label']}**")
         out.append("")
         for entry in qualifications:
             out.append(f"- {_text_items(entry)}")
@@ -670,10 +745,10 @@ def write_xlsx(model: dict, path: Path, title: str | None) -> None:
     ]
     for row_class, section_title in ROW_CLASS_TITLES.items():
         sheets.append((section_title[:31], matrix_table(model, row_class)))
-    review_rows = [[name, _text_items(entry)] for name, b in model["bidders"].items() for entry in b["extraction"]["review_items"]]
+    review_rows = [[b["label"], _text_items(entry)] for name, b in model["bidders"].items() for entry in b["extraction"]["review_items"]]
     review_rows += [["Leveling check", flag] for flag in model["flags"]]
     sheets.append(("Review items", (["Bidder", "Item"], review_rows)))
-    qualification_rows = [[name, _text_items(entry)] for name, b in model["bidders"].items() for entry in b["extraction"]["qualifications"]]
+    qualification_rows = [[b["label"], _text_items(entry)] for name, b in model["bidders"].items() for entry in b["extraction"]["qualifications"]]
     sheets.append(("Qualifications", (["Bidder", "Qualification"], qualification_rows)))
     sheets.append(("Evidence", evidence_table(model)))
 
@@ -722,7 +797,11 @@ def main(argv: list[str] | None = None) -> int:
             print(f"  - {error}", file=sys.stderr)
         return 2
 
-    model = build_model(extractions, decisions)
+    errors = validate_reconciliation(extractions)
+    if errors:
+        print("Reconciliation failed:\n  - " + "\n  - ".join(errors), file=sys.stderr)
+        return 2
+    model = build_model(extractions, {"plugs": [], "adjustments": []})
     decision_errors = validate_decisions(decisions, model["bidders"], model["rows"])
     if decision_errors:
         print("Decisions file validation failed:", file=sys.stderr)
@@ -730,6 +809,7 @@ def main(argv: list[str] | None = None) -> int:
             print(f"  - {error}", file=sys.stderr)
         return 2
 
+    model = build_model(extractions, decisions)
     sys.stdout.write(render_markdown(model, args.title))
     if args.xlsx:
         write_xlsx(model, Path(args.xlsx), args.title)

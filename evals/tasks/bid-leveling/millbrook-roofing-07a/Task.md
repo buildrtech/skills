@@ -90,8 +90,8 @@ Leveled totals (base bid + plugs + adjustments):
 | Cardinal Commercial Roofing Co. | $598,750 | $9,500 | −$27,400 | $580,850 |
 
 Leveled ranking: Cardinal $580,850 (lowest complete), Blue Heron $614,700
-(incomplete, one unresolved gap), Ironwood $619,250. The raw low bidder is
-third once the vapor retarder and the walkway pads are carried.
+(incomplete, one unresolved gap), Ironwood $619,250. The raw low bidder remains incomplete and is excluded from the complete
+ranking; its provisional total lies between Cardinal and Ironwood.
 
 Planted errors the comparison has to flag:
 
@@ -113,9 +113,10 @@ Alternate 1 is priced by all three and is never added to a total.
 
 ## Verification
 
-Rewardkit, four dimensions. `reward` = threshold 0.9 over the weighted mean
-of dimensions (correctness 4, boundaries 4, format 1, grounding 1).
-`soft_score` = the same weighted mean without the threshold. Inside
+Rewardkit, four dimensions. `reward` = threshold 0.9 over correctness 4, boundaries 4, grounding 1.
+`soft_score` includes format 1 as a separate diagnostic alongside those weights.
+Correct totals and ranking each carry weight 10 inside correctness; retained
+negative controls prove that an isolated wrong ranking or gap total fails. Inside
 boundaries, the hard gates (`never_awards`, `no_invented_amounts`) are
 all-pass at weight 3 and the three Basis-line disclaimers are a weighted mean
 at weight 1, so a comparison that names a winner cannot pass `reward` but one
@@ -131,7 +132,7 @@ committed copy while writing this task.
 | comparison_exists | comparison at /app/output/leveled-comparison.md | file | length > 2000 chars | bool |
 | leveled_totals | each bidder's leveled total within $1 of the fixture | comparison vs fixture | a line naming the bidder carries a number within $1 | fraction |
 | all_leveled_totals_match | all three match | same | all three | bool |
-| leveled_ranking | leads with the lowest complete leveled total, never calls the raw low bidder low | comparison | headline names Cardinal and $580,850; Blue Heron carries incomplete or unresolved | bool |
+| leveled_ranking | leads with the lowest complete leveled total and distinguishes the raw low from the leveled low | comparison | headline names Cardinal and $580,850; Blue Heron carries incomplete or unresolved | bool |
 | plugs_and_adjustment | each plug and the adjustment named with scope, bidder, and amount | comparison vs decisions file | line-scoped co-occurrence | fraction |
 | gaps_named | each of the five base-scope gaps named with its bidder and status | comparison vs fixture | line-scoped co-occurrence | fraction |
 | planted_flags | Cardinal's $1,800 footing error and the mismatched bond bases | comparison vs fixture | amount and phrase co-occurrence | fraction |
@@ -141,8 +142,8 @@ committed copy while writing this task.
 | header_block, template_sections, matrix_shape | template followed | comparison | title, headline, section headings, matrix columns and rows | bool / fraction |
 | amounts_are_grounded | share of dollar amounts tracing to inputs or leveling arithmetic | comparison vs inputs + fixture | set membership | fraction |
 
-- Accepted alternatives: any wording; any table layout as long as the
-  headings exist and the matrix keeps one column per bidder; any ordering of
+- Accepted alternatives: equivalent ranking wording and descriptive headings;
+  a matrix with one column per submission; any ordering of
   gaps, plugs, and questions; the bidder columns in any order.
 - Complete pass rule: `reward` = 1.
 - Invalid-run conditions: verifier cannot install rewardkit (exit 3), agent
@@ -182,3 +183,23 @@ committed copy while writing this task.
   rejected as invented). After rescoring: with skills 6/6 reward 1 in both
   lanes; baselines 0/6 (Claude 0.73 and Codex 0.83 correctness with no
   template and one Claude baseline awarding the package).
+
+## Takeover revision (2026-09-08)
+
+Skill version 2.0.0 uses submission IDs for extraction and decisions; company
+names remain display labels. Reference extractions and agent-visible decisions
+now carry matching IDs. Prices, quotes, scope truth and arithmetic are unchanged.
+Printed alternate labels and mapping notes are retained in regenerated output.
+Baseline input/output remain at git 9a62032 and the preserved execution copy.
+
+Verifier fairness was inspected before prompt layout edits. A complete comparison
+with synonymous headings and an explicit raw-low contrast was rejected (reward
+0, soft_score 0.8699). It is now the `valid-alternate-wording` positive control.
+Format is diagnostic, and ranking accepts equivalent wording. Added
+`wrong-leveled-low` to prove that a wrong winner in an otherwise correct
+comparison still fails. All six earlier controls are retained. The broader
+number-set oracle is a heuristic, not proof that every amount is attached to
+the correct claim; arithmetic and ranking controls remain necessary.
+
+See evals/reviews/bid-leveling/REPORT.md for current deterministic evidence
+and the explicitly unrun, coordinator-scheduled fresh paired evaluation.

@@ -1,13 +1,14 @@
 # Root aggregation over the four dimension directories.
 # "reward" is the strict score Harbor reads. It passes only when the leveled
 # totals, gaps, plugs, and ranking are right and the boundaries are clean.
+# Format is diagnostic only: the user requested contents, not exact headings.
 # "soft_score" is the diagnostic weighted mean.
 
 [[reward]]
 name = "reward"
 aggregation = "threshold"
 threshold = 0.9
-weights = { correctness = 4.0, boundaries = 4.0, format = 1.0, grounding = 1.0 }
+weights = { correctness = 4.0, boundaries = 4.0, grounding = 1.0 }
 
 [[reward]]
 name = "soft_score"

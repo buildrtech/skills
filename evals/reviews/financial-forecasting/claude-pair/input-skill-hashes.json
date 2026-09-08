@@ -1,0 +1,25 @@
+{
+  "baseline": {
+    "TASK.md": "6e3f820f8dd272ef6feeeae246cd2ef35a62adff2215c4bae05b3d2d5330846c",
+    "skill/SKILL.md": "3ff9d4c8e58b016f79f90e7b0702f5735c82ad1e572bea55337f250a0524229d",
+    "skill/examples/sample-prompts.md": "aa3b367554d7e1393cbdd1b0068b2cd6aaf17dced123846bf179c6b1588f7aa7",
+    "skill/references/buildr-mcp.md": "cf1f73284d5618bbaf4cb7aabde1b2c3602014c0c9a52a5d5acb2d7c587f106c",
+    "skill/references/forecast-model.md": "0a41c9ac5ad45a473d3fe055bdb64987beb627ccf8d2b20202898d13a9fd16f6",
+    "skill/references/glossary.md": "18b74873cdf23662e0f6e449b04e0722726d5021e713a74d1f507dffdc88ef1a",
+    "skill/references/report-templates.md": "8e50d39ddbf234f3ff5f576f538270ab543a423c13592cb392fab7e4090d8209",
+    "skill/samples/input-request.md": "9cf1062cdaf00bbd38ee76fc58cf78ce4b17438a58cc264267e7b924b100e23f",
+    "skill/samples/output-forecast-review.md": "81efe1820824b1d5a9992ffd370c0d9ff5dbc91348406ae2994afe90750c4c9b"
+  },
+  "revised": {
+    "TASK.md": "6e3f820f8dd272ef6feeeae246cd2ef35a62adff2215c4bae05b3d2d5330846c",
+    "skill/SKILL.md": "fd61e1cac68b666e9c775ed4b4f640d69ea4287c5fa68fe0c118ff70626e771c",
+    "skill/examples/sample-prompts.md": "aa3b367554d7e1393cbdd1b0068b2cd6aaf17dced123846bf179c6b1588f7aa7",
+    "skill/references/buildr-mcp.md": "a24432a60e78dfbda1bc93bc00e6a8eb974f99ea3112850fc05dfec5338b7f27",
+    "skill/references/forecast-model.md": "b5a591c84958e2293f50d2c0dddfec0eb114727f4b3555d0af837470db51ec2b",
+    "skill/references/glossary.md": "18b74873cdf23662e0f6e449b04e0722726d5021e713a74d1f507dffdc88ef1a",
+    "skill/references/report-templates.md": "2deddef5f1c0bbd0ef85cb73e184c3d56814eb59f9f2f6624d97a98428871d8a",
+    "skill/samples/input-request.md": "581fc1a352b6ac374d9b0089bdff1c5476d66669736338c1778a4c4b71c5f8fa",
+    "skill/samples/output-forecast-review.md": "ff4c94cdf0ca24787a90894dc9cb5492ad47024100402a7399ece295cece91f6",
+    "skill/scripts/forecast_math.py": "a5b4056c3cf7ed68a8547e6fda73946e03a833a430022499dc4e934a93e1b222"
+  }
+}

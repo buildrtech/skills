@@ -107,19 +107,52 @@ def side_notes(workspace: Path) -> str:
     return "\n".join(parts)
 
 
-def style_sources(workspace: Path) -> str:
-    """The document plus any stylesheet the agent saved beside it.
+class _Styles(HTMLParser):
+    """Read inline CSS and linked flat sibling CSS in document order.
 
-    themes/README.md offers two ways to apply a theme: inline its :root block
-    or save the .css as a flat sibling and link it by bare filename. Both
-    count, so theme markers are looked for across all of it.
+    This is a bounded fixture heuristic, not a browser CSS engine. It does
+    not resolve imports, media conditions, specificity, or inline overrides.
     """
-    parts = [raw_html(workspace)]
-    out = workspace / "output"
-    if out.is_dir():
-        for path in sorted(out.glob("*.css")):
-            parts.append(path.read_text(encoding="utf-8", errors="replace"))
-    return "\n".join(parts).lower()
+    def __init__(self, workspace: Path):
+        super().__init__()
+        self.output = workspace / "output"
+        self.parts = []
+        self.in_style = False
+
+    def handle_starttag(self, tag, attrs):
+        attrs = dict(attrs)
+        if tag == "style":
+            self.in_style = True
+        if tag == "link" and "stylesheet" in attrs.get("rel", "").split():
+            href = attrs.get("href", "")
+            if href and Path(href).name == href and href.endswith(".css"):
+                path = self.output / href
+                if path.is_file() and path.resolve().parent == self.output.resolve():
+                    self.parts.append(path.read_text(encoding="utf-8"))
+
+    def handle_endtag(self, tag):
+        if tag == "style":
+            self.in_style = False
+
+    def handle_data(self, data):
+        if self.in_style:
+            self.parts.append(data)
+
+
+def style_sources(workspace: Path) -> str:
+    parser = _Styles(workspace)
+    parser.feed(raw_html(workspace))
+    return re.sub(r"/\*.*?\*/", "", "\n".join(parser.parts), flags=re.S).lower()
+
+
+def theme_values(workspace: Path) -> set[str]:
+    # Same-specificity :root declarations use their last value. This accepts
+    # the documented linked override without treating unused old colors as active.
+    values = {}
+    for block in re.findall(r":root\s*\{([^}]*)\}", style_sources(workspace)):
+        for key, value in re.findall(r"(--[\w-]+)\s*:\s*([^;]+)", block):
+            values[key] = value.strip()
+    return set(values.values())
 
 
 def input_text(workspace: Path) -> str:

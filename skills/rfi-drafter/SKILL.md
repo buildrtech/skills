@@ -1,11 +1,12 @@
 ---
 name: rfi-drafter
-description: Draft a Request for Information (RFI) for a general contractor from a described drawing or specification conflict, citing the sheets, details, and spec paragraphs the user provides, proposing a resolution when the documents support one, and producing an RFI log row. Use when the user asks to write, draft, or prepare an RFI, or asks how to word a question to the architect or engineer about a conflict, discrepancy, missing dimension, or clarification in the drawings or specs.
+description: Draft a Request for Information (RFI) for a general contractor from a described drawing or specification conflict, citing the sheets, details, and spec paragraphs the user provides, proposing a resolution when the documents support one, and producing an RFI log row. Use when the user asks to write, draft, prepare, or revise an RFI, or asks how to word a question to the architect or engineer about a conflict, discrepancy, missing dimension, or clarification in the drawings or specs.
 license: MIT
 metadata:
+  summary: Draft a source-backed RFI and matching log row with a supported proposal, clear deadlines, and unresolved conditions made explicit.
   tier: neutral
   stages: operations, preconstruction
-  version: "1.0.0"
+  version: "1.1.0"
   author: Buildr
 ---
 
@@ -32,15 +33,13 @@ ready-to-send RFI plus the row that goes in the project RFI log.
 - Project conventions are optional but sharpen the output: the RFI numbering
   convention and next number, the parties (from, to, cc, and who answers
   which discipline), the contract response turnaround, and any RFI form the
-  project already uses. Ask for these once; if not provided, leave the number
+  project already uses. Use supplied conventions; if absent, leave the number
   as `RFI-___`, address the RFI to the architect or engineer of record, and
   say that the number and routing are placeholders.
-- Response-needed-by logic: ask what downstream activity is waiting on the
-  answer (a fabrication release, a pour, a wall close-in, a submittal) and
-  when it happens. The needed-by date is that activity date minus the time
-  the team needs to act on the answer, never earlier than today. If the
-  project turnaround is known, compare the two and say plainly when the
-  needed-by date is shorter than the contract allows.
+- For response dates, use the user's project/as-of date and waiting activity.
+  Read the response-date field notes in `references/rfi-template.md` before
+  calculating a deadline. Missing optional dates or routing do not block a
+  draft; show placeholders and list what must be confirmed before issue.
 
 ## Workflow
 
@@ -54,7 +53,12 @@ ready-to-send RFI plus the row that goes in the project RFI log.
    whether they disagree. If the documents do not actually conflict, or a
    note already resolves the question, say so first and offer a shorter
    clarification RFI or no RFI at all. Do not manufacture a conflict to
-   justify the draft.
+   justify the draft. Check each requirement's scope and conditions (such as
+   location, exposure, or finish) before applying it. Separate established
+   requirements from conditions still needing confirmation. Use a precedence
+   rule only if supplied; a returned submittal is not itself permission to
+   override a specification. Completion: each side and any proposed governing
+   rule trace to a provided excerpt, with unresolved applicability explicit.
 3. Draft the RFI body using `references/rfi-template.md`:
    - Subject: location plus the issue, under twelve words.
    - Question: one question, leading with the specific ask. If the user
@@ -73,7 +77,11 @@ ready-to-send RFI plus the row that goes in the project RFI log.
 4. Produce the RFI log row using the columns in
    `references/rfi-template.md`. Ball in court is the party the RFI is
    addressed to; status is "Open" on issue.
-5. Deliver the RFI, the log row, and a short note on what was verified and
+5. Check the draft against the sources: every number and reference is
+   traceable, each proposal retains its conditions, and the log agrees with
+   the body on number, routing, dates, and impacts. Mark the log as a draft
+   for issue; "Open" is the proposed status on issue, not evidence of sending.
+   Deliver the RFI, the log row, and a short note on what was verified and
    what was not. Then offer to draft the transmittal email or the note that
    goes in the project management system. Do not send anything or create
    records; the RFI is the deliverable and the user issues it.
@@ -114,7 +122,7 @@ ready-to-send RFI plus the row that goes in the project RFI log.
 - `samples/input-conflict.md`: a short synthetic conflict with drawing and
   spec excerpts used for testing and demonstration.
 - `samples/output-rfi.md`: the RFI and log row this skill should produce for
-  the synthetic conflict.
+  the synthetic conflict. Samples are smoke tests, not fresh evaluation evidence.
 
 ## Path resolution
 

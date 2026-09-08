@@ -1,0 +1,11 @@
+
+evals/tasks/drawing-scope-extraction/larkspur-ridge-ops-addition
+case                                       reward soft_sco boundari correctn   format groundin  expect
+known-good                                   1.00     1.00     1.00     1.00     1.00     1.00  pass  ok
+missing                                      0.00     0.00     0.00     0.00     0.00     0.00  fail  ok
+shortcut-shipped-sample                      0.00     0.43     0.25     0.40     0.87     0.79  fail  ok
+wrong-lists-phantom-sheets                   0.00     0.64     0.25     0.86     1.00     0.93  fail  ok
+wrong-no-ledger                              0.00     0.87     1.00     0.75     0.74     1.00  fail  ok
+wrong-required-work-excluded                 1.00     1.00     1.00     1.00     1.00     1.00  fail  BAD
+
+1 fixture(s) misbehaved

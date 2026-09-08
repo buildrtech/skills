@@ -5,7 +5,8 @@ license: MIT
 metadata:
   tier: neutral
   stages: preconstruction, estimating
-  version: "1.0.0"
+  version: "2.0.0"
+  summary: Compare subcontractor bids on a common scope basis, with sourced plugs, unresolved gaps, and traceable alternate prices.
   author: Buildr
 ---
 
@@ -33,7 +34,9 @@ questions for each bidder. It is not an award recommendation.
   reported as unresolved and leveled totals are marked incomplete. That is
   the correct result, not a failure.
 - If a bid is a revision of an earlier bid from the same bidder, ask which
-  one governs. The script keeps only the first extraction per bidder name.
+  one governs before ranking. Keep distinct submissions separate with stable
+  `submission_id` values; company names are display labels, not identities.
+  Combine supporting documents only when they describe the same submission.
 
 ## Workflow
 
@@ -44,7 +47,9 @@ questions for each bidder. It is not an award recommendation.
    follow.
 2. Extract each bid into its own JSON file in the evidence schema. Read
    `references/extraction-schema.md` now; it is the contract the script
-   validates. Every amount is an integer in cents, every row and alternate
+   validates. Copy existing submission IDs from the estimator decisions;
+   otherwise assign IDs from the source document/revision and retain them.
+   Match every decision to that specific submission before running. Every amount is an integer in cents, every row and alternate
    cites an `evidence_ref` that resolves to a quote from the bid, and
    anything the bid does not say is recorded as `omitted` or `unknown`, not
    guessed. Use the same `scope_key` for the same scope across all bidders so
@@ -56,11 +61,12 @@ questions for each bidder. It is not an award recommendation.
    call before they can count. Bonds, taxes, escalation, delivery, overtime,
    and permits are priced qualifications, not alternates and not scope rows.
 4. Run the script from the skill directory with every extraction file and
-   the decisions file if there is one:
+   the decisions file if there is one. Redirect stdout to the requested
+   Markdown deliverable; keep stderr visible for validation failures:
 
    ```
-   python3 scripts/level_bids.py path/to/extractions/*.json
-   python3 scripts/level_bids.py path/to/extractions/*.json decisions.json --xlsx leveled.xlsx
+   python3 scripts/level_bids.py path/to/extractions/*.json > leveled-comparison.md
+   python3 scripts/level_bids.py path/to/extractions/*.json decisions.json --xlsx leveled.xlsx > leveled-comparison.md
    ```
 
    The script validates the JSON and refuses to run on bad input. Fix the

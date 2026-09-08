@@ -1,0 +1,84 @@
+{
+  "baseline": {
+    "execution": [
+      {
+        "model": "gpt-6-astra",
+        "serviceTier": "default",
+        "reasoningLevel": "medium",
+        "permissionMode": "auto",
+        "source": "client/turn/requested"
+      }
+    ],
+    "commands": [
+      {
+        "command": "/usr/bin/bash -lc \"pwd && rg --files -g 'input.md' -g 'SKILL.md' -g 'AGENTS.md'\"",
+        "exitCode": 0
+      },
+      {
+        "command": "/usr/bin/bash -lc 'cat input.md rfi-drafter/SKILL.md'",
+        "exitCode": 0
+      },
+      {
+        "command": "/usr/bin/bash -lc 'cat rfi-drafter/references/writing-rules.md rfi-drafter/references/rfi-template.md'",
+        "exitCode": 0
+      },
+      {
+        "exitCode": 0,
+        "commandSummary": "mkdir -p output; write output/rfi.md via heredoc (exact command in full transcript)",
+        "commandSha256": "592067146cc0811944aad7677423e9063dd5b9342833f318474eedc266e40516"
+      }
+    ],
+    "transcript": "/tmp/rfi-paired-thr-tvachgvz9u/baseline-transcript.json",
+    "files": {
+      "input.md": "bf7995cd782752c705eac0f12b3017a66142bfbd52663a6f1a0b841b9da17a5c",
+      "output/rfi.md": "865d34d50fdaa163671403ec77553a82eae0f87701f42576462e4bc6cd8e0616",
+      "rfi-drafter/SKILL.md": "76c7febba589433aed3c4de0f704fd7e15c6dea985ffae164b03b73482d7ab9f",
+      "rfi-drafter/examples/sample-prompts.md": "7c9172cdd00554c859bbafad8a4316069f0b5ccb006fab9621e1027730dd56ae",
+      "rfi-drafter/references/rfi-template.md": "48a975c7af12863bd265158b287d0f81746615ef260fc735428bee849a9739ae",
+      "rfi-drafter/references/writing-rules.md": "8e1bc1f2c904d58b802d482cb3ad6e0e2b50aaa3ed50637ca9e0f5009630842d",
+      "rfi-drafter/samples/input-conflict.md": "d02f733876baeedbb1ca87637440506c34d3f4d03f84c8ea7ae2f7704de5c2bc",
+      "rfi-drafter/samples/output-rfi.md": "c9e870b5dbe20fad2df5077a68f7aea8ce8a1bc92dab4626e4973c86c017a779"
+    }
+  },
+  "revised": {
+    "execution": [
+      {
+        "model": "gpt-6-astra",
+        "serviceTier": "default",
+        "reasoningLevel": "medium",
+        "permissionMode": "auto",
+        "source": "client/turn/requested"
+      }
+    ],
+    "commands": [
+      {
+        "command": "/usr/bin/bash -lc \"pwd && rg --files -g 'input.md' -g 'SKILL.md' -g 'AGENTS.md'\"",
+        "exitCode": 0
+      },
+      {
+        "command": "/usr/bin/bash -lc 'cat input.md rfi-drafter/SKILL.md'",
+        "exitCode": 0
+      },
+      {
+        "command": "/usr/bin/bash -lc 'cat rfi-drafter/references/rfi-template.md rfi-drafter/references/writing-rules.md'",
+        "exitCode": 0
+      },
+      {
+        "exitCode": 0,
+        "commandSummary": "mkdir -p output; write output/rfi.md via heredoc (exact command in full transcript)",
+        "commandSha256": "ac704cd906575c996f57fb1c9cf9b706e16a73de55b1c3b8de1ef5685ed54f86"
+      }
+    ],
+    "transcript": "/tmp/rfi-paired-thr-tvachgvz9u/revised-transcript.json",
+    "files": {
+      "input.md": "bf7995cd782752c705eac0f12b3017a66142bfbd52663a6f1a0b841b9da17a5c",
+      "output/rfi.md": "f8adf3dfddd2c521d9013cc6f086530f4403222b22627839579228e7b624ee26",
+      "rfi-drafter/SKILL.md": "db1e9634eed52d40970cbcc96d375f42ae615ed9223629283a8a47c0e55fd707",
+      "rfi-drafter/examples/sample-prompts.md": "7c9172cdd00554c859bbafad8a4316069f0b5ccb006fab9621e1027730dd56ae",
+      "rfi-drafter/references/rfi-template.md": "72c6f65c93e042315ca5dfab1a28ef46faa2093586674bdd51be62cf13252c78",
+      "rfi-drafter/references/writing-rules.md": "3f69fbf19662367ad1bfda9e8e08a443172c25811c4c505a3daaa1508bb30597",
+      "rfi-drafter/samples/input-conflict.md": "d02f733876baeedbb1ca87637440506c34d3f4d03f84c8ea7ae2f7704de5c2bc",
+      "rfi-drafter/samples/output-rfi.md": "466893f2cf39a35bc1a7960e99ed305dcd917b47e7166d6b1f98b039a1a58ac8"
+    }
+  }
+}

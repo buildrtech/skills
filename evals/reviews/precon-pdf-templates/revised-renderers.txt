@@ -1,0 +1,20 @@
+✔ construction-budget-export: shipped sample matches actual renderer (35.121671ms)
+✔ construction-budget-export: warm theme resolves outside skill cwd (32.591944ms)
+✔ milestone-export: shipped sample matches actual renderer (31.785093ms)
+✔ milestone-export: warm theme resolves outside skill cwd (31.986851ms)
+✔ employee-resume: shipped sample matches actual renderer (25.378137ms)
+✔ employee-resume: warm theme resolves outside skill cwd (26.32525ms)
+✔ budget: cents, negative deduct, zero, escaped input and mismatched exported totals survive (34.831256ms)
+✔ budget: missing, null, fractional, string and unsafe cents fail before output (170.444902ms)
+✔ milestone: cost per SF preserves the supplied $67.93 (32.492197ms)
+✔ milestone: missing construction cost fails without inventing zero (26.270697ms)
+✔ resume: absent optional meta never claims years experience (22.173136ms)
+✔ unknown theme and extra arguments fail without output (109.521713ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 12
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 625.294287

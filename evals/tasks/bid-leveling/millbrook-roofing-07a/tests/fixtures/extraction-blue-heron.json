@@ -1,4 +1,5 @@
 {
+  "submission_id": "blue-heron-base",
   "bidder_name": "Blue Heron Roofing & Sheet Metal LLC",
   "source_files": ["blue-heron-quote.eml"],
   "document_role": "email",
@@ -20,7 +21,7 @@
     {"scope_key": "ndl_warranty", "scope": "20-year manufacturer NDL system warranty", "status": "unknown", "note": "\"Manufacturer's standard 20-year membrane warranty\"; a standard membrane warranty is not the NDL system warranty the spec calls for", "evidence_ref": "BH-3"}
   ],
   "alternate_lines": [
-    {"alternate_key": "alt_1_80mil_tpo", "label": "Alternate 1: 80-mil TPO membrane in lieu of 60-mil", "kind": "add", "solicited": true, "amount_in_cents": 1875000, "evidence_ref": "BH-5"}
+    {"alternate_key": "alt_1_80mil_tpo", "printed_label": "Alt 1", "reconciliation_note": "Package Alternate 1: 80-mil TPO membrane in lieu of 60-mil", "label": "Alternate 1: 80-mil TPO membrane in lieu of 60-mil", "kind": "add", "solicited": true, "amount_in_cents": 1875000, "evidence_ref": "BH-5"}
   ],
   "unit_price_lines": [
     {"description": "Added pipe penetration flashing", "unit": "EA", "unit_price_in_cents": 38500, "quantity": null, "evidence_ref": "BH-5"}

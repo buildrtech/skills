@@ -1,7 +1,7 @@
 # Intake review: Fire Station No. 4 Replacement, City of Brannock Falls (IFB BF-26-031)
 
 **Recommendation:** Go with conditions. This is a recommendation for Thursday's precon meeting, not a decision; the bid/no-bid call is yours.
-**Why in one line:** The work sits squarely in essential-facility territory we can qualify for, but the old station stays live until the new one is accepted, abatement and ground improvement both ride on us, and Supplementary Conditions 8.3.3 pays no damages for delay while liquidated damages run $3,200 per calendar day, so the schedule is the whole bet.
+**Why in one line:** Company qualifications remain unverified; the old station stays live until the new one is accepted, abatement and ground improvement both ride on us, and Supplementary Conditions 8.3.3 pays no damages for delay while liquidated damages run $3,200 per calendar day, so the schedule is the whole bet.
 
 ## Key dates
 
@@ -20,16 +20,16 @@ Addendum 1, dated September 15, 2026, extended the bid date and left every other
 
 ## Project snapshot
 
-- Owner: City of Brannock Falls, Washington, 210 Front Street; public works, so public bid opening and public records apply (IFB header, §3).
+- Owner: City of Brannock Falls, Washington, 210 Front Street; public work (IFB header, §6).
 - Architect of record and question channel: Sorensen Vail Architecture PLLC, Project No. 24-117; questions go to bids@sorensenvail.example and verbal answers from the City, the Architect, or the Fire Department are not binding (IFB header, §12).
 - Delivery and award: design-bid-build, single lump-sum contract to the lowest responsive, responsible bidder on the Base Bid plus any Additive Alternates the City accepts in numerical order (IFB §2).
 - Contract form: City of Brannock Falls Public Works Contract (Section 00 52 00) with the City's General Conditions (Section 00 72 00) and Supplementary Conditions (Section 00 73 00), not an AIA form (IFB §2).
 - Program: new two-story, 16,400 SF station at 880 Kestrel Ridge Road with four drive-through apparatus bays, dormitories for twelve, a decontamination suite, fitness room, day room and kitchen, an emergency operations room, and a standby generator with a 72-hour fuel supply (IFB §1).
 - Site: new apparatus apron, signalized egress onto Kestrel Ridge Road, stormwater vaults, and frontage improvements, plus demolition of the 1968 station after the new building is accepted (IFB §1).
 - Budget: engineer's estimate for the Base Bid is $11,400,000 (IFB §1).
-- Classification: Risk Category IV essential facility under the Washington State Building Code, which drives special inspection, structural detailing, and the qualification test in Section 5 (IFB §1).
+- Classification: Risk Category IV essential facility under the Washington State Building Code, with a related qualification test in Section 5 (IFB §1).
 - Alternates: Additive Alternate No. 1 is a four-story training tower (IFB §11); Additive Alternate No. 2, a 90 kW rooftop photovoltaic array with battery storage, was added by Addendum 1, and a blank alternate price is non-responsive (Addendum 1 §A1-2).
-- Documents: 128 drawing sheets and a Project Manual covering Divisions 00 through 33, free from the City's plan room; the geotechnical and hazardous materials reports are contract documents, not information only (IFB §9, §10).
+- Documents: 128 drawing sheets and a Project Manual covering Divisions 00 through 33, free from the City's plan room; the geotechnical report is expressly a Contract Document and the hazardous materials survey is listed as Appendix C (IFB §9, §10).
 
 ## Requirements to bid
 
@@ -52,9 +52,9 @@ Addendum 1, dated September 15, 2026, extended the bid date and left every other
 
 ## Scope summary
 
-A ground-up two-story essential facility with heavy sitework, built on the same parcel as the station it replaces (IFB §1). In the trades' own terms: aggregate pier ground improvement under the building and the apron, cast-in-place foundations and apron paving heavy enough for apparatus loads, structural steel and detailing to Risk Category IV, four drive-through apparatus bay doors, a decontamination suite with its own mechanical zone and washdown drainage, dormitory and day room fit-out, an emergency operations room, and a standby generator with a 72-hour fuel supply and its own fuel storage and containment (IFB §1). Site trades are signalized intersection work at the Kestrel Ridge Road egress, stormwater vaults, frontage improvements, and utility relocations to keep the old station live (IFB §1). Two specialty scopes sit outside a normal station build: certified asbestos and lead abatement of the 1968 building, then its demolition, both inside this contract (IFB §9); and a 90 kW photovoltaic array with battery storage if Additive Alternate No. 2 is accepted (Addendum 1 §A1-2).
+A ground-up two-story essential facility with heavy sitework, built on the same parcel as the station it replaces (IFB §1). In the trades' own terms: aggregate pier ground improvement under the building and the apron, foundations and apparatus apron, four drive-through apparatus bay doors, a decontamination suite, dormitory and day room fit-out, an emergency operations room, and a standby generator with a 72-hour fuel supply (IFB §1). Site trades are signalized intersection work at the Kestrel Ridge Road egress, stormwater vaults, frontage improvements, with sequencing to keep the old station live (IFB §1). Two specialty scopes sit outside a normal station build: certified asbestos and lead abatement of the 1968 building, then its demolition, both inside this contract (IFB §9); and a 90 kW photovoltaic array with battery storage if Additive Alternate No. 2 is accepted (Addendum 1 §A1-2).
 
-Self-perform candidates cannot be assigned from the IFB alone; it names no structural system or mechanical approach, so confirm against the 128-sheet set and Divisions 00 through 33 before the estimating pass (IFB §10). Trades to line up early because they are thin in this market and carry the schedule: certified asbestos abatement, aggregate pier ground improvement, apparatus bay doors, the signal contractor, generator and fuel systems, and, for the alternate, a PV and battery integrator.
+Self-perform candidates cannot be assigned from the IFB alone; it names no structural system or mechanical approach, so confirm against the 128-sheet set and Divisions 00 through 33 before the estimating pass (IFB §10). Trades to line up early for scope and availability confirmation: certified asbestos abatement, aggregate pier ground improvement, apparatus bay doors, the signal contractor, generator and fuel systems, and, for the alternate, a PV and battery integrator.
 
 ## Risk flags
 
@@ -63,8 +63,8 @@ Self-perform candidates cannot be assigned from the IFB alone; it names no struc
 - **Liquidated damages of $3,200 per calendar day (IFB §7).** They start the day after Substantial Completion, with another $750 per calendar day after Final Completion, against 420 calendar days that begin at Notice to Proceed on December 1, 2026, which puts mass excavation and ground improvement in a Pacific Northwest winter.
 - **Mandatory pre-bid conference on September 22, 2026 (IFB §3).** Bidders who do not attend are found non-responsive. There is one date, one time, and no alternate in the package, so attendance has to be confirmed before anything else on this list matters.
 - **Restrictive experience test (IFB §5).** Two completed essential-facility projects at $8,000,000 or more each, each designed to Risk Category IV, within the last seven years, plus a superintendent who ran one of them. This is the qualification most likely to knock us out on paper after the pursuit cost is spent, and it also narrows the field, which is worth knowing before pricing.
-- **Asbestos, transite, and lead-based paint (IFB §9).** The Rainier Environmental survey dated May 6, 2026 identifies asbestos floor tile and mastic, transite wall panels in the apparatus bays, and lead-based paint on the hose tower. Abatement of everything identified plus demolition is in our scope, a certified abatement contractor and Puget Sound Clean Air Agency notifications are required, and quantities can only grow once walls are opened.
-- **Groundwater and loose silty fill (IFB §9).** Pacific Cascade Geosciences, April 14, 2026, puts groundwater at 6 feet and loose silty fill to 9 feet across the south half of the parcel and recommends aggregate piers under all building foundations and the apparatus apron. Differing Site Conditions at General Conditions paragraph 4.7 is retained and unmodified, which is the one favorable risk term in the package, but dewatering, shoring, and pier quantities still drive the number and only Unit Prices 1 and 2 adjust them.
+- **Asbestos, transite, and lead-based paint (IFB §9).** The Rainier Environmental survey dated May 6, 2026 identifies asbestos floor tile and mastic, transite wall panels in the apparatus bays, and lead-based paint on the hose tower. Abatement of everything identified plus demolition is in our scope, a certified abatement contractor and Puget Sound Clean Air Agency notifications are required, and the extent beyond the survey remains to be verified.
+- **Groundwater and loose silty fill (IFB §9).** Pacific Cascade Geosciences, April 14, 2026, puts groundwater at 6 feet and loose silty fill to 9 feet across the south half of the parcel and recommends aggregate piers under all building foundations and the apparatus apron. Differing Site Conditions at General Conditions paragraph 4.7 is retained and unmodified, a favorable term alongside City-carried builder's risk, but dewatering, shoring, and pier quantities still drive the number and the stated Unit Prices 1 and 2 cover unsuitable soil replacement and additional aggregate piers (IFB §11).
 - **Two-year warranty (IFB §2; Addendum 1 §A1-3).** Supplementary Conditions paragraph 12.2.2 replaces the one-year correction period with a two-year warranty on all work from Substantial Completion, and Addendum 1 confirms it runs on the standby generator and the photovoltaic array in addition to manufacturer warranties. Subcontracts and vendor quotes have to carry the same term or we hold the second year ourselves.
 - **Apprentice utilization penalty (IFB §6).** Apprentices must perform 15% of total labor hours and the City may assess $1,000 for each percentage point short. Confirm the mechanical, electrical, and abatement subs can supply apprentices before the sub list goes in, because the penalty follows the whole contract.
 - **Non-responsiveness traps in the bid mechanics (IFB §11; Addendum 1 §A1-2).** A blank price on either Additive Alternate, a missing addendum acknowledgment, or a Subcontractor List filed more than one hour after bid time each void the bid on their own.
@@ -81,12 +81,12 @@ Scored against the default intake criteria; no company go/no-go checklist was su
 | Bonding and insurance | Neutral | Bid bond 5% and 100% performance and payment bonds are standard; the $10,000,000 umbrella and $2,000,000 pollution limits need the broker to confirm before bid (IFB §4, §8). |
 | Licensing and prequalification | Unfavorable | RCW 18.27 registration is routine, but the two Risk Category IV projects at $8,000,000 within seven years plus a matching superintendent is a pass/fail gate we must document (IFB §5). |
 | Wage and labor | Neutral | Washington prevailing wage, weekly certified payroll, and a 15% apprentice requirement are normal for public work here but constrain sub selection (IFB §6). |
-| Scope fit | Favorable | 16,400 SF two-story station near the $11,400,000 engineer's estimate is in range, and the program is conventional apart from abatement and the alternates (IFB §1). |
+| Scope fit | Unknown | The 16,400 SF station and $11,400,000 base estimate are stated (IFB §1); company experience and capacity were not supplied. |
 | Competition | Unknown | The package names no bidder list; the experience test likely thins the field. Ask the plan room for the plan holder list after the pre-bid (IFB §10). |
 | Risk allocation | Unfavorable | No damages for delay and full abatement and demolition responsibility, partly offset by a retained Differing Site Conditions clause and City-carried builder's risk (IFB §7, §8, §9). |
-| Documents | Favorable | Full set at 128 sheets, Divisions 00 through 33, with geotechnical and hazardous materials reports included as contract documents (IFB §9, §10). |
+| Documents | Unknown | 128 sheets and Divisions 00 through 33 are listed, with geotechnical and hazardous materials reports (IFB §9, §10); these were not supplied, so design completeness is unverified. |
 
-Conditions attached to the recommendation, all resolvable before October 15, 2026: confirm attendance at the mandatory pre-bid; confirm two qualifying Risk Category IV projects and the superintendent on paper; get the surety and broker to confirm the bond capacity and the umbrella and pollution limits; and get a certified abatement quote with a defined scope before the alternates are priced.
+Conditions to resolve before October 15, 2026; feasibility remains unverified: confirm attendance at the mandatory pre-bid; confirm two qualifying Risk Category IV projects and the superintendent on paper; get the surety and broker to confirm the bond capacity and the umbrella and pollution limits; and get a certified abatement quote with a defined scope before the alternates are priced.
 
 ## Open questions
 

@@ -1,0 +1,11 @@
+test_boolean_sheet_count_and_bad_id_rejected (test_scope_list.ScopeListTest.test_boolean_sheet_count_and_bad_id_rejected) ... ok
+test_malformed_optional_fields_have_actionable_errors (test_scope_list.ScopeListTest.test_malformed_optional_fields_have_actionable_errors) ... ok
+test_readable_primary_can_have_unreadable_related_sheet (test_scope_list.ScopeListTest.test_readable_primary_can_have_unreadable_related_sheet) ... ok
+test_sample_and_oracle_render (test_scope_list.ScopeListTest.test_sample_and_oracle_render) ... ok
+test_unreadable_primary_cannot_be_included (test_scope_list.ScopeListTest.test_unreadable_primary_cannot_be_included) ... ok
+test_weak_support_remains_rejected (test_scope_list.ScopeListTest.test_weak_support_remains_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.328s
+
+OK

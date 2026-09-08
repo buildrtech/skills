@@ -22,7 +22,7 @@ from common import (  # noqa: E402
     has_phrase,
     has_words,
     side_notes,
-    style_sources,
+    theme_values,
     truth,
 )
 
@@ -129,16 +129,16 @@ def subtotal_gap_surfaced(workspace: Path) -> bool:
 
 @criterion(description="the Warm Owner-Facing theme the user asked for is applied")
 def theme_warm_owner_facing(workspace: Path) -> bool:
-    styles = style_sources(workspace)
-    if not styles.strip():
+    styles = theme_values(workspace)
+    if not styles:
         return False
     return sum(1 for marker in THEME["markers"] if marker in styles) >= 3
 
 
 @criterion(description="the default technical theme was replaced, not left in place")
 def theme_not_default(workspace: Path) -> bool:
-    styles = style_sources(workspace)
-    if not styles.strip():
+    styles = theme_values(workspace)
+    if not styles:
         return False
     return not any(marker in styles for marker in THEME["defaultThemeMarkers"][:2])
 

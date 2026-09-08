@@ -1,0 +1,1 @@
+Work only within the assigned workspace. Read PROMPT.md and fulfill it using the bundled skills/pay-app-review/SKILL.md and its resources. Read no other skills, memory, repository, sibling workspace, or external files. No network, MCP, remote writes, or delegation. This is a single attempt: finish within 10 minutes of starting. Preserve your output memos and report their paths.

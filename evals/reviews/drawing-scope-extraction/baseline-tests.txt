@@ -1,0 +1,80 @@
+test_boolean_sheet_count_and_bad_id_rejected (test_scope_list.ScopeListTest.test_boolean_sheet_count_and_bad_id_rejected) ... FAIL
+test_malformed_optional_fields_have_actionable_errors (test_scope_list.ScopeListTest.test_malformed_optional_fields_have_actionable_errors) ...
+  test_malformed_optional_fields_have_actionable_errors (test_scope_list.ScopeListTest.test_malformed_optional_fields_have_actionable_errors) (group='candidates', field='related_sheets') ... FAIL
+  test_malformed_optional_fields_have_actionable_errors (test_scope_list.ScopeListTest.test_malformed_optional_fields_have_actionable_errors) (group='coverage_ledger', field='candidate_ids') ... FAIL
+  test_malformed_optional_fields_have_actionable_errors (test_scope_list.ScopeListTest.test_malformed_optional_fields_have_actionable_errors) (group='rfis', field='candidate_ids') ... FAIL
+  test_malformed_optional_fields_have_actionable_errors (test_scope_list.ScopeListTest.test_malformed_optional_fields_have_actionable_errors) (group='coverage_ledger', field='title') ... FAIL
+test_readable_primary_can_have_unreadable_related_sheet (test_scope_list.ScopeListTest.test_readable_primary_can_have_unreadable_related_sheet) ... ok
+test_sample_and_oracle_render (test_scope_list.ScopeListTest.test_sample_and_oracle_render) ... ok
+test_unreadable_primary_cannot_be_included (test_scope_list.ScopeListTest.test_unreadable_primary_cannot_be_included) ...
+  test_unreadable_primary_cannot_be_included (test_scope_list.ScopeListTest.test_unreadable_primary_cannot_be_included) (status='unreadable') ... FAIL
+  test_unreadable_primary_cannot_be_included (test_scope_list.ScopeListTest.test_unreadable_primary_cannot_be_included) (status='not_reviewed') ... FAIL
+test_weak_support_remains_rejected (test_scope_list.ScopeListTest.test_weak_support_remains_rejected) ... ok
+
+======================================================================
+FAIL: test_boolean_sheet_count_and_bad_id_rejected (test_scope_list.ScopeListTest.test_boolean_sheet_count_and_bad_id_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/mikeastock/.bb/worktrees/env_9qgefd7zm7/skills/evals/reviews/drawing-scope-extraction/test_scope_list.py", line 55, in test_boolean_sheet_count_and_bad_id_rejected
+    self.assertEqual(self.run_data(data).returncode, 1)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 0 != 1
+
+======================================================================
+FAIL: test_malformed_optional_fields_have_actionable_errors (test_scope_list.ScopeListTest.test_malformed_optional_fields_have_actionable_errors) (group='candidates', field='related_sheets')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/mikeastock/.bb/worktrees/env_9qgefd7zm7/skills/evals/reviews/drawing-scope-extraction/test_scope_list.py", line 48, in test_malformed_optional_fields_have_actionable_errors
+    self.assertIn(field, result.stderr)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'related_sheets' not found in 'Traceback (most recent call last):\n  File "/tmp/skills-takeover-baseline-9a62032/skills/drawing-scope-extraction/scripts/scope_list.py", line 438, in <module>\n    raise SystemExit(main(sys.argv[1:]))\n                     ~~~~^^^^^^^^^^^^^^\n  File "/tmp/skills-takeover-baseline-9a62032/skills/drawing-scope-extraction/scripts/scope_list.py", line 430, in main\n    errors = validate(data)\n  File "/tmp/skills-takeover-baseline-9a62032/skills/drawing-scope-extraction/scripts/scope_list.py", line 213, in validate\n    if related not in sheets:\n       ^^^^^^^^^^^^^^^^^^^^^\nTypeError: cannot use \'dict\' as a dict key (unhashable type: \'dict\')\n'
+
+======================================================================
+FAIL: test_malformed_optional_fields_have_actionable_errors (test_scope_list.ScopeListTest.test_malformed_optional_fields_have_actionable_errors) (group='coverage_ledger', field='candidate_ids')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/mikeastock/.bb/worktrees/env_9qgefd7zm7/skills/evals/reviews/drawing-scope-extraction/test_scope_list.py", line 49, in test_malformed_optional_fields_have_actionable_errors
+    self.assertNotIn('Traceback', result.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'Traceback' unexpectedly found in 'Traceback (most recent call last):\n  File "/tmp/skills-takeover-baseline-9a62032/skills/drawing-scope-extraction/scripts/scope_list.py", line 438, in <module>\n    raise SystemExit(main(sys.argv[1:]))\n                     ~~~~^^^^^^^^^^^^^^\n  File "/tmp/skills-takeover-baseline-9a62032/skills/drawing-scope-extraction/scripts/scope_list.py", line 430, in main\n    errors = validate(data)\n  File "/tmp/skills-takeover-baseline-9a62032/skills/drawing-scope-extraction/scripts/scope_list.py", line 218, in validate\n    for cid in entry.get("candidate_ids", []) or []:\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nTypeError: \'int\' object is not iterable\n'
+
+======================================================================
+FAIL: test_malformed_optional_fields_have_actionable_errors (test_scope_list.ScopeListTest.test_malformed_optional_fields_have_actionable_errors) (group='rfis', field='candidate_ids')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/mikeastock/.bb/worktrees/env_9qgefd7zm7/skills/evals/reviews/drawing-scope-extraction/test_scope_list.py", line 48, in test_malformed_optional_fields_have_actionable_errors
+    self.assertIn(field, result.stderr)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'candidate_ids' not found in 'Traceback (most recent call last):\n  File "/tmp/skills-takeover-baseline-9a62032/skills/drawing-scope-extraction/scripts/scope_list.py", line 438, in <module>\n    raise SystemExit(main(sys.argv[1:]))\n                     ~~~~^^^^^^^^^^^^^^\n  File "/tmp/skills-takeover-baseline-9a62032/skills/drawing-scope-extraction/scripts/scope_list.py", line 430, in main\n    errors = validate(data)\n  File "/tmp/skills-takeover-baseline-9a62032/skills/drawing-scope-extraction/scripts/scope_list.py", line 236, in validate\n    if cid not in seen_ids:\n       ^^^^^^^^^^^^^^^^^^^\nTypeError: cannot use \'dict\' as a set element (unhashable type: \'dict\')\n'
+
+======================================================================
+FAIL: test_malformed_optional_fields_have_actionable_errors (test_scope_list.ScopeListTest.test_malformed_optional_fields_have_actionable_errors) (group='coverage_ledger', field='title')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/mikeastock/.bb/worktrees/env_9qgefd7zm7/skills/evals/reviews/drawing-scope-extraction/test_scope_list.py", line 49, in test_malformed_optional_fields_have_actionable_errors
+    self.assertNotIn('Traceback', result.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'Traceback' unexpectedly found in 'Traceback (most recent call last):\n  File "/tmp/skills-takeover-baseline-9a62032/skills/drawing-scope-extraction/scripts/scope_list.py", line 438, in <module>\n    raise SystemExit(main(sys.argv[1:]))\n                     ~~~~^^^^^^^^^^^^^^\n  File "/tmp/skills-takeover-baseline-9a62032/skills/drawing-scope-extraction/scripts/scope_list.py", line 433, in main\n    sys.stdout.write(render(data))\n                     ~~~~~~^^^^^^\n  File "/tmp/skills-takeover-baseline-9a62032/skills/drawing-scope-extraction/scripts/scope_list.py", line 400, in render\n    f"| {md_cell(sheet[\'source\'])} | {md_cell(sheet.get(\'title\', \'\'))} | "\n                                      ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/tmp/skills-takeover-baseline-9a62032/skills/drawing-scope-extraction/scripts/scope_list.py", line 292, in md_cell\n    return text.replace("|", "\\\\|").replace("\\n", " ")\n           ^^^^^^^^^^^^\nAttributeError: \'int\' object has no attribute \'replace\'\n'
+
+======================================================================
+FAIL: test_unreadable_primary_cannot_be_included (test_scope_list.ScopeListTest.test_unreadable_primary_cannot_be_included) (status='unreadable')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/mikeastock/.bb/worktrees/env_9qgefd7zm7/skills/evals/reviews/drawing-scope-extraction/test_scope_list.py", line 37, in test_unreadable_primary_cannot_be_included
+    self.assertEqual(result.returncode, 1)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 0 != 1
+
+======================================================================
+FAIL: test_unreadable_primary_cannot_be_included (test_scope_list.ScopeListTest.test_unreadable_primary_cannot_be_included) (status='not_reviewed')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/mikeastock/.bb/worktrees/env_9qgefd7zm7/skills/evals/reviews/drawing-scope-extraction/test_scope_list.py", line 37, in test_unreadable_primary_cannot_be_included
+    self.assertEqual(result.returncode, 1)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 0 != 1
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.366s
+
+FAILED (failures=7)

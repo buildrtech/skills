@@ -4,10 +4,14 @@
   <meta charset="utf-8">
   <title>Milestone Export</title>
   <style>
+    @page { size: letter; margin: 0.45in; }
     :root { --ink: #1f2937; --muted: #6b7280; --primary: #334155; --accent: #0f766e; --surface: #f1f5f9; --border: #cbd5e1; --font-body: "Liberation Sans", "DejaVu Sans", sans-serif; }
     body { margin: 0; color: var(--ink); font-family: var(--font-body); font-size: 10.5pt; line-height: 1.4; }
-    .pdf-page { box-sizing: border-box; min-height: 10in; page-break-after: always; padding: 0.5in; }
+    .pdf-page { box-sizing: border-box; page-break-after: always; padding: 0; }
     .pdf-page:last-of-type { page-break-after: auto; }
+    h1, h2 { break-after: avoid; }
+    tr { break-inside: avoid; }
+    .division { break-after: avoid; }
     .keep-together { break-inside: avoid; }
     h1 { color: var(--primary); font-size: 25pt; margin: 0; }
     h2 { background: var(--surface); border-left: 5px solid var(--accent); color: var(--primary); font-size: 13pt; padding: 8px 10px; }
@@ -31,8 +35,8 @@
     <div class="summary-grid keep-together">
       <div class="summary-card"><span>Milestone</span><strong>Design Development</strong></div>
       <div class="summary-card"><span>Area</span><strong>18,400 SF</strong></div>
-      <div class="summary-card"><span>Cost</span><strong>$1,250,000</strong></div>
-      <div class="summary-card"><span>Cost / SF</span><strong>$68</strong></div>
+      <div class="summary-card"><span>Cost</span><strong>$1,250,000.00</strong></div>
+      <div class="summary-card"><span>Cost / SF</span><strong>$67.93</strong></div>
     </div>
     <div class="columns">
       <div>
@@ -55,19 +59,19 @@
         <td>Division 02</td>
         <td>Existing Conditions</td>
         <td>Includes temporary controls for occupied work.</td>
-        <td class="numeric">$259,000</td>
+        <td class="numeric">$259,000.00</td>
       </tr>
 <tr>
         <td>Division 09</td>
         <td>Finishes</td>
         <td>Includes baseline casework package.</td>
-        <td class="numeric">$637,000</td>
+        <td class="numeric">$637,000.00</td>
       </tr>
 <tr>
         <td>Division 26</td>
         <td>Electrical</td>
         <td>Includes gear allowance pending final cut sheets.</td>
-        <td class="numeric">$552,000</td>
+        <td class="numeric">$552,000.00</td>
       </tr></tbody>
     </table>
     <h2>Approvals</h2>

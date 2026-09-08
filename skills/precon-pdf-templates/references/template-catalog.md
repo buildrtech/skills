@@ -22,7 +22,7 @@ user's data; never ship a sample value.
 | Swiss Transit Technical | inline only | Twelve-column grid, tight sans type, numbered routes and budget sheets. | Proposal (technical reviewers) |
 | Executive Dark | `themes/executive-dark.css` | Dark gradient cover, KPI cards, high-contrast status tags. | Executive report |
 | Field-Ready Technical | `themes/field-ready-technical.css` | Dense, legible tables with repeating headers. | Budget export, milestone export, resume |
-| Warm Owner-Facing | `themes/warm-owner-facing.css` | Approachable tone for owners and non-technical readers. | Restyling any blueprint |
+| Warm Owner-Facing | `themes/warm-owner-facing.css` | Approachable tone for owners and non-technical readers. | Restyling generators or blueprints |
 
 Apply exactly one theme per document. Fonts are declared as system
 fallbacks (`Liberation Sans`, `DejaVu Sans`, and their serif equivalents)
@@ -124,6 +124,14 @@ From the skill directory:
 node templates/construction-budget-export/field-ready-technical/render.mjs data.json out/document.html
 ```
 
-Each generator takes exactly two arguments, the input JSON path and the
-output HTML path, and exits non-zero with a usage message otherwise.
-Requires Node 18 or later; no npm packages.
+Each generator takes input JSON and output HTML paths, with optional
+`--theme <name>`, for example `--theme warm-owner-facing`. The renderer stays
+in the `field-ready-technical` folder for all themes. It imports
+`scripts/generator-utils.mjs`; keep the package together. Node 18+ is required,
+with no npm packages. Invalid money or an unknown theme exits nonzero before
+writing HTML. Money is printed with two decimal places; totals are never
+recomputed. Match the selected schema before rendering.
+
+Theme switching replaces the palette and heading font while retaining the
+family's table and page layout. For manual blueprint restyling, read
+`themes/README.md`: the longer blueprints use different variables and classes.

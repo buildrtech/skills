@@ -2,7 +2,8 @@
 
 The entities behind every staffing answer, and the arithmetic rules the
 skill applies to them. Field names below are illustrative; the exact names
-and filters come from `codemode.describe` for each operation.
+and filters must be discovered from the connected tool schemas. Operation names
+are historical lookup hints, not a callable contract.
 
 ## Entities
 
@@ -58,8 +59,13 @@ Worked example. Employee `emp_0107` has assignment A at 60 percent from
 
 ### Team averages
 
-Cap each employee at 100 before averaging so overallocation cannot hide
-bench. Three employees at 120, 100, and 0:
+For each employee, weight periods by calendar days inside the window.
+For the team figure, cap each period at 100 BEFORE duration weighting, then
+average across the stated eligible headcount. Capping an employee window
+average afterward can hide idle days. Excluded-from-headcount employees can
+still be candidates but do not enter that denominator. State how time off
+and dismissal affect the denominator; if data is incomplete report unknown
+rather than silently averaging only returned periods. Three employees at 120, 100, and 0:
 
 - Uncapped: (120 + 100 + 0) / 3 = 73.3, which reads as a reasonably busy
   team.
@@ -80,8 +86,10 @@ user's definition instead if they give one, and say which was used.
 - A run that starts before the window or ends after it counts only for the
   days inside the window unless the user asks otherwise.
 
-Time off is not bench. A period flagged as time off has zero allocation but
-the person is unavailable, not idle.
+Time off is not bench. A period flagged as time off may show zero or nonzero allocation;
+either way the person is unavailable, not idle. Merge adjacent zero periods
+only when neither is time off. Missing timeline intervals are unknown and
+break a bench run; never infer zero from an omitted row.
 
 ### Exclusive end dates
 
@@ -134,8 +142,10 @@ deletion and not soft deletion. Rules:
 ### Certifications and experience
 
 - A certification counts only if a row exists for the employee and the
-  certification type, and its `expires_on` is absent or on or after the
-  last day it is needed. Expired or missing is a disqualifier, stated as
+  certification type, and it is issued by the first needed day and valid through the last needed
+  day. Treat absent expiration as non-expiring only when the source contract
+  says so; otherwise validity is unknown. Confirm whether expiration itself
+  is inclusive. In the supplied sample, expiration is inclusive. Expired or missing is a disqualifier, stated as
   such, never rounded up to "probably renewed".
 - Experience rows carry `source.resource`. Assignment-derived rows come
   from Buildr assignments and cannot be edited. Previous-employer rows are
@@ -144,3 +154,11 @@ deletion and not soft deletion. Rules:
 - Role is the employee's role in Buildr. A person in an adjacent role
   (Assistant Superintendent for a Superintendent need) is reported as a
   role mismatch, not silently promoted.
+
+### Coverage conservation
+
+For each project/role interval, retain original required allocation as filled
+plus residual unfilled demand. Filling 50% of a 100% row leaves 50% unfilled.
+An employee assigned during time off supplies no available coverage for that
+interval even if the assignment still reports 100%. Report that conflict
+separately from ordinary unfilled rows, and avoid double-counting the need.

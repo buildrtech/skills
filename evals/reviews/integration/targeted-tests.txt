@@ -1,0 +1,114 @@
+$ /tmp/skills-takeover-venv/bin/python -m unittest discover -s tools/tests -v
+test_manifest_coverage_duplicates_and_unknown_paths (test_catalog_contract.CatalogContractTest.test_manifest_coverage_duplicates_and_unknown_paths) ... ok
+test_missing_and_non_markdown_samples (test_catalog_contract.CatalogContractTest.test_missing_and_non_markdown_samples) ... ok
+test_no_membership_does_not_invent_plugin_install (test_catalog_contract.CatalogContractTest.test_no_membership_does_not_invent_plugin_install) ... ok
+test_summary_required_and_bounded (test_catalog_contract.CatalogContractTest.test_summary_required_and_bounded) ... ok
+test_default_task_separator_and_private_arguments (test_eval_tools.EvalToolsTest.test_default_task_separator_and_private_arguments) ... ok
+test_default_without_separator_and_explicit_without_extras (test_eval_tools.EvalToolsTest.test_default_without_separator_and_explicit_without_extras) ... ok
+test_explicit_task_and_api_key_precedence (test_eval_tools.EvalToolsTest.test_explicit_task_and_api_key_precedence) ... ok
+test_failed_serialization_preserves_record_and_cleans_temporary (test_eval_tools.EvalToolsTest.test_failed_serialization_preserves_record_and_cleans_temporary) ... ok
+test_reject_directory_file_and_dangling_links (test_eval_tools.EvalToolsTest.test_reject_directory_file_and_dangling_links) ... ok
+test_rescore_rejects_link_before_verifier_or_result_write (test_eval_tools.EvalToolsTest.test_rescore_rejects_link_before_verifier_or_result_write) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.139s
+
+OK
+EXIT 0
+
+$ /tmp/skills-takeover-venv/bin/python -m unittest discover -s evals/reviews/bid-leveling -p test_*.py -v
+test_alternate_sign_and_null (test_level_bids.BidLevelingTests.test_alternate_sign_and_null) ... ok
+test_bad_decisions_fail_before_arithmetic (test_level_bids.BidLevelingTests.test_bad_decisions_fail_before_arithmetic) ... ok
+test_conflicting_alternate_scope_or_kind_is_rejected (test_level_bids.BidLevelingTests.test_conflicting_alternate_scope_or_kind_is_rejected) ... ok
+test_duplicate_alternate_is_rejected (test_level_bids.BidLevelingTests.test_duplicate_alternate_is_rejected) ... ok
+test_duplicate_alternate_with_scope_namespace_collision (test_level_bids.BidLevelingTests.test_duplicate_alternate_with_scope_namespace_collision) ... ok
+test_duplicate_plugs_never_double_count (test_level_bids.BidLevelingTests.test_duplicate_plugs_never_double_count) ... ok
+test_duplicate_submission_is_rejected (test_level_bids.BidLevelingTests.test_duplicate_submission_is_rejected) ... ok
+test_missing_or_invalid_evidence (test_level_bids.BidLevelingTests.test_missing_or_invalid_evidence) ... ok
+test_printed_alternate_reconciliation (test_level_bids.BidLevelingTests.test_printed_alternate_reconciliation) ... ok
+test_same_company_submissions_and_targeted_plug (test_level_bids.BidLevelingTests.test_same_company_submissions_and_targeted_plug) ... ok
+test_sample_and_existing_fixture_arithmetic (test_level_bids.BidLevelingTests.test_sample_and_existing_fixture_arithmetic) ... ok
+test_scope_conflict_cannot_hide_a_gap (test_level_bids.BidLevelingTests.test_scope_conflict_cannot_hide_a_gap) ... ok
+test_voluntary_alternates_are_isolated (test_level_bids.BidLevelingTests.test_voluntary_alternates_are_isolated) ... ok
+test_xlsx_same_submission_and_alternate_tables (test_level_bids.BidLevelingTests.test_xlsx_same_submission_and_alternate_tables) ... ok
+
+----------------------------------------------------------------------
+Ran 14 tests in 1.494s
+
+OK
+EXIT 0
+
+$ /tmp/skills-takeover-venv/bin/python -m unittest discover -s evals/reviews/drawing-scope-extraction -p test_*.py -v
+test_boolean_sheet_count_and_bad_id_rejected (test_scope_list.ScopeListTest.test_boolean_sheet_count_and_bad_id_rejected) ... ok
+test_malformed_optional_fields_have_actionable_errors (test_scope_list.ScopeListTest.test_malformed_optional_fields_have_actionable_errors) ... ok
+test_readable_primary_can_have_unreadable_related_sheet (test_scope_list.ScopeListTest.test_readable_primary_can_have_unreadable_related_sheet) ... ok
+test_sample_and_oracle_render (test_scope_list.ScopeListTest.test_sample_and_oracle_render) ... ok
+test_unreadable_primary_cannot_be_included (test_scope_list.ScopeListTest.test_unreadable_primary_cannot_be_included) ... ok
+test_weak_support_remains_rejected (test_scope_list.ScopeListTest.test_weak_support_remains_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.380s
+
+OK
+EXIT 0
+
+$ /tmp/skills-takeover-venv/bin/python evals/reviews/pay-app-review/test_checker.py
+test_as_submitted_math_runs_without_terms (__main__.CheckerTests.test_as_submitted_math_runs_without_terms) ... ok
+test_blank_amount_is_not_zero (__main__.CheckerTests.test_blank_amount_is_not_zero) ... ok
+test_current_rate_does_not_recalculate_prior_certificate (__main__.CheckerTests.test_current_rate_does_not_recalculate_prior_certificate) ... ok
+test_explicit_zero_terms_are_known (__main__.CheckerTests.test_explicit_zero_terms_are_known) ... ok
+test_invalid_rates_and_tolerance (__main__.CheckerTests.test_invalid_rates_and_tolerance) ... ok
+test_missing_terms_stay_unknown (__main__.CheckerTests.test_missing_terms_stay_unknown) ... ok
+test_nonfinite_csv_and_cli_are_input_errors (__main__.CheckerTests.test_nonfinite_csv_and_cli_are_input_errors) ... ok
+test_wrong_line7_compares_to_independent_certificate (__main__.CheckerTests.test_wrong_line7_compares_to_independent_certificate) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.657s
+
+OK
+EXIT 0
+
+$ /tmp/skills-takeover-venv/bin/python evals/reviews/rfi-drafter/test_regressions.py
+....
+----------------------------------------------------------------------
+Ran 4 tests in 0.000s
+
+OK
+EXIT 0
+
+$ /tmp/skills-takeover-venv/bin/python evals/reviews/rfp-intake/test_verifier.py
+.......
+----------------------------------------------------------------------
+Ran 7 tests in 0.001s
+
+OK
+EXIT 0
+
+$ node --test evals/reviews/precon-pdf-templates/test-renderers.mjs
+✔ construction-budget-export: shipped sample matches actual renderer (33.959225ms)
+✔ construction-budget-export: warm theme resolves outside skill cwd (29.992668ms)
+✔ milestone-export: shipped sample matches actual renderer (31.172067ms)
+✔ milestone-export: warm theme resolves outside skill cwd (31.320604ms)
+✔ employee-resume: shipped sample matches actual renderer (20.952241ms)
+✔ employee-resume: warm theme resolves outside skill cwd (26.555873ms)
+✔ budget: cents, negative deduct, zero, escaped input and mismatched exported totals survive (31.365739ms)
+✔ budget: missing, null, fractional, string and unsafe cents fail before output (163.55004ms)
+✔ milestone: cost per SF preserves the supplied $67.93 (32.7871ms)
+✔ milestone: missing construction cost fails without inventing zero (24.396761ms)
+✔ resume: absent optional meta never claims years experience (23.335964ms)
+✔ unknown theme and extra arguments fail without output (113.993721ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 12
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 602.6517
+EXIT 0
+
+$ /tmp/skills-takeover-venv/bin/python evals/reviews/precon-pdf-templates/test-schemas.py
+construction-budget-export: schema and sample validation passed; required money negatives rejected where applicable
+milestone-export: schema and sample validation passed; required money negatives rejected where applicable
+employee-resume: schema and sample validation passed; required money negatives rejected where applicable
+EXIT 0

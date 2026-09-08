@@ -1,0 +1,12 @@
+{
+  "SKILL.md": "e535d35bb2f3b5fcf7844b8a47082d56d85b450bb0c7cabf58d0f5777b9a3c0d",
+  "samples/input-candidates.json": "c3dfca0d4de2644b26d06e3bbeb4c9cf54393473c91eb10fa27ee62dcc87c5f1",
+  "samples/input-sheet-index.md": "346e1dce58167f25a2269faea080e0133081bb215994f9acac260b577d02ba31",
+  "samples/output-scope-list.md": "f5df8247c2241762b1c68cd050684a5c794e8dbe85d8c0b7a84bb6daacf18873",
+  "references/csi-divisions.md": "0a81ce2bf00c368c5b26d438276f47f808bac0ebbdae1a5a3fc2210749dc7ae6",
+  "references/trade-probes.md": "e71d3b14b3c85f85d88e1a5d02752347d9c1cc8208c8e3eae0b75e03fc3f9c87",
+  "references/grounding-rules.md": "a8d59685db9fb7dfba371439b8dfa1295368a3aa019a4c880432994d860fb760",
+  "references/candidate-schema.json": "6c2d5ce29f7cd29353dec6c35b673f9963548e992ac9c36bbddf1b10efc15877",
+  "examples/sample-prompts.md": "46b3a2ecc7112c8c8dcb409f57adc4700aae3062624a88f97ae42849c322ea74",
+  "scripts/scope_list.py": "845b99c0e4b3d3cbd5e03bc5495fd6dc20dc010b9aa11168ed77d3bc03f8ff49"
+}

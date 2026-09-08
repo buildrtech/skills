@@ -1,0 +1,13 @@
+{
+  "mode": "synthetic fixture replay",
+  "scope": {"server": "fixture-pm", "account": "a7", "project": "p4", "object": "rfi"},
+  "unique_records": 5,
+  "pagination_complete": true,
+  "overdue_ids": ["17", "18", "19"],
+  "missing_due_ids": ["21"],
+  "outcomes": {"17": "verified", "18": "unverified", "19": "not_attempted"},
+  "confirmed_sheet_links": {"17": {"server": "fixture-drawings", "account": "d2", "project": "dp8", "object": "sheet", "id": "91", "version": "v3"}},
+  "unresolved_sheet_links": ["18"],
+  "live_writes_performed": 0,
+  "retry_permitted_by_request": false
+}

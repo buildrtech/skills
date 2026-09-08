@@ -19,9 +19,8 @@ total, and the headline "lowest complete leveled total" ignores it.
 ## Row classes
 
 Every scope row carries a `row_class`. It defaults to `base`. The class is
-set per row, and the first bidder to name a `scope_key` fixes the class for
-everyone; a later extraction that classifies the same key differently is
-flagged and overridden.
+set per package row. Conflicting classes for the same `scope_key` stop the
+run until the package basis is resolved.
 
 | Class | Use it for | How the script treats it |
 |---|---|---|
@@ -53,14 +52,15 @@ items:
   qualifications marked `in_total`) and compares to the stated total. A
   mismatch usually means a missing line, an outside-scope item, or a bid
   form arithmetic error. Ask the bidder which number governs.
-- **Same bidder in two extractions.** Only the first is used. Merge a
-  revised bid into one extraction rather than submitting both.
 - **Different trade scopes.** The extractions name different `trade_scope`
   strings. Confirm they belong in one package.
 - **No stated total.** The bidder's `total_bid_amount_in_cents` is null.
 - **Plug ignored.** The plug targets a non-base row, or a row the bidder
   already includes.
-- **Duplicate row in one extraction.** The first entry is kept.
+Duplicate submission IDs, scope rows, alternate keys, and plugs on the same
+submission/scope stop validation. Distinct bids from the same company remain
+separate. Resolve governing revisions before ranking; the script never
+selects a revision by input order.
 
 ## Plugs
 
@@ -71,7 +71,7 @@ by the agent.
 
 Rules the script enforces:
 
-- A plug names a `bidder_name` that matches an extraction exactly and a
+- A plug names a `submission_id` that matches the intended extraction exactly and a
   `scope_key` that exists in the rows.
 - `amount_in_cents` is a non-null integer.
 - `source` is non-empty: who decided the amount and where it came from.
@@ -111,7 +111,7 @@ other than a base-row gap. Typical uses:
   excluded it, using the bidder's own stated percentage or amount).
 - Correcting a stated arithmetic error the bidder has confirmed in writing.
 
-An adjustment needs `bidder_name`, a non-null signed `amount_in_cents`, a
+An adjustment needs `submission_id`, a non-null signed `amount_in_cents`, a
 `description`, and a `source`. Adjustments are not tied to a scope key and
 do not resolve gaps; a gap is resolved only by a plug.
 
@@ -157,10 +157,10 @@ the stated base bid. Its shape:
 ```json
 {
   "plugs": [
-    {"bidder_name": "...", "scope_key": "...", "amount_in_cents": 4120000, "source": "..."}
+    {"submission_id": "...", "scope_key": "...", "amount_in_cents": 4120000, "source": "..."}
   ],
   "adjustments": [
-    {"bidder_name": "...", "amount_in_cents": -4600000, "description": "...", "source": "..."}
+    {"submission_id": "...", "amount_in_cents": -4600000, "description": "...", "source": "..."}
   ]
 }
 ```

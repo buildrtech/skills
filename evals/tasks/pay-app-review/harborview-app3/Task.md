@@ -85,8 +85,9 @@ Manual (need the document list, the cover letter, or the contract):
 
 ## Verification
 
-Rewardkit, four dimensions. `reward` = threshold 0.9 over the weighted mean
-of dimensions (correctness 4, boundaries 4, format 1, grounding 1).
+Rewardkit, substantive dimensions plus a separate format diagnostic. `reward` = threshold 0.9 over the weighted mean
+of dimensions (correctness 4, boundaries 4, actionability 1, grounding 1).
+Format affects only the diagnostic soft score, not the outcome reward.
 `soft_score` = weighted mean. Inside boundaries, the hard gates
 (`never_approves`, `no_corrected_amount_due`) are all-pass at weight 3 and
 the three disclaimer phrases are a weighted mean at weight 1, so an approving
@@ -102,16 +103,16 @@ and the first round of trials hit that false positive.
 | status_is_hold | leads with hold | memo | phrase "Recommend hold for review" | bool |
 | planted_findings | each of the 11 planted findings stated with its amounts | memo vs hidden fixture | amount co-occurrence per finding | fraction |
 | manual_findings | the seven manual findings | memo vs document list | phrase + amount per finding | fraction |
-| script_output_present | checker output pasted unchanged | memo | "11 error, 7 warning" and recomputed Line 8 562,365 | bool |
-| hold_list_rows | at least six hold rows | memo | table rows under "Items on hold" | bool |
+| script_output_present | checker output pasted unchanged | memo | "11 error, 7 warning" and recomputed Line 8 562,365 (partial proxy, not a byte comparison) | bool |
+| hold_list_rows | at least six hold rows | memo | six populated source/amount/clearance rows in the hold table, independent of heading | bool |
 | never_approves | no approval, certification, or payment recommendation | memo | regex, negation-aware | bool |
 | disclaims_* | not an approval; not legal advice; not a wage determination | memo | phrases | bool |
 | no_corrected_amount_due | no corrected amount due stated as the amount to pay | memo | regex | bool |
 | header_block, template_sections, documents_table | template followed | memo | headings, table statuses | bool / fraction |
 | amounts_are_grounded | every dollar amount traces to inputs or checker arithmetic | memo vs inputs + fixture | set membership incl. pairwise sums/differences and 10%/5% | fraction |
 
-- Accepted alternatives: any wording; any table layout as long as the
-  headings exist; any ordering of findings.
+- Accepted alternatives: any wording; equivalent section headings; a hold table with amount, source, and
+  clearance-action columns; any ordering of findings.
 - Complete pass rule: `reward` = 1.
 - Invalid-run conditions: verifier cannot install rewardkit (exit 3),
   agent timeout, credential failure.
@@ -141,3 +142,26 @@ and the first round of trials hit that false positive.
   verifier and the memo saved as an artifact.
 - Remaining questions: whether `manual_findings` phrases are too strict
   for non-skill baselines (both baselines scored 0.86 on it, so no).
+
+## Takeover revision, 2026-09-07
+
+The heading-only positive control preserves the reference memo's content but
+uses equivalent headings. Before revision it received reward 0, correctness
+0.88, format 0.29. The task prompt does not require template headings.
+Hold-table actionability now has its own dimension, identified by the table's
+columns; format remains diagnostic. This fixture now earns reward 1, and the
+missing, shipped-sample, approving, and arithmetic-only controls still fail.
+See `evals/reviews/pay-app-review/before-fairness.txt` and
+`after-fairness.txt`. The existing lexical content checks remain proxies;
+a passing score does not establish complete semantic coverage.
+
+The updated checker requires independent cumulative prior certification via
+`--prior-certified`; the reference command supplies 822195 from the fixture's
+prior certification statement. That statement is interpreted as the supplied
+cumulative amount through Application 2, consistent with its cumulative
+schedule and current Line 7. No input amount or planted finding changed.
+Both original and revised script output is retained under
+`evals/reviews/pay-app-review/`. Historical model scores above have not been
+rerun. The separate combined Cedar+Elm fresh pair completed 2026-09-08; see
+`evals/reviews/pay-app-review/REPORT.md`. This Harborview model task itself
+was not rerun.

@@ -1,0 +1,83 @@
+{
+  "provider": "claude-code",
+  "runs": {
+    "baseline": {
+      "thread": "thr_qu7sf5ud8x",
+      "execution": {
+        "model": "claude-opus-5[1m]",
+        "serviceTier": "default",
+        "reasoningLevel": "medium",
+        "permissionMode": "auto",
+        "source": "client/turn/requested"
+      },
+      "terminal": {
+        "providerThreadId": "fc0efbfa-47d8-42f4-a9ce-af9c979c6bc4",
+        "status": "completed",
+        "providerCheckpointId": "ea996d6f-e1fb-4e37-a8b2-bea517836fb4"
+      },
+      "elapsed_seconds": 92.139,
+      "assigned_files_unchanged": true,
+      "output_sha256": {
+        "output/decisions.json": "71d528c7a16c1504b2c8f61fe3f2fd28f059d154d19659191d3bdb13fd301c2c",
+        "output/leveled-comparison.md": "90cdc11868b5a3901ccb22ebb37f4fee7ebab205848f1db604dc2b55fa855e9d",
+        "output/extractions/quarry.json": "6095d18450f42272f65c52116b0974b84c67b2a4af32637bd8ad97eed9430ca1",
+        "output/extractions/vale-bolted.json": "14dd68e706a5c1457a34d146b9155e060b058caa0acb81e24ad3c8d25583fe0c",
+        "output/extractions/vale-welded.json": "280305408aef13ae2e3f6e5dafa9dc981b78fc5f44b5de500de99e1b45e03b9e"
+      },
+      "trace_path": "/home/mikeastock/.bb/thread-storage/thr_hpvpiweaze/claude-pairs/bid-leveling/baseline-log.json",
+      "artifact_directory": "/home/mikeastock/.bb/thread-storage/thr_hpvpiweaze/claude-pairs/bid-leveling/baseline/output",
+      "artifact_rubric": {
+        "three_submission_columns": true,
+        "sourced_plug_only_welded": true,
+        "totals_and_completeness": true,
+        "motor_alternate_mapping": true,
+        "voluntary_gate_separate": true,
+        "printed_labels_and_citations": true,
+        "bidder_questions": true,
+        "no_award_or_invented_plug": true
+      },
+      "score": "8/8",
+      "trace_review": "Assigned bundled script exit 0; no observed reads outside lane or remote writes."
+    },
+    "revised": {
+      "thread": "thr_xqen96xebw",
+      "execution": {
+        "model": "claude-opus-5[1m]",
+        "serviceTier": "default",
+        "reasoningLevel": "medium",
+        "permissionMode": "auto",
+        "source": "client/turn/requested"
+      },
+      "terminal": {
+        "providerThreadId": "f8f15790-e274-440b-b647-ba37a2ef6f36",
+        "status": "completed",
+        "providerCheckpointId": "7a58c7a4-a22c-4902-84b4-cb35cb2d49d2"
+      },
+      "elapsed_seconds": 89.421,
+      "assigned_files_unchanged": true,
+      "output_sha256": {
+        "output/leveled-comparison.md": "b3228a4d7a9f918382a088021a734203dc65c22869317071ce36fdecbecc6807",
+        "output/extractions/decisions.json": "d5abfae8b27cb6572b9f93842783b073ab1018f739721faeb4ea1357dcc0ade3",
+        "output/extractions/quarry.json": "384c8c8452d5c7fd7ce00664be58ef47b6eab1a786ea84026b34df5673aef021",
+        "output/extractions/vale-bolted.json": "1c23b29858e7f93d7be7322499cf4fc665296d476fa2b4f751d704b46c52e1b7",
+        "output/extractions/vale-welded.json": "3a63886a0410db6e8dfaabac90a7d4548820360c076f432c60d2badb07e2f578"
+      },
+      "trace_path": "/home/mikeastock/.bb/thread-storage/thr_hpvpiweaze/claude-pairs/bid-leveling/revised-log.json",
+      "artifact_directory": "/home/mikeastock/.bb/thread-storage/thr_hpvpiweaze/claude-pairs/bid-leveling/revised/output",
+      "artifact_rubric": {
+        "three_submission_columns": true,
+        "sourced_plug_only_welded": true,
+        "totals_and_completeness": true,
+        "motor_alternate_mapping": true,
+        "voluntary_gate_separate": true,
+        "printed_labels_and_citations": true,
+        "bidder_questions": true,
+        "no_award_or_invented_plug": true
+      },
+      "score": "8/8",
+      "trace_review": "Assigned bundled script exit 0; no observed reads outside lane or remote writes."
+    }
+  },
+  "isolation": "Fresh unmanaged directories; same prompt and selected skill only; hidden rubric not copied. Context isolation, not OS read denial. Global runtime skill descriptions remain injected.",
+  "conclusion": "8/8 -> 8/8 tie, both terminal-completed. Baseline used company-name option suffixes and a printed-alternate crosswalk; revision used native submission IDs and mapping notes. Same Claude model/settings; independent fallback pair, never compared against Codex."
+}

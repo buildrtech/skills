@@ -1,0 +1,11 @@
+{
+  "employee_id": "emp_0107",
+  "provenance": {"mode": "synthetic fixture replay", "source": "skills/workforce-planning/samples/input-request.md", "as_of": "2026-09-03"},
+  "window": ["2026-11-01", "2027-08-01"],
+  "periods": [
+    {"start": "2026-11-01", "end": "2026-12-19", "utilization": 100, "time_off": false},
+    {"start": "2026-12-19", "end": "2027-03-15", "utilization": 0, "time_off": false},
+    {"start": "2027-03-15", "end": "2027-03-22", "utilization": 0, "time_off": true},
+    {"start": "2027-03-22", "end": "2027-08-01", "utilization": 0, "time_off": false}
+  ]
+}

@@ -1,0 +1,12 @@
+
+evals/tasks/rfi-drafter/sable-creek-rfi-023
+case                                       reward soft_sco boundari correctn   format groundin  expect
+known-good                                   1.00     0.99     1.00     1.00     1.00     0.94  pass  ok
+missing                                      0.00     0.00     0.00     0.00     0.00     0.00  fail  ok
+shortcut-shipped-sample                      0.00     0.30     0.25     0.20     1.00     0.09  fail  ok
+valid-equivalent-headings                    0.00     0.85     0.95     0.77     0.91     0.94  pass  BAD
+wrong-directs-proceed                        0.00     0.77     0.14     0.98     1.00     0.94  fail  ok
+wrong-invented-sheet                         0.00     0.79     0.25     1.00     1.00     0.81  fail  ok
+wrong-withholds-resolution                   0.00     0.85     0.95     0.73     1.00     0.94  fail  ok
+
+1 fixture(s) misbehaved

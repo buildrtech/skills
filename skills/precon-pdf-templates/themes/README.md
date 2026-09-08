@@ -1,26 +1,25 @@
 # Themes
 
-Standalone stylesheets for the templates in this skill. Every template
-already inlines its theme in a `<style>` block, so these files are for two
-cases: building a document from scratch, or restyling a blueprint with a
-different theme.
+Generators accept a bundled theme name directly:
 
-To use one, copy its contents into the document's `<style>` block, or save
-it as a flat sibling file next to the HTML and link it by bare filename:
-
-```html
-<link rel="stylesheet" href="field-ready-technical.css">
+```bash
+node templates/construction-budget-export/field-ready-technical/render.mjs /path/to/job/data.json /path/to/job/document.html --theme warm-owner-facing
 ```
 
-Do not reference a theme through a nested or absolute path from generated
-HTML. PDF converters resolve assets relative to the HTML file, and the
-working directory should hold every asset as a flat sibling.
+Omit `--theme` for Field-Ready Technical. The option replaces the palette
+variables and uses the selected display font for headings, preserving table
+geometry and print rules. It inlines everything; no CSS copy is needed.
+Supported names are the eight `.css` basenames in this folder. Swiss Transit
+Technical is a blueprint only and has no standalone stylesheet.
 
-Each theme defines the same variables (`--ink`, `--muted`, `--primary`,
-`--accent`, `--surface`, `--border`, `--font-body`, `--font-display`), so
-swapping themes on a blueprint usually means replacing the `:root` block
-and adjusting a few component rules. Brand colors and fonts supplied by
-the user go into those variables; do not guess them.
+For blueprints, work on a copy outside the package. Preserve layout rules
+when changing visual styles. The short Architectural Ink and Executive Dark
+blueprints use `--primary`, `--surface`, `--font-body`, and related variables;
+the longer proposal blueprints also use `--paper`, `--line`, `--quiet`, and
+hardcoded cover colors/fonts. These are not interchangeable stylesheets:
+map those rules to the selected theme and inspect every page, especially
+cover contrast, table headers, and footer positions.
 
-See `references/template-catalog.md` for what each theme looks like and
-which template it pairs with.
+If using external CSS, save it beside the HTML and link its bare filename
+after existing styles so overrides apply. Unlinked CSS has no effect.
+User-provided branding replaces theme colors/fonts; do not guess brand assets.

@@ -1,11 +1,12 @@
 ---
 name: precon-pdf-templates
-description: Produce polished PDFs for general contractor and preconstruction workflows from bundled HTML templates and themes. Covers project proposals and bid books, executive reports, construction budget exports, milestone estimate exports, and team resumes or bios. Use when the user asks to make, generate, export, format, or lay out a PDF, proposal, bid book, budget export, milestone estimate, executive summary, leadership report, or staff resume for a construction project.
+description: Produce polished PDFs for general contractor and preconstruction workflows from bundled HTML templates and themes. Covers project proposals and bid books, executive reports, construction budget exports, milestone estimate exports, and team resumes or bios. Use when the user asks to format supplied construction content into a PDF, print-ready HTML, proposal, bid book, budget table, leadership report, or staff resume. This formats supplied content; cost estimating, RFP bid decisions, PDF extraction, and copywriting alone are separate tasks.
 license: MIT
 metadata:
   tier: neutral
   stages: business-development, preconstruction, estimating
-  version: "1.0.0"
+  version: "1.1.0"
+  summary: "Turn supplied construction budgets, proposals, reports, milestone estimates, and team bios into print-ready documents with source figures preserved."
   author: Buildr
 ---
 
@@ -56,19 +57,27 @@ estimate export, and employee resume or team bio.
    user's data. For blueprints, list each block of the template (cover, meta,
    summary, tables, team, terms, signatures) and map user content onto it.
    Leave a block out rather than invent content for it. If a required schema
-   field is missing, ask once; if the answer is unavailable, omit the section
-   and say so in the delivery note.
+   field is missing, ask for it before rendering. Optional fields may be
+   omitted; missing money must never be filled with zero. Preserve integer
+   cents, deduct signs, and exported totals even when they disagree with sums.
+   Put each quantified mismatch in the document notes or a companion QA note.
 
 3. **Choose one theme.** Use the theme paired with the template in the
    catalog unless the user asks for another. Themes live in `themes/` and are
-   described in `references/template-catalog.md`. Apply exactly one theme per
-   document.
+   described in `references/template-catalog.md`. For a generator, pass `--theme warm-owner-facing` (or another bundled
+   CSS filename without `.css`) to the existing renderer. Its folder stays
+   `field-ready-technical`; theme choice does not change that path. Read
+   `themes/README.md` only when restyling a blueprint or using custom branding.
 
 4. **Render the HTML in a working directory.** Create a fresh directory for
    the job (for example `out/`) and put every asset for the document in it as
    flat siblings: the HTML, any copied theme CSS, and user-supplied images.
    Reference assets by bare filename (`logo.png`, not `../assets/logo.png`).
-   - Generator: `node templates/<family>/<theme>/render.mjs data.json out/document.html`
+   - Generator: run the bundled renderer, preserving its escaping, money
+     formatting, and print structure:
+     `node templates/<family>/field-ready-technical/render.mjs /path/to/job/data.json /path/to/job/document.html --theme warm-owner-facing`
+     Omit `--theme` for the family default. Keep the installed package
+     intact: renderers import `scripts/generator-utils.mjs`.
    - Blueprint: copy `templates/<family>/<theme>/index.html` to
      `out/document.html` and replace every placeholder and sample value.
      Search the copy for leftover sample text (the bundled samples use
@@ -77,7 +86,7 @@ estimate export, and employee resume or team bio.
 
 5. **Convert to PDF.** Use whichever of these is available, in this order:
    - Headless Chrome or Chromium:
-     `google-chrome --headless --disable-gpu --no-pdf-header-footer --print-to-pdf=out/document.pdf out/document.html`
+     `google-chrome --headless --disable-gpu --no-pdf-header-footer --print-to-pdf=/path/to/job/document.pdf file:///path/to/job/document.html`
      (substitute `chromium`, `chromium-browser`, or `chrome` for the binary name)
    - WeasyPrint: `weasyprint out/document.html out/document.pdf`
    - The agent's own HTML-to-PDF capability, if the runtime provides one.
@@ -89,10 +98,10 @@ estimate export, and employee resume or team bio.
    minimum, open the PDF or render pages to PNG and check for clipped table
    columns, orphaned headings, broken page breaks, unreplaced sample text,
    and totals that do not match the source data. Fix the HTML, reconvert,
-   and recheck the affected pages. Do at least one fix-and-verify pass
-   before declaring the document done; the first render usually has a
-   problem. Each template directory also has a `qa.md` with family-specific
-   checks.
+   and recheck the affected pages. Recheck after each fix. If no issues are found, record the checks
+   without manufacturing a change. Generator directories have a `qa.md`
+   with family-specific checks. If page inspection is unavailable, disclose
+   that limit; HTML generation alone does not prove PDF layout.
 
 7. **Deliver.** Hand over the PDF plus the source HTML and data file so the
    user can revise. State which template and theme were used, which sections
@@ -149,7 +158,7 @@ estimate export, and employee resume or team bio.
 ## Path resolution
 
 All relative paths in this skill refer to files inside this skill's
-directory. Generators run relative to the skill directory:
-`node templates/<family>/<theme>/render.mjs data.json out.html`. Do not
-hard-code absolute paths to files inside the skill package, and write output
-to a working directory outside it.
+directory. Resolve the installed skill directory before running a renderer. Input and
+output arguments resolve from your shell working directory; use absolute job
+paths when running from the skill directory. Theme assets resolve from the
+script location. Write outputs outside the skill package.

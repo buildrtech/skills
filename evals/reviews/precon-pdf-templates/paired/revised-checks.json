@@ -1,0 +1,25 @@
+{
+  "checks": {
+    "all_exported_money_html": true,
+    "project": true,
+    "gap_reported": true,
+    "no_sample_text": true,
+    "all_required_notes": true,
+    "pdf_exists": true,
+    "all_exported_money_pdf": true,
+    "letter_pdf": true,
+    "warm_heading": true,
+    "no_horizontal_overflow": true
+  },
+  "browser": {
+    "color": "rgb(63, 46, 36)",
+    "font": "\"Liberation Serif\", \"DejaVu Serif\", serif",
+    "overflow": false
+  },
+  "passed": true,
+  "manual_checks_required": [
+    "all PDF pages legible with no overlap/clipping",
+    "alternates excluded and deduct identified",
+    "trace confirms actual render and inspection; script usage separate from outcome"
+  ]
+}

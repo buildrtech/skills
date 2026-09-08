@@ -3,9 +3,10 @@ name: drawing-scope-extraction
 description: Extract a scope of work from a construction drawing set, grouped by CSI division, with every item cited to a sheet, detail, or note. Use when the user asks for a scope of work from drawings, a scope list, what is on the sheets, sheet notes and schedules by trade, spec sections applied to a drawing set, takeoff prep, or work organized by CSI division. Lists items only; no quantities or pricing.
 license: MIT
 metadata:
+  summary: Turn drawing sheets into a cited scope list by CSI division, with exclusions, open questions, and review coverage.
   tier: neutral
   stages: preconstruction, estimating
-  version: "1.0.0"
+  version: "1.1.0"
   author: Buildr
 ---
 
@@ -21,9 +22,11 @@ takeoff and not an estimate.
 
 ## Inputs
 
-- The drawing set is required, as one PDF per sheet or one multi-sheet PDF.
-  If no drawings are attached, ask for them once, plainly, and wait. Never
-  invent a sample set or produce a generic scope list.
+- Accept a drawing set (one PDF per sheet or a multi-sheet PDF) or supplied
+  sheet-indexed extracted text. With extracted text, report text-only coverage;
+  do not claim visual or OCR review you did not perform. If neither is
+  supplied, ask for the source once and wait. A first-pass candidate file
+  alone is not drawing evidence; verify it against the source.
 - Optional: specification sections. When provided, a section that requires
   work the drawings show the location of becomes a `spec_requirement`
   candidate citing both.
@@ -43,11 +46,14 @@ takeoff and not an estimate.
    index and the PDFs disagree, record the difference as an RFI.
 2. **Extract text per sheet.** Use `pdftotext -layout` or pdfplumber to write
    each sheet's text to its own file, for example `sheet-text/A-101.txt`.
+   For supplied extracted text, preserve its sheet boundaries and extraction
+   limitations; skip PDF extraction when no PDF is available.
    When a sheet returns little or no text, run OCR (for example `ocrmypdf`)
    and set the ledger status to `reviewed_ocr`. If OCR also fails, set the
    status to `unreadable`, record why, and add an RFI. Never dump raw PDF
    bytes to the terminal, and never read a sheet by its title alone.
-3. **Read, then probe.** Read each sheet's general notes, keyed notes,
+3. **Read, then probe.** Read `references/grounding-rules.md` before
+   recording candidates. Read each sheet's general notes, keyed notes,
    schedules, legends, and details in full. Then run the trade probes in
    `references/trade-probes.md` across all sheet text files, first pass and
    follow-ups, and record every probe in the ledger, including probes with
@@ -59,9 +65,9 @@ takeoff and not an estimate.
    quote, a `support_level`, a `decision`, and a reason. One candidate per
    product, assembly, or activity; do not group by trade. Update the sheet
    and probe ledger entries with the candidate ids as you go.
-5. **Apply the grounding rules.** Read `references/grounding-rules.md`
-   before the first candidate and check the file against it before moving
-   on: only drawing-backed work is included, `reference_only`, `by_others`,
+5. **Apply the grounding rules.** Check the candidates against
+   `references/grounding-rules.md`: only drawing-backed work is included,
+   `reference_only`, `by_others`,
    and `inferred` candidates are never `include`, assumptions and exclusions
    and RFIs live in their own lists, and every sheet and probe has a ledger
    entry. If the set is large and the candidate list is short, go back and
@@ -76,6 +82,9 @@ takeoff and not an estimate.
    required key, enum, sheet reference, or grounding rule is violated, and
    prints Markdown grouped by division with Included scope, Assumptions,
    Exclusions (by others), RFIs / review items, and the Coverage ledger.
+   Validation checks structure and declared grounding, not whether a quote
+   is true or the inventory matches the source. Reconcile both against the
+   supplied set; never add an invented sheet to satisfy validation.
    Fix the candidates file when the script rejects it; do not edit the
    printed output by hand.
 7. **Report coverage and stop.** Lead with the scope list. State how many
@@ -116,7 +125,7 @@ takeoff and not an estimate.
 - `references/csi-divisions.md`: MasterFormat divisions, common placement
   calls, and the division versus cost code check.
 - `references/grounding-rules.md`: what becomes a candidate, support levels,
-  decisions, and coverage ledger discipline. Read at step 5.
+  decisions, and coverage ledger discipline. Read before recording candidates in step 3.
 - `references/trade-probes.md`: the first-pass and follow-up probe terms and
   how to run them. Read at step 3.
 - `references/candidate-schema.json`: JSON Schema for the candidates file

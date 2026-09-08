@@ -1,6 +1,6 @@
 # Extraction schema
 
-The JSON shape `scripts/level_bids.py` consumes. One file per bidder is the
+The JSON shape `scripts/level_bids.py` consumes. One file per submission is the
 normal case. The script also accepts an array of extractions, or an object
 with a `submissions` array, and tells the files apart by their top-level
 keys: an object with `bidder_name` is an extraction; an object with `plugs`
@@ -34,12 +34,13 @@ do not work around it.
 
 ## Top-level fields
 
-All thirteen keys are required. List-valued keys must be lists; use `[]`
+All top-level keys below are required. List-valued keys must be lists; use `[]`
 when empty, never `null`.
 
 | Field | Type | Meaning |
 |---|---|---|
-| `bidder_name` | non-empty string | The bidder as named on the bid. This is the join key for plugs and adjustments, so spell it identically in the decisions file. |
+| `submission_id` | non-empty string | Stable unique identity for this submission, including revision/option when relevant. Use the same ID in decisions. Duplicate IDs stop the run. |
+| `bidder_name` | non-empty string | Company name as printed; several submissions may have the same name. |
 | `source_files` | list of strings | File names of the documents the extraction came from, as received (`northgate-proposal.pdf`). Shown in the Summary table. |
 | `document_role` | string | What kind of document it is: `bid_proposal`, `bid_form`, `email`, `quote`, or similar. Informational. |
 | `trade_scope` | string | The package as the bid describes it, ideally with spec sections. Used as the comparison heading; the script flags extractions whose trade scopes differ. |
@@ -66,7 +67,7 @@ which `status` values are allowed.
 | `row_class` | no, defaults to `base` | One of `base`, `outside_scope`, `supplier_or_installer`, `review`. See `references/leveling-model.md`. |
 | `amount_in_cents` | no | The itemized amount if the bid gives one for this row; otherwise `null`. Included amounts are displayed, never spread or totaled across bidders. |
 | `note` | no | Short explanation, usually the bid's own words: `"Firestopping NIC"`. Printed in the gaps table. |
-| `evidence_ref` | recommended | Ref into `evidence`. |
+| `evidence_ref` | yes | Ref into `evidence`. |
 
 Status meanings:
 
@@ -91,17 +92,25 @@ put them in `excluded_scopes` with the right status.
 
 | Field | Required | Rule |
 |---|---|---|
-| `alternate_key` | yes | Join key across bidders (`alt_1_level5_corridors`). Bidder-proposed alternates get a key prefixed with the bidder (`summit_lift_deduct`) so they do not collide. |
-| `label` | recommended | Printed label; the first bidder's label wins. |
+| `alternate_key` | yes | Join key across bidders (`alt_1_level5_corridors`). Bidder-proposed alternates are isolated per submission even when their keys match. Repeated keys within one submission are rejected. |
+| `label` | yes | Common scope description for the comparison row. Shared solicited keys must have the same label and kind. |
+| `printed_label` | yes | Exact identifier or short label from this submission, retained in its price cell. |
+| `reconciliation_note` | when printed labels differ | Explain why the labels refer to the same scope and cite the package/addendum basis. Every entry in that joined row needs a note. |
 | `kind` | yes | `add`, `deduct`, or `replace`. |
 | `solicited` | yes | `true` if the bid documents asked for it, `false` if the bidder volunteered it. |
 | `amount_in_cents` | yes (may be null) | Signed: deducts are negative. `null` when the bidder offers the alternate but states no price. |
-| `evidence_ref` | recommended | Ref into `evidence`. |
+| `evidence_ref` | yes | Ref into `evidence`. |
 
 An alternate is a priced change to the scope of work that the owner or GC
 can accept or reject: a different finish level, a material substitution, a
 scope the bidder offers to take on or drop. Alternates are listed and
-compared but never applied to leveled totals.
+compared but never applied to leveled totals. Matching printed numbers alone
+is insufficient: different scopes need separate keys, even when both say
+"Alt 1". When the package basis does not settle a match, keep separate rows
+and record the question in `review_items`; never invent a mapping.
+
+Add prices must be non-negative and deduct prices non-positive; zero is a
+stated no-cost option, while null means no price was stated.
 
 **These are not alternates:** delivery charges, escalation clauses, overtime
 or shift premiums, sales or use tax, permit fees, bond premiums, retainage
@@ -116,7 +125,7 @@ changes to the scope, and they belong in `priced_qualifications`.
 | `unit` | recommended | `LF`, `SF`, `EA`, `CY`, `HR`. |
 | `unit_price_in_cents` | yes (may be null) | Integer cents per unit. |
 | `quantity` | no | Only if the bid states a quantity; otherwise `null`. Never estimate one. |
-| `evidence_ref` | recommended | Ref into `evidence`. |
+| `evidence_ref` | yes | Ref into `evidence`. |
 
 Unit prices are shown for comparison and never multiplied into totals.
 
@@ -127,7 +136,7 @@ Unit prices are shown for comparison and never multiplied into totals.
 | `description` | recommended | The condition in the bid's words: `"Performance and payment bond, if required, add 1.5% of contract value"`. |
 | `amount_in_cents` | yes (may be null) | The dollar figure if the bid states one. Percentages stay in the description and the amount is `null`; do not compute the dollars. |
 | `in_total` | no, boolean | `true` when the bid says the amount is already inside the base bid (a bond line on a bid form that the total includes). Omit or `false` otherwise. |
-| `evidence_ref` | recommended | Ref into `evidence`. |
+| `evidence_ref` | yes | Ref into `evidence`. |
 
 Entries with `in_total: true` and a stated amount are added to the itemized
 lines when the script checks whether a bid's line items sum to its total.
@@ -165,6 +174,7 @@ find the quote in seconds.
 
 ```json
 {
+  "submission_id": "example-base",
   "bidder_name": "Example Drywall Co.",
   "source_files": ["example-proposal.pdf"],
   "document_role": "bid_proposal",
@@ -177,7 +187,7 @@ find the quote in seconds.
     {"scope_key": "firestopping", "scope": "Firestopping at rated penetrations by this trade", "status": "excluded", "note": "\"Firestopping NIC\"", "evidence_ref": "EX-2"}
   ],
   "alternate_lines": [
-    {"alternate_key": "alt_1_level5_corridors", "label": "Alternate 1: Level 5 finish at all corridors", "kind": "add", "solicited": true, "amount_in_cents": 1840000, "evidence_ref": "EX-3"}
+    {"alternate_key": "alt_1_level5_corridors", "printed_label": "Alternate No. 1", "label": "Alternate 1: Level 5 finish at all corridors", "kind": "add", "solicited": true, "amount_in_cents": 1840000, "evidence_ref": "EX-3"}
   ],
   "unit_price_lines": [],
   "priced_qualifications": [

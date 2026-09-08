@@ -49,7 +49,13 @@ def expected_scope_items(workspace: Path) -> float:
     text = scope_text(workspace)
     if not text:
         return 0.0
-    hits = sum(1 for keywords, sheet, _ in ITEMS.values() if cited_with_sheet(text, keywords, sheet))
+    # Required work must be included, not merely mentioned in an exclusion or
+    # RFI. Non-included items retain the existing separate support checks.
+    included = included_section(text)
+    hits = sum(
+        1 for keywords, sheet, decision in ITEMS.values()
+        if cited_with_sheet(included if decision == "include" else text, keywords, sheet)
+    )
     return hits / len(ITEMS)
 
 

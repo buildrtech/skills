@@ -153,3 +153,38 @@ forecast periods by their planned percent complete.
 Rounding: compute at full precision, present dollars to the nearest dollar
 and percentages to one decimal place, and note when rounding makes a
 column not foot exactly.
+
+## Basis, reconciliation, and unavailable values
+
+Confirm the discovered schema's units and cumulative/period basis. Closed cost
+and billed-to-date snapshots must not be summed across months. Period revenue
+and profit may be summed over the requested window. Convert cents exactly once.
+A portfolio month is actual only if all included contributions are actual;
+otherwise label mixed, forecast, or unknown from the evidence. A single latest
+close does not establish a common portfolio cutoff. Reconcile project subtotals
+to portfolio totals for the same filters and weighting before claiming coverage.
+Never multiply an already weighted amount by probability again.
+
+Use each close's contract value as of that close, not today's approved total
+for both periods. Missing historical contract evidence makes the historical
+margin or attribution unavailable. For C0/E0 (earlier contract/EAC) and C1/E1
+(later), an explicit contract-first bridge is:
+- contract effect = ((1 - E0/C1) - (1 - E0/C0)) * 100 points;
+- EAC effect = ((1 - E1/C1) - (1 - E0/C1)) * 100 points.
+These sum to the margin movement; ordering is an attribution convention, not
+proof of a business cause. Actual-cost corrections alone do not change
+completion margin unless contract value or EAC also changes.
+
+If EAC is zero or negative, completion, earned revenue and billing position
+are unavailable. If contract value is zero or negative, margin is unavailable.
+Keep available inputs visible. Flag cost above EAC rather than silently capping
+completion at 100%. Do not impute missing inputs or unexplained causes.
+
+### Local calculator input
+
+Run `python3 scripts/forecast_math.py input.json` from this skill directory.
+The input is normalized local JSON, not an MCP schema: `project_id`, `period_id`,
+`contract_dollars` (approved value as of this period), `cost_to_date_cents`,
+`billed_to_date_cents`, and `eac_cents`. All amounts are required finite numbers;
+missing values are errors. Output money is in dollars, percentages in percent
+units, undefined measures are null with warnings. It has no network or writes.

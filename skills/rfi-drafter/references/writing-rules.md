@@ -25,7 +25,9 @@ pass without a follow-up call.
    the design team the contractor has done the work and speeds the answer.
    A suggested resolution the documents do not support looks like an
    attempt to steer scope and slows it down. When in doubt, ask for
-   direction and say what would allow a proposal.
+   direction and say what would allow a proposal. Keep conditional limits
+   conditional: if a requirement applies only to a particular finish or
+   exposure, confirm that condition before calling another option noncompliant.
 6. **State impact honestly and briefly.** "Potential cost and schedule
    impact; steel fabrication release is waiting on this answer" is enough.
    Do not write "no impact" to make the RFI easier to answer, and do not
@@ -65,7 +67,7 @@ pass without a follow-up call.
 |---|---|
 | "There is a conflict between the mechanical and structural drawings at grid C. Please clarify." | "Please confirm whether duct riser DR-2 may be relocated 2'-0" north of grid C at grid 4 to clear the W24x76 beam shown on S-201, or provide an alternate location." |
 | "The drawings don't show how to get the duct through the beam." | "Section 2/M-401 shows DR-2 rising through the Level 2 floor centered on grid C at grid 4. S-201 shows a W24x76 continuous along grid C from grid 3 to 5 at that location, and S-201 General Note 7 states that no openings are permitted through beams without written approval of the Structural Engineer." |
-| "This will have no cost impact." | "Potential cost impact for the shaft wall relocation on Levels 1 and 2 (architectural sheets not yet reviewed); no impact to steel if the riser moves rather than the beam." |
+| "This will have no cost impact." | "Potential cost impact for shaft wall relocation and opening framing; architectural sheets and steel pricing remain unverified." |
 | "Please respond ASAP." | "Response needed by Sep 18, 2026 so the steel fabricator can incorporate any framed opening before the Sep 25 shop drawing release." |
 | "The structural engineer should have coordinated this." | "S-201 and M-401 show different conditions at this location." |
 | "Change the beam to a W24x84 with a web opening." | "If a web opening in the W24x76 is the preferred resolution, please provide reinforcement details; the contractor's preference is to relocate the riser so the beam is unchanged." |

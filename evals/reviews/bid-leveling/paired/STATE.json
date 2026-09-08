@@ -1,0 +1,10 @@
+{
+  "status": "slot released; two attempts terminal",
+  "baseline_thread": "thr_k9nesni24h",
+  "revised_thread": "thr_8c7uyeacdr",
+  "storage": "/home/mikeastock/.bb/thread-storage/thr_kefaywjbew/fencing-pair",
+  "authorization": "thr_hpvpiweaze approved two sequential runs",
+  "baseline_created_at_ms": 1788825743625,
+  "max_runtime_seconds": 600,
+  "result": "baseline completed; revised artifact present then provider usage limit"
+}

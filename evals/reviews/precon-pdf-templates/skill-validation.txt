@@ -1,0 +1,6 @@
+INFO add_decision: Id::<PubGrubPackage>(0) @ 0a0.dev0 without checking dependencies
+INFO add_decision: Id::<PubGrubPackage>(1) @ 6.0.3 without checking dependencies
+Installed 1 package in 3ms
+ok   skills/precon-pdf-templates
+
+all 1 skills valid

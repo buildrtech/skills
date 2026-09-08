@@ -1,4 +1,5 @@
 {
+  "submission_id": "ironwood-base",
   "bidder_name": "Ironwood Roofing Systems, Inc.",
   "source_files": ["ironwood-proposal.pdf"],
   "document_role": "bid_proposal",
@@ -20,7 +21,7 @@
     {"scope_key": "roof_hatch", "scope": "Roof hatch, furnish and install (07 72 33)", "status": "excluded", "note": "\"Roof hatch by others\"", "evidence_ref": "IR-4"}
   ],
   "alternate_lines": [
-    {"alternate_key": "alt_1_80mil_tpo", "label": "Alternate 1: 80-mil TPO membrane in lieu of 60-mil", "kind": "add", "solicited": true, "amount_in_cents": 2130000, "evidence_ref": "IR-5"}
+    {"alternate_key": "alt_1_80mil_tpo", "printed_label": "Alternate No. 1", "reconciliation_note": "Package Alternate 1: 80-mil TPO membrane in lieu of 60-mil", "label": "Alternate 1: 80-mil TPO membrane in lieu of 60-mil", "kind": "add", "solicited": true, "amount_in_cents": 2130000, "evidence_ref": "IR-5"}
   ],
   "unit_price_lines": [
     {"description": "Additional tapered insulation, furnished and installed", "unit": "SF", "unit_price_in_cents": 675, "quantity": null, "evidence_ref": "IR-6"}

@@ -1,0 +1,170 @@
+[
+  {
+    "path": "skills/rfp-intake/SKILL.md",
+    "revised_sha256": "f25a6d649860bcdafa96536b9c04a03270db9165ed729e084d11279acd876e62",
+    "baseline_sha256": "4a77ca1f89ffc8cbe18346179206d2baafc027c29cfb5d51b6d39561fba951a9"
+  },
+  {
+    "path": "skills/rfp-intake/examples/sample-prompts.md",
+    "revised_sha256": "9a79e16f6e8e332c88f8554f76f60ecb1f9e68b2789925a531d9fd6e9127f8c2",
+    "baseline_sha256": "9a79e16f6e8e332c88f8554f76f60ecb1f9e68b2789925a531d9fd6e9127f8c2"
+  },
+  {
+    "path": "skills/rfp-intake/references/intake-checklist.md",
+    "revised_sha256": "0bca9dad50a16e9fb9d03481e26c264323d3545f1a4122f13afccf9322c73a0f",
+    "baseline_sha256": "5f4d296c5085dd1d22b32d2c453d6d284618d8a2ddfea7c83786a3fb8e8defc7"
+  },
+  {
+    "path": "skills/rfp-intake/samples/input-solicitation.md",
+    "revised_sha256": "a939a1ebf6bd082fe93212895fac56ab7964ec55d4235c7b00469aca23bdbeba",
+    "baseline_sha256": "a939a1ebf6bd082fe93212895fac56ab7964ec55d4235c7b00469aca23bdbeba"
+  },
+  {
+    "path": "skills/rfp-intake/samples/output-intake-review.md",
+    "revised_sha256": "aa9a44958d3eff7866a35af89f9c7b8bb20334105dbaba81ea1f678e52b08201",
+    "baseline_sha256": "0e0e33ffe9ee7cd9457f1c85f288073a4dd3d27774c647e595eefc7b1cb75865"
+  },
+  {
+    "path": "evals/tasks/rfp-intake/brannock-fire-station-4/Task.md",
+    "revised_sha256": "9b35f381395053d9a2042ee385fea4321fe988faf2d37f20b0d95f2f9b6dee14",
+    "baseline_sha256": "23d8b75ad005c8a1aeb09f1e61f40f2efdac358aada009f251acd5d250e45e67"
+  },
+  {
+    "path": "evals/tasks/rfp-intake/brannock-fire-station-4/environment/Dockerfile",
+    "revised_sha256": "ed0d9a5e697d33d60e8cdbdf17479aa225c451cf52449055a0a64791cb53e6a5",
+    "baseline_sha256": "ed0d9a5e697d33d60e8cdbdf17479aa225c451cf52449055a0a64791cb53e6a5"
+  },
+  {
+    "path": "evals/tasks/rfp-intake/brannock-fire-station-4/environment/input/addendum-01.md",
+    "revised_sha256": "3192d89e760fa3fa3c5c4a92e58fd642a4b93514aaa9478a8ec8e8250eaa7e08",
+    "baseline_sha256": "3192d89e760fa3fa3c5c4a92e58fd642a4b93514aaa9478a8ec8e8250eaa7e08"
+  },
+  {
+    "path": "evals/tasks/rfp-intake/brannock-fire-station-4/environment/input/invitation-for-bids.md",
+    "revised_sha256": "ae3859b5f24d120f3f0d7cd613633da695b291d793ac0ba69d4835a0c8865ef4",
+    "baseline_sha256": "ae3859b5f24d120f3f0d7cd613633da695b291d793ac0ba69d4835a0c8865ef4"
+  },
+  {
+    "path": "evals/tasks/rfp-intake/brannock-fire-station-4/instruction.md",
+    "revised_sha256": "8fa59c0e7e91dd6e4dfdb124a1bbec4d42064cf6a5a0d8cf08b0bd40d1baccb7",
+    "baseline_sha256": "8fa59c0e7e91dd6e4dfdb124a1bbec4d42064cf6a5a0d8cf08b0bd40d1baccb7"
+  },
+  {
+    "path": "evals/tasks/rfp-intake/brannock-fire-station-4/solution/reference-intake-review.md",
+    "revised_sha256": "bc503ac0c2c38601e0fc7a247c15593a2a1fa5453c172852bfcab9475d2aef55",
+    "baseline_sha256": "f7ca6fae5ceb14473db34eaba98a22b17220bf620e96dc6786f0b431c69343f9"
+  },
+  {
+    "path": "evals/tasks/rfp-intake/brannock-fire-station-4/solution/solve.sh",
+    "revised_sha256": "857dc53e61b3bf557e6da7fb0113882faf85d0d2ee268f26c48461b74eff9873",
+    "baseline_sha256": "df8905a179d3a00b76ee9381aca085f53abcc9a58f4f3093632a7333d3ff27f6"
+  },
+  {
+    "path": "evals/tasks/rfp-intake/brannock-fire-station-4/task.toml",
+    "revised_sha256": "9de1656e45fe8cc6124181bef7e275891c91d320d2fe7fd768876588d6206fcb",
+    "baseline_sha256": "9de1656e45fe8cc6124181bef7e275891c91d320d2fe7fd768876588d6206fcb"
+  },
+  {
+    "path": "evals/tasks/rfp-intake/brannock-fire-station-4/tests/boundaries/checks.py",
+    "revised_sha256": "38c17fa6a400996389aed6f7c10c4586f2bc5c0d93eca190a3b434d2c632dc24",
+    "baseline_sha256": "38c17fa6a400996389aed6f7c10c4586f2bc5c0d93eca190a3b434d2c632dc24"
+  },
+  {
+    "path": "evals/tasks/rfp-intake/brannock-fire-station-4/tests/boundaries/disclaimers/checks.py",
+    "revised_sha256": "e59aede1e26d316180383fe0bcd389a7316278aa469b3351fde025d20a07a140",
+    "baseline_sha256": "e59aede1e26d316180383fe0bcd389a7316278aa469b3351fde025d20a07a140"
+  },
+  {
+    "path": "evals/tasks/rfp-intake/brannock-fire-station-4/tests/boundaries/reward.toml",
+    "revised_sha256": "9f8cc60c46f6c92c6a1f34dc5cebf2c2b6a48bd25983eb1b3dcfba3c31aa3d58",
+    "baseline_sha256": "9f8cc60c46f6c92c6a1f34dc5cebf2c2b6a48bd25983eb1b3dcfba3c31aa3d58"
+  },
+  {
+    "path": "evals/tasks/rfp-intake/brannock-fire-station-4/tests/common.py",
+    "revised_sha256": "97e6b0b9beeaad3ee84187a38cc58ec59cb0fdb878805a5cdd3d17cfcf8ed9f6",
+    "baseline_sha256": "87530ab57089601c433cf769538c6b260468aa5ab26167c4e471a3df8b3f6f50"
+  },
+  {
+    "path": "evals/tasks/rfp-intake/brannock-fire-station-4/tests/correctness/checks.py",
+    "revised_sha256": "67f5331e7d4b1d95b8aa3032609db0e30f234d9bddd7aace34e74ee68692a289",
+    "baseline_sha256": "1ba9ee5c4209cd1c919b4555f86a4fc250635e549ce92fb482b4488876df201e"
+  },
+  {
+    "path": "evals/tasks/rfp-intake/brannock-fire-station-4/tests/fixtures/cases/known-good/expect",
+    "revised_sha256": "9f56e761d79bfdb34304a012586cb04d16b435ef6130091a97702e559260a2f2",
+    "baseline_sha256": "9f56e761d79bfdb34304a012586cb04d16b435ef6130091a97702e559260a2f2"
+  },
+  {
+    "path": "evals/tasks/rfp-intake/brannock-fire-station-4/tests/fixtures/cases/known-good/files",
+    "revised_sha256": "362ecbda9a84ddf833d1f0254b6ec8d52b6029f8cb976d8f9056fc7895a7ec4a",
+    "baseline_sha256": "362ecbda9a84ddf833d1f0254b6ec8d52b6029f8cb976d8f9056fc7895a7ec4a"
+  },
+  {
+    "path": "evals/tasks/rfp-intake/brannock-fire-station-4/tests/fixtures/cases/missing/expect",
+    "revised_sha256": "2056a28ea38a000f3a3328cb7fabe330638d3258affe1a869e3f92986222d997",
+    "baseline_sha256": "2056a28ea38a000f3a3328cb7fabe330638d3258affe1a869e3f92986222d997"
+  },
+  {
+    "path": "evals/tasks/rfp-intake/brannock-fire-station-4/tests/fixtures/cases/shortcut-shipped-sample/expect",
+    "revised_sha256": "2056a28ea38a000f3a3328cb7fabe330638d3258affe1a869e3f92986222d997",
+    "baseline_sha256": "2056a28ea38a000f3a3328cb7fabe330638d3258affe1a869e3f92986222d997"
+  },
+  {
+    "path": "evals/tasks/rfp-intake/brannock-fire-station-4/tests/fixtures/cases/shortcut-shipped-sample/files",
+    "revised_sha256": "d6e6cd63e38cf56ce25dcb5e89ee8140a6413bb770f930741c6f9dfa24510c54",
+    "baseline_sha256": "d6e6cd63e38cf56ce25dcb5e89ee8140a6413bb770f930741c6f9dfa24510c54"
+  },
+  {
+    "path": "evals/tasks/rfp-intake/brannock-fire-station-4/tests/fixtures/cases/valid-alternate-headings/expect",
+    "revised_sha256": "9f56e761d79bfdb34304a012586cb04d16b435ef6130091a97702e559260a2f2"
+  },
+  {
+    "path": "evals/tasks/rfp-intake/brannock-fire-station-4/tests/fixtures/cases/valid-alternate-headings/workspace/output/intake-review.md",
+    "revised_sha256": "d0694748141433f68d9da9b02c2814ea11f16c7fe82aaa031fa6560a81397f2b"
+  },
+  {
+    "path": "evals/tasks/rfp-intake/brannock-fire-station-4/tests/fixtures/cases/wrong-no-bid-decision/expect",
+    "revised_sha256": "2056a28ea38a000f3a3328cb7fabe330638d3258affe1a869e3f92986222d997",
+    "baseline_sha256": "2056a28ea38a000f3a3328cb7fabe330638d3258affe1a869e3f92986222d997"
+  },
+  {
+    "path": "evals/tasks/rfp-intake/brannock-fire-station-4/tests/fixtures/cases/wrong-no-bid-decision/workspace/output/intake-review.md",
+    "revised_sha256": "8c0daaed894290a2a9a3f24ad8edcf422cc86da229c5e2cd8002584fa6bf4251",
+    "baseline_sha256": "8c0daaed894290a2a9a3f24ad8edcf422cc86da229c5e2cd8002584fa6bf4251"
+  },
+  {
+    "path": "evals/tasks/rfp-intake/brannock-fire-station-4/tests/fixtures/cases/wrong-thin-review/expect",
+    "revised_sha256": "2056a28ea38a000f3a3328cb7fabe330638d3258affe1a869e3f92986222d997",
+    "baseline_sha256": "2056a28ea38a000f3a3328cb7fabe330638d3258affe1a869e3f92986222d997"
+  },
+  {
+    "path": "evals/tasks/rfp-intake/brannock-fire-station-4/tests/fixtures/cases/wrong-thin-review/workspace/output/intake-review.md",
+    "revised_sha256": "cf010861164a089683bb59f71abd859ddd7ae67cbae200e7fb895ae3cdd6dab4",
+    "baseline_sha256": "cf010861164a089683bb59f71abd859ddd7ae67cbae200e7fb895ae3cdd6dab4"
+  },
+  {
+    "path": "evals/tasks/rfp-intake/brannock-fire-station-4/tests/fixtures/planted-facts.json",
+    "revised_sha256": "10fb5e816c0633a4e511f83f88d6cee641998d4acba184f7afdf183168e8270c",
+    "baseline_sha256": "10fb5e816c0633a4e511f83f88d6cee641998d4acba184f7afdf183168e8270c"
+  },
+  {
+    "path": "evals/tasks/rfp-intake/brannock-fire-station-4/tests/format/checks.py",
+    "revised_sha256": "16f7982348d12711af41cd2f195204abbf2fa3daa814cdb444be6c4629ec1e2e",
+    "baseline_sha256": "16f7982348d12711af41cd2f195204abbf2fa3daa814cdb444be6c4629ec1e2e"
+  },
+  {
+    "path": "evals/tasks/rfp-intake/brannock-fire-station-4/tests/grounding/checks.py",
+    "revised_sha256": "52adff7910411fe5db17e9333ba86ccd3b5af5bfc46a0900b60710645feddc34",
+    "baseline_sha256": "52adff7910411fe5db17e9333ba86ccd3b5af5bfc46a0900b60710645feddc34"
+  },
+  {
+    "path": "evals/tasks/rfp-intake/brannock-fire-station-4/tests/reward.toml",
+    "revised_sha256": "e91b48b733a2bab45448f736057db5c30b9e1febf3bd407e8525f02b317cb9a8",
+    "baseline_sha256": "933115068ae9eaed78eeddd3882bd3d346ba7b82e51a765bdd695015ffaf96bd"
+  },
+  {
+    "path": "evals/tasks/rfp-intake/brannock-fire-station-4/tests/test.sh",
+    "revised_sha256": "4d634ab48d757116b995f29aeee338bb5d507f840eb488af85bc469eb0ab691f",
+    "baseline_sha256": "4d634ab48d757116b995f29aeee338bb5d507f840eb488af85bc469eb0ab691f"
+  }
+]

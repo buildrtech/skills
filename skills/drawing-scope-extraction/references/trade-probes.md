@@ -14,7 +14,7 @@ case-insensitive match and line numbers so each hit can be traced back to a
 sheet and a note:
 
 ```bash
-grep -i -n "casework" sheet-text/*.txt
+rg -i -n "casework" sheet-text/
 ```
 
 Search the drawing's abbreviations as well as the plain term. Common ones:

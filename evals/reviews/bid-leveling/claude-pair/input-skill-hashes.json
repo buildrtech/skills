@@ -1,0 +1,32 @@
+{
+  "baseline": {
+    "input.md": "d1fe49af2cb5a2c3df25c6497c480781642d268f9a38ff45ba60cd5f2fbd2130",
+    "skill/SKILL.md": "1e6a1db576ea2d5ad53a086f847d84f5479912b3b1ccb98654ced91c753b40fa",
+    "skill/examples/sample-prompts.md": "2c8a24cf7afa333338cb7a1289dc83bc71d6bc8ec748939220370c15f8eed1d0",
+    "skill/references/comparison-template.md": "6bef5cd4f991165ba28cb6ec45e3fa6e182dbad7641a51836ffa83159d03dd0f",
+    "skill/references/extraction-schema.md": "dab07f0c81904fa09c084cefe3b6672bff05f86020af8c3791fda6f90797e74d",
+    "skill/references/leveling-model.md": "4391a8da756ce6b4655f862117b8ca5c4eebf156ee81d41dafce6526f0f072ff",
+    "skill/samples/input-bids.md": "fbda0df5177a107b4b227a366289111b85eb33e5dd445ef50aed7175c0381034",
+    "skill/samples/input-estimator-decisions.json": "625786d225e87290f54ef03aa42b9135cde77584e1480a844380f9d3b1a8d27b",
+    "skill/samples/input-extraction-northgate.json": "ae3646d5057b925e3b3d0ef575c0622f28a2e6cdcebd9c8376157e799be520b2",
+    "skill/samples/input-extraction-prairie.json": "6f6c75e3efabdabc44cf6d37e5698a7a3687c32df757d063b32d8e9872b259a4",
+    "skill/samples/input-extraction-summit.json": "6bcf53a0ccfb32ae3fedbda8bdc505abdb5fcc157de82e023f2042dcc4c890a8",
+    "skill/samples/output-leveled-comparison.md": "828e92270bbc6d7b258d5b9e57eb84a078d00eb6aa588bd0f279dcd5fcd1e6e4",
+    "skill/scripts/level_bids.py": "c20c20efd4e4dc79fb7916083b31dac4303ee9bfbde9b258c001023293f60e9a"
+  },
+  "revised": {
+    "input.md": "d1fe49af2cb5a2c3df25c6497c480781642d268f9a38ff45ba60cd5f2fbd2130",
+    "skill/SKILL.md": "857bad6e0e0002334d81337f60eff778fb1c51d71fa4e7434572f21681fb50c4",
+    "skill/examples/sample-prompts.md": "45b5ae2dcc928164e25cc45cc1e3c4b0a3548016eb8d160e8ce4f80d195fbdef",
+    "skill/references/comparison-template.md": "514e2882208c37c981bce92c2ae4a32ff3b79916f8eaa23345c670d7494eaf2f",
+    "skill/references/extraction-schema.md": "d60b132f26eb676a79c945d04e51d9fe1c3a91db5fca911f29d77c7df4c87768",
+    "skill/references/leveling-model.md": "3eeaa36af9172fa0436e3a60470b10fa8b1928a3148c44304edde75b6f35b024",
+    "skill/samples/input-bids.md": "fbda0df5177a107b4b227a366289111b85eb33e5dd445ef50aed7175c0381034",
+    "skill/samples/input-estimator-decisions.json": "c2d919b8e1caadf0cff1f997836088eea17272fa430889f6ed4eb3beeee3179c",
+    "skill/samples/input-extraction-northgate.json": "507b6e1f4f709f87ba5fd29b83e8a3dd2cd1892d0cd41dbe455eeed139db1f79",
+    "skill/samples/input-extraction-prairie.json": "4c4bb9709c778c3c33da671c6db467ec2baef967e267034dd7464b8a27dcc34a",
+    "skill/samples/input-extraction-summit.json": "816fc122728841f12a446eefcb1e0f1803fcf4e5c1df206d7695d2c06f94c077",
+    "skill/samples/output-leveled-comparison.md": "5757cff1b63070b9b98d8d520b834c0461baa7f4e42a5ebfc0d8864d20102f4c",
+    "skill/scripts/level_bids.py": "0ad8cc40fe4209121618a018dec830989a990680276e887ce054f951dfe46e59"
+  }
+}

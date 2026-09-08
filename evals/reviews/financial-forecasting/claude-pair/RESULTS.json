@@ -1,0 +1,79 @@
+{
+  "provider": "claude-code",
+  "runs": {
+    "baseline": {
+      "thread": "thr_q9puj7bmfm",
+      "execution": {
+        "model": "claude-opus-5[1m]",
+        "serviceTier": "default",
+        "reasoningLevel": "medium",
+        "permissionMode": "auto",
+        "source": "client/turn/requested"
+      },
+      "terminal": {
+        "providerThreadId": "62100a64-0d0a-4111-9a8d-c34af52ea793",
+        "status": "completed",
+        "providerCheckpointId": "d7d6ad6d-d201-46ea-b886-b2e4b6c448d1"
+      },
+      "elapsed_seconds": 93.506,
+      "assigned_files_unchanged": true,
+      "output_sha256": {
+        "output/review.md": "ab5eec3eb2e2e5fb6764f871f8bbbf05b1e318af8193682458318758a64f26e1"
+      },
+      "trace_path": "/home/mikeastock/.bb/thread-storage/thr_hpvpiweaze/claude-pairs/financial-forecasting/baseline-log.json",
+      "artifact_directory": "/home/mikeastock/.bb/thread-storage/thr_hpvpiweaze/claude-pairs/financial-forecasting/baseline/output",
+      "rubric": {
+        "contract_without_CO_double_count": true,
+        "cumulative_cents_conversion": true,
+        "completion_and_earned": true,
+        "estimated_profit_margin": true,
+        "billing_sign": true,
+        "offline_actual_estimate_labels": true,
+        "missing_May_and_cumulative_blockers": true,
+        "missing_inputs_no_API_or_writes": true
+      },
+      "score": "8/8"
+    },
+    "revised": {
+      "thread": "thr_yjs3rjb5es",
+      "execution": {
+        "model": "claude-opus-5[1m]",
+        "serviceTier": "default",
+        "reasoningLevel": "medium",
+        "permissionMode": "auto",
+        "source": "client/turn/requested"
+      },
+      "terminal": {
+        "providerThreadId": "1388a3c5-2b40-44cb-9e00-0a82a0a2aca8",
+        "status": "completed",
+        "providerCheckpointId": "1534fd75-7da8-457f-b60e-67e5f543911f"
+      },
+      "elapsed_seconds": 78.798,
+      "assigned_files_unchanged": true,
+      "output_sha256": {
+        "output/apr-close-input.json": "a221d8c8cd6d9b25d5519cb539f19b51586c048cdfc0caf03420a172da83f096",
+        "output/review.md": "3968693e2ac34ccdd9f8a0282d6695f3cb0c8f11f0ad063d75818239c20e1cc9"
+      },
+      "trace_path": "/home/mikeastock/.bb/thread-storage/thr_hpvpiweaze/claude-pairs/financial-forecasting/revised-log.json",
+      "artifact_directory": "/home/mikeastock/.bb/thread-storage/thr_hpvpiweaze/claude-pairs/financial-forecasting/revised/output",
+      "rubric": {
+        "contract_without_CO_double_count": true,
+        "cumulative_cents_conversion": true,
+        "completion_and_earned": true,
+        "estimated_profit_margin": true,
+        "billing_sign": true,
+        "offline_actual_estimate_labels": true,
+        "missing_May_and_cumulative_blockers": true,
+        "missing_inputs_no_API_or_writes": true
+      },
+      "score": "8/8"
+    }
+  },
+  "isolation": "Fresh unmanaged directories; same prompt and selected skill only; hidden rubric not copied. Context isolation, not OS read denial. Global runtime skill descriptions remain injected.",
+  "conclusion": "Frozen 8-item rubric tie, 8/8 each. Revised used bundled calculator exit 0. No observed external reads or writes; both terminal-completed.",
+  "unscored_caveats": {
+    "baseline": "Unsupported assertion that performed pending-CO work would understate both percent complete and margin; direction depends on cost inclusion and EAC/contract treatment.",
+    "revised": "Correctly labels fixed-EAC sensitivity, but calls its no-added-cost assumption most likely wrong without evidence and overstates underbilling as a cash rather than margin problem. Neither is established by supplied export.",
+    "interpretation": "These claims are outside the frozen eight checks and remain explicit quality limits, not a post-hoc score adjustment or universal grounding pass."
+  }
+}

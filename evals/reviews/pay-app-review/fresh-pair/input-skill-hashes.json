@@ -1,0 +1,36 @@
+{
+  "baseline": {
+    "PROMPT.md": "f20e95f3c9f58344b44e2b24b3c078537252118cb4d7056a9c58b46f7ec71c58",
+    "input/cedar-current.csv": "3109ddba8b2aad37d3c349642863438bcaff4cdab2b2d25dfa141a3249d37a34",
+    "input/elm-current.csv": "78e33f178f405c202cbb1e82af7574044def5da273181ab1b7f57bb0574a150b",
+    "input/elm-prior.csv": "ee84cf577b724008ab92e90e975ad9716fec9b028407327254b1143c9d92b2f9",
+    "input/package.md": "c3734110c89978f1d4c5150cc321fedd0daecd720e6e4f2cb7a4a3727d9b7bfb",
+    "skills/pay-app-review/SKILL.md": "36ac5f107e17b73802d55cca1c0bcf21148153ff7c7d0de237cb23c06f8095c1",
+    "skills/pay-app-review/examples/sample-prompts.md": "a7fbe6da2fb9c24e52ed3e5cf9d49dc57de304662ae9f347451e75717264cbad",
+    "skills/pay-app-review/references/checks.md": "9968249efd1bf2cca6f83a22e2457c230cc69a42dbcabe7446916f8195b401be",
+    "skills/pay-app-review/references/g702-g703-fields.md": "61e393b4037a89f4d7f758b2a79c67a511740b8a8674959a61209c637d21a481",
+    "skills/pay-app-review/references/review-memo-template.md": "4226976cc74d4d47f8d23cc8f583db4b07f1676c3d97e4df806151aefe7fbc67",
+    "skills/pay-app-review/samples/input-cover-sheet.md": "e2198940def1b2d711e25672f04c0f51b27307dd54feea4078612e90b4a26a96",
+    "skills/pay-app-review/samples/input-pay-app-1.csv": "cfdeb86752092238b3da7c948743282acec759825f846e0a77a987f613cbec0a",
+    "skills/pay-app-review/samples/input-pay-app-2.csv": "ebffbc5e0f0829bbc71a0b80691c0908a8705cbc8ed323f664fa2f73894059d4",
+    "skills/pay-app-review/samples/output-review-memo.md": "841959a88c53f58956f16d7b352c47a369bd4dc85473c56358a87c3225bdec3d",
+    "skills/pay-app-review/scripts/check_pay_app.py": "62245b64e119f26e05538d1b606aa31417585d91322a16c4e0094b3a664f5dec"
+  },
+  "revised": {
+    "PROMPT.md": "f20e95f3c9f58344b44e2b24b3c078537252118cb4d7056a9c58b46f7ec71c58",
+    "input/cedar-current.csv": "3109ddba8b2aad37d3c349642863438bcaff4cdab2b2d25dfa141a3249d37a34",
+    "input/elm-current.csv": "78e33f178f405c202cbb1e82af7574044def5da273181ab1b7f57bb0574a150b",
+    "input/elm-prior.csv": "ee84cf577b724008ab92e90e975ad9716fec9b028407327254b1143c9d92b2f9",
+    "input/package.md": "c3734110c89978f1d4c5150cc321fedd0daecd720e6e4f2cb7a4a3727d9b7bfb",
+    "skills/pay-app-review/SKILL.md": "d05d84b49b3e04b7d4ab3b3dc718ca00a531545ce36b60a3bb020e85916a420e",
+    "skills/pay-app-review/examples/sample-prompts.md": "a7fbe6da2fb9c24e52ed3e5cf9d49dc57de304662ae9f347451e75717264cbad",
+    "skills/pay-app-review/references/checks.md": "46640477d029907263c7ffa95df8b22dfc95bd5b0f4d274930fd458c92f9aa2e",
+    "skills/pay-app-review/references/g702-g703-fields.md": "110890fb0c773d8215544a7346c88ed01ddce61a30e0a79c1351d2361ab59731",
+    "skills/pay-app-review/references/review-memo-template.md": "a647a663a337b33d94268ff7cc1194288972ba743b0bee41f8834ec39e09bb5b",
+    "skills/pay-app-review/samples/input-cover-sheet.md": "e2198940def1b2d711e25672f04c0f51b27307dd54feea4078612e90b4a26a96",
+    "skills/pay-app-review/samples/input-pay-app-1.csv": "cfdeb86752092238b3da7c948743282acec759825f846e0a77a987f613cbec0a",
+    "skills/pay-app-review/samples/input-pay-app-2.csv": "ebffbc5e0f0829bbc71a0b80691c0908a8705cbc8ed323f664fa2f73894059d4",
+    "skills/pay-app-review/samples/output-review-memo.md": "6e09b72289b270ab5472fcd182cbde21d9b657b6b13e752e0f1718cec426fe05",
+    "skills/pay-app-review/scripts/check_pay_app.py": "be1457bd1bfd4167bb82dd68b03db1ff91eaef152edd007ca96aa4bfbba0bc44"
+  }
+}

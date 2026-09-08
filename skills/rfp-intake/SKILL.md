@@ -3,9 +3,10 @@ name: rfp-intake
 description: Run a bid/no-bid intake review on an RFP or bid invitation. Use when the user asks to review, triage, assess, or intake an RFP, RFQ, ITB, bid invitation, or solicitation package, or asks whether to bid a project.
 license: MIT
 metadata:
+  summary: Turn a solicitation and its addenda into a cited bid/no-bid review with current requirements, risks, and a conditional recommendation.
   tier: neutral
   stages: business-development, preconstruction
-  version: "1.0.0"
+  version: "1.1.0"
   author: Buildr
 ---
 
@@ -21,42 +22,51 @@ recommend go or no-go against the user's own criteria.
   ask for it once, plainly, and wait. Never fabricate RFP content, invent a
   sample solicitation, or produce a generic intake without a real document.
 - Optional inputs sharpen the review: the user's go/no-go or bid/no-bid
-  checklist, and a prior intake summary or proposal for similar work. Ask for
-  them once; proceed without them if the user does not have them handy.
+  checklist, and a prior intake summary or proposal for similar work. Use them
+  when supplied; otherwise proceed with default criteria and mark company
+  capacity, experience, and relationships unknown.
 - When a checklist or prior example is provided, apply its criteria explicitly
   and say which findings came from the user's own documents. When none is
   provided, use `references/intake-checklist.md` as the default criteria.
 
 ## Workflow
 
-1. Read every attached document fully before summarizing anything. Work with
-   PDFs through extraction tools (pdftotext, pdfinfo, pypdf, page renders);
-   never dump raw PDF bytes to the terminal. If a document is scanned, OCR it
-   and say that the text came from OCR.
-2. Produce the intake review, leading with the finding. Use the output
-   template in `references/intake-checklist.md` and cover:
-   - Key dates: questions deadline, addenda, pre-bid meeting or site visit,
-     bid due date, award, and construction start, each cited to the document
-     and page.
-   - Required forms, submittals, bonding, insurance, and licensing
-     requirements.
-   - Addenda status and anything that changes earlier requirements.
-   - Scope summary in the trades' own terms, plus owner, delivery method, and
-     contract type when stated.
-   - Risk flags with plain-language explanations of why each one bites.
-   - A go/no-go handoff summary with a recommendation framed against the
-     user's criteria when they provided any, and against common precon
-     practice when they did not.
-3. Attribute sources plainly: what came from the user's documents, what stays
-   generic until they share more. Every date, requirement, and risk cites the
-   document and page it came from.
-4. Only after the review is delivered, offer next steps. If a CRM or
-   preconstruction system is connected (for example through an MCP server),
-   offer to create or update the pursuit, set the key dates, and add follow-up
-   tasks for the required forms. Never create or update records before the
-   review is complete, and never without the user's approval.
-5. If the user declines persistence, stop cleanly. The review is the
-   deliverable.
+1. Inventory and read every supplied document. Extract PDFs with text tools;
+   render or OCR unreadable pages and disclose coverage limits. Distinguish
+   documents actually reviewed from drawings, specifications, and reports
+   merely referenced in the solicitation. Cite Markdown by section or line;
+   cite PDFs by document and page. Never invent page numbers.
+2. Reconcile the solicitation with every supplied addendum before drafting.
+   Record the current value, superseded value, and source for each change:
+   dates and times, forms, alternates, qualifications, and contract terms.
+   Separate an addendum already issued from a future planned issue date.
+   Identify missing referenced attachments and unresolved conflicts explicitly.
+3. Read [the intake checklist](references/intake-checklist.md) for the coverage
+   checklist and default presentation. Apply the user's criteria first; use
+   defaults only for gaps and label their origin. Build the review from the
+   reconciled requirements, including submission method/location, due times
+   and stated time zones, post-bid deadlines, each form, bond basis, insurance
+   limits, licensing, wage obligations, and responsiveness traps. Preserve
+   “may” versus “shall” and stated exceptions.
+4. Lead with a recommendation and its decisive reason, even when the user
+   reserves the final decision. Give Go, No-go, or Go with conditions as advice;
+   the user makes the call. Tie conditions to evidence needed to resolve them.
+   Rate every applicable criterion with a reason; use Unknown for unsupported
+   company fit or capacity. Pair each risk's cited requirement with its
+   practical consequence and include favorable terms that offset risk.
+5. Before delivery, check every supplied section and addendum against the
+   review. Account for each material requirement, all changed terms, scope,
+   risks, criteria ratings, open questions, and source limitations. Mark absent
+   facts “not stated” and unread materials “not reviewed.” Keep the opening
+   concise without shortening away the detailed requirements. The template's
+   headings are defaults; equivalent organization is fine when coverage remains
+   checkable. For a narrowly requested extraction, deliver that scope without
+   forcing an unrelated full scorecard.
+6. Deliver the review before offering persistence. If a connection is actually
+   available, discover its supported operations and offer relevant follow-up
+   records. Create or update records only with user approval of the concrete
+   action. Without a connection, provide the review and proposed follow-ups;
+   do not claim a record was saved. Declining persistence ends the workflow.
 
 ## Boundaries
 

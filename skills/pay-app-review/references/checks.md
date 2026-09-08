@@ -16,7 +16,7 @@ through 9 for the manual checks.
   check name, and a message that shows the arithmetic.
 - Exit code 0: no error-severity findings. Exit code 1: at least one error.
   Exit code 2: the CSV could not be read (missing file, missing required
-  column, unparseable amount); the message is on stderr and names the file
+  column, unparseable, nonfinite, or blank required amount; invalid rate or tolerance); the message is on stderr and names the file
   and row.
 - `--tolerance` (default 0.01) is the rounding allowance for every currency
   comparison. Percent comparisons use a fixed 0.05 percentage point allowance.
@@ -77,23 +77,28 @@ the difference).
 
 | Check | Severity | Cover-sheet line | Rule | Message wording |
 |---|---|---|---|---|
-| `contract-sum` | error | Line 3 / G703 C total | The schedule's column C total differs from `--contract-sum` + `--change-orders`. Always runs. | "Schedule of values totals {C total} but contract sum to date is {sum} (original {L1} + approved change orders {COs}); difference {sum − C total}. An approved change order may not be reflected on the schedule." |
+| `contract-sum` | error | Line 3 / G703 C total | The schedule's column C total differs from `--contract-sum` + `--change-orders`. Runs when both independent contract terms are supplied. | "Schedule of values totals {C total} but contract sum to date is {sum} (original {L1} + approved change orders {COs}); difference {sum − C total}. An approved change order may not be reflected on the schedule." |
 | `change-orders` | error | Line 2 | `--g702-change-orders` differs from `--change-orders` (the approved log). | "Net change by change orders as submitted is {L2} but the approved change order log totals {COs}." |
 | `contract-sum` | error | Line 3 | `--g702-contract-sum-to-date` differs from `--contract-sum` + `--change-orders`. | "Contract sum to date as submitted is {L3} but Line 1 + Line 2 = {L1} + {COs} = {sum}." |
 | `total-completed` | error | Line 4 | `--g702-completed` differs from the sum of D + E + F across the schedule. | "Total completed and stored to date as submitted is {L4} but the G703 column G total is {computed}." |
 | `retainage` | error | Line 5 | `--g702-retainage` differs from the retainage terms applied to the schedule totals. When the shortfall equals exactly the stored-materials percent of total F, the message adds the hint sentence. | "Retainage as submitted is {L5} but {r}% of completed work {D+E total} plus {s}% of stored materials {F total} = {computed}; difference {L5 − computed}." Hint: "The shortfall equals {s}% of stored materials ({F total}), so retainage appears not to have been applied to stored materials." |
 | `earned-math` | error | Line 6 | `--g702-earned` differs from as-submitted Line 4 − as-submitted Line 5 (computed values stand in for any flag not given). | "Total earned less retainage as submitted is {L6} but Line 4 - Line 5 as submitted = {L4} - {L5} = {diff}." |
 | `earned-recomputed` | warning | Line 6 | `--g702-earned` differs from computed Line 4 − computed Line 5. | "Total earned less retainage recomputed from the schedule and contract terms is {computed}, versus {L6} as submitted; difference {L6 − computed}." |
-| `previous-certificates` | error | Line 7 | With `--prior` and `--g702-previous`: Line 7 differs from the prior schedule's total earned less retainage (prior D + E + F total minus retainage terms applied to it). | "Less previous certificates as submitted is {L7} but the prior application's total earned less retainage is {prior earned}; difference {L7 − prior earned}." |
+| `previous-certificates` | error | Line 7 | `--g702-previous` differs from independently sourced `--prior-certified`, the cumulative prior certificate total. The prior schedule and current rates do not establish certification. | Shows submitted, independently certified, and difference amounts. |
 | `due-math` | error | Line 8 | `--g702-due` differs from as-submitted Line 6 − as-submitted Line 7. | "Current payment due as submitted is {L8} but Line 6 - Line 7 as submitted = {L6} - {L7} = {diff}." |
-| `due-recomputed` | warning | Line 8 | `--g702-due` differs from computed Line 6 − Line 7 (Line 7 taken from the flag, else from the prior schedule). | "Current payment due recomputed from the schedule and contract terms is {computed}, versus {L8} as submitted; difference {L8 − computed}." |
+| `due-recomputed` | warning | Line 8 | `--g702-due` differs from computed Line 6 − Line 7 (computed Line 7 from `--prior-certified`). | "Current payment due recomputed from the schedule and contract terms is {computed}, versus {L8} as submitted; difference {L8 − computed}." |
 | `balance-math` | error | Line 9 | `--g702-balance` differs from as-submitted Line 3 − as-submitted Line 6. | "Balance to finish including retainage as submitted is {L9} but Line 3 - Line 6 as submitted = {L3} - {L6} = {diff}." |
-| `no-prior` | warning | Line 7 / G703 D | `--prior` was not given. Always fires in that case so the memo cannot silently omit continuity. | "No prior-period schedule was provided, so column D continuity and Line 7 were not verified against the previous certificate." |
+| `no-prior` | warning | G703 D | `--prior` was not given. Always fires in that case so the memo cannot silently omit continuity. | "No prior-period schedule was provided, so column D continuity was not verified." |
 
-When `--g702-previous` is not given but `--prior` is, the script uses the
-prior schedule's total earned less retainage as Line 7 for the computed
-column. That is the amount the prior application requested, not necessarily
-what was certified; see the manual check below.
+Missing `--contract-sum` or `--change-orders` produces
+`missing-contract-terms`; unknown line retainage produces
+`missing-retainage-terms`; absent `--prior-certified` produces
+`missing-prior-certificate`. These are warnings, and unsupported computed
+values remain `n/a`. Zero is a supplied value, never an unknown default.
+As-submitted internal arithmetic still runs when its operands are available.
+A complete set of independent per-line rates can establish retainage without
+a global rate. Populate these overrides from contract terms, not the submitted
+rates being checked.
 
 ## Manual checks the agent adds
 
@@ -106,11 +111,11 @@ not required, or open; never judge sufficiency and never approve.
    item numbers were not renumbered, split, or merged. A renumbered line
    shows up as one `missing-line` plus one `new-line`; say so instead of
    reporting two problems.
-2. **Line 7 equals the certified amount.** Compare Line 7 to the architect's
-   or owner's certificate on the prior application, not to the amount the
-   contractor requested. If the prior application was certified for less than
-   requested, this period's column D should be reduced to match; a `continuity`
-   finding may be the contractor rolling forward the requested amount.
+2. **Line 7 equals cumulative previous certificates.** Reconcile prior
+   certificate history independently and pass its cumulative total through
+   `--prior-certified`. This period's submitted Line 7 is not independent
+   evidence. A reduced certificate alone does not allocate adjustments to
+   G703 work lines: use a documented revised schedule or leave allocation open.
 3. **Change order approvals.** Walk the approved change order log against
    three places: G702 Line 2 and the change order summary box; a G703 line
    for each approved change order (or a documented reallocation into existing

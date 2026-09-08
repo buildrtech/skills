@@ -1,0 +1,203 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Construction Budget Export</title>
+  <style>
+    :root { --page-bg: #ffffff; --ink: #1f2937; --muted: #6b7280; --primary: #334155; --accent: #0f766e; --surface: #f1f5f9; --border: #cbd5e1; --font-body: "Liberation Sans", "DejaVu Sans", sans-serif; --font-display: "Liberation Serif", "DejaVu Serif", serif; }
+    body { margin: 0; color: var(--ink); font-family: var(--font-body); font-size: 10pt; line-height: 1.35; }
+    .pdf-page { box-sizing: border-box; min-height: 10in; page-break-after: always; padding: 0.45in; }
+    .pdf-page:last-of-type { page-break-after: auto; }
+    .keep-together { break-inside: avoid; }
+    h1, h2 { font-family: var(--font-display); }
+    h1 { color: var(--primary); font-size: 24pt; margin: 0; }
+    h2 { background: var(--surface); border-left: 5px solid var(--accent); color: var(--primary); font-size: 13pt; padding: 7px 9px; }
+    table { width: 100%; border-collapse: collapse; margin-bottom: 14px; }
+    thead { display: table-header-group; }
+    th { background: var(--primary); color: #ffffff; font-size: 7.5pt; padding: 6px; text-align: left; text-transform: uppercase; }
+    td { border: 1px solid var(--border); padding: 5px 6px; vertical-align: top; }
+    .numeric { font-variant-numeric: tabular-nums; text-align: right; white-space: nowrap; }
+    .division td { background: var(--surface); color: var(--primary); font-weight: 800; }
+    .meta { color: var(--muted); margin: 4px 0 6px; }
+    .meta + .meta { margin-bottom: 18px; }
+    .totals { margin-left: auto; width: 45%; }
+    .totals tr:last-child td { background: var(--primary); color: #ffffff; font-weight: 800; }
+  </style>
+</head>
+<body>
+  <section class="pdf-page">
+    <p>Construction Budget Export</p>
+    <h1>Alder Creek Elementary School Classroom Addition</h1>
+    <p class="meta">Estimate date: 2026-09-01</p>
+    <p class="meta">Prepared by Pinewood Construction Group for Alder Creek Unified School District</p>
+    <h2>Division Detail</h2>
+    <table>
+      <thead><tr><th>Description</th><th>Quantity</th><th>Division</th><th class="numeric">Total</th></tr></thead>
+      <tbody><tr class="division"><td colspan="3">Division 02 — Existing Conditions</td><td class="numeric">$61,250</td></tr>
+<tr>
+          <td>Selective demolition of corridor wall and canopy</td>
+          <td>1 LS</td>
+          <td>02</td>
+          <td class="numeric">$42,500</td>
+        </tr>
+<tr>
+          <td>Tree protection and site clearing</td>
+          <td>0.6 AC</td>
+          <td>02</td>
+          <td class="numeric">$18,750</td>
+        </tr>
+<tr class="division"><td colspan="3">Division 03 — Concrete</td><td class="numeric">$307,500</td></tr>
+<tr>
+          <td>Spread footings and foundation walls</td>
+          <td>210 CY</td>
+          <td>03</td>
+          <td class="numeric">$168,000</td>
+        </tr>
+<tr>
+          <td>Slab-on-grade with vapor barrier</td>
+          <td>12,400 SF</td>
+          <td>03</td>
+          <td class="numeric">$111,600</td>
+        </tr>
+<tr>
+          <td>Site concrete walks and ramps</td>
+          <td>1 LS</td>
+          <td>03</td>
+          <td class="numeric">$27,900</td>
+        </tr>
+<tr class="division"><td colspan="3">Division 05 — Metals</td><td class="numeric">$305,200</td></tr>
+<tr>
+          <td>Structural steel framing and roof deck</td>
+          <td>38 TN</td>
+          <td>05</td>
+          <td class="numeric">$261,000</td>
+        </tr>
+<tr>
+          <td>Canopy steel and miscellaneous metals</td>
+          <td>1 LS</td>
+          <td>05</td>
+          <td class="numeric">$44,200</td>
+        </tr>
+<tr class="division"><td colspan="3">Division 07 — Thermal and Moisture Protection</td><td class="numeric">$254,000</td></tr>
+<tr>
+          <td>TPO roofing and insulation</td>
+          <td>12,900 SF</td>
+          <td>07</td>
+          <td class="numeric">$154,800</td>
+        </tr>
+<tr>
+          <td>Metal wall panels and flashing</td>
+          <td>6,200 SF</td>
+          <td>07</td>
+          <td class="numeric">$99,200</td>
+        </tr>
+<tr class="division"><td colspan="3">Division 08 — Openings</td><td class="numeric">$131,600</td></tr>
+<tr>
+          <td>Aluminum storefront and windows</td>
+          <td>1,150 SF</td>
+          <td>08</td>
+          <td class="numeric">$92,000</td>
+        </tr>
+<tr>
+          <td>Hollow metal doors, frames, and hardware</td>
+          <td>22 EA</td>
+          <td>08</td>
+          <td class="numeric">$39,600</td>
+        </tr>
+<tr class="division"><td colspan="3">Division 09 — Finishes</td><td class="numeric">$294,100</td></tr>
+<tr>
+          <td>Gypsum board partitions and ceilings</td>
+          <td>24,800 SF</td>
+          <td>09</td>
+          <td class="numeric">$136,400</td>
+        </tr>
+<tr>
+          <td>Acoustic ceiling tile</td>
+          <td>11,200 SF</td>
+          <td>09</td>
+          <td class="numeric">$47,600</td>
+        </tr>
+<tr>
+          <td>Resilient flooring and carpet tile</td>
+          <td>12,400 SF</td>
+          <td>09</td>
+          <td class="numeric">$74,400</td>
+        </tr>
+<tr>
+          <td>Painting and wall protection</td>
+          <td>1 LS</td>
+          <td>09</td>
+          <td class="numeric">$33,000</td>
+        </tr>
+<tr class="division"><td colspan="3">Division 22 — Plumbing</td><td class="numeric">$118,300</td></tr>
+<tr>
+          <td>Fixtures, piping, and water heater</td>
+          <td>1 LS</td>
+          <td>22</td>
+          <td class="numeric">$118,300</td>
+        </tr>
+<tr class="division"><td colspan="3">Division 23 — Heating Ventilating and Air Conditioning</td><td class="numeric">$299,000</td></tr>
+<tr>
+          <td>Rooftop units, ductwork, and controls</td>
+          <td>12,400 SF</td>
+          <td>23</td>
+          <td class="numeric">$286,200</td>
+        </tr>
+<tr>
+          <td>Testing, adjusting, and balancing</td>
+          <td>1 LS</td>
+          <td>23</td>
+          <td class="numeric">$12,800</td>
+        </tr>
+<tr class="division"><td colspan="3">Division 26 — Electrical</td><td class="numeric">$283,600</td></tr>
+<tr>
+          <td>Lighting, power, and distribution</td>
+          <td>1 LS</td>
+          <td>26</td>
+          <td class="numeric">$224,700</td>
+        </tr>
+<tr>
+          <td>Fire alarm and low-voltage rough-in</td>
+          <td>1 LS</td>
+          <td>26</td>
+          <td class="numeric">$58,900</td>
+        </tr>
+<tr class="division"><td colspan="3">Division 31 — Earthwork</td><td class="numeric">$95,900</td></tr>
+<tr>
+          <td>Mass excavation, grading, and export</td>
+          <td>3,100 CY</td>
+          <td>31</td>
+          <td class="numeric">$71,300</td>
+        </tr>
+<tr>
+          <td>Aggregate base and subgrade preparation</td>
+          <td>1 LS</td>
+          <td>31</td>
+          <td class="numeric">$24,600</td>
+        </tr></tbody>
+    </table>
+    <div class="keep-together">
+      <h2>Alternates</h2>
+      <table><thead><tr><th>Alternate</th><th class="numeric">Total</th></tr></thead><tbody><tr><td>Alternate 1: Covered play structure at north courtyard</td><td class="numeric">$64,800</td></tr>
+<tr><td>Alternate 2: Deduct - substitute VCT for carpet tile in classrooms</td><td class="numeric">-$18,200</td></tr></tbody></table>
+      <h2>Markups</h2>
+      <table><thead><tr><th>Markup</th><th class="numeric">Total</th></tr></thead><tbody><tr><td>General conditions (26 weeks)</td><td class="numeric">$187,200</td></tr>
+<tr><td>Builder&#39;s risk insurance and bond</td><td class="numeric">$47,300</td></tr>
+<tr><td>Estimating contingency</td><td class="numeric">$107,500</td></tr>
+<tr><td>Fee</td><td class="numeric">$86,000</td></tr></tbody></table>
+      <table class="totals">
+        <tbody>
+          <tr><td>Subtotal</td><td class="numeric">$2,150,450</td></tr>
+          <tr><td>Markups</td><td class="numeric">$428,000</td></tr>
+          <tr><td>Total</td><td class="numeric">$2,578,450</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <h2>Notes</h2>
+    <ul><li>Pricing is based on the 90% construction documents dated 2026-08-20.</li>
+<li>Excludes furniture, technology equipment, and district-furnished playground equipment. Alternates are priced separately and are not included in the total.</li>
+<li>Estimating contingency is carried at approximately 5% of direct cost.</li>
+<li>Discrepancy as exported: the Division 09 Finishes subtotal is exported as $294,100 but its four line items above sum to $291,400, a difference of $2,700. Every figure on this page is shown exactly as exported; the estimate should be corrected at the source.</li></ul>
+  </section>
+</body>
+</html>

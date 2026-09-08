@@ -1,0 +1,24 @@
+{
+  "baseline": {
+    "TASK.md": "b17a8607ac36b42739b5792392ec276fa6ed995e1e9a120d709f4294a8e6a46c",
+    "skill/SKILL.md": "88d4bba6e12ed8fb57e9417067b0d056108cbbb4d1ab30cfaf19026e0255866e",
+    "skill/examples/sample-prompts.md": "9453b4c200bf445adeb79246976ad87c510c7c979af90e4ecd0239938410691b",
+    "skill/references/buildr-mcp.md": "d4e2501f32e7982263ae77048ed1a0ad96e78ead931212d4fcd7aa6e3e3a5d3b",
+    "skill/references/data-model.md": "72c38d584b8b46182edabcc6ba05a465983e49e319ccd87a8498c5dc638d4d53",
+    "skill/references/report-templates.md": "d6ae90f16e285c40216edd0487f8f42f75eaf78258decf38dce5d46643d0cb48",
+    "skill/samples/input-request.md": "9475c165f783cf13f2de7e73277cc5fddb4e890c9cc9e889332e9812f0f4c721",
+    "skill/samples/output-staffing-analysis.md": "66c07cf153420b612d364dd8297d00b8cb817d3136800fa4680038bea3f93922"
+  },
+  "revised": {
+    "TASK.md": "b17a8607ac36b42739b5792392ec276fa6ed995e1e9a120d709f4294a8e6a46c",
+    "skill/SKILL.md": "7eccfb4bb2c8fc76508628ea876108e3e751afc62b68b07c545486d0d17efc5b",
+    "skill/examples/sample-prompts.md": "6dc7f3790991b41403a95062b55adb62f46062d81c396f8fba6c3790f6675f26",
+    "skill/references/buildr-mcp.md": "e94e03995d5023cc243fa45a98ed6bd98cd250f912c47154eceac1840ee95745",
+    "skill/references/data-model.md": "965068846cde7787099d9c58e79f2f5162a3536f12bee59f38fd5ca6e4e0bf65",
+    "skill/references/period-replay.md": "9f0dc33bdf767a46c27b110cbca1301b88ad53698709f3c5453ba708722d297f",
+    "skill/references/report-templates.md": "7c6bbbda5ed64c4fdd94463379fc4e9b4543fc8be2b96f41a0319c8f565989c5",
+    "skill/samples/input-request.md": "9f86941a8fa83ab3c9e3f65c4a133d2cbb2024ac78b3bcd064cff25e0bc43bf5",
+    "skill/samples/output-staffing-analysis.md": "8c257d8f7301fa22d19a0548bb683c88195f98d77b30f4a691ee765e4e4ebbd6",
+    "skill/scripts/analyze_periods.py": "34ff27bd1317802b72c55a74ec145fa8542517ba05ab0ccd546c80beb9d59a15"
+  }
+}

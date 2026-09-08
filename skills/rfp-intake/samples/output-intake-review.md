@@ -1,7 +1,7 @@
 # Intake review: Ridgeview Elementary School Classroom Addition (RUSD-2026-014)
 
 **Recommendation:** Go with conditions
-**Why in one line:** Straightforward K-12 addition in our sweet spot, but the mandatory site walk is on September 2 and the deleted concealed-conditions clause on expansive clay shifts real subsurface risk to us.
+**Why in one line:** Company K-12 experience and capacity remain unverified; the mandatory site walk is on September 2 and the deleted concealed-conditions clause on expansive clay shifts real subsurface risk to us.
 
 ## Key dates
 
@@ -33,7 +33,7 @@
 - Colorado prevailing wage (BEST grant funded); weekly certified payroll via LCPtracker (ITB §6).
 - Insurance: CGL $2M/$4M, auto $1M, umbrella $5M, statutory WC; contractor carries builder's risk (ITB §8).
 - Bid submittals: bid form with base bid, two alternates, three unit prices; bid bond; subcontractor list over 5%; A305; addenda acknowledgment; non-collusion affidavit (ITB §11).
-- Addendum 1 (Aug 28) acknowledged: bid time change and Alternate 2 added (ITB §10).
+- Addendum 1 (Aug 28) described in the ITB; acknowledgment required: bid time change and Alternate 2 added (ITB §10).
 
 ## Scope summary
 
@@ -42,10 +42,10 @@ Single-story classroom wing with a corridor connection into an occupied school, 
 ## Risk flags
 
 - **Concealed conditions clause deleted.** Supplementary Conditions 3.7.4 removes A201 §3.7.4, and the geotech report is "for information only" while identifying expansive clay with 4 feet of over-excavation (ITB §9). Subsurface risk sits with the bidder. Carry a defined over-excavation quantity as a unit price if the bid form allows, and ask in the question period whether Unit Prices 1 through 3 cover it.
-- **Mandatory pre-bid on Sep 2.** Missing it disqualifies the bid (ITB §3). It falls two weeks after issue; confirm attendance immediately.
+- **Mandatory pre-bid on Sep 2.** Attendance is mandatory; confirm the consequence of missed attendance with the owner (ITB §3). It falls two weeks after issue; confirm attendance immediately.
 - **Occupied-school window.** Corridor tie-in limited to Jun 8 to Aug 6, 2027, inside a Jul 30 substantial completion date (ITB §1, §3). Sequencing is tight and LDs of $2,500/day apply (ITB §7).
 - **Prevailing wage and certified payroll.** State prevailing wage plus weekly LCPtracker reporting (ITB §6). Confirm subcontractor capability before the sub list is due with the bid.
-- **Builder's risk on the contractor.** Unusual for a public owner; price it (ITB §8).
+- **Builder's risk on the contractor.** Confirm broker coverage and carry the obligation into the separate estimating pass (ITB §8).
 - **Compressed schedule.** NTP Nov 2, 2026 to substantial completion Jul 30, 2027 is about nine months including winter earthwork in Colorado (ITB §3).
 
 ## Go/no-go scorecard
@@ -58,14 +58,14 @@ Single-story classroom wing with a corridor connection into an occupied school, 
 | Bonding and insurance | Neutral | Standard bonds; builder's risk and $5M umbrella need confirmation with the broker. |
 | Licensing and prequal | Neutral | Class A city license and three K-12 refs over $4M required; confirm we meet both. |
 | Wage and labor | Neutral | Prevailing wage is routine for BEST-funded work but affects sub selection. |
-| Scope fit | Favorable | Single-story K-12 addition, size in range of the engineer's estimate. |
+| Scope fit | Unknown | Company K-12 experience and capacity were not supplied; confirm against the project requirements (ITB §1, §5). |
 | Competition | Unknown | No bidder list in the ITB; check the architect's plan-holder list. |
 | Risk allocation | Unfavorable | Deleted concealed-conditions clause on known expansive soils. |
-| Documents | Favorable | Full CD set, 94 sheets, Divisions 00 to 33, geotech included. |
+| Documents | Unknown | ITB §10 lists 94 sheets and Divisions 00 to 33; those materials were not reviewed, so completeness is unverified. |
 
 ## Open questions
 
-Submit in writing to the architect before Sep 11, 4:00 PM (ITB §11):
+Submit in writing to the architect before Sep 11, 4:00 PM (ITB §3, §11):
 
 1. Do Unit Prices 1 through 3 include over-excavation and replacement of expansive soils? If not, will the District add one?
 2. Is a second site walk available for subcontractors, given the mandatory single date?
@@ -75,3 +75,5 @@ Submit in writing to the architect before Sep 11, 4:00 PM (ITB §11):
 ## Sources
 
 All findings above come from the Invitation to Bid RUSD-2026-014 as issued Aug 18, 2026 with Addendum 1. No go/no-go checklist was supplied, so the scorecard uses the default criteria in this skill. Nothing has been read from the drawings or Project Manual yet; the structural system, mechanical approach, and unit price definitions remain unverified until those are reviewed. This is bid preparation, not legal advice; the deleted A201 §3.7.4 clause should be reviewed by counsel or the surety before bid.
+
+This is a recommendation; the bid/no-bid decision stays with you. Conditions: verify mandatory attendance, required project references and licensing, bond and insurance capacity, and acceptance of subsurface risk before committing to bid. No estimate or pricing has been prepared.

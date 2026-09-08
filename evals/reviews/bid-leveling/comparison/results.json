@@ -1,0 +1,50 @@
+{
+  "same-company": {
+    "baseline": {
+      "exit": 0,
+      "stdout": "same-company-baseline.md",
+      "stderr": null
+    },
+    "revised": {
+      "exit": 0,
+      "stdout": "same-company-revised.md",
+      "stderr": null
+    }
+  },
+  "unreconciled-labels": {
+    "baseline": {
+      "exit": 0,
+      "stdout": "unreconciled-labels-baseline.md",
+      "stderr": null
+    },
+    "revised": {
+      "exit": 2,
+      "stdout": null,
+      "stderr": "unreconciled-labels-revised.stderr"
+    }
+  },
+  "duplicate-alternate": {
+    "baseline": {
+      "exit": 0,
+      "stdout": "duplicate-alternate-baseline.md",
+      "stderr": null
+    },
+    "revised": {
+      "exit": 2,
+      "stdout": null,
+      "stderr": "duplicate-alternate-revised.stderr"
+    }
+  },
+  "duplicate-plug": {
+    "baseline": {
+      "exit": 0,
+      "stdout": "duplicate-plug-baseline.md",
+      "stderr": null
+    },
+    "revised": {
+      "exit": 2,
+      "stdout": null,
+      "stderr": "duplicate-plug-revised.stderr"
+    }
+  }
+}

@@ -1,4 +1,7 @@
-# Request
+# Synthetic illustrative request
+
+This is an authored example, not a captured tool fixture or a live request.
+The companion output illustrates hypothetical follow-up turns and results.
 
 Context: one MCP server is connected. It is a community server wrapping a
 project management system's REST API (call it "pm-connector"). The user

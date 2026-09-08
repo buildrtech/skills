@@ -1,27 +1,143 @@
 {
   "type": "object",
-  "required": ["project", "estimateDate", "divisions", "totals"],
+  "required": [
+    "project",
+    "estimateDate",
+    "divisions",
+    "totals"
+  ],
   "properties": {
-    "project": { "type": "string" },
-    "estimateDate": { "type": "string" },
-    "preparedBy": { "type": "string" },
-    "preparedFor": { "type": "string" },
+    "project": {
+      "type": "string"
+    },
+    "estimateDate": {
+      "type": "string"
+    },
+    "preparedBy": {
+      "type": "string"
+    },
+    "preparedFor": {
+      "type": "string"
+    },
     "divisions": {
       "type": "array",
       "items": {
         "type": "object",
-        "required": ["code", "name", "lineItems"],
+        "required": [
+          "code",
+          "name",
+          "lineItems",
+          "totalCents"
+        ],
         "properties": {
-          "code": { "type": "string" },
-          "name": { "type": "string" },
-          "lineItems": { "type": "array" },
-          "totalCents": { "type": "number" }
+          "code": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "lineItems": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "description",
+                "quantity",
+                "totalCents"
+              ],
+              "properties": {
+                "description": {
+                  "type": "string"
+                },
+                "quantity": {
+                  "type": "string"
+                },
+                "totalCents": {
+                  "type": "integer",
+                  "minimum": -9007199254740991,
+                  "maximum": 9007199254740991
+                }
+              }
+            }
+          },
+          "totalCents": {
+            "type": "integer",
+            "minimum": -9007199254740991,
+            "maximum": 9007199254740991
+          }
         }
       }
     },
-    "alternates": { "type": "array" },
-    "markups": { "type": "array" },
-    "totals": { "type": "object" },
-    "notes": { "type": "array", "items": { "type": "string" } }
+    "alternates": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "description",
+          "totalCents"
+        ],
+        "properties": {
+          "description": {
+            "type": "string"
+          },
+          "totalCents": {
+            "type": "integer",
+            "minimum": -9007199254740991,
+            "maximum": 9007199254740991
+          }
+        }
+      }
+    },
+    "markups": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "description",
+          "totalCents"
+        ],
+        "properties": {
+          "description": {
+            "type": "string"
+          },
+          "totalCents": {
+            "type": "integer",
+            "minimum": -9007199254740991,
+            "maximum": 9007199254740991
+          }
+        }
+      }
+    },
+    "totals": {
+      "type": "object",
+      "required": [
+        "subtotalCents",
+        "markupCents",
+        "grandTotalCents"
+      ],
+      "properties": {
+        "subtotalCents": {
+          "type": "integer",
+          "minimum": -9007199254740991,
+          "maximum": 9007199254740991
+        },
+        "markupCents": {
+          "type": "integer",
+          "minimum": -9007199254740991,
+          "maximum": 9007199254740991
+        },
+        "grandTotalCents": {
+          "type": "integer",
+          "minimum": -9007199254740991,
+          "maximum": 9007199254740991
+        }
+      }
+    },
+    "notes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
   }
 }

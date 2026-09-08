@@ -1,6 +1,6 @@
 # Report templates
 
-Use the template that matches the question. Lead with the finding, keep
+Adapt the template that matches the question; headings are not a correctness requirement. Lead with the finding, keep
 the first screen readable without the detail tables, label every number as
 actual or forecast, and cite the project id and period id each figure came
 from. Show each formula once, with its inputs, in a "Formulas" section at
@@ -15,7 +15,7 @@ For portfolio-forecast questions from `listForecastPeriods`.
 
 **Finding:** <one line: the total, and the one thing that stands out>
 **Population:** <tab> (<n> projects; source: listForecastPeriods metadata)
-**Actual through:** <last closed month>; later months are forecast.
+**Actual coverage:** <confirmed common cutoff, mixed coverage, or unknown>.
 **Weighting:** unweighted | probability-weighted (only if asked)
 
 ## Totals
@@ -64,7 +64,7 @@ and billing periods.
 | Over/(under) billing | | derived | billed - earned |
 | Estimated profit at completion | | forecast | contract value - EAC |
 | Margin | | forecast | profit / contract value |
-| Margin at prior close | | actual | closed period <id> |
+| Margin at prior close | | forecast as of prior close | closed period <id> |
 | Margin movement | | derived | now - prior, in points |
 
 ## Period detail (when asked)
@@ -119,9 +119,8 @@ For billing-position questions across several projects.
 | **Net** | | | | | | | |
 
 ## Read
-Which positions are routine (early-job mobilization overbilling) and which
-warrant a look (underbilling on a job with pending change orders; overbilling
-that will unwind when EAC rises).
+Describe the measured positions. Mobilization, billing timing, or scope changes
+are hypotheses unless supported by records; name missing evidence.
 
 ## Sources / Formulas
 ```

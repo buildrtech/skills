@@ -60,7 +60,7 @@ beam.
 
 ## Suggested resolution
 
-Relocate the DR-2 chase north of grid C at grid 4 so the 3'-4" x 2'-0"
+For design-team confirmation, propose relocating the DR-2 chase north of grid C at grid 4 so the 3'-4" x 2'-0"
 opening lands in the composite deck between adjacent W16x26 infill beams
 (10'-0" o.c. per S-201), clear of the W24x76, and frame the opening with
 headers per S-201 Note 8 (detail 4/S-501 to be confirmed by the Structural
@@ -68,8 +68,8 @@ Engineer). The riser offset from the
 Level 1 mechanical room would be made below the Level 2 floor within the
 30-degree limit of M-401 Note 6, and the 36" x 20" duct size would be
 unchanged, consistent with 23 31 13 paragraph 3.3.C. Offered for the design
-team's confirmation; the contractor's preference is to move the riser rather
-than modify the beam.
+team's confirmation; this option would move the riser while retaining the
+beam. The available offset height and clearances still need verification.
 
 ## Impact
 
@@ -82,7 +82,7 @@ than modify the beam.
   weeks and cannot be completed until the riser location is confirmed.
 - The requested response date (September 18) is 10 calendar days from
   issue, shorter than the 10-working-day contract turnaround (September 22),
-  because of the fabrication release. If the issue becomes a change, the
+  assuming Monday-Friday working days with no holidays, because of the fabrication release. If the issue becomes a change, the
   project manager should check the contract's notice provisions; this RFI is
   not a notice and not legal advice.
 
@@ -93,7 +93,7 @@ than modify the beam.
   proposed relocated opening.
 - Specification Section 23 31 13, paragraphs 3.3.B and 3.3.C.
 
-## RFI log row
+## Draft RFI log row (Open on issue)
 
 | Number | Subject | Date issued | To | From | Response needed by | Ball in court | Status | Cost impact | Schedule impact | Related sheets/specs |
 |---|---|---|---|---|---|---|---|---|---|---|

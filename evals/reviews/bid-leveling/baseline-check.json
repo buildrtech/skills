@@ -1,0 +1,77 @@
+{
+  "baseline": {
+    "script_sha256": "c20c20efd4e4dc79fb7916083b31dac4303ee9bfbde9b258c001023293f60e9a",
+    "sample": {
+      "stdout_sha256": "828e92270bbc6d7b258d5b9e57eb84a078d00eb6aa588bd0f279dcd5fcd1e6e4",
+      "totals": {
+        "Northgate Drywall & Acoustics": {
+          "total_cents": 89570000,
+          "complete": true
+        },
+        "Prairie Wall & Ceiling Co.": {
+          "total_cents": 83370000,
+          "complete": true
+        },
+        "Summit Interior Systems, LLC": {
+          "total_cents": 82930000,
+          "complete": false
+        }
+      }
+    },
+    "millbrook": {
+      "stdout_sha256": "89d92c959194b28774f6f989ca9897c6ad749f53fbae887b57ebece75876ad7e",
+      "totals": {
+        "Blue Heron Roofing & Sheet Metal LLC": {
+          "total_cents": 61470000,
+          "complete": false
+        },
+        "Cardinal Commercial Roofing Co.": {
+          "total_cents": 58085000,
+          "complete": true
+        },
+        "Ironwood Roofing Systems, Inc.": {
+          "total_cents": 61925000,
+          "complete": true
+        }
+      }
+    }
+  },
+  "revised": {
+    "script_sha256": "0ad8cc40fe4209121618a018dec830989a990680276e887ce054f951dfe46e59",
+    "sample": {
+      "stdout_sha256": "5757cff1b63070b9b98d8d520b834c0461baa7f4e42a5ebfc0d8864d20102f4c",
+      "totals": {
+        "Northgate Drywall & Acoustics": {
+          "total_cents": 89570000,
+          "complete": true
+        },
+        "Prairie Wall & Ceiling Co.": {
+          "total_cents": 83370000,
+          "complete": true
+        },
+        "Summit Interior Systems, LLC": {
+          "total_cents": 82930000,
+          "complete": false
+        }
+      }
+    },
+    "millbrook": {
+      "stdout_sha256": "7b2eca1982454bccb461ba43c6356e05c159f9336f0598c897474f39991a1638",
+      "totals": {
+        "Blue Heron Roofing & Sheet Metal LLC": {
+          "total_cents": 61470000,
+          "complete": false
+        },
+        "Cardinal Commercial Roofing Co.": {
+          "total_cents": 58085000,
+          "complete": true
+        },
+        "Ironwood Roofing Systems, Inc.": {
+          "total_cents": 61925000,
+          "complete": true
+        }
+      }
+    }
+  },
+  "outcome": "Arithmetic/completeness tie on both original fixtures; output differs only in traceable identity/alternate presentation and submission labels in flags."
+}
