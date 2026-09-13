@@ -41,7 +41,6 @@ text and inputs as attachments; script or PDF workflows still require a runtime.
 | Skill | Stage | Tier | What it does |
 |---|---|---|---|
 | [bid-leveling](skills/bid-leveling) | Preconstruction, Estimating | Neutral | Compare subcontractor bids on a common scope basis, with sourced plugs, unresolved gaps, and traceable alternate prices. |
-| [construction-connectors](skills/construction-connectors) | Operations, Preconstruction, Estimating | Neutral | Read and reconcile connected construction records, prepare exact changes, and verify each recorded outcome. |
 | [drawing-scope-extraction](skills/drawing-scope-extraction) | Preconstruction, Estimating | Neutral | Turn drawing sheets into a cited scope list by CSI division, with exclusions, open questions, and review coverage. |
 | [financial-forecasting](skills/financial-forecasting) | Forecasting, Operations | Buildr-connected | Review revenue, profit, project margins, and billing positions with traceable actuals and forecasts. |
 | [pay-app-review](skills/pay-app-review) | Operations, Forecasting | Neutral | Review a progress payment application for billing discrepancies and missing documents, with a sourced hold list for a human decision. |
@@ -50,7 +49,7 @@ text and inputs as attachments; script or PDF workflows still require a runtime.
 | [rfp-intake](skills/rfp-intake) | Business development, Preconstruction | Neutral | Turn a solicitation and its addenda into a cited bid/no-bid review with current requirements, risks, and a conditional recommendation. |
 | [workforce-planning](skills/workforce-planning) | Workforce, Forecasting | Buildr-connected | Identify staffing capacity, candidate constraints, and uncovered demand before proposing verified assignment changes. |
 
-The catalog contains nine skills. See [ROADMAP.md](ROADMAP.md) for what is next.
+The catalog contains eight skills. See [ROADMAP.md](ROADMAP.md) for what is next.
 
 ## Tiers
 

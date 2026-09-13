@@ -13,7 +13,6 @@ Buildr-connected skills use the Buildr MCP server.
 | 6 | financial-forecasting | Buildr-connected | Shipped | Portfolio forecast, closed-period actuals, percent complete, over/under billing over Buildr financials. |
 | 7 | rfi-drafter | Neutral | Shipped | Draft RFIs with spec section and sheet citations, a suggested answer where the documents support one, and a log export. |
 | 8 | pay-app-review | Neutral | Shipped | Check a G702/G703-style pay application: schedule of values math, retainage, previous-billed continuity, and flags for review. Never approves. |
-| 9 | construction-connectors | Neutral | Shipped | How to work RFIs, submittals, and budgets well over construction MCP servers (Procore, JobTread, Bluebeam, Autodesk) without inventing data. |
 
 Ideas not yet scheduled: change-order narrative with markup rules, daily log
 summarizer, toolbox talk generator, subcontractor prequalification review,
