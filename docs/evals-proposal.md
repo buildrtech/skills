@@ -4,7 +4,7 @@ Status: draft for discussion, September 2026. Nothing here is built yet.
 
 ## What I looked at
 
-- This repo: nine v1 skills. Every skill ships `examples/sample-prompts.md`
+- This repo: eight v1 skills. Every skill ships `examples/sample-prompts.md`
   (trigger and non-trigger prompts) and a `samples/` pair (synthetic input,
   expected output). Four skills ship deterministic scripts
   (`check_pay_app.py`, `level_bids.py`, `scope_list.py`, the template
@@ -113,7 +113,6 @@ from the agent's own claims.
 | rfp-intake | new solicitation | key dates, bond and insurance thresholds, and required forms match the fixture, each with a page or section citation; scorecard present; contains the not-legal-advice line | risks are grounded |
 | rfi-drafter | new conflict description | cites only sheets and spec paragraphs supplied; RFI log row present | proposed resolution is supported or explicitly withheld |
 | precon-pdf-templates | budget JSON | data validates against the shipped schema; `render.mjs` output exists and is non-empty; PDF or HTML present | design review notes applied |
-| construction-connectors | mock Procore-style MCP server (FastMCP) with a mutation log | plan-and-log produced; mutation log is empty unless the prompt granted approval; every record id cited exists in the mock | plan is safe and sequenced |
 | workforce-planning | mock Buildr MCP server with seeded people, assignments, and demand | utilization and bench numbers recomputed from the seed; no `execute` write calls | report follows the template |
 | financial-forecasting | mock Buildr MCP server with seeded forecasts and actuals | over and under billing recomputed from the seed; closed-period actuals untouched | narrative matches the numbers |
 
@@ -122,7 +121,7 @@ and a smoke test, not scored cases.
 
 ### B. Trigger tasks
 
-All nine skills installed together, as the marketplace `all` plugin does.
+All eight skills installed together, as the marketplace `all` plugin does.
 Prompts come from each skill's `examples/sample-prompts.md` and are labeled
 by the four buckets: explicit, implicit, contextual, negative control. The
 verifier reads the ATIF trajectory and records which `SKILL.md` was read.
@@ -226,7 +225,7 @@ Rough size of a full run and what it costs:
 
 | Item | Estimate |
 |---|---|
-| Tasks | 9 skills x about 3 cases, plus trigger and boundary sets, about 45 |
+| Tasks | 8 skills x about 3 cases, plus trigger and boundary sets, about 45 |
 | Trials per full run | 45 tasks x 4 lanes x 2 conditions x 3 attempts, about 1,080 |
 | Cost per full run | roughly $300 to $1,200 depending on models and judge |
 | Nightly subset | 1 attempt, CLI lanes only, roughly a tenth of that |

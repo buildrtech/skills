@@ -1,3 +1,5 @@
+> Historical audit: the connectors skill and its evaluation artifacts were removed on 2026-09-13. The current catalog has eight skills; original aggregate results below describe the earlier audit.
+
 # Skills architecture audit — 2026-09-07
 
 Baseline: `9a62032a237cd7588f6f6c687021acc076cd6fb7` (`evals/harbor-phase-0`).
@@ -92,7 +94,6 @@ All nine direct children use project `proj_sxhtrh8yts`, environment
 | Skill | Child thread |
 |---|---|
 | bid-leveling | `thr_kefaywjbew` |
-| construction-connectors | `thr_r2pnqxusb4` |
 | drawing-scope-extraction | `thr_hxa96szkr5` |
 | financial-forecasting | `thr_qat4v7xjpq` |
 | pay-app-review | `thr_enucp8t8e3` |

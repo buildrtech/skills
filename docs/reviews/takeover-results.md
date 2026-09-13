@@ -1,3 +1,5 @@
+> Historical audit: the connectors skill and its evaluation artifacts were removed on 2026-09-13. The current catalog has eight skills; original aggregate results below describe the earlier audit.
+
 # Nine-skill takeover results
 
 Baseline: `9a62032a237cd7588f6f6c687021acc076cd6fb7`.
@@ -11,7 +13,6 @@ were created; their IDs and ownership are in the linked audit.
 | Skill | Main revision | Deterministic evidence | Fresh baseline → revised |
 |---|---|---|---|
 | bid-leveling | Submission identity and printed alternate reconciliation | 14 tests including XLSX; 8 fixture expectations | Claude 8/8 → 8/8 tie; Codex artifact tie, quota interruption |
-| construction-connectors | Scoped identities, uncertain writes, honest offline replay | 7 verifier tests | Claude 11/11 → 11/11 objective tie; narrative caveats |
 | drawing-scope-extraction | Readability-backed inclusion and safe validation | 6 CLI tests; 6 fixture expectations | 7/8 → 8/8 |
 | financial-forecasting | Cumulative units, as-of margins, undefined values | 6 arithmetic/CLI tests | Claude 8/8 → 8/8 tie; extra commentary caveats |
 | pay-app-review | Missing values and prior certificates | 8 CLI tests; 6 fixture expectations | Codex 6/6 → 6/6 tie |
@@ -68,17 +69,10 @@ revision hits the usage limit after generation, preventing terminal success.
 One unnecessary Claude pay baseline was canceled when the original Codex pay
 pair completed; it is unpaired, not a skill failure. No score compares across
 providers. Grading is by the coordinator/skill workers, not a blind human panel.
-Connector JSON outcomes tie at 11/11 after preserving and correcting false
-rejections of permitted extra scope/reference context. Seven verifier tests
-retain wrong/missing identities and extra-link negatives. Baseline speculates
-about read/write permissions; revision overclaims RFI 19 remained unchanged
-without readback. Both caveats survive the objective JSON pass.
-
 Runtime skill descriptions remain injected; isolated task folders are not an
 OS-level security boundary. All full traces remain outside the repository.
 
-Synthetic connector replay does not establish live API compatibility, auth,
-permissions, pagination, writes or notification delivery. Neutral text fixtures
+Neutral text fixtures
 do not establish graphical PDF/OCR accuracy. These fresh CLI/BB evaluations do
 not test ChatGPT.com or Claude.ai interfaces and cannot establish statistical
 trigger rates. Historical Harbor results remain historical.

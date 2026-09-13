@@ -32,7 +32,7 @@
     },
     {
       "name": "project-controls",
-      "description": "Project execution skills: RFI drafting with citations, pay application review, and a cookbook for working over construction MCP servers.",
+      "description": "Project execution skills: RFI drafting with citations and pay application review.",
       "source": "./",
       "strict": false,
       "category": "construction",
@@ -46,8 +46,7 @@
       ],
       "skills": [
         "./skills/rfi-drafter",
-        "./skills/pay-app-review",
-        "./skills/construction-connectors"
+        "./skills/pay-app-review"
       ]
     },
     {
@@ -87,7 +86,6 @@
         "./skills/precon-pdf-templates",
         "./skills/rfi-drafter",
         "./skills/pay-app-review",
-        "./skills/construction-connectors",
         "./skills/workforce-planning",
         "./skills/financial-forecasting"
       ]
