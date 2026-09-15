@@ -32,7 +32,7 @@
     },
     {
       "name": "project-controls",
-      "description": "Project execution skills: RFI drafting with citations and pay application review.",
+      "description": "Document-based project execution skills: RFI drafting, pay application review, and workforce planning.",
       "source": "./",
       "strict": false,
       "category": "construction",
@@ -46,7 +46,8 @@
       ],
       "skills": [
         "./skills/rfi-drafter",
-        "./skills/pay-app-review"
+        "./skills/pay-app-review",
+        "./skills/workforce-planning"
       ]
     },
     {
@@ -68,7 +69,8 @@
         "./skills/drawing-scope-extraction",
         "./skills/precon-pdf-templates",
         "./skills/rfi-drafter",
-        "./skills/pay-app-review"
+        "./skills/pay-app-review",
+        "./skills/workforce-planning"
       ]
     }
   ]

@@ -1,0 +1,12 @@
+{
+  "capacity": [
+    {"id": "c-ana", "person": "p-ana", "week": "2026-09-21", "capacity_hours": 40, "unavailable_hours": 8, "assigned_hours": 24},
+    {"id": "c-bo", "person": "p-bo", "week": "2026-09-21", "capacity_hours": 32, "unavailable_hours": 0, "assigned_hours": 20},
+    {"id": "c-cam", "person": "p-cam", "week": "2026-09-21", "capacity_hours": 40, "unavailable_hours": 0, "assigned_hours": 44}
+  ],
+  "demand": [{"id": "d-library", "week": "2026-09-21", "hours": 24}],
+  "proposals": [
+    {"capacity_id": "c-ana", "demand_id": "d-library", "hours": 8},
+    {"capacity_id": "c-bo", "demand_id": "d-library", "hours": 12}
+  ]
+}
