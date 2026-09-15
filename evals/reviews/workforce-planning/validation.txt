@@ -1,3 +1,0 @@
-ok   skills/workforce-planning
-
-all 1 skills valid

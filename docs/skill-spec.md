@@ -27,7 +27,7 @@ description: One or two sentences: what it does and when to use it. Under 1024 c
 license: MIT
 metadata:
   summary: Review a bid invitation for requirements, risks, and a bid/no-bid recommendation.
-  tier: neutral                       # or buildr-connected
+  tier: neutral                       # all shipped skills must work without Buildr
   stages: preconstruction, estimating # comma-separated, from the list below
   version: "1.0.0"                    # semver, quoted
   author: Buildr

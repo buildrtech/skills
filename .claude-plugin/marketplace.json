@@ -5,7 +5,7 @@
     "email": "hello@buildr.com"
   },
   "metadata": {
-    "description": "Construction skills for AI coding agents: preconstruction, estimating, project controls, workforce, and forecasting workflows written by the Buildr team.",
+    "description": "Construction skills for AI agents: document-based estimating and project controls workflows. No Buildr account required.",
     "version": "0.3.0"
   },
   "plugins": [
@@ -50,23 +50,6 @@
       ]
     },
     {
-      "name": "buildr-connected",
-      "description": "Workforce planning and financial forecasting using discovered Buildr MCP capabilities when available; proposed writes require user authorization.",
-      "source": "./",
-      "strict": false,
-      "category": "construction",
-      "keywords": [
-        "buildr",
-        "mcp",
-        "workforce",
-        "forecasting"
-      ],
-      "skills": [
-        "./skills/workforce-planning",
-        "./skills/financial-forecasting"
-      ]
-    },
-    {
       "name": "all",
       "description": "Every skill in the Buildr construction skills catalog.",
       "source": "./",
@@ -85,9 +68,7 @@
         "./skills/drawing-scope-extraction",
         "./skills/precon-pdf-templates",
         "./skills/rfi-drafter",
-        "./skills/pay-app-review",
-        "./skills/workforce-planning",
-        "./skills/financial-forecasting"
+        "./skills/pay-app-review"
       ]
     }
   ]

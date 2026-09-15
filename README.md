@@ -25,7 +25,7 @@ npx skills add buildrtech/skills --all
 
 ```
 /plugin marketplace add buildrtech/skills
-/plugin install precon@buildr
+/plugin install all@buildr
 ```
 
 **Paste into your agent instructions:** open any `skills/<name>/SKILL.md`,
@@ -38,27 +38,20 @@ text and inputs as attachments; script or PDF workflows still require a runtime.
 
 ## Skills
 
-| Skill | Stage | Tier | What it does |
-|---|---|---|---|
-| [bid-leveling](skills/bid-leveling) | Preconstruction, Estimating | Neutral | Compare subcontractor bids on a common scope basis, with sourced plugs, unresolved gaps, and traceable alternate prices. |
-| [drawing-scope-extraction](skills/drawing-scope-extraction) | Preconstruction, Estimating | Neutral | Turn drawing sheets into a cited scope list by CSI division, with exclusions, open questions, and review coverage. |
-| [financial-forecasting](skills/financial-forecasting) | Forecasting, Operations | Buildr-connected | Review revenue, profit, project margins, and billing positions with traceable actuals and forecasts. |
-| [pay-app-review](skills/pay-app-review) | Operations, Forecasting | Neutral | Review a progress payment application for billing discrepancies and missing documents, with a sourced hold list for a human decision. |
-| [precon-pdf-templates](skills/precon-pdf-templates) | Business development, Preconstruction, Estimating | Neutral | Turn supplied construction budgets, proposals, reports, milestone estimates, and team bios into print-ready documents with source figures preserved. |
-| [rfi-drafter](skills/rfi-drafter) | Operations, Preconstruction | Neutral | Draft a source-backed RFI and matching log row with a supported proposal, clear deadlines, and unresolved conditions made explicit. |
-| [rfp-intake](skills/rfp-intake) | Business development, Preconstruction | Neutral | Turn a solicitation and its addenda into a cited bid/no-bid review with current requirements, risks, and a conditional recommendation. |
-| [workforce-planning](skills/workforce-planning) | Workforce, Forecasting | Buildr-connected | Identify staffing capacity, candidate constraints, and uncovered demand before proposing verified assignment changes. |
+| Skill | Stage | What it does |
+|---|---|---|
+| [bid-leveling](skills/bid-leveling) | Preconstruction, Estimating | Compare subcontractor bids on a common scope basis, with sourced plugs, unresolved gaps, and traceable alternate prices. |
+| [drawing-scope-extraction](skills/drawing-scope-extraction) | Preconstruction, Estimating | Turn drawing sheets into a cited scope list by CSI division, with exclusions, open questions, and review coverage. |
+| [pay-app-review](skills/pay-app-review) | Operations, Forecasting | Review a progress payment application for billing discrepancies and missing documents, with a sourced hold list for a human decision. |
+| [precon-pdf-templates](skills/precon-pdf-templates) | Business development, Preconstruction, Estimating | Turn supplied construction budgets, proposals, reports, milestone estimates, and team bios into print-ready documents with source figures preserved. |
+| [rfi-drafter](skills/rfi-drafter) | Operations, Preconstruction | Draft a source-backed RFI and matching log row with a supported proposal, clear deadlines, and unresolved conditions made explicit. |
+| [rfp-intake](skills/rfp-intake) | Business development, Preconstruction | Turn a solicitation and its addenda into a cited bid/no-bid review with current requirements, risks, and a conditional recommendation. |
 
-The catalog contains eight skills. See [ROADMAP.md](ROADMAP.md) for what is next.
+The catalog contains six skills. See [ROADMAP.md](ROADMAP.md) for what is next.
 
-## Tiers
+## Requirements
 
-- **Neutral** skills work with whatever documents and data you hand the
-  agent. They never require a Buildr account and never mention Buildr.
-- **Buildr-connected** skills use discovered Buildr MCP capabilities when a
-  connection is available. They can also analyze explicitly supplied exports;
-  proposed remote changes require authorization and verified tool support.
-  They are marked in the catalog and each skill's `metadata.tier`.
+Every shipped skill works with documents and data you provide. No Buildr account or connection is required. Check each skill for local tools and dependencies.
 
 ## What every skill ships with
 
