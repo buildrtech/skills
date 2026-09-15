@@ -37,13 +37,16 @@ Weekly totals are useful for a summary but cannot prove that overlapping shifts
 fit. Report dated conflicts even if the weekly hours add up.
 
 Normalize complete weekly totals into the JSON contract described in that
-reference, then run the bundled calculator (Python 3, standard library only):
+reference. Write the normalized user ledger to `staffing-week.json` and run
+the bundled calculator (Python 3, standard library only) from the skill folder:
 
 ```bash
-python3 scripts/capacity.py samples/input-week.json
+python3 scripts/capacity.py staffing-week.json
 ```
 
-Replace the sample path with the user's normalized data. The script checks the
+Use the actual path of the file you wrote. Report that path, the executed
+command, and its result only after observing the tool output. Bundled samples
+are illustrations, never evidence that a user-data calculation ran. The script checks the
 hours ledger and proposed demand reductions; it does not decide qualifications,
 travel, shift overlap, or availability within the week. If Python cannot run,
 show the same equations with source rows and label the ledger manually checked.
