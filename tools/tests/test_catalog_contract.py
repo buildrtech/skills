@@ -25,6 +25,14 @@ class CatalogContractTest(unittest.TestCase):
             entry = build_entry(root, {'example': ['precon']})
             self.assertEqual(entry['install']['claude_plugin'][-1], '/plugin install precon@buildr')
 
+    def test_rejects_buildr_dependent_skills(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp) / 'rfp-intake'
+            shutil.copytree(ROOT / 'skills/rfp-intake', root)
+            path = root / 'SKILL.md'
+            path.write_text(path.read_text().replace('tier: neutral', 'tier: buildr-connected'))
+            self.assertTrue(any('metadata.tier' in e for e in validate_skill_tree(root)))
+
     def test_missing_and_non_markdown_samples(self):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp) / 'rfp-intake'

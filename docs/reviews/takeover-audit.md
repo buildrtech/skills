@@ -1,4 +1,4 @@
-> Historical audit: the connectors skill and its evaluation artifacts were removed on 2026-09-13. The current catalog has eight skills; original aggregate results below describe the earlier audit.
+> Historical audit: connectors and the two Buildr-dependent skills have been removed, together with their dedicated evaluation artifacts. The current catalog has six skills; aggregate results below describe the earlier audit.
 
 # Skills architecture audit — 2026-09-07
 
@@ -95,12 +95,10 @@ All nine direct children use project `proj_sxhtrh8yts`, environment
 |---|---|
 | bid-leveling | `thr_kefaywjbew` |
 | drawing-scope-extraction | `thr_hxa96szkr5` |
-| financial-forecasting | `thr_qat4v7xjpq` |
 | pay-app-review | `thr_enucp8t8e3` |
 | precon-pdf-templates | `thr_mtamhw7f8u` |
 | rfi-drafter | `thr_tvachgvz9u` |
 | rfp-intake | `thr_4wnqeue5ke` |
-| workforce-planning | `thr_gm9p2zc9t4` |
 
 ## Reproducing preserved baseline files
 

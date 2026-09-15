@@ -24,7 +24,7 @@ MAX_NAME_LENGTH = 64
 MAX_DESCRIPTION_LENGTH = 1024
 MAX_SKILL_MD_LINES = 500
 
-TIERS = ("neutral", "buildr-connected")
+TIERS = ("neutral",)
 
 # Mirrors STAGES in the buildr.com marketing site (src/lib/library.ts) so the
 # /skills catalog and the /library section share one workflow taxonomy.
@@ -158,7 +158,7 @@ def _validate_frontmatter(skill_root: Path, frontmatter: Any, body: str) -> list
     if tier == "neutral" and re.search(r"\bbuildr\b", body, re.IGNORECASE):
         errors.append(
             "neutral-tier skills must not mention Buildr in the SKILL.md body; "
-            "product tie-ins belong in the catalog, or set metadata.tier to buildr-connected"
+            "product tie-ins belong in the catalog; shipped skills must not require Buildr"
         )
 
     return errors

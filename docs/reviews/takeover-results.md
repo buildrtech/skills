@@ -1,4 +1,4 @@
-> Historical audit: the connectors skill and its evaluation artifacts were removed on 2026-09-13. The current catalog has eight skills; original aggregate results below describe the earlier audit.
+> Historical audit: connectors and the two Buildr-dependent skills have been removed, together with their dedicated evaluation artifacts. The current catalog has six skills; aggregate results below describe the earlier audit.
 
 # Nine-skill takeover results
 
@@ -14,12 +14,10 @@ were created; their IDs and ownership are in the linked audit.
 |---|---|---|---|
 | bid-leveling | Submission identity and printed alternate reconciliation | 14 tests including XLSX; 8 fixture expectations | Claude 8/8 → 8/8 tie; Codex artifact tie, quota interruption |
 | drawing-scope-extraction | Readability-backed inclusion and safe validation | 6 CLI tests; 6 fixture expectations | 7/8 → 8/8 |
-| financial-forecasting | Cumulative units, as-of margins, undefined values | 6 arithmetic/CLI tests | Claude 8/8 → 8/8 tie; extra commentary caveats |
 | pay-app-review | Missing values and prior certificates | 8 CLI tests; 6 fixture expectations | Codex 6/6 → 6/6 tie |
 | precon-pdf-templates | Exact cents, theme selection, honest rendering | 12 renderer cases; 9 fixture expectations | 10/10 → 10/10 tie |
 | rfi-drafter | Conditional spec applicability and missed deadlines | 4 regressions; 9 fixture expectations | 8/8 → 8/8 tie |
 | rfp-intake | Completeness, superseding addenda, recommendation | 7 tests; 6 fixture expectations | 15/15 → 15/15 tie |
-| workforce-planning | Bench/time-off intervals, residual demand | 12 timeline/CLI tests | Seven shared controls tie; conflicting demand action corrected |
 
 Each skill's `evals/reviews/<skill>/REPORT.md` records changes, evidence, baseline
 hashes, execution IDs, and limitations. Fresh pairs use unfamiliar synthetic

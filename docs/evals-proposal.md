@@ -4,7 +4,7 @@ Status: draft for discussion, September 2026. Nothing here is built yet.
 
 ## What I looked at
 
-- This repo: eight v1 skills. Every skill ships `examples/sample-prompts.md`
+- This repo: six v1 skills. Every skill ships `examples/sample-prompts.md`
   (trigger and non-trigger prompts) and a `samples/` pair (synthetic input,
   expected output). Four skills ship deterministic scripts
   (`check_pay_app.py`, `level_bids.py`, `scope_list.py`, the template
@@ -113,15 +113,13 @@ from the agent's own claims.
 | rfp-intake | new solicitation | key dates, bond and insurance thresholds, and required forms match the fixture, each with a page or section citation; scorecard present; contains the not-legal-advice line | risks are grounded |
 | rfi-drafter | new conflict description | cites only sheets and spec paragraphs supplied; RFI log row present | proposed resolution is supported or explicitly withheld |
 | precon-pdf-templates | budget JSON | data validates against the shipped schema; `render.mjs` output exists and is non-empty; PDF or HTML present | design review notes applied |
-| workforce-planning | mock Buildr MCP server with seeded people, assignments, and demand | utilization and bench numbers recomputed from the seed; no `execute` write calls | report follows the template |
-| financial-forecasting | mock Buildr MCP server with seeded forecasts and actuals | over and under billing recomputed from the seed; closed-period actuals untouched | narrative matches the numbers |
 
 The shipped `samples/` become `solution/solve.sh` inputs for the oracle run
 and a smoke test, not scored cases.
 
 ### B. Trigger tasks
 
-All eight skills installed together, as the marketplace `all` plugin does.
+All six skills installed together, as the marketplace `all` plugin does.
 Prompts come from each skill's `examples/sample-prompts.md` and are labeled
 by the four buckets: explicit, implicit, contextual, negative control. The
 verifier reads the ATIF trajectory and records which `SKILL.md` was read.
@@ -162,7 +160,7 @@ Rewardkit, with one directory per dimension:
 ```
 tests/
   test.sh                      # uvx --with harbor-rewardkit rewardkit /tests
-  reward.toml                  # reward = all-pass(correctness, boundaries); soft_score = weighted mean
+  reward.toml                  # reward = all-pass(correctness, boundaries); soft_score = wsixed mean
   correctness/checks.py        # recompute from hidden fixture
   grounding/checks.py          # provenance of every number and citation
   grounding/judge.toml         # bounded semantic questions only
@@ -218,14 +216,14 @@ tasks never vendor a copy.
 | 0 | Install Harbor, base image, one pay-app-review task end to end with `nop`, `oracle`, `claude-code`, `codex`; six verifier fixtures pass | First real trajectory read in full and classified |
 | 1 | Outcome tasks for the seven neutral skills, both CLI lanes, with and without skill; `report.py`; nightly job on Modal or Daytona | Skill lift table per skill |
 | 2 | `claude_chat` and `chatgpt_chat` agents; rerun phase 1 tasks | Four-lane table; manual checklist written and run once |
-| 3 | Trigger suite, mock Buildr and Procore MCP servers, grounding and boundary tasks | Trigger precision and recall per skill; connected skills scored |
+| 3 | Trigger suite, grounding and boundary tasks | Trigger precision and recall per skill |
 | 4 | Simulated-user tasks; PR gate that runs a one-trial subset when `skills/**` changes | Regressions surface on the PR |
 
 Rough size of a full run and what it costs:
 
 | Item | Estimate |
 |---|---|
-| Tasks | 8 skills x about 3 cases, plus trigger and boundary sets, about 45 |
+| Tasks | 6 skills x about 3 cases, plus trigger and boundary sets, about 45 |
 | Trials per full run | 45 tasks x 4 lanes x 2 conditions x 3 attempts, about 1,080 |
 | Cost per full run | roughly $300 to $1,200 depending on models and judge |
 | Nightly subset | 1 attempt, CLI lanes only, roughly a tenth of that |
