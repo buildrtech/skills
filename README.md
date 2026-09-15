@@ -47,7 +47,9 @@ text and inputs as attachments; script or PDF workflows still require a runtime.
 | [rfi-drafter](skills/rfi-drafter) | Operations, Preconstruction | Draft a source-backed RFI and matching log row with a supported proposal, clear deadlines, and unresolved conditions made explicit. |
 | [rfp-intake](skills/rfp-intake) | Business development, Preconstruction | Turn a solicitation and its addenda into a cited bid/no-bid review with current requirements, risks, and a conditional recommendation. |
 
-The catalog contains six skills. See [ROADMAP.md](ROADMAP.md) for what is next.
+| [workforce-planning](skills/workforce-planning) | Workforce, Operations | Compare available people with project demand and propose feasible staffing moves from supplied schedules. |
+
+The catalog contains seven skills. See [ROADMAP.md](ROADMAP.md) for what is next.
 
 ## Requirements
 
