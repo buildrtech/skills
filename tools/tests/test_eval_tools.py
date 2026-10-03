@@ -27,7 +27,7 @@ class EvalToolsTest(unittest.TestCase):
     def test_default_task_separator_and_private_arguments(self):
         result, diagnostics = self.run_wrapper(['nop', 'with-skills', '--', '--one-off-secret', 'NAME=synthetic-secret'])
         args = result['args']
-        self.assertEqual(args[args.index('-p') + 1], 'evals/tasks/pay-app-review/harborview-app3')
+        self.assertEqual(args[args.index('-p') + 1], 'evals/tasks/rfp-intake/brannock-fire-station-4')
         self.assertEqual(args[-2:], ['--one-off-secret', 'NAME=synthetic-secret'])
         self.assertNotIn('synthetic-secret', diagnostics)
         self.assertEqual(args[args.index('-n') + 1], '1')
@@ -35,7 +35,7 @@ class EvalToolsTest(unittest.TestCase):
     def test_default_without_separator_and_explicit_without_extras(self):
         default, _ = self.run_wrapper(['nop', 'baseline'])
         explicit, _ = self.run_wrapper(['oracle', 'baseline', 'evals/tasks/example'])
-        self.assertEqual(default['args'][2], 'evals/tasks/pay-app-review/harborview-app3')
+        self.assertEqual(default['args'][2], 'evals/tasks/rfp-intake/brannock-fire-station-4')
         self.assertEqual(explicit['args'][2], 'evals/tasks/example')
 
     def test_explicit_task_and_api_key_precedence(self):

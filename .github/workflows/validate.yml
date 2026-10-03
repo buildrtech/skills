@@ -24,3 +24,8 @@ jobs:
         run: python3 -m unittest discover -s tools/tests -v
       - name: Test rescoring with the pinned verifier
         run: python3 evals/reviews/test_rescore.py
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Test proposal data validation
+        run: node --test evals/tasks/proposal-builder/validate.test.mjs

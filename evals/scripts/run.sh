@@ -21,7 +21,7 @@ set -euo pipefail
 lane="${1:?lane}"
 cond="${2:?with-skills|baseline}"
 shift 2
-task="evals/tasks/pay-app-review/harborview-app3"
+task="evals/tasks/rfp-intake/brannock-fire-station-4"
 if [ "$#" -gt 0 ] && [ "$1" != "--" ]; then
   task="$1"
   shift

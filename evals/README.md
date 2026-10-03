@@ -31,7 +31,7 @@ evals/
 | `oracle` | built in | runs `solution/solve.sh`; proves the reference scores 1 |
 | `nop` | built in | does nothing; proves an empty workspace scores 0 |
 
-Every task runs in two conditions: `with-skills` (all nine skills injected,
+Every task runs in two conditions: `with-skills` (all five skills injected,
 mirroring the marketplace `all` plugin) and `baseline` (no skills). The
 difference is the skill's lift.
 
@@ -39,7 +39,7 @@ difference is the skill's lift.
 
 ```bash
 uv tool install harbor            # 0.20.0 or later
-python3 evals/scripts/check_fixtures.py evals/tasks/pay-app-review/harborview-app3
+python3 evals/scripts/check_fixtures.py evals/tasks/rfp-intake/brannock-fire-station-4
 evals/scripts/run.sh nop with-skills
 evals/scripts/run.sh oracle with-skills
 evals/scripts/run.sh claude-code with-skills
@@ -62,7 +62,7 @@ header of `run.sh`. Nothing is printed.
 
 ## Writing a task
 
-1. Copy `tasks/pay-app-review/harborview-app3` and fill in `Task.md` first.
+1. Copy `tasks/rfp-intake/brannock-fire-station-4` and fill in `Task.md` first.
 2. Inputs must be new synthetic data. The shipped `samples/` inside a skill
    are visible to the agent and cannot be the eval input.
 3. Verifier truth comes from a hidden fixture under `tests/fixtures/`, never

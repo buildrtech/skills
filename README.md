@@ -42,14 +42,11 @@ text and inputs as attachments; script or PDF workflows still require a runtime.
 |---|---|---|
 | [bid-leveling](skills/bid-leveling) | Preconstruction, Estimating | Compare subcontractor bids on a common scope basis, with sourced plugs, unresolved gaps, and traceable alternate prices. |
 | [drawing-scope-extraction](skills/drawing-scope-extraction) | Preconstruction, Estimating | Turn drawing sheets into a cited scope list by CSI division, with exclusions, open questions, and review coverage. |
-| [pay-app-review](skills/pay-app-review) | Operations, Forecasting | Review a progress payment application for billing discrepancies and missing documents, with a sourced hold list for a human decision. |
-| [precon-pdf-templates](skills/precon-pdf-templates) | Business development, Preconstruction, Estimating | Turn supplied construction budgets, proposals, reports, milestone estimates, and team bios into print-ready documents with source figures preserved. |
-| [rfi-drafter](skills/rfi-drafter) | Operations, Preconstruction | Draft a source-backed RFI and matching log row with a supported proposal, clear deadlines, and unresolved conditions made explicit. |
+| [proposal-builder](skills/proposal-builder) | Business development, Estimating | Build polished construction proposal PDFs with pdfcn, sourced scope, pricing and qualifications. |
 | [rfp-intake](skills/rfp-intake) | Business development, Preconstruction | Turn a solicitation and its addenda into a cited bid/no-bid review with current requirements, risks, and a conditional recommendation. |
-
 | [workforce-planning](skills/workforce-planning) | Workforce, Operations | Compare available people with project demand and propose feasible staffing moves from supplied schedules. |
 
-The catalog contains seven skills. See [ROADMAP.md](ROADMAP.md) for what is next.
+The catalog contains five skills. See [ROADMAP.md](ROADMAP.md) for what is next.
 
 ## Requirements
 
