@@ -1,7 +1,7 @@
 # Cedar Hollow construction proposal
 
 Fictional five-page proposal rendered with pdfcn and Forme. The base offer is
-**USD 144,500.25**, including a **USD -1,250.50** credit. The **USD 8,425.50**
+**$144,500.25**, including a **–$1,250.50** credit. The **$8,425.50**
 acoustic upgrade remains a separate option. Scope, team, schedule, qualifications
 and unresolved decisions are included; this is a draft, not an issued offer.
 
