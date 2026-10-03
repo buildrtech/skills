@@ -13,7 +13,7 @@ ROOT = Path(__file__).resolve().parents[2]
 spec = importlib.util.spec_from_file_location("rescore", ROOT / "evals/scripts/rescore.py")
 rescore = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(rescore)
-TASK = ROOT / "evals/tasks/rfi-drafter/sable-creek-rfi-023"
+TASK = ROOT / "evals/tasks/rfp-intake/brannock-fire-station-4"
 
 
 class RescoreIntegrationTest(unittest.TestCase):
@@ -22,7 +22,7 @@ class RescoreIntegrationTest(unittest.TestCase):
             trial = Path(tmp)
             output = trial / "artifacts/app/output"
             output.mkdir(parents=True)
-            shutil.copy2(TASK / "solution/reference-rfi-023.md", output / "rfi-023.md")
+            shutil.copy2(TASK / "solution/reference-intake-review.md", output / "intake-review.md")
             exception = {"exception_type": "RewardFileNotFoundError"}
             record = {
                 "config": {"task": {"path": str(TASK)}},
