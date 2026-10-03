@@ -6,12 +6,12 @@
   },
   "metadata": {
     "description": "Construction skills for AI agents: document-based estimating and project controls workflows. No Buildr account required.",
-    "version": "0.3.0"
+    "version": "0.4.0"
   },
   "plugins": [
     {
       "name": "precon",
-      "description": "Preconstruction and estimating skills that work with the documents you hand your agent: RFP intake and go/no-go review, bid leveling, drawing scope extraction, and precon PDF templates.",
+      "description": "Document-based RFP intake, bid leveling, drawing scope extraction and polished construction proposals.",
       "source": "./",
       "strict": false,
       "category": "construction",
@@ -27,26 +27,22 @@
         "./skills/rfp-intake",
         "./skills/bid-leveling",
         "./skills/drawing-scope-extraction",
-        "./skills/precon-pdf-templates"
+        "./skills/proposal-builder"
       ]
     },
     {
       "name": "project-controls",
-      "description": "Document-based project execution skills: RFI drafting, pay application review, and workforce planning.",
+      "description": "Workforce planning from supplied rosters, schedules and project demand.",
       "source": "./",
       "strict": false,
       "category": "construction",
       "keywords": [
         "construction",
-        "rfi",
-        "pay-application",
-        "g702",
-        "mcp",
+        "workforce",
+        "staffing",
         "project-controls"
       ],
       "skills": [
-        "./skills/rfi-drafter",
-        "./skills/pay-app-review",
         "./skills/workforce-planning"
       ]
     },
@@ -67,10 +63,8 @@
         "./skills/rfp-intake",
         "./skills/bid-leveling",
         "./skills/drawing-scope-extraction",
-        "./skills/precon-pdf-templates",
-        "./skills/rfi-drafter",
-        "./skills/pay-app-review",
-        "./skills/workforce-planning"
+        "./skills/workforce-planning",
+        "./skills/proposal-builder"
       ]
     }
   ]
