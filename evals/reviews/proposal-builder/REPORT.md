@@ -7,16 +7,17 @@ Pay App Review and RFI Drafter and their task/review directories are removed.
 Renderer: pdfcn registry `39c75c1abbbad7b89ad1d8d3ea740ef635818a4b`, Forme
 0.25.0, React 19.2.5, tsx 4.21.0. A fresh workspace setup using the committed
 lockfile succeeded, then the bundled sample rendered to five Letter pages.
-Poppler extracted the base USD 144,500.25, credit USD -1,250.50 and separate
-option USD 8,425.50. All five page images were inspected. The HTML preview is
+Poppler extracted the base $144,500.25, credit –$1,250.50 and separate
+option $8,425.50; `pdffonts` confirmed Helvetica and Times faces. All five page images were inspected. The HTML preview is
 regenerated from actual PDF pages by `refresh-preview.py`.
 
 Three Node tests cover exact cents/option exclusion, invalid structures/missing
 sources/duplicate IDs/unsafe numbers/status and input immutability. Shared
 Python tooling tests: 11 passed. All five skills and marketplace validate.
 
-An additional synthetic 45-row commercial schedule rendered to eight pages;
-all 45 row labels survived text extraction. This is a deterministic pagination
+An additional synthetic probe (45 price rows, seven rows in every narrative
+section) rendered to eleven pages; all 45 row labels survived text extraction
+and no section heading was stranded at a page foot. This is a deterministic pagination
 probe, not a claim that arbitrary long proposals are visually approved. Longer
 commercial tables require repeated headings and page-by-page design review;
 the instructions require editing the workspace template and re-rendering.
