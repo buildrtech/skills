@@ -33,3 +33,5 @@ jobs:
         run: node --test evals/tasks/workforce-planning/staffing-core.test.mjs
       - name: Test bid leveling calculations and tab build
         run: node --test evals/tasks/bid-leveling/leveling-core.test.mjs
+      - name: Test RFP intake gates, scoring, and brief
+        run: node --test evals/tasks/rfp-intake/intake.test.mjs

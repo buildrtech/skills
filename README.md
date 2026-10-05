@@ -43,7 +43,7 @@ text and inputs as attachments; script or PDF workflows still require a runtime.
 | [bid-leveling](skills/bid-leveling) | Preconstruction, Estimating | Level sub bids on bid day. See every scope gap, accept or enter plugs, and find out who is really low once the scope matches. |
 | [drawing-scope-extraction](skills/drawing-scope-extraction) | Preconstruction, Estimating | Turn drawing sheets into a cited scope list by CSI division, with exclusions, open questions, and review coverage. |
 | [proposal-builder](skills/proposal-builder) | Business development, Estimating | Build polished construction proposal PDFs with pdfcn, sourced scope, pricing and qualifications. |
-| [rfp-intake](skills/rfp-intake) | Business development, Preconstruction | Turn a solicitation and its addenda into a cited bid/no-bid review with current requirements, risks, and a conditional recommendation. |
+| [rfp-intake](skills/rfp-intake) | Business development, Preconstruction | Prep the go/no-go meeting. Check the must-pass gates, score the opportunity on your criteria, and get a cited brief with dates, addenda changes, risks, and questions. |
 | [workforce-planning](skills/workforce-planning) | Workforce, Operations | Prep the staffing meeting: who is overloaded, which jobs have empty seats, who rolls off when, and what changes if you win the pursuits you are chasing. |
 
 The catalog contains five skills. See [ROADMAP.md](ROADMAP.md) for what is next.
