@@ -1,0 +1,1335 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>09A Metal framing and gypsum board bid tab</title>
+<style>
+:root {
+  --ink: #1d2422; --muted: #5d6865; --line: #dde3e1; --paper: #ffffff; --wash: #f5f7f6;
+  --accent: #1f5f4f; --warn: #8a5300; --warn-bg: #fff4e5; --gap: #fbe3df; --plugged: #e6f2ec; --low: #eef7f2;
+  font: 15px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; color: var(--ink); background: var(--wash);
+}
+* { box-sizing: border-box; }
+body { margin: 0; }
+main { max-width: 1320px; margin: 0 auto; padding: 24px clamp(12px, 3vw, 32px) 48px; }
+h1 { font-size: 28px; line-height: 1.15; margin: 4px 0 6px; letter-spacing: -0.01em; }
+h2 { font-size: 18px; margin: 0 0 8px; }
+h3 { font-size: 15px; margin: 0 0 6px; }
+section { background: var(--paper); border: 1px solid var(--line); border-radius: 8px; padding: 18px 20px; margin-top: 16px; }
+.eyebrow { margin: 0; color: var(--muted); font-size: 13px; letter-spacing: .02em; }
+.summary { margin: 0; color: var(--muted); max-width: 70ch; }
+.summary strong { color: var(--ink); }
+.top { display: flex; flex-wrap: wrap; gap: 16px; justify-content: space-between; align-items: flex-end; }
+.actions { display: flex; flex-wrap: wrap; gap: 8px; }
+button, .file { font: inherit; font-size: 14px; border: 1px solid var(--line); background: var(--paper); color: var(--ink); border-radius: 6px; padding: 7px 12px; min-height: 36px; cursor: pointer; }
+button:hover, .file:hover { border-color: var(--accent); }
+button.small { min-height: 28px; padding: 2px 10px; font-size: 13px; margin-left: 4px; }
+button[type="submit"] { background: var(--accent); border-color: var(--accent); color: #fff; }
+button:focus-visible, input:focus-visible, select:focus-visible, a:focus-visible, .file:focus-within { outline: 2px solid var(--accent); outline-offset: 2px; }
+.file input { position: absolute; width: 1px; height: 1px; opacity: 0; }
+.file { position: relative; display: inline-flex; align-items: center; }
+.status { min-height: 1.5em; margin: 8px 0 0; color: var(--accent); font-size: 14px; }
+.hint, .empty { color: var(--muted); font-size: 14px; margin: 0 0 10px; max-width: 80ch; }
+.sub { display: block; color: var(--muted); font-size: 12px; font-weight: normal; }
+.gap .sub, .plug .sub, .suggest .sub, td .sub.inline, .moves .sub, h2 .sub, h3 .sub, .evidence .sub { display: inline; }
+.pill { font-size: 11px; text-transform: uppercase; letter-spacing: .04em; color: var(--accent); border: 1px solid currentColor; border-radius: 999px; padding: 1px 6px; margin-left: 4px; white-space: nowrap; }
+.ref { font: 600 11px/1 ui-monospace, SFMono-Regular, Menlo, monospace; color: var(--accent); text-decoration: none; border: 1px solid var(--line); border-radius: 4px; padding: 1px 4px; margin-left: 2px; white-space: nowrap; }
+.ref:hover { border-color: var(--accent); }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+.table-wrap { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; font-size: 14px; }
+th, td { text-align: left; vertical-align: top; padding: 8px 10px; border-bottom: 1px solid var(--line); }
+thead th { font-size: 12px; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); font-weight: 600; }
+tbody th { font-weight: 600; }
+.num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+td.total { font-weight: 700; }
+tr.low { background: var(--low); }
+td.ok { color: var(--accent); font-weight: 600; }
+td.warn { color: var(--warn); }
+td.num.warn { background: var(--warn-bg); }
+tr.group th { background: var(--wash); font-size: 12px; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); }
+.matrix td { font-size: 13px; min-width: 140px; }
+.matrix td.gap { background: var(--gap); }
+.matrix td.plugged { background: var(--plugged); }
+.matrix td.st-included { color: var(--ink); }
+.matrix td.st-omitted, .matrix td.st-unknown { font-style: italic; }
+
+.gaps { list-style: none; margin: 0 0 12px; padding: 0; display: grid; gap: 8px; }
+.gap { padding: 10px 12px; border: 1px solid var(--line); border-left: 4px solid var(--warn); border-radius: 6px; }
+.gap.done { border-left-color: var(--accent); padding: 6px 12px; }
+.gap.done .says { font-size: 13px; }
+.warn-note { background: var(--warn-bg); border-radius: 6px; padding: 6px 10px; margin: 8px 0 0; color: var(--ink); }
+.gap p { margin: 4px 0 0; font-size: 14px; }
+.gap .says { color: var(--muted); }
+.suggest.none { color: var(--muted); font-style: italic; }
+.plug-form { display: grid; grid-template-columns: minmax(110px, 160px) minmax(180px, 1fr) auto; gap: 8px; align-items: end; margin-top: 8px; }
+.adj-form { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); margin-top: 12px; }
+.plug-form label { display: grid; gap: 2px; font-size: 12px; color: var(--muted); }
+.plug-form input, .plug-form select { width: 100%; min-width: 0; font: inherit; font-size: 14px; color: var(--ink); padding: 6px 8px; border: 1px solid var(--line); border-radius: 6px; min-height: 36px; background: var(--paper); }
+.plug-form.inline { grid-template-columns: 110px minmax(140px, 1fr) auto; margin: 0; text-align: left; }
+.moves { list-style: none; padding: 0; margin: 0; display: grid; gap: 6px; }
+.moves li { display: flex; justify-content: space-between; gap: 12px; align-items: center; padding: 6px 10px; border: 1px solid var(--line); border-radius: 6px; font-size: 14px; }
+
+.basis { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin: 14px 0 6px; }
+.segmented { display: inline-flex; border: 1px solid var(--line); border-radius: 6px; padding: 0; margin: 0; overflow: hidden; }
+.seg { position: relative; padding: 5px 10px; font-size: 13px; cursor: pointer; border-right: 1px solid var(--line); }
+.seg:last-of-type { border-right: 0; }
+.seg input { position: absolute; opacity: 0; inset: 0; cursor: pointer; }
+.seg.on { background: var(--accent); color: #fff; }
+.seg:focus-within { outline: 2px solid var(--accent); outline-offset: -2px; }
+.toggle { display: inline-flex; gap: 6px; align-items: center; font-size: 14px; white-space: nowrap; }
+.toggle input { width: 18px; height: 18px; accent-color: var(--accent); }
+
+.bidders { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
+.bidder { border: 1px solid var(--line); border-radius: 6px; padding: 12px 14px; }
+.flags { margin: 0 0 8px; padding: 8px 12px 8px 28px; background: var(--warn-bg); border-radius: 6px; font-size: 14px; }
+.questions { margin: 0; padding-left: 20px; font-size: 14px; }
+.questions li + li, .flags li + li { margin-top: 4px; }
+.quals { font-size: 14px; padding-left: 20px; }
+.evidence { margin: 0; font-size: 13px; }
+.evidence div { padding: 6px 0; border-bottom: 1px solid var(--line); scroll-margin-top: 16px; }
+.evidence div:target { background: var(--warn-bg); }
+.evidence dt { font-weight: 600; }
+.evidence dd { margin: 2px 0 0; color: #2b3532; }
+.foot { color: var(--muted); font-size: 13px; margin-top: 16px; }
+.nojs-note { display: none; }
+
+/* Without JavaScript (for example a sandboxed preview) the tab stays readable but static. */
+html:not(.js) .actions, html:not(.js) .plug-form, html:not(.js) button { display: none; }
+html:not(.js) .segmented, html:not(.js) .toggle { pointer-events: none; }
+html:not(.js) .nojs-note { display: block; background: #eef4f2; border: 1px solid var(--line); border-radius: 6px; padding: 8px 12px; margin-bottom: 12px; font-size: 14px; }
+
+@media (max-width: 640px) {
+  .plug-form, .plug-form.inline { grid-template-columns: 1fr; }
+}
+@media print {
+  :root { background: #fff; }
+  .actions, .plug-form, button, .status { display: none !important; }
+  section { break-inside: avoid; border: 0; padding: 8px 0; }
+}
+</style>
+</head>
+<body>
+<main>
+<p class="nojs-note">Static preview. Open this file in a browser to accept plugs, toggle alternates, carry tax and bond, and export to Excel.</p>
+<div id="app"><header class="top"><div>
+<p class="eyebrow">Bid tab · Cedar Hollow Family Health Clinic · as of 2026-08-22</p>
+<h1>09A Metal framing and gypsum board</h1>
+<p class="summary"><strong>Lowest complete leveled total: Prairie Wall &amp; Ceiling Co. at $833,700.</strong> 1 bid is still incomplete. 4 suggestions wait for your review.</p>
+</div>
+<div class="actions">
+<button type="button" id="export-json">Export scenario</button>
+<label class="file">Import scenario<input type="file" id="import-json" accept="application/json,.json"></label>
+<button type="button" id="export-xlsx">Export to Excel</button>
+<button type="button" id="reset">Reset</button>
+</div></header>
+<p class="status" id="status" role="status" aria-live="polite"></p>
+<section aria-labelledby="totals-h"><h2 id="totals-h">Leveled totals</h2>
+<p class="hint">Leveled total = base bid + plugs + adjustments + accepted alternates + common-basis items. Suggested plugs don't count until you accept them.</p>
+<div class="table-wrap"><table><thead><tr><th scope="col">Bidder</th><th scope="col" class="num">Base bid</th><th scope="col" class="num">Plugs</th><th scope="col" class="num">Adjustments</th><th scope="col" class="num">Alternates</th><th scope="col" class="num">Basis</th><th scope="col" class="num">Leveled total</th><th scope="col">Status</th><th scope="col" class="num">If suggestions accepted</th></tr></thead><tbody>
+<tr><th scope="row">Northgate Drywall &amp; Acoustics<span class="sub">northgate-proposal.pdf</span></th>
+<td class="num">$842,500 <a class="ref" href="#ev-northgate-NG-6">NG-6</a></td><td class="num">$51,000</td><td class="num">$0</td><td class="num">$0</td><td class="num">$0</td>
+<td class="num total">$893,500</td><td class="ok">Complete</td>
+<td class="num">$893,500</td></tr>
+<tr class="low"><th scope="row">Prairie Wall &amp; Ceiling Co. <span class="pill">Lowest complete</span><span class="sub">prairie-cover-email.eml, prairie-bid-form.xlsx</span></th>
+<td class="num">$871,200 <a class="ref" href="#ev-prairie-PW-13">PW-13</a></td><td class="num">$8,500</td><td class="num">-$46,000</td><td class="num">$0</td><td class="num">$0</td>
+<td class="num total">$833,700</td><td class="ok">Complete</td>
+<td class="num">$833,700</td></tr>
+<tr><th scope="row">Summit Interior Systems, LLC<span class="sub">summit-quote-email.eml</span></th>
+<td class="num">$798,000 <a class="ref" href="#ev-summit-SI-1">SI-1</a></td><td class="num">$45,900</td><td class="num">$0</td><td class="num">$0</td><td class="num">$0</td>
+<td class="num total">$843,900</td><td class="ok">Complete</td>
+<td class="num">$843,900</td></tr>
+<tr><th scope="row">Ridgeline Interiors<span class="sub">ridgeline-revised-email.eml</span></th>
+<td class="num">$789,500 <a class="ref" href="#ev-ridgeline-rev-RR-1">RR-1</a></td><td class="num">$0</td><td class="num">$0</td><td class="num">$0</td><td class="num">$0</td>
+<td class="num total">$789,500</td><td class="warn">Incomplete: 8 open items</td>
+<td class="num">$851,200 <span class='sub'>still incomplete</span></td></tr>
+</tbody></table></div>
+<p class="hint warn-note">Performance and payment bond is not on a common basis: included by Prairie Wall &amp; Ceiling Co.; excluded by Northgate Drywall &amp; Acoustics (adds 1.5%), Ridgeline Interiors; not stated by Summit Interior Systems, LLC. Carry it below to level it.</p>
+<p class="hint warn-note">Sales tax on materials is not on a common basis: included by Northgate Drywall &amp; Acoustics, Prairie Wall &amp; Ceiling Co.; excluded by Summit Interior Systems, LLC; not stated by Ridgeline Interiors. Carry it below to level it.</p>
+<p class="hint">Superseded and not leveled: Ridgeline Interiors (ridgeline-email.eml).</p>
+</section>
+<section aria-labelledby="gaps-h"><h2 id="gaps-h">Gaps and plugs <span class="sub">8 open gaps</span></h2>
+<p class="hint">Each gap is scope the package needs that a bid excludes, doesn't mention or leaves unclear. Accept a suggestion, enter your own figure with its source, or leave it open and ask the bidder.</p>
+<ul class="gaps">
+<li class="gap open"><div class="gap-head"><strong>Ridgeline Interiors</strong> · Level 5 finish at two-story lobby (Addendum 2)</div>
+<p class="says">Unclear: only &quot;per plans and specs thru Addendum 2&quot; <a class="ref" href="#ev-ridgeline-rev-RR-1">RR-1</a></p>
+<p class="suggest none">Unclear in the bid, so no suggestion. Ask the bidder, or enter your own figure.</p>
+<form class="plug-form" data-plug="ridgeline-rev:level5_lobby"><label>Plug<input name="amount" id="amt-ridgeline-rev--level5_lobby" inputmode="decimal" placeholder="$0" autocomplete="off"></label><label class="wide">Source<input name="source" id="src-ridgeline-rev--level5_lobby" placeholder="e.g. our estimate, line 06 10 00" autocomplete="off"></label><button type="submit">Use</button></form>
+</li>
+<li class="gap open"><div class="gap-head"><strong>Ridgeline Interiors</strong> · Shaft wall at elevator and mechanical shafts</div>
+<p class="says">Unclear: only &quot;per plans and specs&quot; <a class="ref" href="#ev-ridgeline-rev-RR-1">RR-1</a></p>
+<p class="suggest none">Unclear in the bid, so no suggestion. Ask the bidder, or enter your own figure.</p>
+<form class="plug-form" data-plug="ridgeline-rev:shaft_wall"><label>Plug<input name="amount" id="amt-ridgeline-rev--shaft_wall" inputmode="decimal" placeholder="$0" autocomplete="off"></label><label class="wide">Source<input name="source" id="src-ridgeline-rev--shaft_wall" placeholder="e.g. our estimate, line 06 10 00" autocomplete="off"></label><button type="submit">Use</button></form>
+</li>
+<li class="gap open"><div class="gap-head"><strong>Ridgeline Interiors</strong> · Sound attenuation batts in partitions</div>
+<p class="says">Excluded: &quot;Excludes insulation&quot; <a class="ref" href="#ev-ridgeline-rev-RR-2">RR-2</a></p>
+<p class="suggest">Suggested $22,800 <span class="sub">Prairie Wall &amp; Ceiling Co.&#39;s itemized line (PW-5), the only itemized price for this scope. A leveling figure, not a price from Ridgeline Interiors.</span> <button type="button" class="small" data-accept-plug="ridgeline-rev:sound_batts">Accept</button></p>
+<form class="plug-form" data-plug="ridgeline-rev:sound_batts"><label>Plug<input name="amount" id="amt-ridgeline-rev--sound_batts" inputmode="decimal" placeholder="$0" autocomplete="off"></label><label class="wide">Source<input name="source" id="src-ridgeline-rev--sound_batts" placeholder="e.g. our estimate, line 06 10 00" autocomplete="off"></label><button type="submit">Use</button></form>
+</li>
+<li class="gap open"><div class="gap-head"><strong>Ridgeline Interiors</strong> · In-wall blocking for casework and equipment</div>
+<p class="says">Not mentioned <a class="ref" href="#ev-ridgeline-rev-RR-3">RR-3</a></p>
+<p class="suggest none">No other bid itemizes this scope. Enter your own figure, or ask the bidder.</p>
+<form class="plug-form" data-plug="ridgeline-rev:blocking"><label>Plug<input name="amount" id="amt-ridgeline-rev--blocking" inputmode="decimal" placeholder="$0" autocomplete="off"></label><label class="wide">Source<input name="source" id="src-ridgeline-rev--blocking" placeholder="e.g. our estimate, line 06 10 00" autocomplete="off"></label><button type="submit">Use</button></form>
+</li>
+<li class="gap open"><div class="gap-head"><strong>Ridgeline Interiors</strong> · Lifts and scaffolding for own work</div>
+<p class="says">Not mentioned <a class="ref" href="#ev-ridgeline-rev-RR-3">RR-3</a></p>
+<p class="suggest">Suggested $22,400 <span class="sub">Prairie Wall &amp; Ceiling Co.&#39;s itemized line (PW-7), the only itemized price for this scope. A leveling figure, not a price from Ridgeline Interiors.</span> <button type="button" class="small" data-accept-plug="ridgeline-rev:lifts">Accept</button></p>
+<form class="plug-form" data-plug="ridgeline-rev:lifts"><label>Plug<input name="amount" id="amt-ridgeline-rev--lifts" inputmode="decimal" placeholder="$0" autocomplete="off"></label><label class="wide">Source<input name="source" id="src-ridgeline-rev--lifts" placeholder="e.g. our estimate, line 06 10 00" autocomplete="off"></label><button type="submit">Use</button></form>
+</li>
+<li class="gap open"><div class="gap-head"><strong>Ridgeline Interiors</strong> · Daily cleanup to GC dumpster</div>
+<p class="says">Not mentioned <a class="ref" href="#ev-ridgeline-rev-RR-3">RR-3</a></p>
+<p class="suggest">Suggested $6,700 <span class="sub">Prairie Wall &amp; Ceiling Co.&#39;s itemized line (PW-8), the only itemized price for this scope. A leveling figure, not a price from Ridgeline Interiors.</span> <button type="button" class="small" data-accept-plug="ridgeline-rev:cleanup">Accept</button></p>
+<form class="plug-form" data-plug="ridgeline-rev:cleanup"><label>Plug<input name="amount" id="amt-ridgeline-rev--cleanup" inputmode="decimal" placeholder="$0" autocomplete="off"></label><label class="wide">Source<input name="source" id="src-ridgeline-rev--cleanup" placeholder="e.g. our estimate, line 06 10 00" autocomplete="off"></label><button type="submit">Use</button></form>
+</li>
+<li class="gap open"><div class="gap-head"><strong>Ridgeline Interiors</strong> · Exterior glass-mat gypsum sheathing</div>
+<p class="says">Unclear: only &quot;per plans and specs&quot; <a class="ref" href="#ev-ridgeline-rev-RR-1">RR-1</a></p>
+<p class="suggest none">Unclear in the bid, so no suggestion. Ask the bidder, or enter your own figure.</p>
+<form class="plug-form" data-plug="ridgeline-rev:sheathing"><label>Plug<input name="amount" id="amt-ridgeline-rev--sheathing" inputmode="decimal" placeholder="$0" autocomplete="off"></label><label class="wide">Source<input name="source" id="src-ridgeline-rev--sheathing" placeholder="e.g. our estimate, line 06 10 00" autocomplete="off"></label><button type="submit">Use</button></form>
+</li>
+<li class="gap open"><div class="gap-head"><strong>Ridgeline Interiors</strong> · Firestopping at this trade&#39;s rated penetrations</div>
+<p class="says">Excluded: &quot;Excludes ... firestopping&quot; <a class="ref" href="#ev-ridgeline-rev-RR-2">RR-2</a></p>
+<p class="suggest">Suggested $9,800 <span class="sub">Prairie Wall &amp; Ceiling Co.&#39;s itemized line (PW-10), the only itemized price for this scope. A leveling figure, not a price from Ridgeline Interiors.</span> <button type="button" class="small" data-accept-plug="ridgeline-rev:firestopping">Accept</button></p>
+<form class="plug-form" data-plug="ridgeline-rev:firestopping"><label>Plug<input name="amount" id="amt-ridgeline-rev--firestopping" inputmode="decimal" placeholder="$0" autocomplete="off"></label><label class="wide">Source<input name="source" id="src-ridgeline-rev--firestopping" placeholder="e.g. our estimate, line 06 10 00" autocomplete="off"></label><button type="submit">Use</button></form>
+</li>
+<li class="gap done"><div class="gap-head"><strong>Northgate Drywall &amp; Acoustics</strong> · Exterior glass-mat gypsum sheathing: plug $41,200 <button type="button" class="small" data-clear-plug="northgate:sheathing">Clear</button></div>
+<p class="says">Excluded: &quot;Exterior sheathing by others&quot; <a class="ref" href="#ev-northgate-NG-4">NG-4</a>. Accepted suggestion: Prairie Wall &amp; Ceiling Co.&#39;s itemized line (PW-9), the only itemized price for this scope. A leveling figure, not a price from Northgate Drywall &amp; Acoustics.</p>
+</li>
+<li class="gap done"><div class="gap-head"><strong>Northgate Drywall &amp; Acoustics</strong> · Firestopping at this trade&#39;s rated penetrations: plug $9,800 <button type="button" class="small" data-clear-plug="northgate:firestopping">Clear</button></div>
+<p class="says">Excluded: &quot;Firestopping NIC&quot; <a class="ref" href="#ev-northgate-NG-4">NG-4</a>. Accepted suggestion: Prairie Wall &amp; Ceiling Co.&#39;s itemized line (PW-10), the only itemized price for this scope. A leveling figure, not a price from Northgate Drywall &amp; Acoustics.</p>
+</li>
+<li class="gap done"><div class="gap-head"><strong>Prairie Wall &amp; Ceiling Co.</strong> · In-wall blocking for casework and equipment: plug $8,500 <button type="button" class="small" data-clear-plug="prairie:blocking">Clear</button></div>
+<p class="says">Excluded: Bid form row 6 reads &quot;By others&quot; <a class="ref" href="#ev-prairie-PW-6">PW-6</a>. Your figure: M. Reyes: our 8/1 estimate, line 06 10 00, self-perform carpentry takeoff for blocking</p>
+</li>
+<li class="gap done"><div class="gap-head"><strong>Summit Interior Systems, LLC</strong> · Level 5 finish at two-story lobby (Addendum 2): plug $14,600 <button type="button" class="small" data-clear-plug="summit:level5_lobby">Clear</button></div>
+<p class="says">Excluded: &quot;Level 4 finish throughout&quot; <a class="ref" href="#ev-summit-SI-3">SI-3</a>. Accepted suggestion: Prairie Wall &amp; Ceiling Co.&#39;s itemized line (PW-3), the only itemized price for this scope. A leveling figure, not a price from Summit Interior Systems, LLC.</p>
+</li>
+<li class="gap done"><div class="gap-head"><strong>Summit Interior Systems, LLC</strong> · Sound attenuation batts in partitions: plug $22,800 <button type="button" class="small" data-clear-plug="summit:sound_batts">Clear</button></div>
+<p class="says">Excluded: &quot;Insulation by others&quot; <a class="ref" href="#ev-summit-SI-3">SI-3</a>. Accepted suggestion: Prairie Wall &amp; Ceiling Co.&#39;s itemized line (PW-5), the only itemized price for this scope. A leveling figure, not a price from Summit Interior Systems, LLC.</p>
+</li>
+<li class="gap done"><div class="gap-head"><strong>Summit Interior Systems, LLC</strong> · In-wall blocking for casework and equipment: plug $8,500 <button type="button" class="small" data-clear-plug="summit:blocking">Clear</button></div>
+<p class="says">Not mentioned <a class="ref" href="#ev-summit-SI-5">SI-5</a>. Your figure: M. Reyes: our 8/1 estimate, line 06 10 00, self-perform carpentry takeoff for blocking</p>
+</li>
+</ul>
+</section>
+<section aria-labelledby="adj-h"><h2 id="adj-h">Adjustments</h2>
+<p class="hint">Changes to a bid for reasons other than a gap, such as removing work that belongs to another package.</p>
+<ul class="moves">
+<li><span><strong>Prairie Wall &amp; Ceiling Co.</strong> -$46,000: Remove acoustical ceilings (09 51 13, package 09B); it belongs to another package <span class="sub">(Prairie Wall &amp; Ceiling Co.&#39;s itemized line (PW-11))</span></span><button type="button" class="small" data-remove-adjustment="0">Remove</button></li>
+</ul>
+<form class="plug-form adj-form" id="adj-form"><label>Bidder<select name="bid" id="adj-bid"><option value="northgate">Northgate Drywall &amp; Acoustics</option><option value="prairie">Prairie Wall &amp; Ceiling Co.</option><option value="summit">Summit Interior Systems, LLC</option><option value="ridgeline-rev">Ridgeline Interiors</option></select></label><label>Amount<input name="amount" id="adj-amount" inputmode="decimal" placeholder="-$0" autocomplete="off"></label><label class="wide">What and why<input name="description" id="adj-desc" autocomplete="off"></label><label class="wide">Source<input name="source" id="adj-src" autocomplete="off"></label><button type="submit">Add adjustment</button></form></section>
+<section aria-labelledby="basis-h"><h2 id="basis-h">Tax, bond and other basis items</h2>
+<p class="hint">Choose whether every bid should carry each item. "Carry" adds it where a bid leaves it out, using the bidder's own stated amount or rate. Where the bid gives none, enter a figure.</p>
+<div class="basis"><fieldset class="segmented"><legend class="sr-only">Performance and payment bond</legend><label class="seg on"><input type="radio" name="basis-bond" value="asBid" data-basis="bond" checked>As bid</label><label class="seg"><input type="radio" name="basis-bond" value="carry" data-basis="bond">Carry in all bids</label></fieldset> <strong>Performance and payment bond</strong></div>
+<div class="table-wrap"><table><thead><tr><th scope="col">Bidder</th><th scope="col">Bid says</th><th scope="col" class="num">Added</th></tr></thead><tbody>
+<tr><th scope="row">Northgate Drywall &amp; Acoustics</th><td>Excluded; add 1.5% <a class="ref" href="#ev-northgate-NG-6">NG-6</a></td><td class="num">none</td></tr>
+<tr><th scope="row">Prairie Wall &amp; Ceiling Co.</th><td>Included ($12,700) <a class="ref" href="#ev-prairie-PW-12">PW-12</a></td><td class="num">none</td></tr>
+<tr><th scope="row">Summit Interior Systems, LLC</th><td>Not stated</td><td class="num">none</td></tr>
+<tr><th scope="row">Ridgeline Interiors</th><td>Excluded <a class="ref" href="#ev-ridgeline-rev-RR-2">RR-2</a></td><td class="num">none</td></tr>
+</tbody></table></div>
+<div class="basis"><fieldset class="segmented"><legend class="sr-only">Sales tax on materials</legend><label class="seg on"><input type="radio" name="basis-tax" value="asBid" data-basis="tax" checked>As bid</label><label class="seg"><input type="radio" name="basis-tax" value="carry" data-basis="tax">Carry in all bids</label></fieldset> <strong>Sales tax on materials</strong></div>
+<div class="table-wrap"><table><thead><tr><th scope="col">Bidder</th><th scope="col">Bid says</th><th scope="col" class="num">Added</th></tr></thead><tbody>
+<tr><th scope="row">Northgate Drywall &amp; Acoustics</th><td>Included <a class="ref" href="#ev-northgate-NG-6">NG-6</a></td><td class="num">none</td></tr>
+<tr><th scope="row">Prairie Wall &amp; Ceiling Co.</th><td>Included <a class="ref" href="#ev-prairie-PW-0">PW-0</a></td><td class="num">none</td></tr>
+<tr><th scope="row">Summit Interior Systems, LLC</th><td>Excluded <a class="ref" href="#ev-summit-SI-6">SI-6</a></td><td class="num">none</td></tr>
+<tr><th scope="row">Ridgeline Interiors</th><td>Not stated</td><td class="num">none</td></tr>
+</tbody></table></div>
+</section>
+<section aria-labelledby="alt-h"><h2 id="alt-h">Alternates</h2><p class="hint">Turn an alternate on to carry it in every leveled total. A bid that didn't price it becomes incomplete.</p>
+<div class="table-wrap"><table><thead><tr><th scope="col">Alternate</th><th scope="col">In totals</th><th scope="col" class="num">Northgate Drywall &amp; Acoustics</th><th scope="col" class="num">Prairie Wall &amp; Ceiling Co.</th><th scope="col" class="num">Summit Interior Systems, LLC</th><th scope="col" class="num">Ridgeline Interiors</th></tr></thead><tbody>
+<tr><th scope="row">Alternate 1: Level 5 finish at all corridors <span class="sub">add</span></th><td><label class="toggle"><input type="checkbox" data-alternate="alt1_level5_corridors"> Not accepted</label></td>
+<td class="num">$18,400 <a class="ref" href="#ev-northgate-NG-5">NG-5</a></td>
+<td class="num">$16,750 <a class="ref" href="#ev-prairie-PW-15">PW-15</a></td>
+<td class="num">Not offered</td>
+<td class="num">Not offered</td>
+</tr>
+</tbody></table></div>
+<p class="hint">Offered without being asked: Summit Interior Systems, LLC, Deduct if the GC furnishes scissor lifts for the duration -$9,500 <a class="ref" href="#ev-summit-SI-4">SI-4</a>. Not in the totals and not comparable across bids.</p>
+</section>
+<section aria-labelledby="matrix-h"><h2 id="matrix-h">Scope matrix</h2><p class="hint">Rows from the 09A scope sheet (09A-scope-sheet.md).</p>
+<div class="table-wrap matrix"><table><thead><tr><th scope="col">Scope</th><th scope="col">Northgate Drywall &amp; Acoustics</th><th scope="col">Prairie Wall &amp; Ceiling Co.</th><th scope="col">Summit Interior Systems, LLC</th><th scope="col">Ridgeline Interiors</th></tr></thead><tbody>
+<tr><th scope="row">Non-structural metal stud framing</th>
+<td class="st-included">Included <a class="ref" href="#ev-northgate-NG-1">NG-1</a></td>
+<td class="st-included">Included $312,000 <a class="ref" href="#ev-prairie-PW-1">PW-1</a></td>
+<td class="st-included">Included <a class="ref" href="#ev-summit-SI-1">SI-1</a></td>
+<td class="st-included">Included <a class="ref" href="#ev-ridgeline-rev-RR-1">RR-1</a></td>
+</tr>
+<tr><th scope="row">Gypsum board, tape and finish to Level 4</th>
+<td class="st-included">Included <a class="ref" href="#ev-northgate-NG-1">NG-1</a></td>
+<td class="st-included">Included $326,200 <a class="ref" href="#ev-prairie-PW-2">PW-2</a></td>
+<td class="st-included">Included <a class="ref" href="#ev-summit-SI-1">SI-1</a></td>
+<td class="st-included">Included <a class="ref" href="#ev-ridgeline-rev-RR-1">RR-1</a></td>
+</tr>
+<tr><th scope="row">Level 5 finish at two-story lobby (Addendum 2)</th>
+<td class="st-included">Included <a class="ref" href="#ev-northgate-NG-1">NG-1</a></td>
+<td class="st-included">Included $14,600 <a class="ref" href="#ev-prairie-PW-3">PW-3</a></td>
+<td class="st-excluded plugged">Excluded <a class="ref" href="#ev-summit-SI-3">SI-3</a><span class="sub">plug $14,600</span></td>
+<td class="st-unknown gap">Unclear <a class="ref" href="#ev-ridgeline-rev-RR-1">RR-1</a></td>
+</tr>
+<tr><th scope="row">Shaft wall at elevator and mechanical shafts</th>
+<td class="st-included">Included <a class="ref" href="#ev-northgate-NG-1">NG-1</a></td>
+<td class="st-included">Included $58,300 <a class="ref" href="#ev-prairie-PW-4">PW-4</a></td>
+<td class="st-included">Included <a class="ref" href="#ev-summit-SI-1">SI-1</a></td>
+<td class="st-unknown gap">Unclear <a class="ref" href="#ev-ridgeline-rev-RR-1">RR-1</a></td>
+</tr>
+<tr><th scope="row">Sound attenuation batts in partitions</th>
+<td class="st-included">Included <a class="ref" href="#ev-northgate-NG-2">NG-2</a></td>
+<td class="st-included">Included $22,800 <a class="ref" href="#ev-prairie-PW-5">PW-5</a></td>
+<td class="st-excluded plugged">Excluded <a class="ref" href="#ev-summit-SI-3">SI-3</a><span class="sub">plug $22,800</span></td>
+<td class="st-excluded gap">Excluded <a class="ref" href="#ev-ridgeline-rev-RR-2">RR-2</a></td>
+</tr>
+<tr><th scope="row">In-wall blocking for casework and equipment</th>
+<td class="st-included">Included <a class="ref" href="#ev-northgate-NG-2">NG-2</a></td>
+<td class="st-excluded plugged">Excluded <a class="ref" href="#ev-prairie-PW-6">PW-6</a><span class="sub">plug $8,500</span></td>
+<td class="st-omitted plugged">Not mentioned <a class="ref" href="#ev-summit-SI-5">SI-5</a><span class="sub">plug $8,500</span></td>
+<td class="st-omitted gap">Not mentioned <a class="ref" href="#ev-ridgeline-rev-RR-3">RR-3</a></td>
+</tr>
+<tr><th scope="row">Lifts and scaffolding for own work</th>
+<td class="st-included">Included <a class="ref" href="#ev-northgate-NG-3">NG-3</a></td>
+<td class="st-included">Included $22,400 <a class="ref" href="#ev-prairie-PW-7">PW-7</a></td>
+<td class="st-included">Included <a class="ref" href="#ev-summit-SI-2">SI-2</a></td>
+<td class="st-omitted gap">Not mentioned <a class="ref" href="#ev-ridgeline-rev-RR-3">RR-3</a></td>
+</tr>
+<tr><th scope="row">Daily cleanup to GC dumpster</th>
+<td class="st-included">Included <a class="ref" href="#ev-northgate-NG-3">NG-3</a></td>
+<td class="st-included">Included $6,700 <a class="ref" href="#ev-prairie-PW-8">PW-8</a></td>
+<td class="st-included">Included <a class="ref" href="#ev-summit-SI-2">SI-2</a></td>
+<td class="st-omitted gap">Not mentioned <a class="ref" href="#ev-ridgeline-rev-RR-3">RR-3</a></td>
+</tr>
+<tr><th scope="row">Exterior glass-mat gypsum sheathing</th>
+<td class="st-excluded plugged">Excluded <a class="ref" href="#ev-northgate-NG-4">NG-4</a><span class="sub">plug $41,200</span></td>
+<td class="st-included">Included $41,200 <a class="ref" href="#ev-prairie-PW-9">PW-9</a></td>
+<td class="st-included">Included <a class="ref" href="#ev-summit-SI-1">SI-1</a></td>
+<td class="st-unknown gap">Unclear <a class="ref" href="#ev-ridgeline-rev-RR-1">RR-1</a></td>
+</tr>
+<tr><th scope="row">Firestopping at this trade&#39;s rated penetrations</th>
+<td class="st-excluded plugged">Excluded <a class="ref" href="#ev-northgate-NG-4">NG-4</a><span class="sub">plug $9,800</span></td>
+<td class="st-included">Included $9,800 <a class="ref" href="#ev-prairie-PW-10">PW-10</a></td>
+<td class="st-included">Included <a class="ref" href="#ev-summit-SI-2">SI-2</a></td>
+<td class="st-excluded gap">Excluded <a class="ref" href="#ev-ridgeline-rev-RR-2">RR-2</a></td>
+</tr>
+<tr class="group"><th colspan="5">Belongs to another package</th></tr>
+<tr><th scope="row">Acoustical ceilings (09 51 13, package 09B)</th>
+<td class="st-excluded">Excluded <a class="ref" href="#ev-northgate-NG-4">NG-4</a></td>
+<td class="st-included">Included $46,000 <a class="ref" href="#ev-prairie-PW-11">PW-11</a></td>
+<td class="st-omitted">Not mentioned <a class="ref" href="#ev-summit-SI-5">SI-5</a></td>
+<td class="st-omitted">Not mentioned <a class="ref" href="#ev-ridgeline-rev-RR-3">RR-3</a></td>
+</tr>
+</tbody></table></div></section>
+<section aria-labelledby="q-h"><h2 id="q-h">Review flags and questions for bidders</h2><div class="bidders">
+<div class="bidder"><h3>Northgate Drywall &amp; Acoustics</h3>
+<ol class="questions"><li>Your bid excludes exterior glass-mat gypsum sheathing (&quot;Exterior sheathing by others&quot;). What would you add to include it? <a class="ref" href="#ev-northgate-NG-4">NG-4</a></li><li>Your bid excludes firestopping at this trade&#39;s rated penetrations (&quot;Firestopping NIC&quot;). What would you add to include it? <a class="ref" href="#ev-northgate-NG-4">NG-4</a></li></ol>
+</div>
+<div class="bidder"><h3>Prairie Wall &amp; Ceiling Co.</h3>
+<ul class="flags"><li>Carries acoustical ceilings (09 51 13, package 09B) ($46,000) inside the bid. It belongs to another package. <a class="ref" href="#ev-prairie-PW-11">PW-11</a></li><li>Itemized lines add up to $872,700, but the stated total is $871,200 ($1,500 over). <a class="ref" href="#ev-prairie-PW-13">PW-13</a></li></ul>
+<ol class="questions"><li>Your bid excludes in-wall blocking for casework and equipment (Bid form row 6 reads &quot;By others&quot;). What would you add to include it? <a class="ref" href="#ev-prairie-PW-6">PW-6</a></li><li>Your itemized lines add up to $872,700, but your total is $871,200. Which number governs? <a class="ref" href="#ev-prairie-PW-13">PW-13</a></li></ol>
+</div>
+<div class="bidder"><h3>Summit Interior Systems, LLC</h3>
+<ul class="flags"><li>Doesn&#39;t acknowledge Addendum 2 (2026-08-10): Adds Level 5 finish at the two-story lobby and requests Alternate 1.</li><li>Offers an alternate nobody asked for: Deduct if the GC furnishes scissor lifts for the duration (-$9,500). Not comparable across bids. <a class="ref" href="#ev-summit-SI-4">SI-4</a></li></ul>
+<ol class="questions"><li>Your bid excludes Level 5 finish at two-story lobby (Addendum 2) (&quot;Level 4 finish throughout&quot;). What would you add to include it? <a class="ref" href="#ev-summit-SI-3">SI-3</a></li><li>Your bid excludes sound attenuation batts in partitions (&quot;Insulation by others&quot;). What would you add to include it? <a class="ref" href="#ev-summit-SI-3">SI-3</a></li><li>Your bid doesn&#39;t mention in-wall blocking for casework and equipment. Is it included? If not, what would you add? <a class="ref" href="#ev-summit-SI-5">SI-5</a></li><li>Your bid doesn&#39;t acknowledge Addendum 2, which adds Level 5 finish at the two-story lobby and requests Alternate 1. Does your price include it?</li><li>Please price Alternate 1: Level 5 finish at all corridors.</li><li>Does your price include performance and payment bond? If not, what would you add?</li><li>Your bid excludes sales tax on materials. What would you add for it? <a class="ref" href="#ev-summit-SI-6">SI-6</a></li></ol>
+</div>
+<div class="bidder"><h3>Ridgeline Interiors</h3>
+<ol class="questions"><li>Please confirm whether Level 5 finish at two-story lobby (Addendum 2) is in your price. Your bid says: only &quot;per plans and specs thru Addendum 2&quot;. <a class="ref" href="#ev-ridgeline-rev-RR-1">RR-1</a></li><li>Please confirm whether shaft wall at elevator and mechanical shafts is in your price. Your bid says: only &quot;per plans and specs&quot;. <a class="ref" href="#ev-ridgeline-rev-RR-1">RR-1</a></li><li>Your bid excludes sound attenuation batts in partitions (&quot;Excludes insulation&quot;). What would you add to include it? <a class="ref" href="#ev-ridgeline-rev-RR-2">RR-2</a></li><li>Your bid doesn&#39;t mention in-wall blocking for casework and equipment. Is it included? If not, what would you add? <a class="ref" href="#ev-ridgeline-rev-RR-3">RR-3</a></li><li>Your bid doesn&#39;t mention lifts and scaffolding for own work. Is it included? If not, what would you add? <a class="ref" href="#ev-ridgeline-rev-RR-3">RR-3</a></li><li>Your bid doesn&#39;t mention daily cleanup to GC dumpster. Is it included? If not, what would you add? <a class="ref" href="#ev-ridgeline-rev-RR-3">RR-3</a></li><li>Please confirm whether exterior glass-mat gypsum sheathing is in your price. Your bid says: only &quot;per plans and specs&quot;. <a class="ref" href="#ev-ridgeline-rev-RR-1">RR-1</a></li><li>Your bid excludes firestopping at this trade&#39;s rated penetrations (&quot;Excludes ... firestopping&quot;). What would you add to include it? <a class="ref" href="#ev-ridgeline-rev-RR-2">RR-2</a></li><li>Please price Alternate 1: Level 5 finish at all corridors.</li><li>Your bid excludes performance and payment bond. What would you add for it? <a class="ref" href="#ev-ridgeline-rev-RR-2">RR-2</a></li><li>Does your price include sales tax on materials? If not, what would you add?</li><li>Your revision arrived August 22 at 9:10 a.m., after bids closed. Please confirm it replaces your August 21 number of $781,000. <a class="ref" href="#ev-ridgeline-rev-RR-1">RR-1</a></li></ol>
+</div>
+</div>
+<h3>Open questions for you</h3><ul class="questions"><li>Ridgeline&#39;s revision arrived the morning after bids closed. You said to use it; confirm that a late revision is acceptable under your bid rules. <span class="sub">(ridgeline-revised-email.eml, received 2026-08-22 9:10 a.m.)</span></li></ul>
+</section>
+<section aria-labelledby="terms-h"><h2 id="terms-h">Unit prices and qualifications</h2><p class="hint">Listed for comparison. Never added to the totals.</p>
+<div class="table-wrap"><table><thead><tr><th scope="col">Bidder</th><th scope="col">Unit price</th><th scope="col" class="num">Price</th></tr></thead><tbody><tr><th scope="row">Northgate Drywall &amp; Acoustics</th><td>Additional soffit or bulkhead, framed and finished</td><td class="num">$42 / LF <a class="ref" href="#ev-northgate-NG-5">NG-5</a></td></tr><tr><th scope="row">Prairie Wall &amp; Ceiling Co.</th><td>Added soffit, framed and finished</td><td class="num">$39.50 / LF <a class="ref" href="#ev-prairie-PW-16">PW-16</a></td></tr></tbody></table></div>
+<ul class="quals"><li><strong>Northgate Drywall &amp; Acoustics:</strong> Assumes one mobilization per floor and clear access to each floor. <a class="ref" href="#ev-northgate-NG-3">NG-3</a></li><li><strong>Northgate Drywall &amp; Acoustics:</strong> Proposal valid 30 days. <a class="ref" href="#ev-northgate-NG-6">NG-6</a></li><li><strong>Prairie Wall &amp; Ceiling Co.:</strong> Pricing is straight time, five-day weeks. <a class="ref" href="#ev-prairie-PW-0">PW-0</a></li><li><strong>Summit Interior Systems, LLC:</strong> Based on drawings dated 7/15 and Addendum 1. <a class="ref" href="#ev-summit-SI-1">SI-1</a></li><li><strong>Summit Interior Systems, LLC:</strong> Price good for 15 days. <a class="ref" href="#ev-summit-SI-6">SI-6</a></li></ul>
+</section>
+<section aria-labelledby="ev-h"><h2 id="ev-h">Evidence</h2><p class="hint">Every amount and status in this tab cites a quote from the bid.</p><div class="bidders">
+<div class="bidder"><h3>Northgate Drywall &amp; Acoustics</h3><dl class="evidence"><div id="ev-northgate-NG-1"><dt>NG-1 <span class="sub">northgate-proposal.pdf, page 1, Scope of Work</span></dt><dd>Furnish and install non-structural metal framing, gypsum board, and shaft wall at elevator and mechanical shafts, taped and finished to Level 4 per Section 09 21 16. Level 5 finish at the two-story lobby per Addendum 2.</dd></div><div id="ev-northgate-NG-2"><dt>NG-2 <span class="sub">northgate-proposal.pdf, page 1, Scope of Work</span></dt><dd>Sound attenuation batts at all partitions noted on A-601. In-wall blocking for casework and wall-mounted equipment per A-501 details. Acknowledges Addenda 1 and 2.</dd></div><div id="ev-northgate-NG-3"><dt>NG-3 <span class="sub">northgate-proposal.pdf, page 2, General Conditions</span></dt><dd>Lifts and scaffolding for our work included. Daily cleanup of our debris to the GC-provided dumpster included. Pricing assumes one mobilization per floor and clear access to each floor.</dd></div><div id="ev-northgate-NG-4"><dt>NG-4 <span class="sub">northgate-proposal.pdf, page 2, Exclusions</span></dt><dd>Exterior sheathing by others. Firestopping NIC. Acoustical ceilings NIC.</dd></div><div id="ev-northgate-NG-5"><dt>NG-5 <span class="sub">northgate-proposal.pdf, page 2, Alternates and Unit Prices</span></dt><dd>Alternate No. 1, Level 5 finish at all corridors: ADD $18,400.00. Additional soffit or bulkhead, framed and finished: $42.00 per LF.</dd></div><div id="ev-northgate-NG-6"><dt>NG-6 <span class="sub">northgate-proposal.pdf, page 2, Terms</span></dt><dd>Base bid: $842,500.00. Sales tax included. Performance and payment bond, if required, add 1.5%. Proposal valid 30 days.</dd></div></dl></div>
+<div class="bidder"><h3>Prairie Wall &amp; Ceiling Co.</h3><dl class="evidence"><div id="ev-prairie-PW-0"><dt>PW-0 <span class="sub">prairie-cover-email.eml, email body</span></dt><dd>Attached is our bid form for Cedar Hollow 09A, Addenda 1 and 2 acknowledged. Base bid $871,200 including bond and MN sales tax. Pricing is straight time, five-day weeks.</dd></div><div id="ev-prairie-PW-1"><dt>PW-1 <span class="sub">prairie-bid-form.xlsx, sheet Bid Form, row 1</span></dt><dd>Metal stud framing | 312,000</dd></div><div id="ev-prairie-PW-2"><dt>PW-2 <span class="sub">prairie-bid-form.xlsx, sheet Bid Form, row 2</span></dt><dd>Gypsum board, Level 4 | 326,200</dd></div><div id="ev-prairie-PW-3"><dt>PW-3 <span class="sub">prairie-bid-form.xlsx, sheet Bid Form, row 3</span></dt><dd>Level 5 finish, lobby (Add. 2) | 14,600</dd></div><div id="ev-prairie-PW-4"><dt>PW-4 <span class="sub">prairie-bid-form.xlsx, sheet Bid Form, row 4</span></dt><dd>Shaft wall | 58,300</dd></div><div id="ev-prairie-PW-5"><dt>PW-5 <span class="sub">prairie-bid-form.xlsx, sheet Bid Form, row 5</span></dt><dd>Sound batts | 22,800</dd></div><div id="ev-prairie-PW-6"><dt>PW-6 <span class="sub">prairie-bid-form.xlsx, sheet Bid Form, row 6</span></dt><dd>In-wall blocking | By others</dd></div><div id="ev-prairie-PW-7"><dt>PW-7 <span class="sub">prairie-bid-form.xlsx, sheet Bid Form, row 7</span></dt><dd>Lifts and scaffolding | 22,400</dd></div><div id="ev-prairie-PW-8"><dt>PW-8 <span class="sub">prairie-bid-form.xlsx, sheet Bid Form, row 8</span></dt><dd>Cleanup | 6,700</dd></div><div id="ev-prairie-PW-9"><dt>PW-9 <span class="sub">prairie-bid-form.xlsx, sheet Bid Form, row 9</span></dt><dd>Exterior sheathing | 41,200</dd></div><div id="ev-prairie-PW-10"><dt>PW-10 <span class="sub">prairie-bid-form.xlsx, sheet Bid Form, row 10</span></dt><dd>Firestopping | 9,800</dd></div><div id="ev-prairie-PW-11"><dt>PW-11 <span class="sub">prairie-bid-form.xlsx, sheet Bid Form, row 11</span></dt><dd>ACT ceilings 09 51 13 | 46,000</dd></div><div id="ev-prairie-PW-12"><dt>PW-12 <span class="sub">prairie-bid-form.xlsx, sheet Bid Form, row 12</span></dt><dd>P&amp;P bond | 12,700</dd></div><div id="ev-prairie-PW-13"><dt>PW-13 <span class="sub">prairie-bid-form.xlsx, sheet Bid Form, row 13</span></dt><dd>TOTAL BASE BID | 871,200</dd></div><div id="ev-prairie-PW-15"><dt>PW-15 <span class="sub">prairie-bid-form.xlsx, sheet Bid Form, row 15</span></dt><dd>Alt 1, Level 5 corridors | ADD 16,750</dd></div><div id="ev-prairie-PW-16"><dt>PW-16 <span class="sub">prairie-bid-form.xlsx, sheet Bid Form, row 16</span></dt><dd>Unit price, added soffit framed and finished | 39.50 / LF</dd></div></dl></div>
+<div class="bidder"><h3>Summit Interior Systems, LLC</h3><dl class="evidence"><div id="ev-summit-SI-1"><dt>SI-1 <span class="sub">summit-quote-email.eml, email body, paragraph 1</span></dt><dd>We are pleased to quote $798,000 for metal framing, drywall, shaft wall, and exterior DensGlass sheathing per drawings dated 7/15 and Addendum 1.</dd></div><div id="ev-summit-SI-2"><dt>SI-2 <span class="sub">summit-quote-email.eml, email body, paragraph 2</span></dt><dd>Includes firestopping at our own penetrations, lifts and scaffolding for our work, and daily cleanup to your dumpster.</dd></div><div id="ev-summit-SI-3"><dt>SI-3 <span class="sub">summit-quote-email.eml, email body, paragraph 2</span></dt><dd>Level 4 finish throughout. Insulation by others.</dd></div><div id="ev-summit-SI-4"><dt>SI-4 <span class="sub">summit-quote-email.eml, email body, paragraph 3</span></dt><dd>If you furnish scissor lifts for the duration we can deduct $9,500.</dd></div><div id="ev-summit-SI-5"><dt>SI-5 <span class="sub">summit-quote-email.eml, whole email</span></dt><dd>No mention of in-wall blocking, acoustical ceilings, or Alternate 1; no attachment.</dd></div><div id="ev-summit-SI-6"><dt>SI-6 <span class="sub">summit-quote-email.eml, email body, paragraph 4</span></dt><dd>Price excludes sales tax. Good for 15 days.</dd></div></dl></div>
+<div class="bidder"><h3>Ridgeline Interiors</h3><dl class="evidence"><div id="ev-ridgeline-rev-RR-1"><dt>RR-1 <span class="sub">ridgeline-revised-email.eml, email body</span></dt><dd>Revised number for 09A framing and drywall per plans and specs thru Addendum 2: $789,500.</dd></div><div id="ev-ridgeline-rev-RR-2"><dt>RR-2 <span class="sub">ridgeline-revised-email.eml, email body</span></dt><dd>Excludes insulation, firestopping and bond.</dd></div><div id="ev-ridgeline-rev-RR-3"><dt>RR-3 <span class="sub">ridgeline-revised-email.eml, whole email</span></dt><dd>No mention of blocking, lifts, cleanup, acoustical ceilings, sales tax, or Alternate 1.</dd></div></dl></div>
+<div class="bidder"><h3>Ridgeline Interiors <span class="sub">superseded</span></h3><dl class="evidence"><div id="ev-ridgeline-orig-RI-1"><dt>RI-1 <span class="sub">ridgeline-email.eml, email body</span></dt><dd>09A framing &amp; drywall, Cedar Hollow clinic: $781,000. Thx, Dale</dd></div></dl></div>
+</div></section>
+<p class="foot">A comparison, not an award recommendation. Plugs and basis figures are the estimator's judgment. Nothing here was sent to a bidder.</p></div>
+</main>
+<script type="application/json" id="tab-data">{"package":{"project":"Cedar Hollow Family Health Clinic","name":"09A Metal framing and gypsum board","sections":"09 22 16, 09 21 16","bidDue":"2026-08-21","asOf":"2026-08-22","scopeSource":"the 09A scope sheet (09A-scope-sheet.md)","addenda":[{"number":1,"date":"2026-08-03","summary":"Revised partition schedule on A-601; no change to 09A scope."},{"number":2,"date":"2026-08-10","summary":"Adds Level 5 finish at the two-story lobby and requests Alternate 1."}],"rows":[{"key":"metal_framing","label":"Non-structural metal stud framing","class":"base"},{"key":"gypsum_board","label":"Gypsum board, tape and finish to Level 4","class":"base"},{"key":"level5_lobby","label":"Level 5 finish at two-story lobby (Addendum 2)","class":"base"},{"key":"shaft_wall","label":"Shaft wall at elevator and mechanical shafts","class":"base"},{"key":"sound_batts","label":"Sound attenuation batts in partitions","class":"base"},{"key":"blocking","label":"In-wall blocking for casework and equipment","class":"base"},{"key":"lifts","label":"Lifts and scaffolding for own work","class":"base"},{"key":"cleanup","label":"Daily cleanup to GC dumpster","class":"base"},{"key":"sheathing","label":"Exterior glass-mat gypsum sheathing","class":"base"},{"key":"firestopping","label":"Firestopping at this trade's rated penetrations","class":"base"},{"key":"act_ceilings","label":"Acoustical ceilings (09 51 13, package 09B)","class":"outside"}],"alternates":[{"key":"alt1_level5_corridors","label":"Alternate 1: Level 5 finish at all corridors","kind":"add"}],"basis":[{"key":"bond","label":"Performance and payment bond"},{"key":"tax","label":"Sales tax on materials"}],"governing":{"ridgeline":"ridgeline-rev"}},"bids":[{"id":"northgate","bidder":"Northgate Drywall & Acoustics","received":"2026-08-21","files":["northgate-proposal.pdf"],"total":84250000,"totalRef":"NG-6","addendaAcknowledged":[1,2],"scope":{"metal_framing":{"status":"included","ref":"NG-1"},"gypsum_board":{"status":"included","ref":"NG-1"},"level5_lobby":{"status":"included","ref":"NG-1"},"shaft_wall":{"status":"included","ref":"NG-1"},"sound_batts":{"status":"included","ref":"NG-2"},"blocking":{"status":"included","ref":"NG-2"},"lifts":{"status":"included","ref":"NG-3"},"cleanup":{"status":"included","ref":"NG-3"},"sheathing":{"status":"excluded","note":"\"Exterior sheathing by others\"","ref":"NG-4"},"firestopping":{"status":"excluded","note":"\"Firestopping NIC\"","ref":"NG-4"},"act_ceilings":{"status":"excluded","note":"\"Acoustical ceilings NIC\"","ref":"NG-4"}},"alternates":{"alt1_level5_corridors":{"amount":1840000,"printedLabel":"Alternate No. 1","ref":"NG-5"}},"unitPrices":[{"description":"Additional soffit or bulkhead, framed and finished","unit":"LF","price":4200,"ref":"NG-5"}],"basis":{"bond":{"treatment":"excluded","percent":1.5,"ref":"NG-6"},"tax":{"treatment":"included","ref":"NG-6"}},"qualifications":[{"text":"Assumes one mobilization per floor and clear access to each floor.","ref":"NG-3"},{"text":"Proposal valid 30 days.","ref":"NG-6"}],"evidence":[{"ref":"NG-1","file":"northgate-proposal.pdf","location":"page 1, Scope of Work","quote":"Furnish and install non-structural metal framing, gypsum board, and shaft wall at elevator and mechanical shafts, taped and finished to Level 4 per Section 09 21 16. Level 5 finish at the two-story lobby per Addendum 2."},{"ref":"NG-2","file":"northgate-proposal.pdf","location":"page 1, Scope of Work","quote":"Sound attenuation batts at all partitions noted on A-601. In-wall blocking for casework and wall-mounted equipment per A-501 details. Acknowledges Addenda 1 and 2."},{"ref":"NG-3","file":"northgate-proposal.pdf","location":"page 2, General Conditions","quote":"Lifts and scaffolding for our work included. Daily cleanup of our debris to the GC-provided dumpster included. Pricing assumes one mobilization per floor and clear access to each floor."},{"ref":"NG-4","file":"northgate-proposal.pdf","location":"page 2, Exclusions","quote":"Exterior sheathing by others. Firestopping NIC. Acoustical ceilings NIC."},{"ref":"NG-5","file":"northgate-proposal.pdf","location":"page 2, Alternates and Unit Prices","quote":"Alternate No. 1, Level 5 finish at all corridors: ADD $18,400.00. Additional soffit or bulkhead, framed and finished: $42.00 per LF."},{"ref":"NG-6","file":"northgate-proposal.pdf","location":"page 2, Terms","quote":"Base bid: $842,500.00. Sales tax included. Performance and payment bond, if required, add 1.5%. Proposal valid 30 days."}]},{"id":"prairie","bidder":"Prairie Wall & Ceiling Co.","received":"2026-08-21","files":["prairie-cover-email.eml","prairie-bid-form.xlsx"],"total":87120000,"totalRef":"PW-13","addendaAcknowledged":[1,2],"scope":{"metal_framing":{"status":"included","amount":31200000,"ref":"PW-1"},"gypsum_board":{"status":"included","amount":32620000,"ref":"PW-2"},"level5_lobby":{"status":"included","amount":1460000,"ref":"PW-3"},"shaft_wall":{"status":"included","amount":5830000,"ref":"PW-4"},"sound_batts":{"status":"included","amount":2280000,"ref":"PW-5"},"blocking":{"status":"excluded","note":"Bid form row 6 reads \"By others\"","ref":"PW-6"},"lifts":{"status":"included","amount":2240000,"ref":"PW-7"},"cleanup":{"status":"included","amount":670000,"ref":"PW-8"},"sheathing":{"status":"included","amount":4120000,"ref":"PW-9"},"firestopping":{"status":"included","amount":980000,"ref":"PW-10"},"act_ceilings":{"status":"included","amount":4600000,"ref":"PW-11"}},"alternates":{"alt1_level5_corridors":{"amount":1675000,"printedLabel":"Alt 1","ref":"PW-15"}},"unitPrices":[{"description":"Added soffit, framed and finished","unit":"LF","price":3950,"ref":"PW-16"}],"basis":{"bond":{"treatment":"included","amount":1270000,"inTotal":true,"ref":"PW-12"},"tax":{"treatment":"included","ref":"PW-0"}},"qualifications":[{"text":"Pricing is straight time, five-day weeks.","ref":"PW-0"}],"evidence":[{"ref":"PW-0","file":"prairie-cover-email.eml","location":"email body","quote":"Attached is our bid form for Cedar Hollow 09A, Addenda 1 and 2 acknowledged. Base bid $871,200 including bond and MN sales tax. Pricing is straight time, five-day weeks."},{"ref":"PW-1","file":"prairie-bid-form.xlsx","location":"sheet Bid Form, row 1","quote":"Metal stud framing | 312,000"},{"ref":"PW-2","file":"prairie-bid-form.xlsx","location":"sheet Bid Form, row 2","quote":"Gypsum board, Level 4 | 326,200"},{"ref":"PW-3","file":"prairie-bid-form.xlsx","location":"sheet Bid Form, row 3","quote":"Level 5 finish, lobby (Add. 2) | 14,600"},{"ref":"PW-4","file":"prairie-bid-form.xlsx","location":"sheet Bid Form, row 4","quote":"Shaft wall | 58,300"},{"ref":"PW-5","file":"prairie-bid-form.xlsx","location":"sheet Bid Form, row 5","quote":"Sound batts | 22,800"},{"ref":"PW-6","file":"prairie-bid-form.xlsx","location":"sheet Bid Form, row 6","quote":"In-wall blocking | By others"},{"ref":"PW-7","file":"prairie-bid-form.xlsx","location":"sheet Bid Form, row 7","quote":"Lifts and scaffolding | 22,400"},{"ref":"PW-8","file":"prairie-bid-form.xlsx","location":"sheet Bid Form, row 8","quote":"Cleanup | 6,700"},{"ref":"PW-9","file":"prairie-bid-form.xlsx","location":"sheet Bid Form, row 9","quote":"Exterior sheathing | 41,200"},{"ref":"PW-10","file":"prairie-bid-form.xlsx","location":"sheet Bid Form, row 10","quote":"Firestopping | 9,800"},{"ref":"PW-11","file":"prairie-bid-form.xlsx","location":"sheet Bid Form, row 11","quote":"ACT ceilings 09 51 13 | 46,000"},{"ref":"PW-12","file":"prairie-bid-form.xlsx","location":"sheet Bid Form, row 12","quote":"P&P bond | 12,700"},{"ref":"PW-13","file":"prairie-bid-form.xlsx","location":"sheet Bid Form, row 13","quote":"TOTAL BASE BID | 871,200"},{"ref":"PW-15","file":"prairie-bid-form.xlsx","location":"sheet Bid Form, row 15","quote":"Alt 1, Level 5 corridors | ADD 16,750"},{"ref":"PW-16","file":"prairie-bid-form.xlsx","location":"sheet Bid Form, row 16","quote":"Unit price, added soffit framed and finished | 39.50 / LF"}]},{"id":"summit","bidder":"Summit Interior Systems, LLC","received":"2026-08-21","files":["summit-quote-email.eml"],"total":79800000,"totalRef":"SI-1","addendaAcknowledged":[1],"scope":{"metal_framing":{"status":"included","ref":"SI-1"},"gypsum_board":{"status":"included","ref":"SI-1"},"shaft_wall":{"status":"included","ref":"SI-1"},"sheathing":{"status":"included","ref":"SI-1"},"level5_lobby":{"status":"excluded","note":"\"Level 4 finish throughout\"","ref":"SI-3"},"sound_batts":{"status":"excluded","note":"\"Insulation by others\"","ref":"SI-3"},"blocking":{"status":"omitted","ref":"SI-5"},"lifts":{"status":"included","ref":"SI-2"},"cleanup":{"status":"included","ref":"SI-2"},"firestopping":{"status":"included","ref":"SI-2"},"act_ceilings":{"status":"omitted","ref":"SI-5"}},"alternates":{},"proposedAlternates":[{"label":"Deduct if the GC furnishes scissor lifts for the duration","kind":"deduct","amount":-950000,"ref":"SI-4"}],"unitPrices":[],"basis":{"tax":{"treatment":"excluded","ref":"SI-6"}},"qualifications":[{"text":"Based on drawings dated 7/15 and Addendum 1.","ref":"SI-1"},{"text":"Price good for 15 days.","ref":"SI-6"}],"evidence":[{"ref":"SI-1","file":"summit-quote-email.eml","location":"email body, paragraph 1","quote":"We are pleased to quote $798,000 for metal framing, drywall, shaft wall, and exterior DensGlass sheathing per drawings dated 7/15 and Addendum 1."},{"ref":"SI-2","file":"summit-quote-email.eml","location":"email body, paragraph 2","quote":"Includes firestopping at our own penetrations, lifts and scaffolding for our work, and daily cleanup to your dumpster."},{"ref":"SI-3","file":"summit-quote-email.eml","location":"email body, paragraph 2","quote":"Level 4 finish throughout. Insulation by others."},{"ref":"SI-4","file":"summit-quote-email.eml","location":"email body, paragraph 3","quote":"If you furnish scissor lifts for the duration we can deduct $9,500."},{"ref":"SI-5","file":"summit-quote-email.eml","location":"whole email","quote":"No mention of in-wall blocking, acoustical ceilings, or Alternate 1; no attachment."},{"ref":"SI-6","file":"summit-quote-email.eml","location":"email body, paragraph 4","quote":"Price excludes sales tax. Good for 15 days."}]},{"id":"ridgeline-orig","bidderKey":"ridgeline","bidder":"Ridgeline Interiors","received":"2026-08-21","files":["ridgeline-email.eml"],"total":78100000,"totalRef":"RI-1","addendaAcknowledged":null,"scope":{"metal_framing":{"status":"included","ref":"RI-1"},"gypsum_board":{"status":"included","ref":"RI-1"},"level5_lobby":{"status":"omitted","ref":"RI-1"},"shaft_wall":{"status":"omitted","ref":"RI-1"},"sound_batts":{"status":"omitted","ref":"RI-1"},"blocking":{"status":"omitted","ref":"RI-1"},"lifts":{"status":"omitted","ref":"RI-1"},"cleanup":{"status":"omitted","ref":"RI-1"},"sheathing":{"status":"omitted","ref":"RI-1"},"firestopping":{"status":"omitted","ref":"RI-1"},"act_ceilings":{"status":"omitted","ref":"RI-1"}},"alternates":{},"basis":{},"evidence":[{"ref":"RI-1","file":"ridgeline-email.eml","location":"email body","quote":"09A framing & drywall, Cedar Hollow clinic: $781,000. Thx, Dale"}]},{"id":"ridgeline-rev","bidderKey":"ridgeline","bidder":"Ridgeline Interiors","received":"2026-08-22","files":["ridgeline-revised-email.eml"],"total":78950000,"totalRef":"RR-1","addendaAcknowledged":[1,2],"scope":{"metal_framing":{"status":"included","ref":"RR-1"},"gypsum_board":{"status":"included","ref":"RR-1"},"level5_lobby":{"status":"unknown","note":"only \"per plans and specs thru Addendum 2\"","ref":"RR-1"},"shaft_wall":{"status":"unknown","note":"only \"per plans and specs\"","ref":"RR-1"},"sheathing":{"status":"unknown","note":"only \"per plans and specs\"","ref":"RR-1"},"sound_batts":{"status":"excluded","note":"\"Excludes insulation\"","ref":"RR-2"},"firestopping":{"status":"excluded","note":"\"Excludes ... firestopping\"","ref":"RR-2"},"blocking":{"status":"omitted","ref":"RR-3"},"lifts":{"status":"omitted","ref":"RR-3"},"cleanup":{"status":"omitted","ref":"RR-3"},"act_ceilings":{"status":"omitted","ref":"RR-3"}},"alternates":{},"basis":{"bond":{"treatment":"excluded","ref":"RR-2"}},"questions":[{"text":"Your revision arrived August 22 at 9:10 a.m., after bids closed. Please confirm it replaces your August 21 number of $781,000.","ref":"RR-1"}],"evidence":[{"ref":"RR-1","file":"ridgeline-revised-email.eml","location":"email body","quote":"Revised number for 09A framing and drywall per plans and specs thru Addendum 2: $789,500."},{"ref":"RR-2","file":"ridgeline-revised-email.eml","location":"email body","quote":"Excludes insulation, firestopping and bond."},{"ref":"RR-3","file":"ridgeline-revised-email.eml","location":"whole email","quote":"No mention of blocking, lifts, cleanup, acoustical ceilings, sales tax, or Alternate 1."}]}],"openQuestions":[{"text":"Ridgeline's revision arrived the morning after bids closed. You said to use it; confirm that a late revision is acceptable under your bid rules.","source":"ridgeline-revised-email.eml, received 2026-08-22 9:10 a.m."}]}</script>
+<script type="application/json" id="tab-scenario">{"plugs":{"northgate:sheathing":{"amount":4120000,"source":"Prairie Wall & Ceiling Co.'s itemized line (PW-9), the only itemized price for this scope. A leveling figure, not a price from Northgate Drywall & Acoustics.","kind":"accepted"},"northgate:firestopping":{"amount":980000,"source":"Prairie Wall & Ceiling Co.'s itemized line (PW-10), the only itemized price for this scope. A leveling figure, not a price from Northgate Drywall & Acoustics.","kind":"accepted"},"summit:level5_lobby":{"amount":1460000,"source":"Prairie Wall & Ceiling Co.'s itemized line (PW-3), the only itemized price for this scope. A leveling figure, not a price from Summit Interior Systems, LLC.","kind":"accepted"},"summit:sound_batts":{"amount":2280000,"source":"Prairie Wall & Ceiling Co.'s itemized line (PW-5), the only itemized price for this scope. A leveling figure, not a price from Summit Interior Systems, LLC.","kind":"accepted"},"prairie:blocking":{"amount":850000,"source":"M. Reyes: our 8/1 estimate, line 06 10 00, self-perform carpentry takeoff for blocking","kind":"entered"},"summit:blocking":{"amount":850000,"source":"M. Reyes: our 8/1 estimate, line 06 10 00, self-perform carpentry takeoff for blocking","kind":"entered"}},"adjustments":[{"from":"prairie:act_ceilings","bid":"prairie","amount":-4600000,"description":"Remove acoustical ceilings (09 51 13, package 09B); it belongs to another package","source":"Prairie Wall & Ceiling Co.'s itemized line (PW-11)"}],"alternates":{},"basis":{},"basisEntries":{},"governing":{"ridgeline":"ridgeline-rev"}}</script>
+<script type="module">
+// Bid leveling core: validation, leveling arithmetic, HTML, brief, and XLSX.
+// Dependency-free so the same module runs under Node and inside the HTML tab.
+// Money is integer cents everywhere. Nothing here invents a price: suggested
+// plugs come only from other bidders' itemized lines and never count until
+// the estimator accepts them.
+
+const STATUSES = ["included", "excluded", "omitted", "unknown"];
+const GAP_STATUSES = ["excluded", "omitted", "unknown"];
+const ROW_CLASSES = ["base", "outside", "review"];
+const ALT_KINDS = ["add", "deduct"];
+const BASIS_TREATMENTS = ["included", "excluded", "notStated"];
+const KEY = /^[a-z0-9][a-z0-9_-]*$/;
+
+// ---------- formatting ----------
+
+export function money(cents, { sign = false } = {}) {
+  if (cents === null || cents === undefined) return "n/a";
+  const negative = cents < 0;
+  const abs = Math.abs(cents);
+  const dollars = Math.floor(abs / 100).toLocaleString("en-US");
+  const rest = abs % 100;
+  const text = `$${dollars}${rest ? `.${String(rest).padStart(2, "0")}` : ""}`;
+  if (negative) return `-${text}`;
+  return sign && cents > 0 ? `+${text}` : text;
+}
+
+// Parse what a person types into an amount field ("8,500", "$8,500.00", "-46000").
+export function parseMoney(text) {
+  const cleaned = String(text ?? "").trim().replace(/[$,\s]/g, "");
+  if (!/^-?\d+(\.\d{1,2})?$/.test(cleaned)) return null;
+  const [whole, frac = ""] = cleaned.replace("-", "").split(".");
+  const cents = Number(whole) * 100 + Number(frac.padEnd(2, "0"));
+  return cleaned.startsWith("-") ? -cents : cents;
+}
+
+export function escapeHtml(value) {
+  return String(value ?? "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
+const md = (value) => String(value ?? "").replace(/\|/g, "\\|").replace(/\s*\n\s*/g, " ");
+const plural = (n, one, many = `${one}s`) => `${n} ${n === 1 ? one : many}`;
+// "Exterior sheathing" reads as "exterior sheathing" mid-sentence; acronyms stay.
+const lower = (label) => (/^[A-Z][a-z]/.test(label) && !/^[A-Z][a-z]+ \d/.test(label) ? label[0].toLowerCase() + label.slice(1) : label);
+const STATUS_LABEL = { included: "Included", excluded: "Excluded", omitted: "Not mentioned", unknown: "Unclear" };
+
+// ---------- validation ----------
+
+const isInt = (v) => Number.isInteger(v);
+const isCents = (v) => v === null || isInt(v);
+
+export function validate(data) {
+  const problems = [];
+  const need = (cond, message) => {
+    if (!cond) problems.push(message);
+  };
+  if (!data || typeof data !== "object") throw new Error("Bid data must be a JSON object.");
+  const pkg = data.package ?? {};
+  need(typeof pkg.name === "string" && pkg.name, "package.name is required");
+  need(typeof pkg.project === "string" && pkg.project, "package.project is required");
+  need(/^\d{4}-\d{2}-\d{2}$/.test(pkg.asOf ?? ""), "package.asOf must be YYYY-MM-DD");
+  const rows = Array.isArray(pkg.rows) ? pkg.rows : [];
+  need(rows.length > 0, "package.rows must list the scope rows");
+  const rowKeys = new Set();
+  for (const [i, row] of rows.entries()) {
+    need(KEY.test(row?.key ?? ""), `package.rows[${i}].key must be lowercase letters, digits, - or _`);
+    need(!rowKeys.has(row?.key), `package.rows key "${row?.key}" is repeated`);
+    rowKeys.add(row?.key);
+    need(typeof row?.label === "string" && row.label, `package.rows "${row?.key}" needs a label`);
+    need(ROW_CLASSES.includes(row?.class ?? "base"), `package.rows "${row?.key}" class must be one of ${ROW_CLASSES.join(", ")}`);
+  }
+  const altKeys = new Set();
+  for (const [i, alt] of (pkg.alternates ?? []).entries()) {
+    need(KEY.test(alt?.key ?? ""), `package.alternates[${i}].key is invalid`);
+    need(!altKeys.has(alt?.key), `package.alternates key "${alt?.key}" is repeated`);
+    altKeys.add(alt?.key);
+    need(typeof alt?.label === "string" && alt.label, `package.alternates "${alt?.key}" needs a label`);
+    need(ALT_KINDS.includes(alt?.kind), `package.alternates "${alt?.key}" kind must be add or deduct`);
+  }
+  const basisKeys = new Set();
+  for (const [i, item] of (pkg.basis ?? []).entries()) {
+    need(KEY.test(item?.key ?? ""), `package.basis[${i}].key is invalid`);
+    need(!basisKeys.has(item?.key), `package.basis key "${item?.key}" is repeated`);
+    basisKeys.add(item?.key);
+    need(typeof item?.label === "string" && item.label, `package.basis "${item?.key}" needs a label`);
+  }
+  const addenda = new Set((pkg.addenda ?? []).map((a) => a.number));
+  for (const a of pkg.addenda ?? []) need(isInt(a?.number) && a.number > 0, "package.addenda numbers must be positive integers");
+
+  const bids = Array.isArray(data.bids) ? data.bids : [];
+  need(bids.length >= 2, "At least two bids are needed to level");
+  const ids = new Set();
+  const byBidder = new Map();
+  for (const bid of bids) {
+    const where = `bid "${bid?.id ?? "?"}"`;
+    need(KEY.test(bid?.id ?? ""), `${where}: id must be lowercase letters, digits, - or _`);
+    need(!ids.has(bid?.id), `${where}: id is repeated`);
+    ids.add(bid?.id);
+    need(typeof bid?.bidder === "string" && bid.bidder, `${where}: bidder name is required`);
+    const bidderKey = bid?.bidderKey ?? bid?.id;
+    byBidder.set(bidderKey, [...(byBidder.get(bidderKey) ?? []), bid?.id]);
+    need(isCents(bid?.total ?? null), `${where}: total must be integer cents or null`);
+    need(Array.isArray(bid?.files) && bid.files.length > 0, `${where}: files must list the source documents`);
+    const refs = new Set();
+    for (const ev of bid?.evidence ?? []) {
+      need(typeof ev?.ref === "string" && ev.ref, `${where}: every evidence entry needs a ref`);
+      need(!refs.has(ev?.ref), `${where}: evidence ref ${ev?.ref} is repeated`);
+      refs.add(ev?.ref);
+      need(typeof ev?.quote === "string" && ev.quote, `${where}: evidence ${ev?.ref} needs a quote`);
+      need((bid.files ?? []).includes(ev?.file), `${where}: evidence ${ev?.ref} file "${ev?.file}" is not in files`);
+    }
+    const cite = (ref, label) => need(refs.has(ref), `${where}: ${label} cites evidence "${ref}" that does not exist`);
+    if (bid?.total !== null) cite(bid?.totalRef, "total");
+    if (bid?.addendaAcknowledged !== null && bid?.addendaAcknowledged !== undefined) {
+      need(Array.isArray(bid.addendaAcknowledged), `${where}: addendaAcknowledged must be a list or null`);
+      for (const n of bid.addendaAcknowledged ?? []) need(addenda.has(n), `${where}: acknowledges Addendum ${n}, which the package does not list`);
+    }
+    const scope = bid?.scope ?? {};
+    for (const key of rowKeys) {
+      const cell = scope[key];
+      if (!cell) {
+        problems.push(`${where}: scope row "${key}" is missing. Re-read the bid and record it as included, excluded, omitted, or unknown`);
+        continue;
+      }
+      need(STATUSES.includes(cell.status), `${where}: ${key} status must be one of ${STATUSES.join(", ")}`);
+      need(isCents(cell.amount ?? null), `${where}: ${key} amount must be integer cents or null`);
+      need(cell.status === "included" || cell.amount === undefined || cell.amount === null, `${where}: ${key} has an amount but is not included`);
+      cite(cell.ref, key);
+    }
+    for (const key of Object.keys(scope)) need(rowKeys.has(key), `${where}: scope row "${key}" is not in package.rows`);
+    for (const [key, alt] of Object.entries(bid?.alternates ?? {})) {
+      need(altKeys.has(key), `${where}: alternate "${key}" is not in package.alternates`);
+      need(isCents(alt?.amount ?? null), `${where}: alternate ${key} amount must be integer cents or null`);
+      const kind = (pkg.alternates ?? []).find((a) => a.key === key)?.kind;
+      if (isInt(alt?.amount)) {
+        need(kind !== "add" || alt.amount >= 0, `${where}: add alternate ${key} cannot be negative`);
+        need(kind !== "deduct" || alt.amount <= 0, `${where}: deduct alternate ${key} must be zero or negative`);
+      }
+      cite(alt?.ref, `alternate ${key}`);
+    }
+    for (const [i, alt] of (bid?.proposedAlternates ?? []).entries()) {
+      need(typeof alt?.label === "string" && alt.label, `${where}: proposedAlternates[${i}] needs a label`);
+      need(isCents(alt?.amount ?? null), `${where}: proposedAlternates[${i}] amount must be integer cents or null`);
+      cite(alt?.ref, `proposed alternate ${i + 1}`);
+    }
+    for (const [key, b] of Object.entries(bid?.basis ?? {})) {
+      need(basisKeys.has(key), `${where}: basis "${key}" is not in package.basis`);
+      need(BASIS_TREATMENTS.includes(b?.treatment), `${where}: basis ${key} treatment must be one of ${BASIS_TREATMENTS.join(", ")}`);
+      need(isCents(b?.amount ?? null), `${where}: basis ${key} amount must be integer cents or null`);
+      need(b?.percent === undefined || b?.percent === null || (typeof b.percent === "number" && b.percent >= 0 && b.percent < 100), `${where}: basis ${key} percent must be a number from 0 to 100`);
+      if (b?.treatment !== "notStated") cite(b?.ref, `basis ${key}`);
+    }
+    for (const [i, u] of (bid?.unitPrices ?? []).entries()) {
+      need(isCents(u?.price ?? null), `${where}: unitPrices[${i}] price must be integer cents or null`);
+      cite(u?.ref, `unit price ${i + 1}`);
+    }
+    for (const q of bid?.qualifications ?? []) if (q?.ref) cite(q.ref, "qualification");
+    for (const q of bid?.questions ?? []) if (q?.ref) cite(q.ref, "question");
+  }
+  for (const [bidderKey, list] of byBidder) {
+    if (list.length < 2) continue;
+    const governing = pkg.governing?.[bidderKey];
+    need(list.includes(governing), `Bidder "${bidderKey}" sent ${list.length} submissions (${list.join(", ")}). Ask which one governs and record it in package.governing.${bidderKey}`);
+  }
+  if (problems.length) throw new Error(`Bid data has ${plural(problems.length, "problem")}:\n- ${problems.join("\n- ")}`);
+  return data;
+}
+
+// ---------- scenario ----------
+
+export function defaultScenario(data) {
+  return { plugs: {}, adjustments: [], alternates: {}, basis: {}, basisEntries: {}, governing: { ...(data.package.governing ?? {}) } };
+}
+
+export function validateScenario(data, raw = {}) {
+  const scenario = { ...defaultScenario(data), ...raw };
+  scenario.governing = { ...(data.package.governing ?? {}), ...(raw.governing ?? {}) };
+  const problems = [];
+  const bids = new Map(data.bids.map((b) => [b.id, b]));
+  const rows = new Map(data.package.rows.map((r) => [r.key, r]));
+  for (const [bidderKey, id] of Object.entries(scenario.governing)) {
+    const bid = bids.get(id);
+    if (!bid || (bid.bidderKey ?? bid.id) !== bidderKey) problems.push(`Governing bid for ${bidderKey} is "${id}", which is not one of that bidder's submissions`);
+  }
+  for (const [target, plug] of Object.entries(scenario.plugs ?? {})) {
+    const [bidId, rowKey] = target.split(":");
+    const bid = bids.get(bidId);
+    const row = rows.get(rowKey);
+    if (!bid || !row) {
+      problems.push(`Plug ${target} names a bid or scope row that does not exist`);
+      continue;
+    }
+    if (row.class !== "base" && row.class !== undefined) problems.push(`Plug ${target}: plugs apply only to base scope rows`);
+    if (bid.scope[rowKey].status === "included") problems.push(`Plug ${target}: ${bid.bidder} already includes ${row.label}`);
+    if (!isInt(plug?.amount)) problems.push(`Plug ${target}: amount must be integer cents`);
+    if (!String(plug?.source ?? "").trim()) problems.push(`Plug ${target}: say where the amount came from`);
+  }
+  for (const [i, adj] of (scenario.adjustments ?? []).entries()) {
+    if (!bids.has(adj?.bid)) problems.push(`Adjustment ${i + 1} names bid "${adj?.bid}", which does not exist`);
+    if (!isInt(adj?.amount)) problems.push(`Adjustment ${i + 1}: amount must be integer cents`);
+    if (!String(adj?.description ?? "").trim() || !String(adj?.source ?? "").trim()) problems.push(`Adjustment ${i + 1}: description and source are required`);
+  }
+  const altKeys = new Set((data.package.alternates ?? []).map((a) => a.key));
+  for (const key of Object.keys(scenario.alternates ?? {})) if (!altKeys.has(key)) problems.push(`Alternate "${key}" is not in the package`);
+  const basisKeys = new Set((data.package.basis ?? []).map((b) => b.key));
+  for (const [key, mode] of Object.entries(scenario.basis ?? {})) {
+    if (!basisKeys.has(key)) problems.push(`Basis "${key}" is not in the package`);
+    if (!["asBid", "carry"].includes(mode)) problems.push(`Basis ${key} must be asBid or carry`);
+  }
+  for (const [target, entry] of Object.entries(scenario.basisEntries ?? {})) {
+    const [bidId, key] = target.split(":");
+    if (!bids.has(bidId) || !basisKeys.has(key)) problems.push(`Basis entry ${target} names a bid or basis item that does not exist`);
+    if (!isInt(entry?.amount)) problems.push(`Basis entry ${target}: amount must be integer cents`);
+    if (!String(entry?.source ?? "").trim()) problems.push(`Basis entry ${target}: say where the amount came from`);
+  }
+  if (problems.length) throw new Error(`Scenario has ${plural(problems.length, "problem")}:\n- ${problems.join("\n- ")}`);
+  return scenario;
+}
+
+// ---------- analysis ----------
+
+const rowClass = (row) => row.class ?? "base";
+
+export function governingBids(data, scenario) {
+  const governing = scenario.governing ?? {};
+  return data.bids.filter((bid) => {
+    const key = bid.bidderKey ?? bid.id;
+    return !(key in governing) || governing[key] === bid.id;
+  });
+}
+
+// Suggested plug for one gap: the highest itemized price other bidders gave for
+// the same scope. A leveling convention, not what this bidder would charge.
+function suggestPlug(bid, row, active) {
+  if (!["excluded", "omitted"].includes(bid.scope[row.key].status)) return null;
+  const priced = active
+    .filter((other) => other.id !== bid.id)
+    .map((other) => ({ other, cell: other.scope[row.key] }))
+    .filter(({ cell }) => cell.status === "included" && isInt(cell.amount));
+  if (!priced.length) return null;
+  priced.sort((a, b) => b.cell.amount - a.cell.amount || a.other.bidder.localeCompare(b.other.bidder));
+  const top = priced[0];
+  const others = priced.slice(1).map(({ other, cell }) => `${other.bidder} ${money(cell.amount)}`);
+  const basis = priced.length === 1 ? "the only itemized price" : `the highest of ${priced.length} itemized prices`;
+  return {
+    amount: top.cell.amount,
+    source: `${top.other.bidder}'s itemized line (${top.cell.ref}), ${basis} for this scope${others.length ? `; others: ${others.join(", ")}` : ""}. A leveling figure, not a price from ${bid.bidder}.`,
+  };
+}
+
+export function analyze(data, scenario) {
+  const active = governingBids(data, scenario);
+  const superseded = data.bids.filter((b) => !active.includes(b));
+  const rows = data.package.rows;
+  const alternates = data.package.alternates ?? [];
+  const basisItems = data.package.basis ?? [];
+  const addenda = data.package.addenda ?? [];
+
+  const results = active.map((bid) => {
+    const gaps = [];
+    const flags = [];
+    const questions = [];
+    const missing = [];
+    let plugs = 0;
+    let pending = 0;
+    let pendingUnresolved = 0;
+
+    for (const row of rows) {
+      const cell = bid.scope[row.key];
+      const klass = rowClass(row);
+      if (klass === "base" && cell.status !== "included") {
+        const plug = scenario.plugs?.[`${bid.id}:${row.key}`] ?? null;
+        const suggestion = plug ? null : suggestPlug(bid, row, active);
+        gaps.push({ row, cell, plug, suggestion });
+        if (plug) plugs += plug.amount;
+        else {
+          missing.push(`${lower(row.label)} (${STATUS_LABEL[cell.status].toLowerCase()}, no plug)`);
+          if (suggestion) pending += suggestion.amount;
+          else pendingUnresolved += 1;
+        }
+      }
+      if (klass === "outside" && cell.status === "included") {
+        if (isInt(cell.amount)) flags.push({ kind: "outside", text: `Carries ${lower(row.label)} (${money(cell.amount)}) inside the bid. It belongs to another package.`, ref: cell.ref, row, amount: cell.amount });
+        else flags.push({ kind: "outside", text: `Carries ${lower(row.label)} inside the bid without a price. Ask for the breakout.`, ref: cell.ref, row });
+      }
+      if (klass === "review" && cell.status !== "omitted") flags.push({ kind: "review", text: `${row.label}: ${STATUS_LABEL[cell.status].toLowerCase()}. Decide whether this belongs in the package.`, ref: cell.ref });
+      if (klass === "outside") {
+        // Excluding another package's work is correct; nothing to ask.
+      } else if (cell.status === "excluded") questions.push({ text: `Your bid excludes ${lower(row.label)}${cell.note ? ` (${cell.note})` : ""}. What would you add to include it?`, ref: cell.ref });
+      else if (cell.status === "omitted") questions.push({ text: `Your bid doesn't mention ${lower(row.label)}. Is it included? If not, what would you add?`, ref: cell.ref });
+      else if (cell.status === "unknown") questions.push({ text: `Please confirm whether ${lower(row.label)} is in your price${cell.note ? `. Your bid says: ${cell.note}` : ""}.`, ref: cell.ref });
+      if (klass === "outside" && cell.status === "included" && !isInt(cell.amount)) questions.push({ text: `Please break ${lower(row.label)} out of your total so it can be moved to its own package.`, ref: cell.ref });
+    }
+
+    // Itemized lines vs stated total, when the bid itemizes every included row.
+    const included = rows.filter((r) => bid.scope[r.key].status === "included");
+    const itemizedAll = included.length > 0 && included.every((r) => isInt(bid.scope[r.key].amount));
+    if (itemizedAll && isInt(bid.total)) {
+      const inTotal = Object.values(bid.basis ?? {}).filter((b) => b.treatment === "included" && b.inTotal && isInt(b.amount));
+      const sum = included.reduce((s, r) => s + bid.scope[r.key].amount, 0) + inTotal.reduce((s, b) => s + b.amount, 0);
+      if (sum !== bid.total) {
+        flags.push({ kind: "sum", text: `Itemized lines add up to ${money(sum)}, but the stated total is ${money(bid.total)} (${money(Math.abs(sum - bid.total))} ${sum > bid.total ? "over" : "under"}).`, ref: bid.totalRef });
+        questions.push({ text: `Your itemized lines add up to ${money(sum)}, but your total is ${money(bid.total)}. Which number governs?`, ref: bid.totalRef });
+      }
+    }
+
+    // Addenda.
+    if (addenda.length) {
+      if (bid.addendaAcknowledged === null || bid.addendaAcknowledged === undefined) {
+        flags.push({ kind: "addenda", text: "Doesn't say which addenda the price includes." });
+        questions.push({ text: `Please confirm your price includes ${addenda.map((a) => `Addendum ${a.number}`).join(" and ")}.` });
+      } else {
+        for (const a of addenda.filter((x) => !bid.addendaAcknowledged.includes(x.number))) {
+          flags.push({ kind: "addenda", text: `Doesn't acknowledge Addendum ${a.number} (${a.date}): ${a.summary.replace(/\.$/, "")}.` });
+          questions.push({ text: `Your bid doesn't acknowledge Addendum ${a.number}, which ${lower(a.summary.replace(/\.$/, ""))}. Does your price include it?` });
+        }
+      }
+    }
+
+    // Adjustments.
+    const adjustments = (scenario.adjustments ?? []).filter((a) => a.bid === bid.id);
+    const adjustmentTotal = adjustments.reduce((s, a) => s + a.amount, 0);
+    const suggestedAdjustments = flags
+      .filter((f) => f.kind === "outside" && isInt(f.amount))
+      .filter((f) => !adjustments.some((a) => a.from === `${bid.id}:${f.row.key}`))
+      .map((f) => ({ from: `${bid.id}:${f.row.key}`, bid: bid.id, amount: -f.amount, description: `Remove ${lower(f.row.label)}; it belongs to another package`, source: `${bid.bidder}'s itemized line (${f.ref})` }));
+
+    // Alternates.
+    let alternateTotal = 0;
+    const altCells = alternates.map((alt) => {
+      const priced = bid.alternates?.[alt.key];
+      const accepted = Boolean(scenario.alternates?.[alt.key]);
+      if (accepted) {
+        if (priced && isInt(priced.amount)) alternateTotal += priced.amount;
+        else missing.push(`${lower(alt.label)} (accepted, not priced)`);
+      }
+      if (!priced || !isInt(priced.amount)) questions.push({ text: `Please price ${lower(alt.label)}.`, ref: priced?.ref });
+      return { alt, priced, accepted };
+    });
+    for (const p of bid.proposedAlternates ?? []) flags.push({ kind: "proposed", text: `Offers an alternate nobody asked for: ${p.label} (${money(p.amount)}). Not comparable across bids.`, ref: p.ref });
+
+    // Common basis for tax, bond, and similar items.
+    let basisTotal = 0;
+    const basisCells = basisItems.map((item) => {
+      const b = bid.basis?.[item.key] ?? { treatment: "notStated" };
+      const mode = scenario.basis?.[item.key] ?? "asBid";
+      const entry = scenario.basisEntries?.[`${bid.id}:${item.key}`] ?? null;
+      let add = 0;
+      let needs = false;
+      let how = "";
+      if (mode === "carry" && b.treatment !== "included") {
+        if (entry) {
+          add = entry.amount;
+          how = entry.source;
+        } else if (isInt(b.amount)) {
+          add = b.amount;
+          how = `${bid.bidder}'s stated amount (${b.ref})`;
+        } else if (typeof b.percent === "number" && isInt(bid.total)) {
+          add = Math.round((bid.total * b.percent) / 100);
+          how = `${b.percent}% of the base bid, ${bid.bidder}'s stated rate (${b.ref})`;
+        } else {
+          needs = true;
+          missing.push(`${lower(item.label)} (carried, no figure)`);
+        }
+      }
+      basisTotal += add;
+      if (b.treatment === "notStated") questions.push({ text: `Does your price include ${lower(item.label)}? If not, what would you add?` });
+      else if (b.treatment === "excluded" && !isInt(b.amount) && typeof b.percent !== "number") questions.push({ text: `Your bid excludes ${lower(item.label)}. What would you add for it?`, ref: b.ref });
+      return { item, b, mode, entry, add, needs, how };
+    });
+
+    for (const q of bid.questions ?? []) questions.push(q);
+    if (!isInt(bid.total)) missing.unshift("no stated total");
+
+    const leveled = isInt(bid.total) ? bid.total + plugs + adjustmentTotal + alternateTotal + basisTotal : null;
+    const complete = leveled !== null && missing.length === 0;
+    // What the total would be if the estimator accepted every suggestion.
+    const suggestedAdj = suggestedAdjustments.reduce((s, a) => s + a.amount, 0);
+    const otherMissing = missing.length - gaps.filter((g) => !g.plug).length;
+    const withSuggestions = leveled === null ? null : leveled + pending + suggestedAdj;
+    const completeWithSuggestions = leveled !== null && pendingUnresolved === 0 && otherMissing === 0;
+
+    return {
+      bid, gaps, flags, questions, missing, plugs, adjustments, adjustmentTotal, suggestedAdjustments,
+      altCells, alternateTotal, basisCells, basisTotal, leveled, complete, withSuggestions, completeWithSuggestions,
+      pendingSuggestions: gaps.filter((g) => !g.plug && g.suggestion).length + suggestedAdjustments.length,
+    };
+  });
+
+  const completeResults = results.filter((r) => r.complete).sort((a, b) => a.leveled - b.leveled);
+  const lowest = completeResults[0] ?? null;
+  const lowestBase = results.filter((r) => isInt(r.bid.total)).sort((a, b) => a.bid.total - b.bid.total)[0] ?? null;
+  const openGaps = results.reduce((n, r) => n + r.gaps.filter((g) => !g.plug).length, 0);
+  const pendingSuggestions = results.reduce((n, r) => n + r.pendingSuggestions, 0);
+  return { results, superseded, lowest, lowestBase, openGaps, pendingSuggestions };
+}
+
+// ---------- shared text ----------
+
+function headline(analysis) {
+  const { lowest, results } = analysis;
+  const incomplete = results.filter((r) => !r.complete);
+  if (lowest) {
+    const tail = incomplete.length ? ` ${plural(incomplete.length, "bid is", "bids are")} still incomplete.` : " Every bid is complete.";
+    return { lead: `Lowest complete leveled total: ${lowest.bid.bidder} at ${money(lowest.leveled)}.`, tail };
+  }
+  return { lead: "No bid is complete yet.", tail: ` ${plural(analysis.openGaps, "gap needs", "gaps need")} a plug before the totals compare.` };
+}
+
+function statusText(r) {
+  if (r.leveled === null) return "No stated total";
+  if (r.complete) return "Complete";
+  return `Incomplete: ${plural(r.missing.length, "open item")}`;
+}
+
+// ---------- HTML ----------
+
+const h = escapeHtml;
+const refLink = (bid, ref) => (ref ? ` <a class="ref" href="#ev-${h(bid.id)}-${h(ref)}">${h(ref)}</a>` : "");
+
+export function renderApp(data, scenario, analysis) {
+  const pkg = data.package;
+  const { results } = analysis;
+  const head = headline(analysis);
+  const lowestId = analysis.lowest?.bid.id;
+  const out = [];
+
+  out.push(`<header class="top"><div>
+<p class="eyebrow">Bid tab · ${h(pkg.project)} · as of ${h(pkg.asOf)}</p>
+<h1>${h(pkg.name)}</h1>
+<p class="summary"><strong>${h(head.lead)}</strong>${h(head.tail)}${analysis.pendingSuggestions ? ` ${h(plural(analysis.pendingSuggestions, "suggestion waits", "suggestions wait"))} for your review.` : ""}</p>
+</div>
+<div class="actions">
+<button type="button" id="export-json">Export scenario</button>
+<label class="file">Import scenario<input type="file" id="import-json" accept="application/json,.json"></label>
+<button type="button" id="export-xlsx">Export to Excel</button>
+<button type="button" id="reset">Reset</button>
+</div></header>
+<p class="status" id="status" role="status" aria-live="polite"></p>`);
+
+  // Totals.
+  out.push(`<section aria-labelledby="totals-h"><h2 id="totals-h">Leveled totals</h2>
+<p class="hint">Leveled total = base bid + plugs + adjustments + accepted alternates + common-basis items. Suggested plugs don't count until you accept them.</p>
+<div class="table-wrap"><table><thead><tr><th scope="col">Bidder</th><th scope="col" class="num">Base bid</th><th scope="col" class="num">Plugs</th><th scope="col" class="num">Adjustments</th><th scope="col" class="num">Alternates</th><th scope="col" class="num">Basis</th><th scope="col" class="num">Leveled total</th><th scope="col">Status</th><th scope="col" class="num">If suggestions accepted</th></tr></thead><tbody>`);
+  for (const r of results) {
+    const cls = r.bid.id === lowestId ? ' class="low"' : "";
+    out.push(`<tr${cls}><th scope="row">${h(r.bid.bidder)}${r.bid.id === lowestId ? ' <span class="pill">Lowest complete</span>' : ""}<span class="sub">${h(r.bid.files.join(", "))}</span></th>
+<td class="num">${money(r.bid.total)}${refLink(r.bid, r.bid.totalRef)}</td><td class="num">${money(r.plugs)}</td><td class="num">${money(r.adjustmentTotal)}</td><td class="num">${money(r.alternateTotal)}</td><td class="num">${money(r.basisTotal)}</td>
+<td class="num total">${money(r.leveled)}</td><td class="${r.complete ? "ok" : "warn"}">${h(r.complete ? "Complete" : r.leveled === null ? "No stated total" : `Incomplete: ${plural(r.missing.length, "open item")}`)}</td>
+<td class="num">${r.withSuggestions === null ? "n/a" : `${money(r.withSuggestions)}${r.completeWithSuggestions ? "" : " <span class='sub'>still incomplete</span>"}`}</td></tr>`);
+  }
+  out.push("</tbody></table></div>");
+  for (const note of basisMismatch(pkg, scenario, analysis)) out.push(`<p class="hint warn-note">${h(note.replace("Carry it in the tab to level it.", "Carry it below to level it."))}</p>`);
+  if (analysis.superseded.length) out.push(`<p class="hint">Superseded and not leveled: ${h(analysis.superseded.map((b) => `${b.bidder} (${b.files.join(", ")})`).join("; "))}.</p>`);
+  out.push("</section>");
+
+  // Gaps and plugs.
+  out.push(`<section aria-labelledby="gaps-h"><h2 id="gaps-h">Gaps and plugs <span class="sub">${h(plural(analysis.openGaps, "open gap"))}</span></h2>
+<p class="hint">Each gap is scope the package needs that a bid excludes, doesn't mention or leaves unclear. Accept a suggestion, enter your own figure with its source, or leave it open and ask the bidder.</p>`);
+  const allGaps = results.flatMap((r) => r.gaps.map((g) => ({ r, g })));
+  const gapRows = [...allGaps.filter(({ g }) => !g.plug), ...allGaps.filter(({ g }) => g.plug)];
+  if (!gapRows.length) out.push('<p class="empty">No gaps on base scope.</p>');
+  else {
+    out.push('<ul class="gaps">');
+    for (const { r, g } of gapRows) {
+      const id = `${r.bid.id}:${g.row.key}`;
+      const domId = id.replace(":", "--");
+      if (g.plug) {
+        out.push(`<li class="gap done"><div class="gap-head"><strong>${h(r.bid.bidder)}</strong> · ${h(g.row.label)}: plug ${money(g.plug.amount)} <button type="button" class="small" data-clear-plug="${h(id)}">Clear</button></div>
+<p class="says">${h(STATUS_LABEL[g.cell.status])}${g.cell.note ? `: ${h(g.cell.note)}` : ""}${refLink(r.bid, g.cell.ref)}. ${h(g.plug.kind === "accepted" ? "Accepted suggestion" : "Your figure")}: ${h(g.plug.source)}</p>`);
+      } else {
+        out.push(`<li class="gap open"><div class="gap-head"><strong>${h(r.bid.bidder)}</strong> · ${h(g.row.label)}</div>
+<p class="says">${h(STATUS_LABEL[g.cell.status])}${g.cell.note ? `: ${h(g.cell.note)}` : ""}${refLink(r.bid, g.cell.ref)}</p>`);
+        if (g.suggestion) out.push(`<p class="suggest">Suggested ${money(g.suggestion.amount)} <span class="sub">${h(g.suggestion.source)}</span> <button type="button" class="small" data-accept-plug="${h(id)}">Accept</button></p>`);
+        else out.push(`<p class="suggest none">${g.cell.status === "unknown" ? "Unclear in the bid, so no suggestion. Ask the bidder, or enter your own figure." : "No other bid itemizes this scope. Enter your own figure, or ask the bidder."}</p>`);
+        out.push(`<form class="plug-form" data-plug="${h(id)}"><label>Plug<input name="amount" id="amt-${h(domId)}" inputmode="decimal" placeholder="$0" autocomplete="off"></label><label class="wide">Source<input name="source" id="src-${h(domId)}" placeholder="e.g. our estimate, line 06 10 00" autocomplete="off"></label><button type="submit">Use</button></form>`);
+      }
+      out.push("</li>");
+    }
+    out.push("</ul>");
+  }
+  out.push("</section>");
+
+  // Adjustments.
+  const suggestedAdj = results.flatMap((r) => r.suggestedAdjustments);
+  const madeAdj = scenario.adjustments ?? [];
+  out.push(`<section aria-labelledby="adj-h"><h2 id="adj-h">Adjustments</h2>
+<p class="hint">Changes to a bid for reasons other than a gap, such as removing work that belongs to another package.</p>`);
+  if (suggestedAdj.length) {
+    out.push('<ul class="gaps">');
+    for (const a of suggestedAdj) {
+      const bid = data.bids.find((b) => b.id === a.bid);
+      out.push(`<li class="gap open"><div class="gap-head"><strong>${h(bid.bidder)}</strong> · ${h(a.description)}</div><p class="suggest">Suggested ${money(a.amount)} <span class="sub">${h(a.source)}</span> <button type="button" class="small" data-accept-adjustment="${h(a.from)}">Accept</button></p></li>`);
+    }
+    out.push("</ul>");
+  }
+  if (madeAdj.length) {
+    out.push('<ul class="moves">');
+    madeAdj.forEach((a, i) => {
+      const bid = data.bids.find((b) => b.id === a.bid);
+      out.push(`<li><span><strong>${h(bid?.bidder ?? a.bid)}</strong> ${money(a.amount, { sign: true })}: ${h(a.description)} <span class="sub">(${h(a.source)})</span></span><button type="button" class="small" data-remove-adjustment="${i}">Remove</button></li>`);
+    });
+    out.push("</ul>");
+  } else if (!suggestedAdj.length) out.push('<p class="empty">No adjustments.</p>');
+  out.push(`<form class="plug-form adj-form" id="adj-form"><label>Bidder<select name="bid" id="adj-bid">${results.map((r) => `<option value="${h(r.bid.id)}">${h(r.bid.bidder)}</option>`).join("")}</select></label><label>Amount<input name="amount" id="adj-amount" inputmode="decimal" placeholder="-$0" autocomplete="off"></label><label class="wide">What and why<input name="description" id="adj-desc" autocomplete="off"></label><label class="wide">Source<input name="source" id="adj-src" autocomplete="off"></label><button type="submit">Add adjustment</button></form></section>`);
+
+  // Common basis.
+  if ((pkg.basis ?? []).length) {
+    out.push(`<section aria-labelledby="basis-h"><h2 id="basis-h">Tax, bond and other basis items</h2>
+<p class="hint">Choose whether every bid should carry each item. "Carry" adds it where a bid leaves it out, using the bidder's own stated amount or rate. Where the bid gives none, enter a figure.</p>`);
+    for (const item of pkg.basis) {
+      const mode = scenario.basis?.[item.key] ?? "asBid";
+      out.push(`<div class="basis"><fieldset class="segmented"><legend class="sr-only">${h(item.label)}</legend>${["asBid", "carry"].map((m) => `<label class="seg${m === mode ? " on" : ""}"><input type="radio" name="basis-${h(item.key)}" value="${m}" data-basis="${h(item.key)}"${m === mode ? " checked" : ""}>${m === "asBid" ? "As bid" : "Carry in all bids"}</label>`).join("")}</fieldset> <strong>${h(item.label)}</strong></div>
+<div class="table-wrap"><table><thead><tr><th scope="col">Bidder</th><th scope="col">Bid says</th><th scope="col" class="num">Added</th></tr></thead><tbody>`);
+      for (const r of results) {
+        const c = r.basisCells.find((x) => x.item.key === item.key);
+        const says = c.b.treatment === "included" ? `Included${isInt(c.b.amount) ? ` (${money(c.b.amount)})` : ""}` : c.b.treatment === "excluded" ? `Excluded${typeof c.b.percent === "number" ? `; add ${c.b.percent}%` : isInt(c.b.amount) ? `; add ${money(c.b.amount)}` : ""}` : "Not stated";
+        const id = `${r.bid.id}:${item.key}`;
+        let added = c.add ? `${money(c.add)} <span class="sub">${h(c.how)}</span>` : "none";
+        if (c.entry) added += ` <button type="button" class="small" data-clear-basis="${h(id)}">Clear</button>`;
+        if (c.needs) added = `<form class="plug-form inline" data-basis-entry="${h(id)}"><label>Amount<input name="amount" id="bamt-${h(id.replace(":", "--"))}" inputmode="decimal" autocomplete="off"></label><label class="wide">Source<input name="source" id="bsrc-${h(id.replace(":", "--"))}" autocomplete="off"></label><button type="submit">Use</button></form>`;
+        out.push(`<tr><th scope="row">${h(r.bid.bidder)}</th><td>${h(says)}${refLink(r.bid, c.b.ref)}</td><td class="num${c.needs ? " warn" : ""}">${added}</td></tr>`);
+      }
+      out.push("</tbody></table></div>");
+    }
+    out.push("</section>");
+  }
+
+  // Alternates.
+  out.push(`<section aria-labelledby="alt-h"><h2 id="alt-h">Alternates</h2><p class="hint">Turn an alternate on to carry it in every leveled total. A bid that didn't price it becomes incomplete.</p>`);
+  if ((pkg.alternates ?? []).length) {
+    out.push(`<div class="table-wrap"><table><thead><tr><th scope="col">Alternate</th><th scope="col">In totals</th>${results.map((r) => `<th scope="col" class="num">${h(r.bid.bidder)}</th>`).join("")}</tr></thead><tbody>`);
+    for (const alt of pkg.alternates) {
+      const on = Boolean(scenario.alternates?.[alt.key]);
+      out.push(`<tr><th scope="row">${h(alt.label)} <span class="sub">${h(alt.kind)}</span></th><td><label class="toggle"><input type="checkbox" data-alternate="${h(alt.key)}"${on ? " checked" : ""}> ${on ? "Accepted" : "Not accepted"}</label></td>`);
+      for (const r of results) {
+        const c = r.altCells.find((x) => x.alt.key === alt.key);
+        out.push(`<td class="num${on && !isInt(c.priced?.amount) ? " warn" : ""}">${c.priced ? `${money(c.priced.amount)}${refLink(r.bid, c.priced.ref)}` : "Not offered"}</td>`);
+      }
+      out.push("</tr>");
+    }
+    out.push("</tbody></table></div>");
+  }
+  const proposed = results.flatMap((r) => (r.bid.proposedAlternates ?? []).map((p) => ({ r, p })));
+  if (proposed.length) out.push(`<p class="hint">Offered without being asked: ${proposed.map(({ r, p }) => `${h(r.bid.bidder)}, ${h(p.label)} ${money(p.amount)}${refLink(r.bid, p.ref)}`).join("; ")}. Not in the totals and not comparable across bids.</p>`);
+  out.push("</section>");
+
+  // Matrix.
+  out.push(`<section aria-labelledby="matrix-h"><h2 id="matrix-h">Scope matrix</h2>${pkg.scopeSource ? `<p class="hint">Rows from ${h(pkg.scopeSource)}.</p>` : '<p class="hint">No scope sheet was provided. Rows are the scope the bids mention.</p>'}
+<div class="table-wrap matrix"><table><thead><tr><th scope="col">Scope</th>${results.map((r) => `<th scope="col">${h(r.bid.bidder)}</th>`).join("")}</tr></thead><tbody>`);
+  for (const klass of ROW_CLASSES) {
+    const classRows = pkg.rows.filter((row) => rowClass(row) === klass);
+    if (!classRows.length) continue;
+    if (klass !== "base") out.push(`<tr class="group"><th colspan="${results.length + 1}">${klass === "outside" ? "Belongs to another package" : "Needs a decision"}</th></tr>`);
+    for (const row of classRows) {
+      out.push(`<tr><th scope="row">${h(row.label)}</th>`);
+      for (const r of results) {
+        const cell = r.bid.scope[row.key];
+        const plug = scenario.plugs?.[`${r.bid.id}:${row.key}`];
+        const gap = klass === "base" && cell.status !== "included";
+        out.push(`<td class="st-${cell.status}${gap ? (plug ? " plugged" : " gap") : ""}">${h(STATUS_LABEL[cell.status])}${isInt(cell.amount) ? ` ${money(cell.amount)}` : ""}${refLink(r.bid, cell.ref)}${plug ? `<span class="sub">plug ${money(plug.amount)}</span>` : ""}</td>`);
+      }
+      out.push("</tr>");
+    }
+  }
+  out.push("</tbody></table></div></section>");
+
+  // Flags and questions.
+  out.push(`<section aria-labelledby="q-h"><h2 id="q-h">Review flags and questions for bidders</h2><div class="bidders">`);
+  for (const r of results) {
+    out.push(`<div class="bidder"><h3>${h(r.bid.bidder)}</h3>`);
+    if (r.flags.length) out.push(`<ul class="flags">${r.flags.map((f) => `<li>${h(f.text)}${refLink(r.bid, f.ref)}</li>`).join("")}</ul>`);
+    out.push(r.questions.length ? `<ol class="questions">${r.questions.map((q) => `<li>${h(q.text)}${refLink(r.bid, q.ref)}</li>`).join("")}</ol>` : '<p class="empty">No questions.</p>');
+    out.push("</div>");
+  }
+  out.push("</div>");
+  if ((data.openQuestions ?? []).length) out.push(`<h3>Open questions for you</h3><ul class="questions">${data.openQuestions.map((q) => `<li>${h(q.text)}${q.source ? ` <span class="sub">(${h(q.source)})</span>` : ""}</li>`).join("")}</ul>`);
+  out.push("</section>");
+
+  // Unit prices and qualifications.
+  const units = results.flatMap((r) => (r.bid.unitPrices ?? []).map((u) => ({ r, u })));
+  const quals = results.flatMap((r) => (r.bid.qualifications ?? []).map((q) => ({ r, q })));
+  if (units.length || quals.length) {
+    out.push(`<section aria-labelledby="terms-h"><h2 id="terms-h">Unit prices and qualifications</h2><p class="hint">Listed for comparison. Never added to the totals.</p>`);
+    if (units.length) out.push(`<div class="table-wrap"><table><thead><tr><th scope="col">Bidder</th><th scope="col">Unit price</th><th scope="col" class="num">Price</th></tr></thead><tbody>${units.map(({ r, u }) => `<tr><th scope="row">${h(r.bid.bidder)}</th><td>${h(u.description)}</td><td class="num">${money(u.price)} / ${h(u.unit)}${refLink(r.bid, u.ref)}</td></tr>`).join("")}</tbody></table></div>`);
+    if (quals.length) out.push(`<ul class="quals">${quals.map(({ r, q }) => `<li><strong>${h(r.bid.bidder)}:</strong> ${h(q.text)}${refLink(r.bid, q.ref)}</li>`).join("")}</ul>`);
+    out.push("</section>");
+  }
+
+  // Evidence.
+  out.push(`<section aria-labelledby="ev-h"><h2 id="ev-h">Evidence</h2><p class="hint">Every amount and status in this tab cites a quote from the bid.</p><div class="bidders">`);
+  for (const bid of [...results.map((r) => r.bid), ...analysis.superseded]) {
+    out.push(`<div class="bidder"><h3>${h(bid.bidder)}${analysis.superseded.includes(bid) ? ' <span class="sub">superseded</span>' : ""}</h3><dl class="evidence">${(bid.evidence ?? []).map((ev) => `<div id="ev-${h(bid.id)}-${h(ev.ref)}"><dt>${h(ev.ref)} <span class="sub">${h(ev.file)}, ${h(ev.location)}</span></dt><dd>${h(ev.quote)}</dd></div>`).join("")}</dl></div>`);
+  }
+  out.push("</div></section>");
+  out.push(`<p class="foot">A comparison, not an award recommendation. Plugs and basis figures are the estimator's judgment. Nothing here was sent to a bidder.</p>`);
+  return out.join("\n");
+}
+
+// ---------- Markdown brief ----------
+
+// Basis items left "as bid" where the bids disagree, so the totals are not on one basis.
+function basisMismatch(pkg, scenario, analysis) {
+  const notes = [];
+  for (const item of pkg.basis ?? []) {
+    if ((scenario.basis?.[item.key] ?? "asBid") !== "asBid") continue;
+    const groups = { included: [], excluded: [], notStated: [] };
+    for (const r of analysis.results) {
+      const b = r.bid.basis?.[item.key] ?? { treatment: "notStated" };
+      groups[b.treatment].push(`${r.bid.bidder}${b.treatment === "excluded" && typeof b.percent === "number" ? ` (adds ${b.percent}%)` : ""}`);
+    }
+    const used = Object.entries(groups).filter(([, list]) => list.length);
+    if (used.length < 2) continue;
+    const words = { included: "included by", excluded: "excluded by", notStated: "not stated by" };
+    notes.push(`${item.label} is not on a common basis: ${used.map(([k, list]) => `${words[k]} ${list.join(", ")}`).join("; ")}. Carry it in the tab to level it.`);
+  }
+  return notes;
+}
+
+export function renderBrief(data, scenario, analysis) {
+  const pkg = data.package;
+  const head = headline(analysis);
+  const lines = [];
+  lines.push(`# Bid leveling brief: ${pkg.name}`, "");
+  lines.push(`${pkg.project}. As of ${pkg.asOf}.${pkg.bidDue ? ` Bids due ${pkg.bidDue}.` : ""} ${plural(analysis.results.length, "bid")} leveled${analysis.superseded.length ? `, ${analysis.superseded.length} superseded` : ""}.`, "");
+  lines.push(`**${head.lead}**${head.tail}`, "");
+  if (analysis.lowestBase && analysis.lowestBase !== analysis.lowest) {
+    const r = analysis.lowestBase;
+    lines.push(`The lowest base bid is ${r.bid.bidder} at ${money(r.bid.total)}, but ${r.complete ? `it levels to ${money(r.leveled)}` : `it is incomplete with ${plural(r.missing.length, "open item")}`}.`, "");
+  }
+  lines.push("## Leveled totals", "");
+  lines.push("| Bidder | Base bid | Plugs | Adjustments | Alternates | Basis | Leveled total | Status | If suggestions accepted |");
+  lines.push("|---|---|---|---|---|---|---|---|---|");
+  for (const r of analysis.results) {
+    lines.push(`| ${md(r.bid.bidder)} | ${money(r.bid.total)} | ${money(r.plugs)} | ${money(r.adjustmentTotal)} | ${money(r.alternateTotal)} | ${money(r.basisTotal)} | ${money(r.leveled)} | ${md(statusText(r))} | ${r.withSuggestions === null ? "n/a" : `${money(r.withSuggestions)}${r.completeWithSuggestions ? "" : " (still incomplete)"}`} |`);
+  }
+  lines.push("");
+  const accepted = Object.values(scenario.alternates ?? {}).some(Boolean);
+  const carried = (pkg.basis ?? []).filter((b) => scenario.basis?.[b.key] === "carry").map((b) => b.label.toLowerCase());
+  lines.push(`Assumptions: ${accepted ? `alternates accepted: ${pkg.alternates.filter((a) => scenario.alternates?.[a.key]).map((a) => a.label).join(", ")}` : "no alternates accepted"}; ${carried.length ? `carried in every bid: ${carried.join(", ")}` : "tax, bond and similar items as bid"}.`, "");
+  for (const note of basisMismatch(pkg, scenario, analysis)) lines.push(`- ${note}`);
+  if (basisMismatch(pkg, scenario, analysis).length) lines.push("");
+
+  lines.push("## Plugs to confirm", "");
+  const plugRows = analysis.results.flatMap((r) => r.gaps.map((g) => ({ r, g })));
+  if (!plugRows.length) lines.push("No gaps on base scope.", "");
+  else {
+    lines.push("| Bidder | Scope | Bid says | Plug | Source |", "|---|---|---|---|---|");
+    for (const { r, g } of plugRows) {
+      const says = `${STATUS_LABEL[g.cell.status]}${g.cell.note ? `: ${g.cell.note}` : ""} (${g.cell.ref})`;
+      const plug = g.plug ? money(g.plug.amount) : g.suggestion ? `open; suggested ${money(g.suggestion.amount)}` : "open";
+      const source = g.plug ? g.plug.source : g.suggestion ? g.suggestion.source : g.cell.status === "unknown" ? "Unclear in the bid. Ask the bidder." : "No other bid itemizes it. Needs your figure.";
+      lines.push(`| ${md(r.bid.bidder)} | ${md(g.row.label)} | ${md(says)} | ${plug} | ${md(source)} |`);
+    }
+    lines.push("");
+  }
+  const adj = [...(scenario.adjustments ?? []).map((a) => ({ ...a, state: "applied" })), ...analysis.results.flatMap((r) => r.suggestedAdjustments.map((a) => ({ ...a, state: "suggested" })))];
+  if (adj.length) {
+    lines.push("## Adjustments", "", "| Bidder | Adjustment | Amount | Source | State |", "|---|---|---|---|---|");
+    for (const a of adj) lines.push(`| ${md(data.bids.find((b) => b.id === a.bid)?.bidder)} | ${md(a.description)} | ${money(a.amount, { sign: true })} | ${md(a.source)} | ${a.state} |`);
+    lines.push("");
+  }
+  lines.push("## Review flags", "");
+  const flags = analysis.results.flatMap((r) => r.flags.map((f) => `- **${r.bid.bidder}:** ${f.text}${f.ref ? ` (${f.ref})` : ""}`));
+  lines.push(...(flags.length ? flags : ["None."]), "");
+  lines.push("## Questions for bidders", "");
+  for (const r of analysis.results) {
+    lines.push(`### ${r.bid.bidder}`, "");
+    if (!r.questions.length) lines.push("No questions.");
+    r.questions.forEach((q, i) => lines.push(`${i + 1}. ${q.text}${q.ref ? ` (${q.ref})` : ""}`));
+    lines.push("");
+  }
+  if ((data.openQuestions ?? []).length) {
+    lines.push("## Open questions for you", "");
+    for (const q of data.openQuestions) lines.push(`- ${q.text}${q.source ? ` (${q.source})` : ""}`);
+    lines.push("");
+  }
+  if (analysis.superseded.length) lines.push(`Superseded and not leveled: ${analysis.superseded.map((b) => `${b.bidder} (${b.files.join(", ")})`).join("; ")}.`, "");
+  lines.push("This is a comparison, not an award recommendation. Plugs and basis figures are the estimator's judgment, and nothing was sent to a bidder.");
+  return `${lines.join("\n")}\n`;
+}
+
+// ---------- XLSX (no dependencies) ----------
+
+const CRC_TABLE = (() => {
+  const table = new Uint32Array(256);
+  for (let n = 0; n < 256; n++) {
+    let c = n;
+    for (let k = 0; k < 8; k++) c = c & 1 ? 0xedb88320 ^ (c >>> 1) : c >>> 1;
+    table[n] = c >>> 0;
+  }
+  return table;
+})();
+
+function crc32(bytes) {
+  let c = 0xffffffff;
+  for (const b of bytes) c = CRC_TABLE[(c ^ b) & 0xff] ^ (c >>> 8);
+  return (c ^ 0xffffffff) >>> 0;
+}
+
+// Stored (uncompressed) zip with a fixed timestamp, so output is reproducible.
+function zip(files) {
+  const enc = new TextEncoder();
+  const chunks = [];
+  const central = [];
+  let offset = 0;
+  for (const [name, text] of files) {
+    const nameBytes = enc.encode(name);
+    const data = enc.encode(text);
+    const crc = crc32(data);
+    const local = new DataView(new ArrayBuffer(30));
+    local.setUint32(0, 0x04034b50, true);
+    local.setUint16(4, 20, true);
+    local.setUint16(10, 0, true);
+    local.setUint16(12, 0x21, true); // 1980-01-01
+    local.setUint32(14, crc, true);
+    local.setUint32(18, data.length, true);
+    local.setUint32(22, data.length, true);
+    local.setUint16(26, nameBytes.length, true);
+    chunks.push(new Uint8Array(local.buffer), nameBytes, data);
+    const entry = new DataView(new ArrayBuffer(46));
+    entry.setUint32(0, 0x02014b50, true);
+    entry.setUint16(4, 20, true);
+    entry.setUint16(6, 20, true);
+    entry.setUint16(14, 0x21, true);
+    entry.setUint32(16, crc, true);
+    entry.setUint32(20, data.length, true);
+    entry.setUint32(24, data.length, true);
+    entry.setUint16(28, nameBytes.length, true);
+    entry.setUint32(42, offset, true);
+    central.push(new Uint8Array(entry.buffer), nameBytes);
+    offset += 30 + nameBytes.length + data.length;
+  }
+  const centralSize = central.reduce((n, c) => n + c.length, 0);
+  const end = new DataView(new ArrayBuffer(22));
+  end.setUint32(0, 0x06054b50, true);
+  end.setUint16(8, files.length, true);
+  end.setUint16(10, files.length, true);
+  end.setUint32(12, centralSize, true);
+  end.setUint32(16, offset, true);
+  const parts = [...chunks, ...central, new Uint8Array(end.buffer)];
+  const out = new Uint8Array(parts.reduce((n, p) => n + p.length, 0));
+  let at = 0;
+  for (const p of parts) {
+    out.set(p, at);
+    at += p.length;
+  }
+  return out;
+}
+
+const xml = (v) => String(v ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/[\u0000-\u0008\u000b\u000c\u000e-\u001f]/g, "");
+const colName = (i) => {
+  let s = "";
+  for (let n = i + 1; n > 0; n = Math.floor((n - 1) / 26)) s = String.fromCharCode(65 + ((n - 1) % 26)) + s;
+  return s;
+};
+
+// Cells: string, number (dollars), {f, v, money}, {money: cents}, or null.
+// Styles: 0 default, 1 bold header, 2 currency, 3 bold currency, 4 wrapped text.
+function sheetXml(rows, widths) {
+  const body = rows
+    .map((row, r) => {
+      const cells = row
+        .map((cell, c) => {
+          if (cell === null || cell === undefined || cell === "") return "";
+          const ref = `${colName(c)}${r + 1}`;
+          const header = r === 0;
+          if (typeof cell === "object" && "f" in cell) return `<c r="${ref}" s="${cell.bold ? 3 : 2}"><f>${xml(cell.f)}</f><v>${cell.v / 100}</v></c>`;
+          if (typeof cell === "object" && "money" in cell) return `<c r="${ref}" s="2"><v>${cell.money / 100}</v></c>`;
+          if (typeof cell === "number") return `<c r="${ref}"><v>${cell}</v></c>`;
+          return `<c r="${ref}" t="inlineStr" s="${header ? 1 : 4}"><is><t xml:space="preserve">${xml(cell)}</t></is></c>`;
+        })
+        .join("");
+      return `<row r="${r + 1}">${cells}</row>`;
+    })
+    .join("");
+  const cols = widths.map((w, i) => `<col min="${i + 1}" max="${i + 1}" width="${w}" customWidth="1"/>`).join("");
+  return `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<worksheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main"><sheetViews><sheetView workbookViewId="0"><pane ySplit="1" topLeftCell="A2" activePane="bottomLeft" state="frozen"/></sheetView></sheetViews><cols>${cols}</cols><sheetData>${body}</sheetData></worksheet>`;
+}
+
+export function workbook(data, scenario, analysis) {
+  const { results } = analysis;
+  const names = new Map(results.map((r) => [r.bid.id, r.bid.bidder]));
+  const plugRows = [["Bidder", "Scope", "Bid says", "Suggested", "Plug", "Source", "Counts (Yes/No)"]];
+  for (const r of results) {
+    for (const g of r.gaps) {
+      plugRows.push([
+        r.bid.bidder,
+        g.row.label,
+        `${STATUS_LABEL[g.cell.status]}${g.cell.note ? `: ${g.cell.note}` : ""} (${g.cell.ref})`,
+        g.suggestion ? { money: g.suggestion.amount } : null,
+        g.plug ? { money: g.plug.amount } : null,
+        g.plug?.source ?? (g.suggestion ? g.suggestion.source : "Open"),
+        g.plug ? "Yes" : "No",
+      ]);
+    }
+  }
+  const adjRows = [["Bidder", "Adjustment", "Amount", "Source"]];
+  for (const a of scenario.adjustments ?? []) adjRows.push([names.get(a.bid) ?? a.bid, a.description, { money: a.amount }, a.source]);
+
+  const leveled = [["Bidder", "Base bid", "Plugs", "Adjustments", "Alternates", "Basis", "Leveled total", "Status"]];
+  results.forEach((r, i) => {
+    const n = i + 2;
+    leveled.push([
+      r.bid.bidder,
+      r.bid.total === null ? null : { money: r.bid.total },
+      { f: `SUMIFS('Gaps and plugs'!E:E,'Gaps and plugs'!A:A,A${n},'Gaps and plugs'!G:G,"Yes")`, v: r.plugs },
+      { f: `SUMIFS(Adjustments!C:C,Adjustments!A:A,A${n})`, v: r.adjustmentTotal },
+      { money: r.alternateTotal },
+      { money: r.basisTotal },
+      r.leveled === null ? "No stated total" : { f: `SUM(B${n}:F${n})`, v: r.leveled, bold: true },
+      statusText(r),
+    ]);
+  });
+  leveled.push([]);
+  leveled.push([`Plugs and adjustments recompute from their sheets: set a plug's "Counts" to Yes to carry it. Alternates and basis are values from the HTML tab as exported ${data.package.asOf}.`]);
+
+  const matrix = [["Scope", "Class", ...results.map((r) => r.bid.bidder)]];
+  for (const row of data.package.rows) {
+    matrix.push([row.label, rowClass(row), ...results.map((r) => {
+      const cell = r.bid.scope[row.key];
+      return `${STATUS_LABEL[cell.status]}${isInt(cell.amount) ? ` ${money(cell.amount)}` : ""}${cell.note ? `: ${cell.note}` : ""} (${cell.ref})`;
+    })]);
+  }
+  const questions = [["Bidder", "Question", "Evidence"]];
+  for (const r of results) for (const q of r.questions) questions.push([r.bid.bidder, q.text, q.ref ?? ""]);
+  const evidence = [["Bidder", "Ref", "File", "Location", "Quote"]];
+  for (const bid of data.bids) for (const ev of bid.evidence ?? []) evidence.push([bid.bidder, ev.ref, ev.file, ev.location, ev.quote]);
+
+  const sheets = [
+    ["Leveled totals", sheetXml(leveled, [34, 14, 14, 14, 14, 14, 16, 60])],
+    ["Gaps and plugs", sheetXml(plugRows, [30, 40, 50, 14, 14, 70, 14])],
+    ["Adjustments", sheetXml(adjRows, [30, 50, 14, 60])],
+    ["Scope matrix", sheetXml(matrix, [48, 10, ...results.map(() => 36)])],
+    ["Questions", sheetXml(questions, [30, 90, 10])],
+    ["Evidence", sheetXml(evidence, [30, 8, 28, 28, 90])],
+  ];
+  const files = [
+    ["[Content_Types].xml", `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/><Override PartName="/xl/workbook.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet.main+xml"/><Override PartName="/xl/styles.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.styles+xml"/>${sheets.map((_, i) => `<Override PartName="/xl/worksheets/sheet${i + 1}.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.worksheet+xml"/>`).join("")}</Types>`],
+    ["_rels/.rels", `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="xl/workbook.xml"/></Relationships>`],
+    ["xl/workbook.xml", `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<workbook xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"><sheets>${sheets.map(([name], i) => `<sheet name="${xml(name)}" sheetId="${i + 1}" r:id="rId${i + 1}"/>`).join("")}</sheets><calcPr calcId="191029" fullCalcOnLoad="1"/></workbook>`],
+    ["xl/_rels/workbook.xml.rels", `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">${sheets.map((_, i) => `<Relationship Id="rId${i + 1}" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/worksheet" Target="worksheets/sheet${i + 1}.xml"/>`).join("")}<Relationship Id="rId${sheets.length + 1}" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/styles" Target="styles.xml"/></Relationships>`],
+    ["xl/styles.xml", `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<styleSheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main"><numFmts count="1"><numFmt numFmtId="164" formatCode="&quot;$&quot;#,##0.00"/></numFmts><fonts count="2"><font><sz val="11"/><name val="Calibri"/></font><font><b/><sz val="11"/><name val="Calibri"/></font></fonts><fills count="2"><fill><patternFill patternType="none"/></fill><fill><patternFill patternType="gray125"/></fill></fills><borders count="1"><border/></borders><cellStyleXfs count="1"><xf/></cellStyleXfs><cellXfs count="5"><xf/><xf fontId="1" applyFont="1"/><xf numFmtId="164" applyNumberFormat="1"/><xf numFmtId="164" fontId="1" applyNumberFormat="1" applyFont="1"/><xf applyAlignment="1"><alignment wrapText="1" vertical="top"/></xf></cellXfs></styleSheet>`],
+    ...sheets.map(([, body], i) => [`xl/worksheets/sheet${i + 1}.xml`, body]),
+  ];
+  return zip(files);
+}
+
+// Browser glue for the bid tab. Runs in the same module as leveling-core.mjs,
+// so validate/analyze/renderApp/workbook are in scope.
+const root = document.getElementById("app");
+const data = validate(JSON.parse(document.getElementById("tab-data").textContent));
+const initialScenario = JSON.parse(document.getElementById("tab-scenario").textContent);
+let state = { data, scenario: structuredClone(initialScenario) };
+
+function setStatus(message) {
+  const status = document.getElementById("status");
+  if (status) status.textContent = message;
+}
+
+function render(message = "") {
+  const focusId = document.activeElement?.id;
+  root.innerHTML = renderApp(state.data, state.scenario, analyze(state.data, state.scenario));
+  if (focusId) document.getElementById(focusId)?.focus();
+  setStatus(message);
+}
+
+function update(next, message) {
+  try {
+    state.scenario = validateScenario(state.data, next);
+  } catch (error) {
+    return setStatus(error.message.replace(/\n- /g, " "));
+  }
+  render(message);
+}
+
+function download(name, type, body) {
+  const url = URL.createObjectURL(new Blob([body], { type }));
+  const link = Object.assign(document.createElement("a"), { href: url, download: name });
+  document.body.append(link);
+  link.click();
+  link.remove();
+  URL.revokeObjectURL(url);
+}
+
+const slug = () => state.data.package.name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+const label = (bidId) => state.data.bids.find((b) => b.id === bidId)?.bidder ?? bidId;
+
+function findGap(target) {
+  for (const r of analyze(state.data, state.scenario).results) for (const g of r.gaps) if (`${r.bid.id}:${g.row.key}` === target) return g;
+  return null;
+}
+
+root.addEventListener("change", (event) => {
+  const input = event.target;
+  if (input.matches("input[data-basis]")) {
+    update({ ...state.scenario, basis: { ...state.scenario.basis, [input.dataset.basis]: input.value } }, input.value === "carry" ? "Carried in every bid. Totals recalculated." : "Back to as bid. Totals recalculated.");
+  } else if (input.matches("input[data-alternate]")) {
+    update({ ...state.scenario, alternates: { ...state.scenario.alternates, [input.dataset.alternate]: input.checked } }, input.checked ? "Alternate carried in every total." : "Alternate removed from the totals.");
+  } else if (input.id === "import-json" && input.files?.[0]) {
+    const file = input.files[0];
+    file
+      .text()
+      .then((text) => {
+        const loaded = JSON.parse(text);
+        if (loaded.format !== "bid-tab") throw new Error("Not a bid tab export.");
+        const nextData = validate(loaded.data);
+        state = { data: nextData, scenario: validateScenario(nextData, loaded.scenario) };
+        render(`Imported scenario from ${file.name}.`);
+      })
+      .catch((error) => setStatus(`Import failed: ${error.message.replace(/\n- /g, " ")}`));
+  }
+});
+
+root.addEventListener("submit", (event) => {
+  const form = event.target;
+  event.preventDefault();
+  const fields = Object.fromEntries(new FormData(form));
+  const amount = parseMoney(fields.amount);
+  const source = String(fields.source ?? "").trim();
+  if (amount === null) return setStatus("Enter an amount in dollars, like 8,500.");
+  if (!source) return setStatus("Say where the figure came from, so the plug can be checked later.");
+  if (form.dataset.plug) {
+    update({ ...state.scenario, plugs: { ...state.scenario.plugs, [form.dataset.plug]: { amount, source, kind: "entered" } } }, `Plug ${money(amount)} entered. Totals recalculated.`);
+  } else if (form.dataset.basisEntry) {
+    update({ ...state.scenario, basisEntries: { ...state.scenario.basisEntries, [form.dataset.basisEntry]: { amount, source } } }, `${money(amount)} carried. Totals recalculated.`);
+  } else if (form.id === "adj-form") {
+    const description = String(fields.description ?? "").trim();
+    if (!description) return setStatus("Describe the adjustment.");
+    update({ ...state.scenario, adjustments: [...state.scenario.adjustments, { bid: fields.bid, amount, description, source }] }, `Adjustment added to ${label(fields.bid)}.`);
+  }
+});
+
+root.addEventListener("click", (event) => {
+  const button = event.target.closest("button");
+  if (!button) return;
+  const { acceptPlug, clearPlug, acceptAdjustment, removeAdjustment, clearBasis } = button.dataset;
+  if (acceptPlug) {
+    const gap = findGap(acceptPlug);
+    if (!gap?.suggestion) return setStatus("That suggestion is no longer available.");
+    update({ ...state.scenario, plugs: { ...state.scenario.plugs, [acceptPlug]: { amount: gap.suggestion.amount, source: gap.suggestion.source, kind: "accepted" } } }, `Suggested plug ${money(gap.suggestion.amount)} accepted.`);
+  } else if (clearPlug) {
+    const { [clearPlug]: _, ...plugs } = state.scenario.plugs;
+    update({ ...state.scenario, plugs }, "Plug cleared. The gap is open again.");
+  } else if (acceptAdjustment) {
+    const suggestion = analyze(state.data, state.scenario).results.flatMap((r) => r.suggestedAdjustments).find((a) => a.from === acceptAdjustment);
+    if (!suggestion) return setStatus("That suggestion is no longer available.");
+    update({ ...state.scenario, adjustments: [...state.scenario.adjustments, suggestion] }, `Adjustment ${money(suggestion.amount)} accepted.`);
+  } else if (removeAdjustment !== undefined) {
+    update({ ...state.scenario, adjustments: state.scenario.adjustments.filter((_, i) => i !== Number(removeAdjustment)) }, "Adjustment removed.");
+  } else if (clearBasis) {
+    const { [clearBasis]: _, ...basisEntries } = state.scenario.basisEntries;
+    update({ ...state.scenario, basisEntries }, "Figure cleared.");
+  } else if (button.id === "export-json") {
+    const payload = { format: "bid-tab", version: 1, exportedAt: new Date().toISOString(), data: state.data, scenario: state.scenario };
+    download(`${slug()}-scenario.json`, "application/json", `${JSON.stringify(payload, null, 2)}\n`);
+    setStatus("Scenario exported. Import it later to pick up where you left off.");
+  } else if (button.id === "export-xlsx") {
+    download(`${slug()}-bid-tab.xlsx`, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", workbook(state.data, state.scenario, analyze(state.data, state.scenario)));
+    setStatus("Excel workbook exported with the current plugs and choices.");
+  } else if (button.id === "reset") {
+    state.scenario = structuredClone(initialScenario);
+    render("Reset to the scenario this tab was built with.");
+  }
+});
+
+document.documentElement.classList.add("js");
+render();
+
+</script>
+</body>
+</html>

@@ -33,7 +33,7 @@ CATALOG_VERSION = 2
 MAX_INLINE_BYTES = 256 * 1024
 TEXT_SUFFIXES = {
     ".md", ".txt", ".json", ".yaml", ".yml", ".toml", ".csv",
-    ".py", ".sh", ".js", ".mjs", ".ts", ".html", ".css",
+    ".py", ".sh", ".js", ".mjs", ".ts", ".html", ".css", ".eml",
 }
 
 

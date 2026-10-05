@@ -1,0 +1,54 @@
+{
+  "format": "bid-tab",
+  "version": 1,
+  "exportedAt": "2026-08-22T15:30:00.000Z",
+  "scenario": {
+    "plugs": {
+      "northgate:sheathing": {
+        "amount": 4120000,
+        "source": "Prairie Wall & Ceiling Co.'s itemized line (PW-9), the only itemized price for this scope. A leveling figure, not a price from Northgate Drywall & Acoustics.",
+        "kind": "accepted"
+      },
+      "northgate:firestopping": {
+        "amount": 980000,
+        "source": "Prairie Wall & Ceiling Co.'s itemized line (PW-10), the only itemized price for this scope. A leveling figure, not a price from Northgate Drywall & Acoustics.",
+        "kind": "accepted"
+      },
+      "summit:level5_lobby": {
+        "amount": 1460000,
+        "source": "Prairie Wall & Ceiling Co.'s itemized line (PW-3), the only itemized price for this scope. A leveling figure, not a price from Summit Interior Systems, LLC.",
+        "kind": "accepted"
+      },
+      "summit:sound_batts": {
+        "amount": 2280000,
+        "source": "Prairie Wall & Ceiling Co.'s itemized line (PW-5), the only itemized price for this scope. A leveling figure, not a price from Summit Interior Systems, LLC.",
+        "kind": "accepted"
+      },
+      "prairie:blocking": {
+        "amount": 850000,
+        "source": "M. Reyes: our 8/1 estimate, line 06 10 00, self-perform carpentry takeoff for blocking",
+        "kind": "entered"
+      },
+      "summit:blocking": {
+        "amount": 850000,
+        "source": "M. Reyes: our 8/1 estimate, line 06 10 00, self-perform carpentry takeoff for blocking",
+        "kind": "entered"
+      }
+    },
+    "adjustments": [
+      {
+        "from": "prairie:act_ceilings",
+        "bid": "prairie",
+        "amount": -4600000,
+        "description": "Remove acoustical ceilings (09 51 13, package 09B); it belongs to another package",
+        "source": "Prairie Wall & Ceiling Co.'s itemized line (PW-11)"
+      }
+    ],
+    "alternates": {},
+    "basis": {},
+    "basisEntries": {},
+    "governing": {
+      "ridgeline": "ridgeline-rev"
+    }
+  }
+}

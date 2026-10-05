@@ -6,7 +6,7 @@
   },
   "metadata": {
     "description": "Construction skills for AI agents: document-based estimating and project controls workflows. No Buildr account required.",
-    "version": "0.5.0"
+    "version": "0.6.0"
   },
   "plugins": [
     {
