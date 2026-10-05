@@ -15,13 +15,13 @@ the agent image or workspace.
   the risks that bite, each cited to the section it came from, ending in a
   scorecard and a recommendation the user can act on.
 - Capability being tested: the `rfp-intake` skill's end-to-end workflow (read
-  the whole package first, apply the default go/no-go criteria in
-  `references/intake-checklist.md`, cover its output content, cite every fact,
+  the whole package first, apply go/no-go gates and criteria per
+  `references/data-contract.md`, cover the brief's content, cite every fact,
   recommend rather than decide, and stay out of legal advice and estimating).
 - Why this case matters: intake is the skill's core job, and the failure mode
   that matters in practice is a confident summary that drops half the
   requirements or invents a date. Both are checkable without a judge.
-- Evidence: `skills/rfp-intake/SKILL.md`, `references/intake-checklist.md`, and
+- Evidence: `skills/rfp-intake/SKILL.md`, `references/reading-solicitations.md`, and
   the shipped sample. The shipped sample cannot be the eval input because the
   skill folder contains its expected output; this solicitation is new.
 - Difference from existing Tasks: `pay-app-review/harborview-app3` scores

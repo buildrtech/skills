@@ -1,0 +1,106 @@
+{
+  "company": "Larkspur Builders",
+  "asOf": "2026-09-01",
+  "sectors": [
+    "K-12 education",
+    "healthcare",
+    "municipal"
+  ],
+  "sizeRange": {
+    "min": 500000000,
+    "max": 2500000000
+  },
+  "selfPerform": [
+    "concrete",
+    "rough carpentry",
+    "doors and hardware"
+  ],
+  "pastClients": [
+    "Cedar Hollow Public Schools: Cedar Hollow High School roof replacement, 2022",
+    "Mankato Area Public Schools: Garfield Elementary addition, 2024"
+  ],
+  "licenses": [
+    {
+      "key": "city-mankato-commercial",
+      "label": "City of Mankato Commercial Contractor"
+    },
+    {
+      "key": "city-minneapolis-gc",
+      "label": "City of Minneapolis General Contractor"
+    }
+  ],
+  "bonding": {
+    "singleLimit": 2000000000,
+    "aggregateLimit": 6000000000,
+    "currentBonded": 3800000000
+  },
+  "insurance": {
+    "cgl_occurrence": 200000000,
+    "cgl_aggregate": 400000000,
+    "auto": 100000000,
+    "umbrella": 1000000000,
+    "employers_liability": 100000000
+  },
+  "minDaysToBid": 14,
+  "disqualifyingTerms": [
+    {
+      "key": "no_damages_for_delay",
+      "label": "No damages for delay"
+    },
+    {
+      "key": "uncapped_consequential_damages",
+      "label": "Uncapped consequential damages"
+    },
+    {
+      "key": "pay_if_paid_owner_funding",
+      "label": "Payment contingent on owner funding"
+    }
+  ],
+  "criteria": [
+    {
+      "key": "owner_relationship",
+      "label": "Owner and relationship",
+      "weight": 10
+    },
+    {
+      "key": "delivery_contract",
+      "label": "Delivery method and contract",
+      "weight": 10
+    },
+    {
+      "key": "schedule",
+      "label": "Schedule and site constraints",
+      "weight": 15
+    },
+    {
+      "key": "scope_fit",
+      "label": "Scope and sector fit",
+      "weight": 20
+    },
+    {
+      "key": "size_fit",
+      "label": "Size fit",
+      "weight": 10
+    },
+    {
+      "key": "competition",
+      "label": "Competition",
+      "weight": 10
+    },
+    {
+      "key": "risk_allocation",
+      "label": "Risk allocation",
+      "weight": 15
+    },
+    {
+      "key": "capacity",
+      "label": "Team and capacity",
+      "weight": 10
+    }
+  ],
+  "thresholds": {
+    "go": 65,
+    "noGo": 45,
+    "maxUnknownWeight": 25
+  }
+}

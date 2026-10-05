@@ -1,4 +1,77 @@
-# RFP intake takeover report
+# RFP intake verification
+
+## Revision 2.0.0: scripted go/no-go brief
+
+Previous revision: 1.1.0, a prompt-only review written straight to Markdown
+from a default checklist. This revision keeps the job (prep the bid/no-bid
+meeting for one opportunity) and makes the decision checkable.
+
+### What changed
+
+- **Company profile.** `company-profile.json` is reused across runs. It holds
+  licenses, bonding and insurance limits, days needed to bid, terms the
+  company won't accept, scoring context, and the go/no-go criteria, weights,
+  and thresholds. The first run asks for it once. Missing facts become
+  Unknown, never guesses.
+- **Gates.** `scripts/intake.mjs` checks:
+  - licenses, where a license needed at bid and not held fails, and one
+    needed before contract is a condition
+  - single and aggregate bonding
+  - insurance limits
+  - mandatory meetings already passed
+  - days to bid
+  - disqualifying terms
+
+  Each gate is pass, fail, or unknown.
+- **Score.** Weighted 0 to 5 criteria scaled to 100. Unknown criteria are left
+  out, and their share of the weight is reported.
+- **Recommendation.**
+  - Any failed gate means No-go.
+  - Unknown gates, too much unknown weight, or a score between the thresholds
+    mean Go with conditions, each condition written as an action.
+  - Otherwise the score decides Go or No-go.
+- **Citations are validated.** Every fact cites `{ doc, page }`. The script
+  rejects pages beyond a document's page count, and citations to documents
+  that were referenced but never supplied.
+- The brief keeps the 1.1.0 headings the Brannock verifier checks, and adds
+  Gates, "This week", and Changed by addenda.
+- `references/intake-checklist.md` is replaced by
+  `references/data-contract.md` and `references/reading-solicitations.md`.
+
+### Sample
+
+Cedar Hollow Public Schools, Prairie View Elementary addition and renovation,
+an $18.2M hard bid. The package ships as three PDFs: an 8-page ITB and two
+addenda. Planted problems:
+
+- a mandatory pre-bid meeting three days out
+- a city license required before contract that the company doesn't hold
+- pollution liability added by Addendum 2 and missing from the profile
+- a bond at 91% of the single-job limit
+- liquidated damages against a renovation window that ends on the
+  Substantial Completion date
+- the hazardous materials survey referenced but not supplied
+
+Result: Go with conditions, a score of 63 against a go line of 65, with 20%
+of the weight unknown.
+
+### Verification
+
+- `node --test evals/tasks/rfp-intake/intake.test.mjs`: 11 tests, in CI. They
+  include an exact match of the bundled brief against a fresh build, each of
+  the 7 gate failures forcing No-go, unknowns forcing conditions, score
+  thresholds, default criteria, and citation validation.
+- Mutation check: 10 deliberate breaks each failed at least one test.
+- The sample brief passes the Brannock task's header and section checks.
+
+### Not yet tested
+
+A fresh agent extracting a solicitation it hasn't seen, including physical
+page numbers on PDFs whose printed numbers differ.
+
+---
+
+# Revision 1.1.0: takeover report
 
 RFP intake is revised to 1.1.0. Changes are local and limited to
 `skills/rfp-intake/`, `evals/tasks/rfp-intake/`, and this review directory.

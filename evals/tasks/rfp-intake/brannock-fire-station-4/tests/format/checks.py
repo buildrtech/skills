@@ -1,5 +1,5 @@
-"""Format: the review follows the output template in the skill's
-references/intake-checklist.md."""
+"""Format: the review has the headings of the skill's go/no-go brief
+(scripts/intake.mjs)."""
 
 from __future__ import annotations
 

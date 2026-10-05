@@ -1,16 +1,18 @@
 # Sample prompts
 
-Prompts that should trigger this skill. Attach the solicitation package in
-each case.
+## Should trigger
 
-- "Here's the ITB for the Ridgeview Elementary addition. Should we bid it?"
-- "Run an intake on this RFP and tell me the key dates and what forms we need."
-- "Triage this bid invitation against our go/no-go checklist (attached)."
-- "We got this RFQ from the county this morning. Give me a bid/no-bid summary for Thursday's precon meeting."
-- "Compare this solicitation to the intake we did on the last hospital job and flag anything different."
-- "What are the bonding, insurance, and prevailing wage requirements in this package?"
+- "The Cedar Hollow schools ITB came in with two addenda. Should we chase it?"
+- "Go/no-go is Wednesday. Run this RFP against our company profile."
+- "Here's the fire station IFB. What are the key dates, bonds, and insurance, and anything that should scare us off?"
+- "Did Addendum 3 change anything that matters for the bid?"
+- "Can we even bid this one? It needs a city license we might not have."
+- "Set up our go/no-go criteria and profile so we can run every RFP the same way."
 
-Prompts that should not trigger this skill:
+## Should not trigger
 
-- "Estimate the cost of this project." (estimating, not intake)
-- "Draft our proposal for this RFP." (proposal writing happens after the go decision)
+- "Estimate this school addition." (estimating)
+- "Rank the 40 bids on the plan room this week." (pipeline triage)
+- "Is this indemnity clause enforceable?" (legal advice)
+- "Level the drywall bids for this job." (bid leveling)
+- "Write the proposal for this RFP." (proposal builder)
