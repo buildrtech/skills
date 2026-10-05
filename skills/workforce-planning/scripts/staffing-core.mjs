@@ -680,7 +680,7 @@ export function renderApp(data, scenario, a) {
           )
           .join("")}</ol>`
       : `<span class="sub">No internal candidate has capacity</span>`;
-    return `<tr class="${g.ifWon ? "ifwon" : ""}"><th scope="row">${jobName(g.job)}${g.ifWon ? ` <span class="pill">if won</span>` : ""}</th><td>${esc(g.role)}${g.certs.length ? `<div class="sub">requires ${esc(g.certs.join(", "))}</div>` : ""}</td><td>${esc(rangeLabel(g.from, g.to))}</td><td class="num">${gapLabel(g)}</td><td>${cands}</td></tr>`;
+    return `<tr class="${g.ifWon ? "ifwon" : ""}"><th scope="row">${jobName(g.job)}${g.ifWon ? ` <span class="pill">if won</span>` : ""}</th><td>${esc(g.role)}${g.certs.length ? `<div class="sub">requires ${esc(g.certs.join(", "))}</div>` : ""}</td><td class="when">${esc(rangeLabel(g.from, g.to))}</td><td class="num">${gapLabel(g)}</td><td>${cands}</td></tr>`;
   });
 
   const overRows = a.overloads.map(
