@@ -51,8 +51,8 @@ td.warn { color: var(--warn); }
 td.num.warn { background: var(--warn-bg); }
 tr.group th { background: var(--wash); font-size: 12px; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); }
 .matrix td { font-size: 13px; min-width: 140px; }
-.matrix td.gap { background: var(--gap); }
-.matrix td.plugged { background: var(--plugged); }
+.matrix td.cell-gap { background: var(--gap); }
+.matrix td.cell-plugged { background: var(--plugged); }
 .matrix td.st-included { color: var(--ink); }
 .matrix td.st-omitted, .matrix td.st-unknown { font-style: italic; }
 
@@ -264,50 +264,50 @@ html:not(.js) .nojs-note { display: block; background: #eef4f2; border: 1px soli
 <tr><th scope="row">Level 5 finish at two-story lobby (Addendum 2)</th>
 <td class="st-included">Included <a class="ref" href="#ev-northgate-NG-1">NG-1</a></td>
 <td class="st-included">Included $14,600 <a class="ref" href="#ev-prairie-PW-3">PW-3</a></td>
-<td class="st-excluded plugged">Excluded <a class="ref" href="#ev-summit-SI-3">SI-3</a><span class="sub">plug $14,600</span></td>
-<td class="st-unknown gap">Unclear <a class="ref" href="#ev-ridgeline-rev-RR-1">RR-1</a></td>
+<td class="st-excluded cell-plugged">Excluded <a class="ref" href="#ev-summit-SI-3">SI-3</a><span class="sub">plug $14,600</span></td>
+<td class="st-unknown cell-gap">Unclear <a class="ref" href="#ev-ridgeline-rev-RR-1">RR-1</a></td>
 </tr>
 <tr><th scope="row">Shaft wall at elevator and mechanical shafts</th>
 <td class="st-included">Included <a class="ref" href="#ev-northgate-NG-1">NG-1</a></td>
 <td class="st-included">Included $58,300 <a class="ref" href="#ev-prairie-PW-4">PW-4</a></td>
 <td class="st-included">Included <a class="ref" href="#ev-summit-SI-1">SI-1</a></td>
-<td class="st-unknown gap">Unclear <a class="ref" href="#ev-ridgeline-rev-RR-1">RR-1</a></td>
+<td class="st-unknown cell-gap">Unclear <a class="ref" href="#ev-ridgeline-rev-RR-1">RR-1</a></td>
 </tr>
 <tr><th scope="row">Sound attenuation batts in partitions</th>
 <td class="st-included">Included <a class="ref" href="#ev-northgate-NG-2">NG-2</a></td>
 <td class="st-included">Included $22,800 <a class="ref" href="#ev-prairie-PW-5">PW-5</a></td>
-<td class="st-excluded plugged">Excluded <a class="ref" href="#ev-summit-SI-3">SI-3</a><span class="sub">plug $22,800</span></td>
-<td class="st-excluded gap">Excluded <a class="ref" href="#ev-ridgeline-rev-RR-2">RR-2</a></td>
+<td class="st-excluded cell-plugged">Excluded <a class="ref" href="#ev-summit-SI-3">SI-3</a><span class="sub">plug $22,800</span></td>
+<td class="st-excluded cell-gap">Excluded <a class="ref" href="#ev-ridgeline-rev-RR-2">RR-2</a></td>
 </tr>
 <tr><th scope="row">In-wall blocking for casework and equipment</th>
 <td class="st-included">Included <a class="ref" href="#ev-northgate-NG-2">NG-2</a></td>
-<td class="st-excluded plugged">Excluded <a class="ref" href="#ev-prairie-PW-6">PW-6</a><span class="sub">plug $8,500</span></td>
-<td class="st-omitted plugged">Not mentioned <a class="ref" href="#ev-summit-SI-5">SI-5</a><span class="sub">plug $8,500</span></td>
-<td class="st-omitted gap">Not mentioned <a class="ref" href="#ev-ridgeline-rev-RR-3">RR-3</a></td>
+<td class="st-excluded cell-plugged">Excluded <a class="ref" href="#ev-prairie-PW-6">PW-6</a><span class="sub">plug $8,500</span></td>
+<td class="st-omitted cell-plugged">Not mentioned <a class="ref" href="#ev-summit-SI-5">SI-5</a><span class="sub">plug $8,500</span></td>
+<td class="st-omitted cell-gap">Not mentioned <a class="ref" href="#ev-ridgeline-rev-RR-3">RR-3</a></td>
 </tr>
 <tr><th scope="row">Lifts and scaffolding for own work</th>
 <td class="st-included">Included <a class="ref" href="#ev-northgate-NG-3">NG-3</a></td>
 <td class="st-included">Included $22,400 <a class="ref" href="#ev-prairie-PW-7">PW-7</a></td>
 <td class="st-included">Included <a class="ref" href="#ev-summit-SI-2">SI-2</a></td>
-<td class="st-omitted gap">Not mentioned <a class="ref" href="#ev-ridgeline-rev-RR-3">RR-3</a></td>
+<td class="st-omitted cell-gap">Not mentioned <a class="ref" href="#ev-ridgeline-rev-RR-3">RR-3</a></td>
 </tr>
 <tr><th scope="row">Daily cleanup to GC dumpster</th>
 <td class="st-included">Included <a class="ref" href="#ev-northgate-NG-3">NG-3</a></td>
 <td class="st-included">Included $6,700 <a class="ref" href="#ev-prairie-PW-8">PW-8</a></td>
 <td class="st-included">Included <a class="ref" href="#ev-summit-SI-2">SI-2</a></td>
-<td class="st-omitted gap">Not mentioned <a class="ref" href="#ev-ridgeline-rev-RR-3">RR-3</a></td>
+<td class="st-omitted cell-gap">Not mentioned <a class="ref" href="#ev-ridgeline-rev-RR-3">RR-3</a></td>
 </tr>
 <tr><th scope="row">Exterior glass-mat gypsum sheathing</th>
-<td class="st-excluded plugged">Excluded <a class="ref" href="#ev-northgate-NG-4">NG-4</a><span class="sub">plug $41,200</span></td>
+<td class="st-excluded cell-plugged">Excluded <a class="ref" href="#ev-northgate-NG-4">NG-4</a><span class="sub">plug $41,200</span></td>
 <td class="st-included">Included $41,200 <a class="ref" href="#ev-prairie-PW-9">PW-9</a></td>
 <td class="st-included">Included <a class="ref" href="#ev-summit-SI-1">SI-1</a></td>
-<td class="st-unknown gap">Unclear <a class="ref" href="#ev-ridgeline-rev-RR-1">RR-1</a></td>
+<td class="st-unknown cell-gap">Unclear <a class="ref" href="#ev-ridgeline-rev-RR-1">RR-1</a></td>
 </tr>
 <tr><th scope="row">Firestopping at this trade&#39;s rated penetrations</th>
-<td class="st-excluded plugged">Excluded <a class="ref" href="#ev-northgate-NG-4">NG-4</a><span class="sub">plug $9,800</span></td>
+<td class="st-excluded cell-plugged">Excluded <a class="ref" href="#ev-northgate-NG-4">NG-4</a><span class="sub">plug $9,800</span></td>
 <td class="st-included">Included $9,800 <a class="ref" href="#ev-prairie-PW-10">PW-10</a></td>
 <td class="st-included">Included <a class="ref" href="#ev-summit-SI-2">SI-2</a></td>
-<td class="st-excluded gap">Excluded <a class="ref" href="#ev-ridgeline-rev-RR-2">RR-2</a></td>
+<td class="st-excluded cell-gap">Excluded <a class="ref" href="#ev-ridgeline-rev-RR-2">RR-2</a></td>
 </tr>
 <tr class="group"><th colspan="5">Belongs to another package</th></tr>
 <tr><th scope="row">Acoustical ceilings (09 51 13, package 09B)</th>
@@ -915,7 +915,7 @@ export function renderApp(data, scenario, analysis) {
         const cell = r.bid.scope[row.key];
         const plug = scenario.plugs?.[`${r.bid.id}:${row.key}`];
         const gap = klass === "base" && cell.status !== "included";
-        out.push(`<td class="st-${cell.status}${gap ? (plug ? " plugged" : " gap") : ""}">${h(STATUS_LABEL[cell.status])}${isInt(cell.amount) ? ` ${money(cell.amount)}` : ""}${refLink(r.bid, cell.ref)}${plug ? `<span class="sub">plug ${money(plug.amount)}</span>` : ""}</td>`);
+        out.push(`<td class="st-${cell.status}${gap ? (plug ? " cell-plugged" : " cell-gap") : ""}">${h(STATUS_LABEL[cell.status])}${isInt(cell.amount) ? ` ${money(cell.amount)}` : ""}${refLink(r.bid, cell.ref)}${plug ? `<span class="sub">plug ${money(plug.amount)}</span>` : ""}</td>`);
       }
       out.push("</tr>");
     }
