@@ -6,7 +6,7 @@
   },
   "metadata": {
     "description": "Construction skills for AI agents: document-based estimating and project controls workflows. No Buildr account required.",
-    "version": "0.4.0"
+    "version": "0.5.0"
   },
   "plugins": [
     {
@@ -32,7 +32,7 @@
     },
     {
       "name": "project-controls",
-      "description": "Workforce planning from supplied rosters, schedules and project demand.",
+      "description": "Staffing meeting prep for project staff: overloads, unfilled seats, roll-offs and pursuit scenarios from your staffing sheet, project list and CRM export.",
       "source": "./",
       "strict": false,
       "category": "construction",

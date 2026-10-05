@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{TITLE}}</title>
+<style>
+:root {
+  --ink: #1d2422; --muted: #5d6865; --line: #dde3e1; --paper: #ffffff; --wash: #f5f7f6;
+  --accent: #1f5f4f; --now: #b42318; --soon: #8a5300; --watch: #3b4a5f;
+  --free: #f3f5f4; --part: #dcefe6; --full: #b6dfcb; --high: #f7d9a6; --over: #f3b4ab; --off: #eceeed;
+  font: 15px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; color: var(--ink); background: var(--wash);
+}
+* { box-sizing: border-box; }
+body { margin: 0; }
+main { max-width: 1400px; margin: 0 auto; padding: 24px clamp(12px, 3vw, 32px) 48px; }
+h1 { font-size: 28px; line-height: 1.15; margin: 4px 0 6px; letter-spacing: -0.01em; }
+h2 { font-size: 18px; margin: 0 0 8px; }
+section { background: var(--paper); border: 1px solid var(--line); border-radius: 8px; padding: 18px 20px; margin-top: 16px; }
+.eyebrow { margin: 0; color: var(--muted); font-size: 13px; letter-spacing: .02em; }
+.summary { margin: 0; color: var(--muted); }
+.summary strong { color: var(--ink); }
+.top { display: flex; flex-wrap: wrap; gap: 16px; justify-content: space-between; align-items: flex-end; }
+.actions { display: flex; flex-wrap: wrap; gap: 8px; }
+button, .file { font: inherit; font-size: 14px; border: 1px solid var(--line); background: var(--paper); color: var(--ink); border-radius: 6px; padding: 7px 12px; min-height: 36px; cursor: pointer; }
+button:hover, .file:hover { border-color: var(--accent); }
+button:focus-visible, input:focus-visible, select:focus-visible, .grid-wrap:focus-visible, .file:focus-within { outline: 2px solid var(--accent); outline-offset: 2px; }
+.file input { position: absolute; width: 1px; height: 1px; opacity: 0; }
+.file { position: relative; display: inline-flex; align-items: center; }
+.status { min-height: 1.5em; margin: 8px 0 0; color: var(--accent); font-size: 14px; }
+.hint, .empty { color: var(--muted); font-size: 14px; margin: 0 0 10px; }
+.sub { color: var(--muted); font-size: 13px; font-weight: normal; }
+.code { font: 600 12px/1 ui-monospace, SFMono-Regular, Menlo, monospace; background: var(--wash); border: 1px solid var(--line); border-radius: 4px; padding: 2px 5px; }
+.pill { font-size: 11px; text-transform: uppercase; letter-spacing: .04em; color: var(--watch); border: 1px solid currentColor; border-radius: 999px; padding: 1px 6px; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.issues { background: #fff4e5; border: 1px solid #f2c47b; border-radius: 6px; padding: 8px 12px 8px 28px; }
+
+.decisions { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.decision { display: grid; grid-template-columns: 96px 1fr; gap: 12px; align-items: start; padding: 10px 12px; border: 1px solid var(--line); border-left-width: 4px; border-radius: 6px; }
+.decision p, .decision ul { margin: 2px 0 0; color: var(--muted); font-size: 14px; }
+.decision ul { padding-left: 18px; }
+.decision .badge { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: .04em; padding-top: 2px; }
+.decision.now { border-left-color: var(--now); } .decision.now .badge { color: var(--now); }
+.decision.soon { border-left-color: var(--soon); } .decision.soon .badge { color: var(--soon); }
+.decision.watch { border-left-color: var(--watch); } .decision.watch .badge { color: var(--watch); }
+
+.table-wrap { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; font-size: 14px; }
+th, td { text-align: left; vertical-align: top; padding: 8px 10px; border-bottom: 1px solid var(--line); }
+thead th { font-size: 12px; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); font-weight: 600; white-space: nowrap; }
+td.num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+td.neg { background: var(--over); } td.warn { background: var(--high); }
+tr.ifwon { color: var(--muted); }
+.cands { margin: 0; padding-left: 18px; }
+.cands li + li { margin-top: 4px; }
+.try { min-height: 28px; padding: 2px 8px; font-size: 13px; margin-left: 4px; }
+
+.segmented { display: inline-flex; border: 1px solid var(--line); border-radius: 6px; padding: 0; margin: 0; overflow: hidden; }
+.seg { position: relative; padding: 5px 10px; font-size: 13px; cursor: pointer; border-right: 1px solid var(--line); }
+.seg:last-of-type { border-right: 0; }
+.seg input { position: absolute; opacity: 0; inset: 0; cursor: pointer; }
+.seg.on { background: var(--accent); color: #fff; }
+.seg:focus-within { outline: 2px solid var(--accent); outline-offset: -2px; }
+
+.grid-wrap { overflow: auto; max-height: 75vh; border: 1px solid var(--line); border-radius: 6px; }
+.grid { font-size: 12px; }
+.grid th, .grid td { padding: 4px 6px; border-bottom: 1px solid var(--paper); }
+.grid thead th { position: sticky; top: 0; background: var(--paper); z-index: 2; }
+.grid th.person, .grid thead th:first-child { position: sticky; left: 0; background: var(--paper); z-index: 1; white-space: nowrap; min-width: 150px; }
+.grid thead th:first-child { z-index: 3; }
+.grid tr.group th { background: var(--wash); position: sticky; left: 0; font-size: 12px; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); }
+.cell { min-width: 78px; border-left: 1px solid var(--paper); }
+.cell .pct i { font-style: normal; font-weight: 500; color: #263750; }
+.cell .pct { display: block; font-weight: 600; font-variant-numeric: tabular-nums; }
+.cell .jobs { display: block; color: #2b3532; font-size: 11px; white-space: nowrap; }
+.cell .jobs i { font-style: normal; color: #263750; }
+.cell.free { background: var(--free); } .cell.part { background: var(--part); } .cell.full { background: var(--full); }
+.cell.high { background: var(--high); } .cell.over { background: var(--over); } .cell.off { background: var(--off); color: var(--muted); }
+.cell.tentative { outline: 1.5px dashed var(--watch); outline-offset: -3px; }
+.cell.moved { box-shadow: inset 0 0 0 2px var(--accent); }
+.cell.leave { background-image: repeating-linear-gradient(135deg, transparent 0 6px, rgba(0,0,0,.06) 6px 8px); }
+.legend { display: flex; flex-wrap: wrap; gap: 6px; margin: 10px 0 0; font-size: 12px; }
+.legend .cell { display: inline-block; min-width: 0; padding: 2px 8px; border-radius: 4px; }
+
+.move-form { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; align-items: end; margin-bottom: 12px; }
+.move-form label { display: grid; gap: 4px; font-size: 13px; color: var(--muted); }
+.move-form .wide { grid-column: span 2; }
+.move-form select, .move-form input { width: 100%; min-width: 0; font: inherit; font-size: 14px; color: var(--ink); padding: 6px 8px; border: 1px solid var(--line); border-radius: 6px; min-height: 36px; background: var(--paper); }
+.moves { list-style: none; padding: 0; margin: 0; display: grid; gap: 6px; }
+.moves li { display: flex; justify-content: space-between; gap: 12px; align-items: center; padding: 6px 10px; border: 1px solid var(--line); border-radius: 6px; }
+.questions li + li { margin-top: 6px; }
+.foot { color: var(--muted); font-size: 13px; margin-top: 16px; }
+.nojs-note { display: none; }
+
+/* Without JavaScript (for example a sandboxed preview) the plan stays readable but static. */
+html:not(.js) .actions, html:not(.js) .move-form, html:not(.js) .try, html:not(.js) [data-remove-move] { display: none; }
+html:not(.js) .segmented { pointer-events: none; }
+html:not(.js) .nojs-note { display: block; background: #eef4f2; border: 1px solid var(--line); border-radius: 6px; padding: 8px 12px; margin-top: 12px; font-size: 14px; }
+
+@media (max-width: 640px) {
+  .decision { grid-template-columns: 1fr; gap: 2px; }
+  .move-form .wide { grid-column: auto; }
+}
+@media print {
+  :root { background: #fff; }
+  .actions, .move-form, .try, [data-remove-move], .status { display: none !important; }
+  section { break-inside: avoid; border: 0; padding: 8px 0; }
+  .grid-wrap { max-height: none; overflow: visible; }
+}
+@media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; transition: none !important; } }
+</style>
+</head>
+<body>
+<main>
+<p class="nojs-note">Static preview. Open this file in a browser to toggle pursuits, try what-if moves, and import or export a scenario.</p>
+<div id="app">{{APP}}</div>
+</main>
+<script type="application/json" id="plan-data">{{DATA}}</script>
+<script type="application/json" id="plan-scenario">{{SCENARIO}}</script>
+<script type="module">
+{{SCRIPT}}
+</script>
+</body>
+</html>

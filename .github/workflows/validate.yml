@@ -29,3 +29,5 @@ jobs:
           node-version: "22"
       - name: Test proposal data validation
         run: node --test evals/tasks/proposal-builder/validate.test.mjs
+      - name: Test workforce planning calculations and plan build
+        run: node --test evals/tasks/workforce-planning/staffing-core.test.mjs
