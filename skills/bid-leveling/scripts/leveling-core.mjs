@@ -562,7 +562,7 @@ export function renderApp(data, scenario, analysis) {
         const cell = r.bid.scope[row.key];
         const plug = scenario.plugs?.[`${r.bid.id}:${row.key}`];
         const gap = klass === "base" && cell.status !== "included";
-        out.push(`<td class="st-${cell.status}${gap ? (plug ? " plugged" : " gap") : ""}">${h(STATUS_LABEL[cell.status])}${isInt(cell.amount) ? ` ${money(cell.amount)}` : ""}${refLink(r.bid, cell.ref)}${plug ? `<span class="sub">plug ${money(plug.amount)}</span>` : ""}</td>`);
+        out.push(`<td class="st-${cell.status}${gap ? (plug ? " cell-plugged" : " cell-gap") : ""}">${h(STATUS_LABEL[cell.status])}${isInt(cell.amount) ? ` ${money(cell.amount)}` : ""}${refLink(r.bid, cell.ref)}${plug ? `<span class="sub">plug ${money(plug.amount)}</span>` : ""}</td>`);
       }
       out.push("</tr>");
     }
