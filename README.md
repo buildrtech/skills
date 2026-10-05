@@ -40,7 +40,7 @@ text and inputs as attachments; script or PDF workflows still require a runtime.
 
 | Skill | Stage | What it does |
 |---|---|---|
-| [bid-leveling](skills/bid-leveling) | Preconstruction, Estimating | Compare subcontractor bids on a common scope basis, with sourced plugs, unresolved gaps, and traceable alternate prices. |
+| [bid-leveling](skills/bid-leveling) | Preconstruction, Estimating | Level sub bids on bid day. See every scope gap, accept or enter plugs, and find out who is really low once the scope matches. |
 | [drawing-scope-extraction](skills/drawing-scope-extraction) | Preconstruction, Estimating | Turn drawing sheets into a cited scope list by CSI division, with exclusions, open questions, and review coverage. |
 | [proposal-builder](skills/proposal-builder) | Business development, Estimating | Build polished construction proposal PDFs with pdfcn, sourced scope, pricing and qualifications. |
 | [rfp-intake](skills/rfp-intake) | Business development, Preconstruction | Turn a solicitation and its addenda into a cited bid/no-bid review with current requirements, risks, and a conditional recommendation. |

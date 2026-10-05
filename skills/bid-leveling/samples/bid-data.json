@@ -1,0 +1,739 @@
+{
+  "package": {
+    "project": "Cedar Hollow Family Health Clinic",
+    "name": "09A Metal framing and gypsum board",
+    "sections": "09 22 16, 09 21 16",
+    "bidDue": "2026-08-21",
+    "asOf": "2026-08-22",
+    "scopeSource": "the 09A scope sheet (09A-scope-sheet.md)",
+    "addenda": [
+      {
+        "number": 1,
+        "date": "2026-08-03",
+        "summary": "Revised partition schedule on A-601; no change to 09A scope."
+      },
+      {
+        "number": 2,
+        "date": "2026-08-10",
+        "summary": "Adds Level 5 finish at the two-story lobby and requests Alternate 1."
+      }
+    ],
+    "rows": [
+      {
+        "key": "metal_framing",
+        "label": "Non-structural metal stud framing",
+        "class": "base"
+      },
+      {
+        "key": "gypsum_board",
+        "label": "Gypsum board, tape and finish to Level 4",
+        "class": "base"
+      },
+      {
+        "key": "level5_lobby",
+        "label": "Level 5 finish at two-story lobby (Addendum 2)",
+        "class": "base"
+      },
+      {
+        "key": "shaft_wall",
+        "label": "Shaft wall at elevator and mechanical shafts",
+        "class": "base"
+      },
+      {
+        "key": "sound_batts",
+        "label": "Sound attenuation batts in partitions",
+        "class": "base"
+      },
+      {
+        "key": "blocking",
+        "label": "In-wall blocking for casework and equipment",
+        "class": "base"
+      },
+      {
+        "key": "lifts",
+        "label": "Lifts and scaffolding for own work",
+        "class": "base"
+      },
+      {
+        "key": "cleanup",
+        "label": "Daily cleanup to GC dumpster",
+        "class": "base"
+      },
+      {
+        "key": "sheathing",
+        "label": "Exterior glass-mat gypsum sheathing",
+        "class": "base"
+      },
+      {
+        "key": "firestopping",
+        "label": "Firestopping at this trade's rated penetrations",
+        "class": "base"
+      },
+      {
+        "key": "act_ceilings",
+        "label": "Acoustical ceilings (09 51 13, package 09B)",
+        "class": "outside"
+      }
+    ],
+    "alternates": [
+      {
+        "key": "alt1_level5_corridors",
+        "label": "Alternate 1: Level 5 finish at all corridors",
+        "kind": "add"
+      }
+    ],
+    "basis": [
+      {
+        "key": "bond",
+        "label": "Performance and payment bond"
+      },
+      {
+        "key": "tax",
+        "label": "Sales tax on materials"
+      }
+    ],
+    "governing": {
+      "ridgeline": "ridgeline-rev"
+    }
+  },
+  "bids": [
+    {
+      "id": "northgate",
+      "bidder": "Northgate Drywall & Acoustics",
+      "received": "2026-08-21",
+      "files": [
+        "northgate-proposal.pdf"
+      ],
+      "total": 84250000,
+      "totalRef": "NG-6",
+      "addendaAcknowledged": [
+        1,
+        2
+      ],
+      "scope": {
+        "metal_framing": {
+          "status": "included",
+          "ref": "NG-1"
+        },
+        "gypsum_board": {
+          "status": "included",
+          "ref": "NG-1"
+        },
+        "level5_lobby": {
+          "status": "included",
+          "ref": "NG-1"
+        },
+        "shaft_wall": {
+          "status": "included",
+          "ref": "NG-1"
+        },
+        "sound_batts": {
+          "status": "included",
+          "ref": "NG-2"
+        },
+        "blocking": {
+          "status": "included",
+          "ref": "NG-2"
+        },
+        "lifts": {
+          "status": "included",
+          "ref": "NG-3"
+        },
+        "cleanup": {
+          "status": "included",
+          "ref": "NG-3"
+        },
+        "sheathing": {
+          "status": "excluded",
+          "note": "\"Exterior sheathing by others\"",
+          "ref": "NG-4"
+        },
+        "firestopping": {
+          "status": "excluded",
+          "note": "\"Firestopping NIC\"",
+          "ref": "NG-4"
+        },
+        "act_ceilings": {
+          "status": "excluded",
+          "note": "\"Acoustical ceilings NIC\"",
+          "ref": "NG-4"
+        }
+      },
+      "alternates": {
+        "alt1_level5_corridors": {
+          "amount": 1840000,
+          "printedLabel": "Alternate No. 1",
+          "ref": "NG-5"
+        }
+      },
+      "unitPrices": [
+        {
+          "description": "Additional soffit or bulkhead, framed and finished",
+          "unit": "LF",
+          "price": 4200,
+          "ref": "NG-5"
+        }
+      ],
+      "basis": {
+        "bond": {
+          "treatment": "excluded",
+          "percent": 1.5,
+          "ref": "NG-6"
+        },
+        "tax": {
+          "treatment": "included",
+          "ref": "NG-6"
+        }
+      },
+      "qualifications": [
+        {
+          "text": "Assumes one mobilization per floor and clear access to each floor.",
+          "ref": "NG-3"
+        },
+        {
+          "text": "Proposal valid 30 days.",
+          "ref": "NG-6"
+        }
+      ],
+      "evidence": [
+        {
+          "ref": "NG-1",
+          "file": "northgate-proposal.pdf",
+          "location": "page 1, Scope of Work",
+          "quote": "Furnish and install non-structural metal framing, gypsum board, and shaft wall at elevator and mechanical shafts, taped and finished to Level 4 per Section 09 21 16. Level 5 finish at the two-story lobby per Addendum 2."
+        },
+        {
+          "ref": "NG-2",
+          "file": "northgate-proposal.pdf",
+          "location": "page 1, Scope of Work",
+          "quote": "Sound attenuation batts at all partitions noted on A-601. In-wall blocking for casework and wall-mounted equipment per A-501 details. Acknowledges Addenda 1 and 2."
+        },
+        {
+          "ref": "NG-3",
+          "file": "northgate-proposal.pdf",
+          "location": "page 2, General Conditions",
+          "quote": "Lifts and scaffolding for our work included. Daily cleanup of our debris to the GC-provided dumpster included. Pricing assumes one mobilization per floor and clear access to each floor."
+        },
+        {
+          "ref": "NG-4",
+          "file": "northgate-proposal.pdf",
+          "location": "page 2, Exclusions",
+          "quote": "Exterior sheathing by others. Firestopping NIC. Acoustical ceilings NIC."
+        },
+        {
+          "ref": "NG-5",
+          "file": "northgate-proposal.pdf",
+          "location": "page 2, Alternates and Unit Prices",
+          "quote": "Alternate No. 1, Level 5 finish at all corridors: ADD $18,400.00. Additional soffit or bulkhead, framed and finished: $42.00 per LF."
+        },
+        {
+          "ref": "NG-6",
+          "file": "northgate-proposal.pdf",
+          "location": "page 2, Terms",
+          "quote": "Base bid: $842,500.00. Sales tax included. Performance and payment bond, if required, add 1.5%. Proposal valid 30 days."
+        }
+      ]
+    },
+    {
+      "id": "prairie",
+      "bidder": "Prairie Wall & Ceiling Co.",
+      "received": "2026-08-21",
+      "files": [
+        "prairie-cover-email.eml",
+        "prairie-bid-form.xlsx"
+      ],
+      "total": 87120000,
+      "totalRef": "PW-13",
+      "addendaAcknowledged": [
+        1,
+        2
+      ],
+      "scope": {
+        "metal_framing": {
+          "status": "included",
+          "amount": 31200000,
+          "ref": "PW-1"
+        },
+        "gypsum_board": {
+          "status": "included",
+          "amount": 32620000,
+          "ref": "PW-2"
+        },
+        "level5_lobby": {
+          "status": "included",
+          "amount": 1460000,
+          "ref": "PW-3"
+        },
+        "shaft_wall": {
+          "status": "included",
+          "amount": 5830000,
+          "ref": "PW-4"
+        },
+        "sound_batts": {
+          "status": "included",
+          "amount": 2280000,
+          "ref": "PW-5"
+        },
+        "blocking": {
+          "status": "excluded",
+          "note": "Bid form row 6 reads \"By others\"",
+          "ref": "PW-6"
+        },
+        "lifts": {
+          "status": "included",
+          "amount": 2240000,
+          "ref": "PW-7"
+        },
+        "cleanup": {
+          "status": "included",
+          "amount": 670000,
+          "ref": "PW-8"
+        },
+        "sheathing": {
+          "status": "included",
+          "amount": 4120000,
+          "ref": "PW-9"
+        },
+        "firestopping": {
+          "status": "included",
+          "amount": 980000,
+          "ref": "PW-10"
+        },
+        "act_ceilings": {
+          "status": "included",
+          "amount": 4600000,
+          "ref": "PW-11"
+        }
+      },
+      "alternates": {
+        "alt1_level5_corridors": {
+          "amount": 1675000,
+          "printedLabel": "Alt 1",
+          "ref": "PW-15"
+        }
+      },
+      "unitPrices": [
+        {
+          "description": "Added soffit, framed and finished",
+          "unit": "LF",
+          "price": 3950,
+          "ref": "PW-16"
+        }
+      ],
+      "basis": {
+        "bond": {
+          "treatment": "included",
+          "amount": 1270000,
+          "inTotal": true,
+          "ref": "PW-12"
+        },
+        "tax": {
+          "treatment": "included",
+          "ref": "PW-0"
+        }
+      },
+      "qualifications": [
+        {
+          "text": "Pricing is straight time, five-day weeks.",
+          "ref": "PW-0"
+        }
+      ],
+      "evidence": [
+        {
+          "ref": "PW-0",
+          "file": "prairie-cover-email.eml",
+          "location": "email body",
+          "quote": "Attached is our bid form for Cedar Hollow 09A, Addenda 1 and 2 acknowledged. Base bid $871,200 including bond and MN sales tax. Pricing is straight time, five-day weeks."
+        },
+        {
+          "ref": "PW-1",
+          "file": "prairie-bid-form.xlsx",
+          "location": "sheet Bid Form, row 1",
+          "quote": "Metal stud framing | 312,000"
+        },
+        {
+          "ref": "PW-2",
+          "file": "prairie-bid-form.xlsx",
+          "location": "sheet Bid Form, row 2",
+          "quote": "Gypsum board, Level 4 | 326,200"
+        },
+        {
+          "ref": "PW-3",
+          "file": "prairie-bid-form.xlsx",
+          "location": "sheet Bid Form, row 3",
+          "quote": "Level 5 finish, lobby (Add. 2) | 14,600"
+        },
+        {
+          "ref": "PW-4",
+          "file": "prairie-bid-form.xlsx",
+          "location": "sheet Bid Form, row 4",
+          "quote": "Shaft wall | 58,300"
+        },
+        {
+          "ref": "PW-5",
+          "file": "prairie-bid-form.xlsx",
+          "location": "sheet Bid Form, row 5",
+          "quote": "Sound batts | 22,800"
+        },
+        {
+          "ref": "PW-6",
+          "file": "prairie-bid-form.xlsx",
+          "location": "sheet Bid Form, row 6",
+          "quote": "In-wall blocking | By others"
+        },
+        {
+          "ref": "PW-7",
+          "file": "prairie-bid-form.xlsx",
+          "location": "sheet Bid Form, row 7",
+          "quote": "Lifts and scaffolding | 22,400"
+        },
+        {
+          "ref": "PW-8",
+          "file": "prairie-bid-form.xlsx",
+          "location": "sheet Bid Form, row 8",
+          "quote": "Cleanup | 6,700"
+        },
+        {
+          "ref": "PW-9",
+          "file": "prairie-bid-form.xlsx",
+          "location": "sheet Bid Form, row 9",
+          "quote": "Exterior sheathing | 41,200"
+        },
+        {
+          "ref": "PW-10",
+          "file": "prairie-bid-form.xlsx",
+          "location": "sheet Bid Form, row 10",
+          "quote": "Firestopping | 9,800"
+        },
+        {
+          "ref": "PW-11",
+          "file": "prairie-bid-form.xlsx",
+          "location": "sheet Bid Form, row 11",
+          "quote": "ACT ceilings 09 51 13 | 46,000"
+        },
+        {
+          "ref": "PW-12",
+          "file": "prairie-bid-form.xlsx",
+          "location": "sheet Bid Form, row 12",
+          "quote": "P&P bond | 12,700"
+        },
+        {
+          "ref": "PW-13",
+          "file": "prairie-bid-form.xlsx",
+          "location": "sheet Bid Form, row 13",
+          "quote": "TOTAL BASE BID | 871,200"
+        },
+        {
+          "ref": "PW-15",
+          "file": "prairie-bid-form.xlsx",
+          "location": "sheet Bid Form, row 15",
+          "quote": "Alt 1, Level 5 corridors | ADD 16,750"
+        },
+        {
+          "ref": "PW-16",
+          "file": "prairie-bid-form.xlsx",
+          "location": "sheet Bid Form, row 16",
+          "quote": "Unit price, added soffit framed and finished | 39.50 / LF"
+        }
+      ]
+    },
+    {
+      "id": "summit",
+      "bidder": "Summit Interior Systems, LLC",
+      "received": "2026-08-21",
+      "files": [
+        "summit-quote-email.eml"
+      ],
+      "total": 79800000,
+      "totalRef": "SI-1",
+      "addendaAcknowledged": [
+        1
+      ],
+      "scope": {
+        "metal_framing": {
+          "status": "included",
+          "ref": "SI-1"
+        },
+        "gypsum_board": {
+          "status": "included",
+          "ref": "SI-1"
+        },
+        "shaft_wall": {
+          "status": "included",
+          "ref": "SI-1"
+        },
+        "sheathing": {
+          "status": "included",
+          "ref": "SI-1"
+        },
+        "level5_lobby": {
+          "status": "excluded",
+          "note": "\"Level 4 finish throughout\"",
+          "ref": "SI-3"
+        },
+        "sound_batts": {
+          "status": "excluded",
+          "note": "\"Insulation by others\"",
+          "ref": "SI-3"
+        },
+        "blocking": {
+          "status": "omitted",
+          "ref": "SI-5"
+        },
+        "lifts": {
+          "status": "included",
+          "ref": "SI-2"
+        },
+        "cleanup": {
+          "status": "included",
+          "ref": "SI-2"
+        },
+        "firestopping": {
+          "status": "included",
+          "ref": "SI-2"
+        },
+        "act_ceilings": {
+          "status": "omitted",
+          "ref": "SI-5"
+        }
+      },
+      "alternates": {},
+      "proposedAlternates": [
+        {
+          "label": "Deduct if the GC furnishes scissor lifts for the duration",
+          "kind": "deduct",
+          "amount": -950000,
+          "ref": "SI-4"
+        }
+      ],
+      "unitPrices": [],
+      "basis": {
+        "tax": {
+          "treatment": "excluded",
+          "ref": "SI-6"
+        }
+      },
+      "qualifications": [
+        {
+          "text": "Based on drawings dated 7/15 and Addendum 1.",
+          "ref": "SI-1"
+        },
+        {
+          "text": "Price good for 15 days.",
+          "ref": "SI-6"
+        }
+      ],
+      "evidence": [
+        {
+          "ref": "SI-1",
+          "file": "summit-quote-email.eml",
+          "location": "email body, paragraph 1",
+          "quote": "We are pleased to quote $798,000 for metal framing, drywall, shaft wall, and exterior DensGlass sheathing per drawings dated 7/15 and Addendum 1."
+        },
+        {
+          "ref": "SI-2",
+          "file": "summit-quote-email.eml",
+          "location": "email body, paragraph 2",
+          "quote": "Includes firestopping at our own penetrations, lifts and scaffolding for our work, and daily cleanup to your dumpster."
+        },
+        {
+          "ref": "SI-3",
+          "file": "summit-quote-email.eml",
+          "location": "email body, paragraph 2",
+          "quote": "Level 4 finish throughout. Insulation by others."
+        },
+        {
+          "ref": "SI-4",
+          "file": "summit-quote-email.eml",
+          "location": "email body, paragraph 3",
+          "quote": "If you furnish scissor lifts for the duration we can deduct $9,500."
+        },
+        {
+          "ref": "SI-5",
+          "file": "summit-quote-email.eml",
+          "location": "whole email",
+          "quote": "No mention of in-wall blocking, acoustical ceilings, or Alternate 1; no attachment."
+        },
+        {
+          "ref": "SI-6",
+          "file": "summit-quote-email.eml",
+          "location": "email body, paragraph 4",
+          "quote": "Price excludes sales tax. Good for 15 days."
+        }
+      ]
+    },
+    {
+      "id": "ridgeline-orig",
+      "bidderKey": "ridgeline",
+      "bidder": "Ridgeline Interiors",
+      "received": "2026-08-21",
+      "files": [
+        "ridgeline-email.eml"
+      ],
+      "total": 78100000,
+      "totalRef": "RI-1",
+      "addendaAcknowledged": null,
+      "scope": {
+        "metal_framing": {
+          "status": "included",
+          "ref": "RI-1"
+        },
+        "gypsum_board": {
+          "status": "included",
+          "ref": "RI-1"
+        },
+        "level5_lobby": {
+          "status": "omitted",
+          "ref": "RI-1"
+        },
+        "shaft_wall": {
+          "status": "omitted",
+          "ref": "RI-1"
+        },
+        "sound_batts": {
+          "status": "omitted",
+          "ref": "RI-1"
+        },
+        "blocking": {
+          "status": "omitted",
+          "ref": "RI-1"
+        },
+        "lifts": {
+          "status": "omitted",
+          "ref": "RI-1"
+        },
+        "cleanup": {
+          "status": "omitted",
+          "ref": "RI-1"
+        },
+        "sheathing": {
+          "status": "omitted",
+          "ref": "RI-1"
+        },
+        "firestopping": {
+          "status": "omitted",
+          "ref": "RI-1"
+        },
+        "act_ceilings": {
+          "status": "omitted",
+          "ref": "RI-1"
+        }
+      },
+      "alternates": {},
+      "basis": {},
+      "evidence": [
+        {
+          "ref": "RI-1",
+          "file": "ridgeline-email.eml",
+          "location": "email body",
+          "quote": "09A framing & drywall, Cedar Hollow clinic: $781,000. Thx, Dale"
+        }
+      ]
+    },
+    {
+      "id": "ridgeline-rev",
+      "bidderKey": "ridgeline",
+      "bidder": "Ridgeline Interiors",
+      "received": "2026-08-22",
+      "files": [
+        "ridgeline-revised-email.eml"
+      ],
+      "total": 78950000,
+      "totalRef": "RR-1",
+      "addendaAcknowledged": [
+        1,
+        2
+      ],
+      "scope": {
+        "metal_framing": {
+          "status": "included",
+          "ref": "RR-1"
+        },
+        "gypsum_board": {
+          "status": "included",
+          "ref": "RR-1"
+        },
+        "level5_lobby": {
+          "status": "unknown",
+          "note": "only \"per plans and specs thru Addendum 2\"",
+          "ref": "RR-1"
+        },
+        "shaft_wall": {
+          "status": "unknown",
+          "note": "only \"per plans and specs\"",
+          "ref": "RR-1"
+        },
+        "sheathing": {
+          "status": "unknown",
+          "note": "only \"per plans and specs\"",
+          "ref": "RR-1"
+        },
+        "sound_batts": {
+          "status": "excluded",
+          "note": "\"Excludes insulation\"",
+          "ref": "RR-2"
+        },
+        "firestopping": {
+          "status": "excluded",
+          "note": "\"Excludes ... firestopping\"",
+          "ref": "RR-2"
+        },
+        "blocking": {
+          "status": "omitted",
+          "ref": "RR-3"
+        },
+        "lifts": {
+          "status": "omitted",
+          "ref": "RR-3"
+        },
+        "cleanup": {
+          "status": "omitted",
+          "ref": "RR-3"
+        },
+        "act_ceilings": {
+          "status": "omitted",
+          "ref": "RR-3"
+        }
+      },
+      "alternates": {},
+      "basis": {
+        "bond": {
+          "treatment": "excluded",
+          "ref": "RR-2"
+        }
+      },
+      "questions": [
+        {
+          "text": "Your revision arrived August 22 at 9:10 a.m., after bids closed. Please confirm it replaces your August 21 number of $781,000.",
+          "ref": "RR-1"
+        }
+      ],
+      "evidence": [
+        {
+          "ref": "RR-1",
+          "file": "ridgeline-revised-email.eml",
+          "location": "email body",
+          "quote": "Revised number for 09A framing and drywall per plans and specs thru Addendum 2: $789,500."
+        },
+        {
+          "ref": "RR-2",
+          "file": "ridgeline-revised-email.eml",
+          "location": "email body",
+          "quote": "Excludes insulation, firestopping and bond."
+        },
+        {
+          "ref": "RR-3",
+          "file": "ridgeline-revised-email.eml",
+          "location": "whole email",
+          "quote": "No mention of blocking, lifts, cleanup, acoustical ceilings, sales tax, or Alternate 1."
+        }
+      ]
+    }
+  ],
+  "openQuestions": [
+    {
+      "text": "Ridgeline's revision arrived the morning after bids closed. You said to use it; confirm that a late revision is acceptable under your bid rules.",
+      "source": "ridgeline-revised-email.eml, received 2026-08-22 9:10 a.m."
+    }
+  ]
+}
