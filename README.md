@@ -41,7 +41,7 @@ text and inputs as attachments; script or PDF workflows still require a runtime.
 | Skill | Stage | What it does |
 |---|---|---|
 | [bid-leveling](skills/bid-leveling) | Preconstruction, Estimating | Level sub bids on bid day. See every scope gap, accept or enter plugs, and find out who is really low once the scope matches. |
-| [proposal-builder](skills/proposal-builder) | Business development, Estimating | Build polished construction proposal PDFs with pdfcn, sourced scope, pricing and qualifications. |
+| [proposal-builder](skills/proposal-builder) | Business development, Preconstruction | Answer the RFP, compliance first. Every requirement mapped to where you answer it, page limits and forms checked, and a polished PDF built from your own library. |
 | [rfp-intake](skills/rfp-intake) | Business development, Preconstruction | Prep the go/no-go meeting. Check the must-pass gates, score the opportunity on your criteria, and get a cited brief with dates, addenda changes, risks, and questions. |
 | [workforce-planning](skills/workforce-planning) | Workforce, Operations | Prep the staffing meeting: who is overloaded, which jobs have empty seats, who rolls off when, and what changes if you win the pursuits you are chasing. |
 

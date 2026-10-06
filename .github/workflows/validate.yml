@@ -27,8 +27,10 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "22"
-      - name: Test proposal data validation
-        run: node --test evals/tasks/proposal-builder/validate.test.mjs
+      - name: Install Poppler for PDF page checks
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq poppler-utils
+      - name: Test proposal compliance checks and page measurement
+        run: node --test evals/tasks/proposal-builder/proposal-core.test.mjs
       - name: Test workforce planning calculations and plan build
         run: node --test evals/tasks/workforce-planning/staffing-core.test.mjs
       - name: Test bid leveling calculations and tab build

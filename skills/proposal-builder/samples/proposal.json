@@ -1,0 +1,642 @@
+{
+  "meta": {
+    "project": "Riverside Branch Library",
+    "client": "Cedar Hollow County",
+    "proposer": "Larkspur Builders",
+    "reference": "LB-2026-044",
+    "date": "2026-10-06",
+    "status": "DRAFT",
+    "currency": "USD",
+    "freshnessMonths": 12,
+    "kicker": "Construction Manager at Risk proposal",
+    "summary": "Preconstruction and construction services for a 16,500 square foot branch library beside Riverside Park, from a team that has delivered a county library, a school addition, and a fire station under CM at Risk."
+  },
+  "sources": [
+    {
+      "id": "rfp",
+      "kind": "rfp",
+      "short": "RFP",
+      "title": "RFP CHC-2026-31 (CHC-2026-31-rfp-cmar.pdf)",
+      "date": "2026-09-28",
+      "pages": 5
+    },
+    {
+      "id": "lib-projects",
+      "kind": "library",
+      "short": "Library: projects",
+      "title": "company-library/projects.json",
+      "date": "2026-06-30"
+    },
+    {
+      "id": "lib-people",
+      "kind": "library",
+      "short": "Library: people",
+      "title": "company-library/people.json",
+      "date": "2026-08-15"
+    },
+    {
+      "id": "lib-safety",
+      "kind": "library",
+      "short": "Library: safety",
+      "title": "company-library/safety.json",
+      "date": "2026-02-15"
+    },
+    {
+      "id": "lib-approach",
+      "kind": "library",
+      "short": "Library: approach",
+      "title": "company-library/boilerplate.md",
+      "date": "2026-05-01"
+    },
+    {
+      "id": "prior-2024",
+      "kind": "prior",
+      "short": "2024 Blue Earth EMS proposal",
+      "title": "larkspur-2024-blue-earth-ems-proposal.pdf",
+      "date": "2024-03-12",
+      "pages": 2
+    },
+    {
+      "id": "prior-2025",
+      "kind": "prior",
+      "short": "2025 North Mankato proposal",
+      "title": "larkspur-2025-north-mankato-fire-proposal.pdf",
+      "date": "2025-01-20",
+      "pages": 1
+    },
+    {
+      "id": "dana",
+      "kind": "user",
+      "short": "D. Whitfield email",
+      "title": "Email from Dana Whitfield with the fee worksheet and team commitments",
+      "date": "2026-10-06"
+    }
+  ],
+  "rfp": {
+    "title": "RFP CHC-2026-31, Construction Manager at Risk Services: Riverside Branch Library",
+    "number": "RFP CHC-2026-31",
+    "pageLimit": {
+      "max": 20,
+      "excludes": [
+        "letter",
+        "forms",
+        "matrix",
+        "appendix"
+      ],
+      "source": {
+        "id": "rfp",
+        "page": 3,
+        "section": "§3"
+      }
+    },
+    "requirements": [
+      {
+        "id": "A",
+        "kind": "submittal",
+        "text": "Transmittal letter, one page, signed by an officer authorized to bind the firm",
+        "source": {
+          "id": "rfp",
+          "page": 3,
+          "section": "§4"
+        }
+      },
+      {
+        "id": "B",
+        "kind": "criterion",
+        "points": 20,
+        "text": "Firm qualifications: at least three public library, civic, or K-12 projects in the last seven years, with owner, delivery method, value, completion, and an owner reference with phone number",
+        "source": {
+          "id": "rfp",
+          "page": 3,
+          "section": "§4"
+        }
+      },
+      {
+        "id": "C",
+        "kind": "criterion",
+        "points": 20,
+        "text": "Proposed team: project manager, superintendent, and preconstruction manager, with role, experience, and time committed",
+        "source": {
+          "id": "rfp",
+          "page": 3,
+          "section": "§4"
+        }
+      },
+      {
+        "id": "D",
+        "kind": "criterion",
+        "points": 15,
+        "text": "Preconstruction approach: estimating and cost control by design phase, value analysis, subcontractor procurement",
+        "source": {
+          "id": "rfp",
+          "page": 4,
+          "section": "§4"
+        }
+      },
+      {
+        "id": "E",
+        "kind": "criterion",
+        "points": 15,
+        "text": "Construction approach and summary schedule to Substantial Completion, and keeping Riverside Park users safe",
+        "source": {
+          "id": "rfp",
+          "page": 4,
+          "section": "§4"
+        }
+      },
+      {
+        "id": "F",
+        "kind": "criterion",
+        "points": 5,
+        "text": "Safety: EMR for each of the last three years and the most recent TRIR",
+        "source": {
+          "id": "rfp",
+          "page": 4,
+          "section": "§4"
+        }
+      },
+      {
+        "id": "G",
+        "kind": "criterion",
+        "points": 5,
+        "text": "Small and local business participation plan, with past results",
+        "source": {
+          "id": "rfp",
+          "page": 4,
+          "section": "§4"
+        }
+      },
+      {
+        "id": "H",
+        "kind": "criterion",
+        "points": 20,
+        "text": "Fee on Form 3: preconstruction fee, CM fee percentage, general conditions for seven months, bonds and insurance percentage",
+        "source": {
+          "id": "rfp",
+          "page": 4,
+          "section": "§5"
+        }
+      }
+    ],
+    "forms": [
+      {
+        "id": "F1",
+        "name": "Form 1, Proposal Signature and Addenda Acknowledgment",
+        "included": true,
+        "section": "forms",
+        "source": {
+          "id": "rfp",
+          "page": 5,
+          "section": "§7"
+        }
+      },
+      {
+        "id": "F2",
+        "name": "Form 2, Non-Collusion Affidavit",
+        "included": false,
+        "source": {
+          "id": "rfp",
+          "page": 5,
+          "section": "§7"
+        }
+      },
+      {
+        "id": "F3",
+        "name": "Form 3, Fee Proposal Form",
+        "included": true,
+        "section": "forms",
+        "source": {
+          "id": "rfp",
+          "page": 5,
+          "section": "§7"
+        }
+      },
+      {
+        "id": "F4",
+        "name": "Form 4, Responsible Contractor Verification of Compliance",
+        "included": true,
+        "section": "forms",
+        "source": {
+          "id": "rfp",
+          "page": 5,
+          "section": "§7"
+        }
+      }
+    ]
+  },
+  "facts": [
+    {
+      "key": "emr",
+      "label": "Experience Modification Rate",
+      "value": "0.78 (2025)",
+      "asOf": "2025-12-31",
+      "source": {
+        "id": "lib-safety"
+      }
+    },
+    {
+      "key": "emr",
+      "label": "Experience Modification Rate",
+      "value": "0.84 (2023)",
+      "asOf": "2023-12-31",
+      "source": {
+        "id": "prior-2024",
+        "page": 1
+      }
+    },
+    {
+      "key": "garfield-value",
+      "label": "Garfield Elementary value",
+      "value": "$9,420,000 final cost",
+      "asOf": "2024-09-30",
+      "source": {
+        "id": "lib-projects"
+      }
+    },
+    {
+      "key": "garfield-value",
+      "label": "Garfield Elementary value",
+      "value": "$8,700,000 GMP",
+      "asOf": "2024-03-12",
+      "source": {
+        "id": "prior-2024",
+        "page": 1
+      }
+    }
+  ],
+  "sections": [
+    {
+      "id": "letter",
+      "tab": "Tab A",
+      "kind": "letter",
+      "title": "Transmittal letter",
+      "answers": [
+        "A"
+      ],
+      "items": [
+        {
+          "text": "Cedar Hollow County Purchasing Office, attention Renee Halvorsen. Larkspur Builders submits this proposal for Construction Manager at Risk services for the Riverside Branch Library, RFP CHC-2026-31.",
+          "source": {
+            "id": "rfp",
+            "page": 1
+          }
+        },
+        {
+          "text": "Our team of Morgan Lee, Sam Ortiz, and Priya Nair has delivered a county library renovation, a school addition, and a fire station under CM at Risk in southern Minnesota since 2023. Our fee is submitted separately on Form 3 as the RFP requires.",
+          "source": {
+            "id": "lib-people"
+          },
+          "alsoFrom": [
+            {
+              "id": "lib-projects"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "qualifications",
+      "tab": "Tab B",
+      "kind": "projects",
+      "title": "Firm qualifications",
+      "answers": [
+        "B"
+      ],
+      "lead": "Public CM at Risk work since 2023, plus Cedar Hollow schools.",
+      "items": [
+        {
+          "title": "Blue Earth County Library Renovation",
+          "fields": {
+            "Owner": "Blue Earth County",
+            "Delivery": "CM at Risk",
+            "Final cost": "$6,800,000",
+            "Completed": "May 2023",
+            "Reference": "Karen Olstad, County Facilities Manager, 507-555-0177"
+          },
+          "text": "Renovation of a county library delivered by Larkspur under CM at Risk.",
+          "source": {
+            "id": "lib-projects"
+          }
+        },
+        {
+          "title": "Garfield Elementary School Addition",
+          "fields": {
+            "Owner": "Mankato Area Public Schools",
+            "Delivery": "CM at Risk",
+            "Final cost": "$9,420,000",
+            "Completed": "August 2024",
+            "Reference": "Tom Brekke, Director of Facilities, 507-555-0141"
+          },
+          "text": "Classroom addition delivered by Larkspur under CM at Risk.",
+          "source": {
+            "id": "lib-projects"
+          },
+          "facts": [
+            "garfield-value"
+          ]
+        },
+        {
+          "title": "North Mankato Fire Station No. 2",
+          "fields": {
+            "Owner": "City of North Mankato",
+            "Delivery": "CM at Risk",
+            "Final cost": "$11,200,000",
+            "Completed": "November 2025",
+            "Reference": "Luis Ortega, Public Works Director, 507-555-0102"
+          },
+          "text": "New civic building delivered under CM at Risk.",
+          "source": {
+            "id": "lib-projects"
+          }
+        },
+        {
+          "title": "Cedar Hollow High School Roof Replacement",
+          "fields": {
+            "Owner": "Cedar Hollow Public Schools",
+            "Delivery": "Design-bid-build",
+            "Final cost": "$2,100,000",
+            "Completed": "August 2022",
+            "Reference": "Dana Pike, Buildings and Grounds, 507-555-0190"
+          },
+          "text": "Recent public work in Cedar Hollow. Not CM at Risk, so listed for local experience only.",
+          "source": {
+            "id": "lib-projects"
+          }
+        }
+      ]
+    },
+    {
+      "id": "team",
+      "tab": "Tab C",
+      "kind": "team",
+      "title": "Proposed team",
+      "answers": [
+        "C"
+      ],
+      "items": [
+        {
+          "title": "Morgan Lee",
+          "fields": {
+            "Role": "Project Manager",
+            "Experience": "18 years",
+            "Commitment": "50% through preconstruction and construction",
+            "Credentials": "LEED AP BD+C"
+          },
+          "text": "Managed the Garfield Elementary addition and the Blue Earth County Library renovation.",
+          "source": {
+            "id": "lib-people"
+          },
+          "alsoFrom": [
+            {
+              "id": "dana"
+            }
+          ]
+        },
+        {
+          "title": "Sam Ortiz",
+          "fields": {
+            "Role": "Superintendent",
+            "Experience": "22 years",
+            "Commitment": "100% from construction start",
+            "Credentials": "OSHA 30, First Aid/CPR"
+          },
+          "text": "Superintendent on the Blue Earth County Library and North Mankato Fire Station No. 2.",
+          "source": {
+            "id": "lib-people"
+          },
+          "alsoFrom": [
+            {
+              "id": "dana"
+            }
+          ]
+        },
+        {
+          "title": "Priya Nair",
+          "fields": {
+            "Role": "Preconstruction Manager",
+            "Experience": "12 years",
+            "Commitment": "40% through preconstruction",
+            "Credentials": "Certified Professional Estimator"
+          },
+          "text": "Led preconstruction on Garfield Elementary and North Mankato Fire Station No. 2.",
+          "source": {
+            "id": "lib-people"
+          },
+          "alsoFrom": [
+            {
+              "id": "dana"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "precon",
+      "tab": "Tab D",
+      "kind": "narrative",
+      "title": "Preconstruction approach",
+      "answers": [
+        "D"
+      ],
+      "lead": "The design is at schematic design. Our job before the GMP is to keep the $9.8 million budget visible at every step.",
+      "items": [
+        {
+          "group": "Estimating and cost control",
+          "text": "A detailed estimate at schematic design, design development, and 50% and 95% construction documents, each reconciled line by line to the one before so the County sees what moved and why.",
+          "source": {
+            "id": "lib-approach"
+          }
+        },
+        {
+          "group": "Estimating and cost control",
+          "text": "Our estimates at schematic design have averaged within 3% of the final GMP on our last ten CM at Risk projects.",
+          "source": {
+            "id": "prior-2024",
+            "page": 2
+          }
+        },
+        {
+          "group": "Value analysis",
+          "text": "Value analysis runs alongside each estimate. Each idea goes to the County and Halverson Moen Architects with its cost, schedule, and maintenance effect, and nothing is carried until the County accepts it.",
+          "source": {
+            "id": "lib-approach"
+          }
+        },
+        {
+          "group": "Subcontractor procurement",
+          "text": "Bid packages are released by trade with a pre-bid scope review. Bids are leveled on a common scope, and the leveling is shared with the County before award.",
+          "source": {
+            "id": "lib-approach"
+          }
+        }
+      ]
+    },
+    {
+      "id": "construction",
+      "tab": "Tab E",
+      "kind": "schedule",
+      "title": "Construction approach and schedule",
+      "answers": [
+        "E"
+      ],
+      "items": [
+        {
+          "group": "Summary schedule",
+          "text": "Board approval of the CM at Risk contract: December 15, 2026.",
+          "source": {
+            "id": "rfp",
+            "page": 2,
+            "section": "§2"
+          }
+        },
+        {
+          "group": "Summary schedule",
+          "text": "Construction start: May 2027, after the GMP amendment.",
+          "source": {
+            "id": "rfp",
+            "page": 2,
+            "section": "§2"
+          }
+        },
+        {
+          "group": "Summary schedule",
+          "text": "Substantial Completion: no later than November 30, 2027, a seven-month build.",
+          "source": {
+            "id": "rfp",
+            "page": 2,
+            "section": "§2"
+          }
+        },
+        {
+          "group": "Keeping Riverside Park safe",
+          "text": "Every work zone fenced and signed, deliveries routed outside peak park hours, and a weekly coordination call with County facility staff.",
+          "source": {
+            "id": "lib-approach"
+          }
+        },
+        {
+          "group": "Keeping Riverside Park safe",
+          "text": "The superintendent walks the park edge of the site every morning before work starts and logs it in the daily report.",
+          "source": {
+            "id": "lib-approach"
+          }
+        }
+      ]
+    },
+    {
+      "id": "safety",
+      "tab": "Tab F",
+      "kind": "narrative",
+      "title": "Safety",
+      "answers": [
+        "F"
+      ],
+      "items": [
+        {
+          "group": "Experience Modification Rate",
+          "text": "2025: 0.78. 2024: 0.81. 2023: 0.84.",
+          "source": {
+            "id": "lib-safety"
+          },
+          "facts": [
+            "emr"
+          ]
+        },
+        {
+          "group": "Recordable incident rate",
+          "text": "2025 OSHA recordable incident rate (TRIR): 1.2.",
+          "source": {
+            "id": "lib-safety"
+          }
+        }
+      ]
+    },
+    {
+      "id": "fee",
+      "tab": "Fee",
+      "kind": "fee",
+      "title": "Fee proposal",
+      "answers": [
+        "H"
+      ],
+      "lead": "Submitted on Form 3 in a separately sealed envelope, as the RFP requires. Summarized here for internal review.",
+      "items": [
+        {
+          "text": "General conditions cover the seven-month construction duration set by the RFP.",
+          "source": {
+            "id": "rfp",
+            "page": 4,
+            "section": "§5"
+          }
+        }
+      ]
+    },
+    {
+      "id": "forms",
+      "tab": "Forms",
+      "kind": "forms",
+      "title": "Required forms"
+    },
+    {
+      "id": "matrix",
+      "tab": "Appendix",
+      "kind": "matrix",
+      "title": "Compliance matrix"
+    }
+  ],
+  "fee": {
+    "status": "priced",
+    "lines": [
+      {
+        "id": "precon",
+        "label": "Preconstruction services fee",
+        "basis": "lump",
+        "cents": 4800000,
+        "source": {
+          "id": "dana"
+        }
+      },
+      {
+        "id": "cm-fee",
+        "label": "CM fee",
+        "basis": "percent",
+        "percent": 4.25,
+        "of": "the Cost of the Work",
+        "source": {
+          "id": "dana"
+        }
+      },
+      {
+        "id": "gc",
+        "label": "General conditions, seven months",
+        "basis": "lump",
+        "cents": 61200000,
+        "source": {
+          "id": "dana"
+        }
+      },
+      {
+        "id": "bonds",
+        "label": "Bonds and insurance",
+        "basis": "percent",
+        "percent": 1.1,
+        "of": "the Cost of the Work",
+        "source": {
+          "id": "dana"
+        }
+      }
+    ],
+    "totalCents": 66000000
+  },
+  "questions": [
+    {
+      "text": "Tab G (small and local business participation, 5 points) has no library content. The 2024 Blue Earth proposal describes an outreach meeting but gives no results. Who can supply our participation numbers from the last three CM at Risk jobs?"
+    },
+    {
+      "text": "Form 2 (Non-Collusion Affidavit) needs an officer's signature and notarization."
+    },
+    {
+      "text": "Confirm the \"within 3% of the final GMP\" claim from the 2024 proposal is still true, and add it to the library if so."
+    }
+  ]
+}
