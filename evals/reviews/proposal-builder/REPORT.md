@@ -1,5 +1,97 @@
 # Proposal Builder verification
 
+## Revision 2.0.0: RFP responses, compliance first
+
+Previous revision: 1.0.0, a polished proposal PDF from a free-form brief. This
+revision keeps pdfcn and Forme but changes the job: answer an owner's RFP after
+a go decision, and prove it answers everything.
+
+### What changed
+
+- **Data.** `proposal.json` now carries:
+  - the RFP's requirements (with points), required forms, and page limit
+  - every source, with its kind and date
+  - facts that can differ between sources
+  - sections in the RFP's order, each listing the requirements it answers
+- **Checks.** `templates/proposal-core.mjs` is dependency-free and shared by
+  the renderer and `scripts/check.mjs`. The check writes
+  `compliance-check.md`.
+  - **Blocking:**
+    - unanswered requirements
+    - missing forms
+    - counted pages over the limit, measured on the rendered PDF with Poppler
+    - an unpriced fee
+  - **Warnings:**
+    - requirements answered only by unconfirmed claims from prior proposals
+    - stale sources
+    - values that differ between sources, when the proposal uses the older one
+- **Review findings from 1.0.0, fixed:**
+  - P1, $0 proposals: an absent fee is `unpriced`, and zero lump sums are
+    rejected.
+  - Sample provenance: every item cites a real page or library file.
+  - PDF title mojibake: metadata is made ASCII.
+  - Non-two-decimal currencies: now rejected instead of rounded.
+  - Setup: no longer checks paths with `/`, now uses `npm.cmd` on Windows,
+    and removes a half-built workspace on failure.
+  - Long-name chapter opener: aligned to the top.
+- **Renderer.** `render.tsx` renders:
+  - the RFP's tab order
+  - project and team cards
+  - grouped narrative lists
+  - the fee table with percentage lines
+  - a forms checklist
+  - a compliance matrix appendix
+
+  Source lines print in `DRAFT`, and unconfirmed prior claims print in rust.
+
+### Sample
+
+Cedar Hollow County, Riverside Branch Library, a CM at Risk RFP with a 20-page
+limit. Inputs:
+
+- the RFP PDF
+- Larkspur Builders' library (projects, people, safety, approach)
+- two prior proposals as PDFs
+- the user's fee and team email
+
+Planted problems:
+
+- Tab G (small and local business, 5 points) has no library content
+- Form 2 isn't included
+- the 2024 proposal carries a 2023 EMR and a GMP instead of the final cost
+- a "within 3% of GMP" claim is lifted from the 2024 proposal
+
+Rendered: 10 pages, 6 counted toward the limit. The check reports 2 blocking
+items and 2 warnings.
+
+### Verification
+
+- `node --test evals/tasks/proposal-builder/proposal-core.test.mjs`: 12 tests,
+  in CI, which now installs Poppler. They include:
+  - the bundled compliance check reproduced byte for byte from the bundled PDF
+  - per-section page measurement
+  - fixing the planted gaps clears every blocking item
+  - fee rules, validation, and CLI exit codes
+- Mutation check: 10 deliberate breaks each failed between 1 and 4 tests.
+- A fresh `setup.mjs` workspace installed the pinned pdfcn revision and
+  rendered the sample.
+  - All pages were rasterized and inspected.
+  - One card alone on page 4 was fixed by tightening the card layout and
+    shortening the section lead.
+  - The PDF title reads cleanly in `pdfinfo`.
+- `refresh-preview.py` reproduces the committed 225 KB page preview, which is
+  under the catalog's 256 KB inline limit.
+
+### Not yet tested
+
+A fresh agent building a proposal from a library and an RFP it hasn't seen,
+especially whether it leaves a requirement unanswered rather than writing
+around it.
+
+---
+
+# Revision 1.0.0
+
 Baseline: skills main `8adb4d30a1ce3266f564cdd52f76c391eadd7403`.
 The broad PDF skill is replaced, not maintained as a compatibility alias.
 Pay App Review and RFI Drafter and their task/review directories are removed.
