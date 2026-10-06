@@ -7,5 +7,5 @@
 
 ## Other workflows
 - Compare competing subcontractor bids on common scope: use bid leveling.
-- Extract scope from drawing sheets: use drawing scope extraction.
+- Extract scope from drawing sheets (not covered by these skills).
 - Review a payment application or write an RFI: outside this skill.

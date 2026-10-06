@@ -6,12 +6,12 @@
   },
   "metadata": {
     "description": "Construction skills for AI agents: document-based estimating and project controls workflows. No Buildr account required.",
-    "version": "0.7.0"
+    "version": "0.8.0"
   },
   "plugins": [
     {
       "name": "precon",
-      "description": "Document-based RFP intake, bid leveling, drawing scope extraction and polished construction proposals.",
+      "description": "Document-based RFP intake, bid leveling and polished construction proposals.",
       "source": "./",
       "strict": false,
       "category": "construction",
@@ -26,7 +26,6 @@
       "skills": [
         "./skills/rfp-intake",
         "./skills/bid-leveling",
-        "./skills/drawing-scope-extraction",
         "./skills/proposal-builder"
       ]
     },
@@ -62,7 +61,6 @@
       "skills": [
         "./skills/rfp-intake",
         "./skills/bid-leveling",
-        "./skills/drawing-scope-extraction",
         "./skills/workforce-planning",
         "./skills/proposal-builder"
       ]
