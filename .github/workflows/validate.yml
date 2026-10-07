@@ -29,11 +29,5 @@ jobs:
           node-version: "22"
       - name: Install Poppler for PDF page checks
         run: sudo apt-get update -qq && sudo apt-get install -y -qq poppler-utils
-      - name: Test proposal compliance checks and page measurement
-        run: node --test evals/tasks/proposal-builder/proposal-core.test.mjs
-      - name: Test workforce planning calculations and plan build
-        run: node --test evals/tasks/workforce-planning/staffing-core.test.mjs
-      - name: Test bid leveling calculations and tab build
-        run: node --test evals/tasks/bid-leveling/leveling-core.test.mjs
-      - name: Test RFP intake gates, scoring, and brief
-        run: node --test evals/tasks/rfp-intake/intake.test.mjs
+      - name: Test every skill's calculations and outputs
+        run: node --test evals/tasks/*/*.test.mjs
