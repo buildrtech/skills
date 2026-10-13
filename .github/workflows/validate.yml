@@ -1,0 +1,35 @@
+name: validate
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pyyaml uv
+      - name: Validate skills
+        run: python3 tools/validate_skills.py
+      - name: Check catalog.json is current
+        run: python3 tools/build_catalog.py --check
+      - name: Check marketplace coverage
+        run: python3 tools/validate_marketplace.py
+      - name: Test shared validation and eval tooling
+        run: python3 -m unittest discover -s tools/tests -v
+      - name: Test rescoring with the pinned verifier
+        run: python3 evals/reviews/test_rescore.py
+      - name: Test every skill's Python scripts
+        run: for t in evals/tasks/*/test_*.py; do python3 -I "$t" -v || exit 1; done
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Install Poppler for PDF page checks
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq poppler-utils
+      - name: Test every skill's calculations and outputs
+        run: node --test evals/tasks/*/*.test.mjs

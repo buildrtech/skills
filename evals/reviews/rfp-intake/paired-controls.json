@@ -1,0 +1,110 @@
+{
+  "known-good": {
+    "baseline": {
+      "boundaries": 1.0,
+      "correctness": 1.0,
+      "format": 1.0,
+      "grounding": 1.0,
+      "reward": 1.0,
+      "soft_score": 1.0
+    },
+    "revised": {
+      "boundaries": 1.0,
+      "correctness": 1.0,
+      "format": 1.0,
+      "grounding": 1.0,
+      "reward": 1.0,
+      "soft_score": 1.0
+    }
+  },
+  "missing": {
+    "baseline": {
+      "boundaries": 0.0,
+      "correctness": 0.0,
+      "format": 0.0,
+      "grounding": 0.0,
+      "reward": 0.0,
+      "soft_score": 0.0
+    },
+    "revised": {
+      "boundaries": 0.0,
+      "correctness": 0.0,
+      "format": 0.0,
+      "grounding": 0.0,
+      "reward": 0.0,
+      "soft_score": 0.0
+    }
+  },
+  "shortcut-shipped-sample": {
+    "baseline": {
+      "boundaries": 0.25,
+      "correctness": 0.5677,
+      "format": 1.0,
+      "grounding": 0.2238,
+      "reward": 0.0,
+      "soft_score": 0.4495
+    },
+    "revised": {
+      "boundaries": 0.25,
+      "correctness": 0.5677,
+      "format": 1.0,
+      "grounding": 0.2238,
+      "reward": 0.0,
+      "soft_score": 0.3883
+    }
+  },
+  "valid-alternate-headings": {
+    "baseline": {
+      "boundaries": 1.0,
+      "correctness": 0.9091,
+      "format": 0.0,
+      "grounding": 1.0,
+      "reward": 0.0,
+      "soft_score": 0.8636
+    },
+    "revised": {
+      "boundaries": 1.0,
+      "correctness": 1.0,
+      "format": 0.0,
+      "grounding": 1.0,
+      "reward": 1.0,
+      "soft_score": 1.0
+    }
+  },
+  "wrong-no-bid-decision": {
+    "baseline": {
+      "boundaries": 0.25,
+      "correctness": 0.8182,
+      "format": 0.7143,
+      "grounding": 1.0,
+      "reward": 0.0,
+      "soft_score": 0.5987
+    },
+    "revised": {
+      "boundaries": 0.25,
+      "correctness": 0.8182,
+      "format": 0.7143,
+      "grounding": 1.0,
+      "reward": 0.0,
+      "soft_score": 0.5859
+    }
+  },
+  "wrong-thin-review": {
+    "baseline": {
+      "boundaries": 0.75,
+      "correctness": 0.5091,
+      "format": 0.5,
+      "grounding": 1.0,
+      "reward": 0.0,
+      "soft_score": 0.6536
+    },
+    "revised": {
+      "boundaries": 0.75,
+      "correctness": 0.5091,
+      "format": 0.5,
+      "grounding": 1.0,
+      "reward": 0.0,
+      "soft_score": 0.6707
+    }
+  }
+}

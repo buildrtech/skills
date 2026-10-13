@@ -1,0 +1,1951 @@
+{
+  "company": {
+    "name": "Halvorsen Builders",
+    "office": "Denver"
+  },
+  "asOf": "2026-10-05",
+  "horizon": {
+    "start": "2026-10",
+    "months": 12
+  },
+  "thresholds": {
+    "default": 1,
+    "Project Manager": 1.2,
+    "Senior Project Manager": 1.2
+  },
+  "roleFits": {
+    "Project Manager": {
+      "same": [
+        "Senior Project Manager"
+      ],
+      "stepUp": [
+        "Assistant Project Manager"
+      ]
+    },
+    "Senior Project Manager": {
+      "same": [
+        "Project Manager"
+      ]
+    },
+    "Assistant Project Manager": {
+      "stepUp": [
+        "Project Engineer"
+      ]
+    },
+    "Superintendent": {
+      "stepUp": [
+        "Assistant Superintendent"
+      ]
+    },
+    "Assistant Superintendent": {
+      "same": []
+    }
+  },
+  "people": [
+    {
+      "id": "kwhitfield",
+      "name": "Karen Whitfield",
+      "role": "Project Executive",
+      "office": "Denver",
+      "travel": true,
+      "sectors": [
+        "healthcare",
+        "civic"
+      ],
+      "certs": [
+        "OSHA 30",
+        "ICRA"
+      ],
+      "source": "roster.csv row 2"
+    },
+    {
+      "id": "tbrandt",
+      "name": "Tom Brandt",
+      "role": "Project Executive",
+      "office": "Denver",
+      "travel": true,
+      "sectors": [
+        "interiors",
+        "office"
+      ],
+      "certs": [
+        "OSHA 30"
+      ],
+      "source": "roster.csv row 3"
+    },
+    {
+      "id": "rpatel",
+      "name": "Raj Patel",
+      "role": "Project Executive",
+      "office": "Denver",
+      "travel": true,
+      "sectors": [
+        "multifamily",
+        "industrial"
+      ],
+      "certs": [
+        "OSHA 30"
+      ],
+      "source": "roster.csv row 4"
+    },
+    {
+      "id": "jalvarez",
+      "name": "Jen Alvarez",
+      "role": "Senior Project Manager",
+      "office": "Denver",
+      "travel": true,
+      "sectors": [
+        "healthcare"
+      ],
+      "certs": [
+        "OSHA 30",
+        "ICRA"
+      ],
+      "source": "roster.csv row 5"
+    },
+    {
+      "id": "mosei",
+      "name": "Mark Osei",
+      "role": "Project Manager",
+      "office": "Denver",
+      "travel": true,
+      "sectors": [
+        "healthcare",
+        "office"
+      ],
+      "certs": [
+        "OSHA 30"
+      ],
+      "source": "roster.csv row 6"
+    },
+    {
+      "id": "dliu",
+      "name": "Dana Liu",
+      "role": "Project Manager",
+      "office": "Denver",
+      "travel": true,
+      "sectors": [
+        "interiors",
+        "healthcare"
+      ],
+      "certs": [
+        "OSHA 30",
+        "ICRA"
+      ],
+      "source": "roster.csv row 7"
+    },
+    {
+      "id": "cnovak",
+      "name": "Chris Novak",
+      "role": "Project Manager",
+      "office": "Denver",
+      "travel": true,
+      "sectors": [
+        "multifamily"
+      ],
+      "certs": [
+        "OSHA 30"
+      ],
+      "source": "roster.csv row 8"
+    },
+    {
+      "id": "praman",
+      "name": "Priya Raman",
+      "role": "Project Manager",
+      "office": "Denver",
+      "travel": true,
+      "sectors": [
+        "industrial"
+      ],
+      "certs": [
+        "OSHA 30",
+        "LEED AP"
+      ],
+      "source": "roster.csv row 9"
+    },
+    {
+      "id": "bcarter",
+      "name": "Ben Carter",
+      "role": "Project Manager",
+      "office": "Denver",
+      "travel": true,
+      "sectors": [
+        "civic",
+        "education"
+      ],
+      "certs": [
+        "OSHA 30"
+      ],
+      "source": "roster.csv row 10"
+    },
+    {
+      "id": "hkim",
+      "name": "Hannah Kim",
+      "role": "Project Manager",
+      "office": "Denver",
+      "travel": true,
+      "sectors": [
+        "interiors",
+        "healthcare"
+      ],
+      "certs": [
+        "OSHA 30"
+      ],
+      "source": "roster.csv row 11"
+    },
+    {
+      "id": "lferreira",
+      "name": "Lucas Ferreira",
+      "role": "Assistant Project Manager",
+      "office": "Denver",
+      "travel": true,
+      "sectors": [
+        "healthcare"
+      ],
+      "certs": [
+        "OSHA 30",
+        "ICRA"
+      ],
+      "source": "roster.csv row 12"
+    },
+    {
+      "id": "mdoyle",
+      "name": "Megan Doyle",
+      "role": "Assistant Project Manager",
+      "office": "Denver",
+      "travel": true,
+      "sectors": [
+        "multifamily"
+      ],
+      "certs": [
+        "OSHA 30"
+      ],
+      "leave": [
+        {
+          "from": "2027-02",
+          "to": "2027-04",
+          "fraction": 1,
+          "note": "Parental leave (HR roster)"
+        }
+      ],
+      "source": "roster.csv row 13"
+    },
+    {
+      "id": "awallace",
+      "name": "Andre Wallace",
+      "role": "Assistant Project Manager",
+      "office": "Denver",
+      "travel": true,
+      "sectors": [
+        "healthcare",
+        "industrial"
+      ],
+      "certs": [
+        "OSHA 30"
+      ],
+      "source": "roster.csv row 14"
+    },
+    {
+      "id": "smartinez",
+      "name": "Sofia Martinez",
+      "role": "Assistant Project Manager",
+      "office": "Denver",
+      "travel": true,
+      "sectors": [
+        "interiors"
+      ],
+      "certs": [
+        "OSHA 10"
+      ],
+      "source": "roster.csv row 15"
+    },
+    {
+      "id": "tbrooks",
+      "name": "Tyler Brooks",
+      "role": "Project Engineer",
+      "office": "Denver",
+      "travel": true,
+      "sectors": [
+        "healthcare"
+      ],
+      "certs": [
+        "OSHA 10",
+        "ICRA"
+      ],
+      "source": "roster.csv row 16"
+    },
+    {
+      "id": "abello",
+      "name": "Aisha Bello",
+      "role": "Project Engineer",
+      "office": "Denver",
+      "travel": true,
+      "sectors": [
+        "industrial",
+        "civic"
+      ],
+      "certs": [
+        "OSHA 10"
+      ],
+      "source": "roster.csv row 17"
+    },
+    {
+      "id": "ktran",
+      "name": "Kevin Tran",
+      "role": "Project Engineer",
+      "office": "Denver",
+      "travel": true,
+      "sectors": [
+        "industrial"
+      ],
+      "certs": [
+        "OSHA 10"
+      ],
+      "source": "roster.csv row 18"
+    },
+    {
+      "id": "elarson",
+      "name": "Emma Larson",
+      "role": "Project Engineer",
+      "office": "Denver",
+      "travel": true,
+      "sectors": [
+        "interiors"
+      ],
+      "certs": [
+        "OSHA 10"
+      ],
+      "source": "roster.csv row 19"
+    },
+    {
+      "id": "nfischer",
+      "name": "Noah Fischer",
+      "role": "Project Engineer",
+      "office": "Denver",
+      "travel": true,
+      "sectors": [
+        "multifamily"
+      ],
+      "certs": [
+        "OSHA 10"
+      ],
+      "source": "roster.csv row 20"
+    },
+    {
+      "id": "gyoon",
+      "name": "Grace Yoon",
+      "role": "Project Engineer",
+      "office": "Denver",
+      "travel": true,
+      "sectors": [
+        "healthcare"
+      ],
+      "certs": [
+        "OSHA 10"
+      ],
+      "start": "2027-01",
+      "source": "roster.csv row 21"
+    },
+    {
+      "id": "fdelgado",
+      "name": "Frank Delgado",
+      "role": "General Superintendent",
+      "office": "Denver",
+      "travel": true,
+      "sectors": [
+        "healthcare",
+        "industrial",
+        "multifamily",
+        "civic"
+      ],
+      "certs": [
+        "OSHA 30",
+        "ICRA",
+        "CPR/First Aid"
+      ],
+      "source": "roster.csv row 22"
+    },
+    {
+      "id": "dkowalski",
+      "name": "Dave Kowalski",
+      "role": "Superintendent",
+      "office": "Denver",
+      "travel": true,
+      "sectors": [
+        "industrial",
+        "office"
+      ],
+      "certs": [
+        "OSHA 30",
+        "CPR/First Aid"
+      ],
+      "source": "roster.csv row 23"
+    },
+    {
+      "id": "mchen",
+      "name": "Maria Chen",
+      "role": "Superintendent",
+      "office": "Denver",
+      "travel": true,
+      "sectors": [
+        "healthcare"
+      ],
+      "certs": [
+        "OSHA 30",
+        "ICRA",
+        "CPR/First Aid"
+      ],
+      "source": "roster.csv row 24"
+    },
+    {
+      "id": "rsorensen",
+      "name": "Rick Sorensen",
+      "role": "Superintendent",
+      "office": "Denver",
+      "travel": true,
+      "sectors": [
+        "interiors",
+        "office"
+      ],
+      "certs": [
+        "OSHA 30"
+      ],
+      "source": "roster.csv row 25"
+    },
+    {
+      "id": "jwalsh",
+      "name": "Jim Walsh",
+      "role": "Superintendent",
+      "office": "Denver",
+      "travel": true,
+      "sectors": [
+        "multifamily"
+      ],
+      "certs": [
+        "OSHA 30",
+        "CPR/First Aid"
+      ],
+      "source": "roster.csv row 26"
+    },
+    {
+      "id": "trusso",
+      "name": "Tony Russo",
+      "role": "Superintendent",
+      "office": "Denver",
+      "travel": true,
+      "sectors": [
+        "industrial"
+      ],
+      "certs": [
+        "OSHA 30"
+      ],
+      "end": "2027-03",
+      "source": "roster.csv row 27"
+    },
+    {
+      "id": "phenning",
+      "name": "Paul Henning",
+      "role": "Superintendent",
+      "office": "Denver",
+      "travel": false,
+      "sectors": [
+        "interiors"
+      ],
+      "certs": [
+        "OSHA 30"
+      ],
+      "source": "roster.csv row 28"
+    },
+    {
+      "id": "sokafor",
+      "name": "Sam Okafor",
+      "role": "Superintendent",
+      "office": "Denver",
+      "travel": true,
+      "sectors": [
+        "healthcare",
+        "interiors"
+      ],
+      "certs": [
+        "OSHA 30",
+        "ICRA"
+      ],
+      "source": "roster.csv row 29"
+    },
+    {
+      "id": "cmendes",
+      "name": "Carla Mendes",
+      "role": "Superintendent",
+      "office": "Denver",
+      "travel": true,
+      "sectors": [
+        "civic",
+        "healthcare"
+      ],
+      "certs": [
+        "OSHA 30",
+        "ICRA"
+      ],
+      "source": "roster.csv row 30"
+    },
+    {
+      "id": "lortega",
+      "name": "Luis Ortega",
+      "role": "Assistant Superintendent",
+      "office": "Denver",
+      "travel": true,
+      "sectors": [
+        "healthcare"
+      ],
+      "certs": [
+        "OSHA 30",
+        "ICRA"
+      ],
+      "source": "roster.csv row 31"
+    },
+    {
+      "id": "jmiller",
+      "name": "Jake Miller",
+      "role": "Assistant Superintendent",
+      "office": "Denver",
+      "travel": true,
+      "sectors": [
+        "multifamily"
+      ],
+      "certs": [
+        "OSHA 10"
+      ],
+      "source": "roster.csv row 32"
+    },
+    {
+      "id": "dyoung",
+      "name": "Derek Young",
+      "role": "Assistant Superintendent",
+      "office": "Denver",
+      "travel": true,
+      "sectors": [
+        "multifamily"
+      ],
+      "certs": [
+        "OSHA 10"
+      ],
+      "source": "roster.csv row 33"
+    },
+    {
+      "id": "ngibson",
+      "name": "Nate Gibson",
+      "role": "Assistant Superintendent",
+      "office": "Denver",
+      "travel": true,
+      "sectors": [
+        "industrial"
+      ],
+      "certs": [
+        "OSHA 30"
+      ],
+      "source": "roster.csv row 34"
+    },
+    {
+      "id": "kbrennan",
+      "name": "Kyle Brennan",
+      "role": "Assistant Superintendent",
+      "office": "Denver",
+      "travel": false,
+      "sectors": [
+        "civic"
+      ],
+      "certs": [
+        "OSHA 10"
+      ],
+      "source": "roster.csv row 35"
+    }
+  ],
+  "projects": [
+    {
+      "id": "STV",
+      "number": "2411",
+      "name": "St. Vincent's ED Renovation",
+      "sector": "healthcare",
+      "phase": "construction",
+      "start": "2026-07",
+      "substantialCompletion": "2027-06",
+      "closeoutEnd": "2027-08",
+      "value": 18400000,
+      "seats": [
+        {
+          "role": "Project Executive",
+          "from": "2026-10",
+          "to": "2027-08",
+          "fraction": 0.25,
+          "source": "projects.csv row 2"
+        },
+        {
+          "role": "Senior Project Manager",
+          "from": "2026-10",
+          "to": "2027-06",
+          "fraction": 1,
+          "source": "projects.csv row 2"
+        },
+        {
+          "role": "Senior Project Manager",
+          "from": "2027-07",
+          "to": "2027-08",
+          "fraction": 0.5,
+          "source": "projects.csv row 2"
+        },
+        {
+          "role": "Assistant Project Manager",
+          "from": "2026-10",
+          "to": "2027-06",
+          "fraction": 1,
+          "source": "projects.csv row 2"
+        },
+        {
+          "role": "Project Engineer",
+          "from": "2026-10",
+          "to": "2027-06",
+          "fraction": 1,
+          "source": "projects.csv row 2"
+        },
+        {
+          "role": "Superintendent",
+          "from": "2026-10",
+          "to": "2027-07",
+          "fraction": 1,
+          "requires": {
+            "certs": [
+              "ICRA"
+            ]
+          },
+          "source": "projects.csv row 2"
+        },
+        {
+          "role": "Assistant Superintendent",
+          "from": "2026-10",
+          "to": "2027-06",
+          "fraction": 1,
+          "requires": {
+            "certs": [
+              "ICRA"
+            ]
+          },
+          "source": "projects.csv row 2"
+        }
+      ],
+      "source": "projects.csv row 2"
+    },
+    {
+      "id": "LKW",
+      "number": "2402",
+      "name": "Lakewood Self Storage",
+      "sector": "industrial",
+      "phase": "construction",
+      "start": "2026-03",
+      "substantialCompletion": "2027-02",
+      "closeoutEnd": "2027-03",
+      "value": 9200000,
+      "seats": [
+        {
+          "role": "Project Manager",
+          "from": "2026-10",
+          "to": "2027-02",
+          "fraction": 0.5,
+          "source": "projects.csv row 3"
+        },
+        {
+          "role": "Project Manager",
+          "from": "2027-03",
+          "to": "2027-03",
+          "fraction": 0.25,
+          "source": "projects.csv row 3"
+        },
+        {
+          "role": "Project Engineer",
+          "from": "2026-10",
+          "to": "2027-02",
+          "fraction": 1,
+          "source": "projects.csv row 3"
+        },
+        {
+          "role": "Superintendent",
+          "from": "2026-10",
+          "to": "2027-02",
+          "fraction": 1,
+          "source": "projects.csv row 3"
+        },
+        {
+          "role": "Superintendent",
+          "from": "2027-03",
+          "to": "2027-03",
+          "fraction": 0.25,
+          "source": "projects.csv row 3"
+        }
+      ],
+      "source": "projects.csv row 3"
+    },
+    {
+      "id": "CCT",
+      "number": "2415",
+      "name": "Cherry Creek Tower Floors 12-14 TI",
+      "sector": "interiors",
+      "phase": "construction",
+      "start": "2026-09",
+      "substantialCompletion": "2027-02",
+      "closeoutEnd": "2027-02",
+      "value": 4100000,
+      "seats": [
+        {
+          "role": "Project Executive",
+          "from": "2026-10",
+          "to": "2027-02",
+          "fraction": 0.1,
+          "source": "projects.csv row 4"
+        },
+        {
+          "role": "Project Manager",
+          "from": "2026-10",
+          "to": "2027-02",
+          "fraction": 0.5,
+          "source": "projects.csv row 4"
+        },
+        {
+          "role": "Project Engineer",
+          "from": "2026-10",
+          "to": "2027-02",
+          "fraction": 0.5,
+          "source": "projects.csv row 4"
+        },
+        {
+          "role": "Superintendent",
+          "from": "2026-10",
+          "to": "2027-02",
+          "fraction": 1,
+          "source": "projects.csv row 4"
+        }
+      ],
+      "source": "projects.csv row 4"
+    },
+    {
+      "id": "UNI",
+      "number": "2318",
+      "name": "Union Station Lofts",
+      "sector": "multifamily",
+      "phase": "construction",
+      "start": "2025-08",
+      "substantialCompletion": "2027-07",
+      "originalSubstantialCompletion": "2027-04",
+      "closeoutEnd": "2027-09",
+      "value": 46000000,
+      "seats": [
+        {
+          "role": "Project Executive",
+          "from": "2026-10",
+          "to": "2027-09",
+          "fraction": 0.25,
+          "source": "projects.csv row 5"
+        },
+        {
+          "role": "Project Manager",
+          "from": "2026-10",
+          "to": "2027-07",
+          "fraction": 1,
+          "source": "projects.csv row 5"
+        },
+        {
+          "role": "Project Manager",
+          "from": "2027-08",
+          "to": "2027-09",
+          "fraction": 0.5,
+          "source": "projects.csv row 5"
+        },
+        {
+          "role": "Assistant Project Manager",
+          "from": "2026-10",
+          "to": "2027-07",
+          "fraction": 1,
+          "source": "projects.csv row 5"
+        },
+        {
+          "role": "Project Engineer",
+          "from": "2026-10",
+          "to": "2027-07",
+          "fraction": 1,
+          "source": "projects.csv row 5"
+        },
+        {
+          "role": "Superintendent",
+          "from": "2026-10",
+          "to": "2027-08",
+          "fraction": 1,
+          "source": "projects.csv row 5"
+        },
+        {
+          "role": "Assistant Superintendent",
+          "from": "2026-10",
+          "to": "2027-07",
+          "fraction": 2,
+          "source": "projects.csv row 5"
+        }
+      ],
+      "source": "projects.csv row 5"
+    },
+    {
+      "id": "ARV",
+      "number": "2407",
+      "name": "Arvada Distribution Center",
+      "sector": "industrial",
+      "phase": "construction",
+      "start": "2026-06",
+      "substantialCompletion": "2027-05",
+      "closeoutEnd": "2027-06",
+      "value": 22000000,
+      "seats": [
+        {
+          "role": "Project Executive",
+          "from": "2026-10",
+          "to": "2027-06",
+          "fraction": 0.2,
+          "source": "projects.csv row 6"
+        },
+        {
+          "role": "Project Manager",
+          "from": "2026-10",
+          "to": "2027-05",
+          "fraction": 0.5,
+          "source": "projects.csv row 6"
+        },
+        {
+          "role": "Project Manager",
+          "from": "2027-06",
+          "to": "2027-06",
+          "fraction": 0.25,
+          "source": "projects.csv row 6"
+        },
+        {
+          "role": "Project Engineer",
+          "from": "2026-10",
+          "to": "2027-05",
+          "fraction": 0.5,
+          "source": "projects.csv row 6"
+        },
+        {
+          "role": "Superintendent",
+          "from": "2026-10",
+          "to": "2027-05",
+          "fraction": 1,
+          "source": "projects.csv row 6"
+        },
+        {
+          "role": "Superintendent",
+          "from": "2027-06",
+          "to": "2027-06",
+          "fraction": 0.25,
+          "source": "projects.csv row 6"
+        },
+        {
+          "role": "Assistant Superintendent",
+          "from": "2026-10",
+          "to": "2027-04",
+          "fraction": 1,
+          "source": "projects.csv row 6"
+        }
+      ],
+      "source": "projects.csv row 6"
+    },
+    {
+      "id": "GLD",
+      "number": "2420",
+      "name": "Golden Family Dental TI",
+      "sector": "healthcare",
+      "phase": "preconstruction",
+      "start": "2026-11",
+      "substantialCompletion": "2027-02",
+      "closeoutEnd": "2027-02",
+      "value": 1800000,
+      "seats": [
+        {
+          "role": "Project Manager",
+          "from": "2026-11",
+          "to": "2027-02",
+          "fraction": 0.5,
+          "source": "projects.csv row 7"
+        },
+        {
+          "role": "Superintendent",
+          "from": "2026-11",
+          "to": "2027-02",
+          "fraction": 1,
+          "source": "projects.csv row 7"
+        }
+      ],
+      "source": "projects.csv row 7"
+    },
+    {
+      "id": "DTC",
+      "number": "2416",
+      "name": "DTC Plaza Lobby and Amenity Renovation",
+      "sector": "interiors",
+      "phase": "construction",
+      "start": "2026-09",
+      "substantialCompletion": "2027-01",
+      "closeoutEnd": "2027-01",
+      "value": 3200000,
+      "seats": [
+        {
+          "role": "Project Manager",
+          "from": "2026-10",
+          "to": "2027-01",
+          "fraction": 0.5,
+          "source": "projects.csv row 8"
+        },
+        {
+          "role": "Project Engineer",
+          "from": "2026-10",
+          "to": "2027-01",
+          "fraction": 0.5,
+          "source": "projects.csv row 8"
+        },
+        {
+          "role": "Superintendent",
+          "from": "2026-10",
+          "to": "2027-01",
+          "fraction": 1,
+          "source": "projects.csv row 8"
+        }
+      ],
+      "source": "projects.csv row 8"
+    },
+    {
+      "id": "WSH",
+      "number": "2409",
+      "name": "Wash Park Medical Office Building",
+      "sector": "healthcare",
+      "phase": "preconstruction",
+      "start": "2027-01",
+      "substantialCompletion": "2027-12",
+      "closeoutEnd": "2028-02",
+      "value": 31000000,
+      "seats": [
+        {
+          "role": "Project Executive",
+          "from": "2026-10",
+          "to": "2027-09",
+          "fraction": 0.25,
+          "source": "projects.csv row 9"
+        },
+        {
+          "role": "Project Manager",
+          "from": "2026-10",
+          "to": "2026-12",
+          "fraction": 0.5,
+          "source": "projects.csv row 9"
+        },
+        {
+          "role": "Project Manager",
+          "from": "2027-01",
+          "to": "2027-09",
+          "fraction": 1,
+          "source": "projects.csv row 9"
+        },
+        {
+          "role": "Assistant Project Manager",
+          "from": "2027-02",
+          "to": "2027-09",
+          "fraction": 1,
+          "source": "projects.csv row 9"
+        },
+        {
+          "role": "Project Engineer",
+          "from": "2027-01",
+          "to": "2027-09",
+          "fraction": 1,
+          "source": "projects.csv row 9"
+        },
+        {
+          "role": "Superintendent",
+          "from": "2026-11",
+          "to": "2026-12",
+          "fraction": 0.25,
+          "source": "projects.csv row 9"
+        },
+        {
+          "role": "Superintendent",
+          "from": "2027-01",
+          "to": "2027-09",
+          "fraction": 1,
+          "source": "projects.csv row 9"
+        },
+        {
+          "role": "Assistant Superintendent",
+          "from": "2027-04",
+          "to": "2027-09",
+          "fraction": 1,
+          "source": "projects.csv row 9"
+        }
+      ],
+      "source": "projects.csv row 9"
+    },
+    {
+      "id": "BRM",
+      "number": "2404",
+      "name": "Broomfield Fire Station 7",
+      "sector": "civic",
+      "phase": "construction",
+      "start": "2026-04",
+      "substantialCompletion": "2027-04",
+      "closeoutEnd": "2027-05",
+      "value": 11000000,
+      "seats": [
+        {
+          "role": "Project Executive",
+          "from": "2026-10",
+          "to": "2027-05",
+          "fraction": 0.2,
+          "source": "projects.csv row 10"
+        },
+        {
+          "role": "Project Manager",
+          "from": "2026-10",
+          "to": "2027-04",
+          "fraction": 1,
+          "source": "projects.csv row 10"
+        },
+        {
+          "role": "Project Manager",
+          "from": "2027-05",
+          "to": "2027-05",
+          "fraction": 0.5,
+          "source": "projects.csv row 10"
+        },
+        {
+          "role": "Project Engineer",
+          "from": "2026-10",
+          "to": "2027-04",
+          "fraction": 0.5,
+          "source": "projects.csv row 10"
+        },
+        {
+          "role": "Superintendent",
+          "from": "2026-10",
+          "to": "2027-04",
+          "fraction": 1,
+          "source": "projects.csv row 10"
+        },
+        {
+          "role": "Superintendent",
+          "from": "2027-05",
+          "to": "2027-05",
+          "fraction": 0.25,
+          "source": "projects.csv row 10"
+        },
+        {
+          "role": "Assistant Superintendent",
+          "from": "2026-10",
+          "to": "2027-03",
+          "fraction": 1,
+          "source": "projects.csv row 10"
+        }
+      ],
+      "source": "projects.csv row 10"
+    }
+  ],
+  "pursuits": [
+    {
+      "id": "RIV",
+      "name": "Riverside Medical Office Building",
+      "client": "Front Range Health",
+      "sector": "healthcare",
+      "stage": "Shortlisted - interview Oct 20",
+      "probability": 0.7,
+      "expectedAward": "2026-11",
+      "start": "2027-03",
+      "value": 24000000,
+      "note": "Start moved Feb to Mar per owner (CRM activity 9/30). Link bridge to Riverside Hospital requires ICRA Class IV at the tie-in.",
+      "seats": [
+        {
+          "role": "Project Executive",
+          "from": "2027-03",
+          "to": "2027-09",
+          "fraction": 0.25,
+          "source": "pursuits.csv row 2"
+        },
+        {
+          "role": "Project Manager",
+          "from": "2027-03",
+          "to": "2027-09",
+          "fraction": 1,
+          "source": "pursuits.csv row 2"
+        },
+        {
+          "role": "Assistant Project Manager",
+          "from": "2027-04",
+          "to": "2027-09",
+          "fraction": 1,
+          "source": "pursuits.csv row 2"
+        },
+        {
+          "role": "Project Engineer",
+          "from": "2027-03",
+          "to": "2027-09",
+          "fraction": 1,
+          "source": "pursuits.csv row 2"
+        },
+        {
+          "role": "Superintendent",
+          "from": "2027-03",
+          "to": "2027-09",
+          "fraction": 1,
+          "requires": {
+            "certs": [
+              "ICRA"
+            ]
+          },
+          "source": "pursuits.csv row 2"
+        },
+        {
+          "role": "Assistant Superintendent",
+          "from": "2027-05",
+          "to": "2027-09",
+          "fraction": 1,
+          "source": "pursuits.csv row 2"
+        }
+      ],
+      "source": "pursuits.csv row 2"
+    },
+    {
+      "id": "CC15",
+      "name": "Cherry Creek Tower Floor 15 TI",
+      "client": "Cherry Creek Tower LLC",
+      "sector": "interiors",
+      "stage": "Negotiated - pricing",
+      "probability": 0.8,
+      "expectedAward": "2027-01",
+      "start": "2027-03",
+      "value": 1900000,
+      "note": "Same landlord as CCT floors 12-14; tenant wants to start right after CCT turnover.",
+      "seats": [
+        {
+          "role": "Project Manager",
+          "from": "2027-03",
+          "to": "2027-06",
+          "fraction": 0.5,
+          "source": "pursuits.csv row 3"
+        },
+        {
+          "role": "Superintendent",
+          "from": "2027-03",
+          "to": "2027-06",
+          "fraction": 1,
+          "source": "pursuits.csv row 3"
+        }
+      ],
+      "source": "pursuits.csv row 3"
+    },
+    {
+      "id": "BLD",
+      "name": "Boulder Biosciences Lab TI",
+      "client": "Arapahoe Life Sciences",
+      "sector": "interiors",
+      "stage": "Proposal submitted",
+      "probability": 0.6,
+      "expectedAward": "2026-11",
+      "start": "2027-01",
+      "value": 6200000,
+      "note": "Owner asked for the CCT superintendent by name in the interview.",
+      "seats": [
+        {
+          "role": "Project Manager",
+          "from": "2027-01",
+          "to": "2027-06",
+          "fraction": 0.5,
+          "source": "pursuits.csv row 4"
+        },
+        {
+          "role": "Project Engineer",
+          "from": "2027-01",
+          "to": "2027-06",
+          "fraction": 0.5,
+          "source": "pursuits.csv row 4"
+        },
+        {
+          "role": "Superintendent",
+          "from": "2027-01",
+          "to": "2027-06",
+          "fraction": 1,
+          "source": "pursuits.csv row 4"
+        }
+      ],
+      "source": "pursuits.csv row 4"
+    },
+    {
+      "id": "LIT",
+      "name": "Littleton Senior Living",
+      "client": "Columbine Senior Communities",
+      "sector": "multifamily",
+      "stage": "GMP negotiation",
+      "probability": 0.5,
+      "expectedAward": "2027-01",
+      "start": "2027-04",
+      "value": 38000000,
+      "note": "Owner wants the Union Station team.",
+      "seats": [
+        {
+          "role": "Project Executive",
+          "from": "2027-04",
+          "to": "2027-09",
+          "fraction": 0.25,
+          "source": "pursuits.csv row 5"
+        },
+        {
+          "role": "Project Manager",
+          "from": "2027-04",
+          "to": "2027-09",
+          "fraction": 1,
+          "source": "pursuits.csv row 5"
+        },
+        {
+          "role": "Assistant Project Manager",
+          "from": "2027-05",
+          "to": "2027-09",
+          "fraction": 1,
+          "source": "pursuits.csv row 5"
+        },
+        {
+          "role": "Project Engineer",
+          "from": "2027-04",
+          "to": "2027-09",
+          "fraction": 1,
+          "source": "pursuits.csv row 5"
+        },
+        {
+          "role": "Superintendent",
+          "from": "2027-04",
+          "to": "2027-09",
+          "fraction": 1,
+          "source": "pursuits.csv row 5"
+        },
+        {
+          "role": "Assistant Superintendent",
+          "from": "2027-06",
+          "to": "2027-09",
+          "fraction": 1,
+          "source": "pursuits.csv row 5"
+        }
+      ],
+      "source": "pursuits.csv row 5"
+    },
+    {
+      "id": "ENG",
+      "name": "Englewood Middle School Addition",
+      "client": "Englewood Schools",
+      "sector": "education",
+      "stage": "Hard bid - due Nov 12",
+      "probability": 0.25,
+      "expectedAward": "2026-12",
+      "start": "2027-05",
+      "value": 14000000,
+      "note": "Low-bid public work; prevailing wage.",
+      "seats": [
+        {
+          "role": "Project Manager",
+          "from": "2027-05",
+          "to": "2027-09",
+          "fraction": 1,
+          "source": "pursuits.csv row 6"
+        },
+        {
+          "role": "Project Engineer",
+          "from": "2027-05",
+          "to": "2027-09",
+          "fraction": 1,
+          "source": "pursuits.csv row 6"
+        },
+        {
+          "role": "Superintendent",
+          "from": "2027-05",
+          "to": "2027-09",
+          "fraction": 1,
+          "source": "pursuits.csv row 6"
+        },
+        {
+          "role": "Assistant Superintendent",
+          "from": "2027-05",
+          "to": "2027-09",
+          "fraction": 1,
+          "source": "pursuits.csv row 6"
+        }
+      ],
+      "source": "pursuits.csv row 6"
+    },
+    {
+      "id": "AUR",
+      "name": "Aurora Data Center Phase 2",
+      "client": "Highplains Data",
+      "sector": "industrial",
+      "stage": "RFQ shortlist",
+      "probability": 0.3,
+      "expectedAward": "2027-02",
+      "start": "2027-06",
+      "value": 65000000,
+      "note": "Mission critical; owner requires a superintendent with data center experience.",
+      "seats": [
+        {
+          "role": "Project Executive",
+          "from": "2027-06",
+          "to": "2027-09",
+          "fraction": 0.25,
+          "source": "pursuits.csv row 7"
+        },
+        {
+          "role": "Project Manager",
+          "from": "2027-06",
+          "to": "2027-09",
+          "fraction": 1,
+          "source": "pursuits.csv row 7"
+        },
+        {
+          "role": "Assistant Project Manager",
+          "from": "2027-06",
+          "to": "2027-09",
+          "fraction": 1,
+          "source": "pursuits.csv row 7"
+        },
+        {
+          "role": "Project Engineer",
+          "from": "2027-06",
+          "to": "2027-09",
+          "fraction": 2,
+          "source": "pursuits.csv row 7"
+        },
+        {
+          "role": "Superintendent",
+          "from": "2027-06",
+          "to": "2027-09",
+          "fraction": 1,
+          "source": "pursuits.csv row 7"
+        },
+        {
+          "role": "Assistant Superintendent",
+          "from": "2027-06",
+          "to": "2027-09",
+          "fraction": 2,
+          "source": "pursuits.csv row 7"
+        }
+      ],
+      "source": "pursuits.csv row 7"
+    }
+  ],
+  "assignments": [
+    {
+      "person": "kwhitfield",
+      "job": "STV",
+      "role": "Project Executive",
+      "from": "2026-10",
+      "to": "2027-08",
+      "fraction": 0.25,
+      "source": "staffing-sheet.csv row 2"
+    },
+    {
+      "person": "kwhitfield",
+      "job": "WSH",
+      "role": "Project Executive",
+      "from": "2026-10",
+      "to": "2027-09",
+      "fraction": 0.25,
+      "source": "staffing-sheet.csv row 2"
+    },
+    {
+      "person": "kwhitfield",
+      "job": "RIV",
+      "role": "Project Executive",
+      "from": "2027-03",
+      "to": "2027-09",
+      "fraction": 0.25,
+      "source": "staffing-sheet.csv row 2"
+    },
+    {
+      "person": "tbrandt",
+      "job": "CCT",
+      "role": "Project Executive",
+      "from": "2026-10",
+      "to": "2027-02",
+      "fraction": 0.1,
+      "source": "staffing-sheet.csv row 3"
+    },
+    {
+      "person": "tbrandt",
+      "job": "BRM",
+      "role": "Project Executive",
+      "from": "2026-10",
+      "to": "2027-05",
+      "fraction": 0.2,
+      "source": "staffing-sheet.csv row 3"
+    },
+    {
+      "person": "rpatel",
+      "job": "UNI",
+      "role": "Project Executive",
+      "from": "2026-10",
+      "to": "2027-04",
+      "fraction": 0.25,
+      "source": "staffing-sheet.csv row 4"
+    },
+    {
+      "person": "rpatel",
+      "job": "ARV",
+      "role": "Project Executive",
+      "from": "2026-10",
+      "to": "2027-06",
+      "fraction": 0.2,
+      "source": "staffing-sheet.csv row 4"
+    },
+    {
+      "person": "rpatel",
+      "job": "LIT",
+      "role": "Project Executive",
+      "from": "2027-04",
+      "to": "2027-09",
+      "fraction": 0.25,
+      "source": "staffing-sheet.csv row 4"
+    },
+    {
+      "person": "rpatel",
+      "job": "AUR",
+      "role": "Project Executive",
+      "from": "2027-06",
+      "to": "2027-09",
+      "fraction": 0.25,
+      "source": "staffing-sheet.csv row 4"
+    },
+    {
+      "person": "jalvarez",
+      "job": "STV",
+      "role": "Senior Project Manager",
+      "from": "2026-10",
+      "to": "2027-06",
+      "fraction": 1,
+      "source": "staffing-sheet.csv row 5"
+    },
+    {
+      "person": "jalvarez",
+      "job": "STV",
+      "role": "Senior Project Manager",
+      "from": "2027-07",
+      "to": "2027-08",
+      "fraction": 0.5,
+      "source": "staffing-sheet.csv row 5"
+    },
+    {
+      "person": "mosei",
+      "job": "WSH",
+      "role": "Project Manager",
+      "from": "2026-10",
+      "to": "2026-12",
+      "fraction": 0.5,
+      "source": "staffing-sheet.csv row 6"
+    },
+    {
+      "person": "mosei",
+      "job": "WSH",
+      "role": "Project Manager",
+      "from": "2027-01",
+      "to": "2027-09",
+      "fraction": 1,
+      "source": "staffing-sheet.csv row 6"
+    },
+    {
+      "person": "dliu",
+      "job": "CCT",
+      "role": "Project Manager",
+      "from": "2026-10",
+      "to": "2027-02",
+      "fraction": 0.5,
+      "source": "staffing-sheet.csv row 7"
+    },
+    {
+      "person": "dliu",
+      "job": "RIV",
+      "role": "Project Manager",
+      "from": "2027-03",
+      "to": "2027-09",
+      "fraction": 1,
+      "source": "staffing-sheet.csv row 7"
+    },
+    {
+      "person": "dliu",
+      "job": "CC15",
+      "role": "Project Manager",
+      "from": "2027-03",
+      "to": "2027-06",
+      "fraction": 0.5,
+      "source": "staffing-sheet.csv row 7"
+    },
+    {
+      "person": "cnovak",
+      "job": "UNI",
+      "role": "Project Manager",
+      "from": "2026-10",
+      "to": "2027-04",
+      "fraction": 1,
+      "source": "staffing-sheet.csv row 8"
+    },
+    {
+      "person": "cnovak",
+      "job": "UNI",
+      "role": "Project Manager",
+      "from": "2027-05",
+      "to": "2027-06",
+      "fraction": 0.5,
+      "source": "staffing-sheet.csv row 8"
+    },
+    {
+      "person": "cnovak",
+      "job": "LIT",
+      "role": "Project Manager",
+      "from": "2027-04",
+      "to": "2027-09",
+      "fraction": 1,
+      "source": "staffing-sheet.csv row 8"
+    },
+    {
+      "person": "praman",
+      "job": "LKW",
+      "role": "Project Manager",
+      "from": "2026-10",
+      "to": "2027-02",
+      "fraction": 0.5,
+      "source": "staffing-sheet.csv row 9"
+    },
+    {
+      "person": "praman",
+      "job": "LKW",
+      "role": "Project Manager",
+      "from": "2027-03",
+      "to": "2027-03",
+      "fraction": 0.25,
+      "source": "staffing-sheet.csv row 9"
+    },
+    {
+      "person": "praman",
+      "job": "ARV",
+      "role": "Project Manager",
+      "from": "2026-10",
+      "to": "2027-05",
+      "fraction": 0.5,
+      "source": "staffing-sheet.csv row 9"
+    },
+    {
+      "person": "praman",
+      "job": "ARV",
+      "role": "Project Manager",
+      "from": "2027-06",
+      "to": "2027-06",
+      "fraction": 0.25,
+      "source": "staffing-sheet.csv row 9"
+    },
+    {
+      "person": "praman",
+      "job": "AUR",
+      "role": "Project Manager",
+      "from": "2027-06",
+      "to": "2027-09",
+      "fraction": 1,
+      "source": "staffing-sheet.csv row 9"
+    },
+    {
+      "person": "bcarter",
+      "job": "BRM",
+      "role": "Project Manager",
+      "from": "2026-10",
+      "to": "2027-04",
+      "fraction": 1,
+      "source": "staffing-sheet.csv row 10"
+    },
+    {
+      "person": "bcarter",
+      "job": "BRM",
+      "role": "Project Manager",
+      "from": "2027-05",
+      "to": "2027-05",
+      "fraction": 0.5,
+      "source": "staffing-sheet.csv row 10"
+    },
+    {
+      "person": "hkim",
+      "job": "DTC",
+      "role": "Project Manager",
+      "from": "2026-10",
+      "to": "2027-01",
+      "fraction": 0.5,
+      "source": "staffing-sheet.csv row 11"
+    },
+    {
+      "person": "hkim",
+      "job": "GLD",
+      "role": "Project Manager",
+      "from": "2026-11",
+      "to": "2027-02",
+      "fraction": 0.5,
+      "source": "staffing-sheet.csv row 11"
+    },
+    {
+      "person": "hkim",
+      "job": "BLD",
+      "role": "Project Manager",
+      "from": "2027-01",
+      "to": "2027-06",
+      "fraction": 0.5,
+      "source": "staffing-sheet.csv row 11"
+    },
+    {
+      "person": "lferreira",
+      "job": "STV",
+      "role": "Assistant Project Manager",
+      "from": "2026-10",
+      "to": "2027-06",
+      "fraction": 1,
+      "source": "staffing-sheet.csv row 12"
+    },
+    {
+      "person": "mdoyle",
+      "job": "UNI",
+      "role": "Assistant Project Manager",
+      "from": "2026-10",
+      "to": "2027-04",
+      "fraction": 1,
+      "source": "staffing-sheet.csv row 13"
+    },
+    {
+      "person": "awallace",
+      "job": "WSH",
+      "role": "Assistant Project Manager",
+      "from": "2027-02",
+      "to": "2027-09",
+      "fraction": 1,
+      "source": "staffing-sheet.csv row 14"
+    },
+    {
+      "person": "tbrooks",
+      "job": "STV",
+      "role": "Project Engineer",
+      "from": "2026-10",
+      "to": "2027-06",
+      "fraction": 1,
+      "source": "staffing-sheet.csv row 16"
+    },
+    {
+      "person": "abello",
+      "job": "ARV",
+      "role": "Project Engineer",
+      "from": "2026-10",
+      "to": "2027-05",
+      "fraction": 0.5,
+      "source": "staffing-sheet.csv row 17"
+    },
+    {
+      "person": "abello",
+      "job": "BRM",
+      "role": "Project Engineer",
+      "from": "2026-10",
+      "to": "2027-04",
+      "fraction": 0.5,
+      "source": "staffing-sheet.csv row 17"
+    },
+    {
+      "person": "ktran",
+      "job": "LKW",
+      "role": "Project Engineer",
+      "from": "2026-10",
+      "to": "2027-02",
+      "fraction": 1,
+      "source": "staffing-sheet.csv row 18"
+    },
+    {
+      "person": "elarson",
+      "job": "CCT",
+      "role": "Project Engineer",
+      "from": "2026-10",
+      "to": "2027-02",
+      "fraction": 0.5,
+      "source": "staffing-sheet.csv row 19"
+    },
+    {
+      "person": "elarson",
+      "job": "DTC",
+      "role": "Project Engineer",
+      "from": "2026-10",
+      "to": "2027-01",
+      "fraction": 0.5,
+      "source": "staffing-sheet.csv row 19"
+    },
+    {
+      "person": "elarson",
+      "job": "BLD",
+      "role": "Project Engineer",
+      "from": "2027-01",
+      "to": "2027-06",
+      "fraction": 0.5,
+      "source": "staffing-sheet.csv row 19"
+    },
+    {
+      "person": "nfischer",
+      "job": "UNI",
+      "role": "Project Engineer",
+      "from": "2026-10",
+      "to": "2027-04",
+      "fraction": 1,
+      "source": "staffing-sheet.csv row 20"
+    },
+    {
+      "person": "gyoon",
+      "job": "WSH",
+      "role": "Project Engineer",
+      "from": "2027-01",
+      "to": "2027-09",
+      "fraction": 1,
+      "source": "staffing-sheet.csv row 21"
+    },
+    {
+      "person": "fdelgado",
+      "job": "UNI",
+      "role": "General Superintendent",
+      "from": "2026-10",
+      "to": "2027-09",
+      "fraction": 0.25,
+      "source": "staffing-sheet.csv row 22"
+    },
+    {
+      "person": "fdelgado",
+      "job": "ARV",
+      "role": "General Superintendent",
+      "from": "2026-10",
+      "to": "2027-06",
+      "fraction": 0.25,
+      "source": "staffing-sheet.csv row 22"
+    },
+    {
+      "person": "fdelgado",
+      "job": "STV",
+      "role": "General Superintendent",
+      "from": "2026-10",
+      "to": "2027-07",
+      "fraction": 0.25,
+      "source": "staffing-sheet.csv row 22"
+    },
+    {
+      "person": "fdelgado",
+      "job": "BRM",
+      "role": "General Superintendent",
+      "from": "2026-10",
+      "to": "2027-05",
+      "fraction": 0.25,
+      "source": "staffing-sheet.csv row 22"
+    },
+    {
+      "person": "dkowalski",
+      "job": "LKW",
+      "role": "Superintendent",
+      "from": "2026-10",
+      "to": "2027-02",
+      "fraction": 1,
+      "source": "staffing-sheet.csv row 23"
+    },
+    {
+      "person": "dkowalski",
+      "job": "LKW",
+      "role": "Superintendent",
+      "from": "2027-03",
+      "to": "2027-03",
+      "fraction": 0.25,
+      "source": "staffing-sheet.csv row 23"
+    },
+    {
+      "person": "dkowalski",
+      "job": "RIV",
+      "role": "Superintendent",
+      "from": "2027-03",
+      "to": "2027-09",
+      "fraction": 1,
+      "source": "staffing-sheet.csv row 23"
+    },
+    {
+      "person": "mchen",
+      "job": "STV",
+      "role": "Superintendent",
+      "from": "2026-10",
+      "to": "2027-07",
+      "fraction": 1,
+      "source": "staffing-sheet.csv row 24"
+    },
+    {
+      "person": "rsorensen",
+      "job": "CCT",
+      "role": "Superintendent",
+      "from": "2026-10",
+      "to": "2027-02",
+      "fraction": 1,
+      "source": "staffing-sheet.csv row 25"
+    },
+    {
+      "person": "rsorensen",
+      "job": "BLD",
+      "role": "Superintendent",
+      "from": "2027-01",
+      "to": "2027-06",
+      "fraction": 1,
+      "source": "staffing-sheet.csv row 25"
+    },
+    {
+      "person": "rsorensen",
+      "job": "CC15",
+      "role": "Superintendent",
+      "from": "2027-03",
+      "to": "2027-06",
+      "fraction": 1,
+      "source": "staffing-sheet.csv row 25"
+    },
+    {
+      "person": "jwalsh",
+      "job": "UNI",
+      "role": "Superintendent",
+      "from": "2026-10",
+      "to": "2027-05",
+      "fraction": 1,
+      "source": "staffing-sheet.csv row 26"
+    },
+    {
+      "person": "jwalsh",
+      "job": "LIT",
+      "role": "Superintendent",
+      "from": "2027-06",
+      "to": "2027-09",
+      "fraction": 1,
+      "source": "staffing-sheet.csv row 26"
+    },
+    {
+      "person": "trusso",
+      "job": "ARV",
+      "role": "Superintendent",
+      "from": "2026-10",
+      "to": "2027-03",
+      "fraction": 1,
+      "source": "staffing-sheet.csv row 27"
+    },
+    {
+      "person": "phenning",
+      "job": "DTC",
+      "role": "Superintendent",
+      "from": "2026-10",
+      "to": "2027-01",
+      "fraction": 1,
+      "source": "staffing-sheet.csv row 28"
+    },
+    {
+      "person": "sokafor",
+      "job": "GLD",
+      "role": "Superintendent",
+      "from": "2026-11",
+      "to": "2027-02",
+      "fraction": 1,
+      "source": "staffing-sheet.csv row 29"
+    },
+    {
+      "person": "sokafor",
+      "job": "DTC",
+      "role": "Superintendent",
+      "from": "2026-12",
+      "to": "2027-01",
+      "fraction": 0.5,
+      "source": "staffing-sheet.csv row 29"
+    },
+    {
+      "person": "cmendes",
+      "job": "BRM",
+      "role": "Superintendent",
+      "from": "2026-10",
+      "to": "2027-04",
+      "fraction": 1,
+      "source": "staffing-sheet.csv row 30"
+    },
+    {
+      "person": "cmendes",
+      "job": "BRM",
+      "role": "Superintendent",
+      "from": "2027-05",
+      "to": "2027-05",
+      "fraction": 0.25,
+      "source": "staffing-sheet.csv row 30"
+    },
+    {
+      "person": "lortega",
+      "job": "STV",
+      "role": "Assistant Superintendent",
+      "from": "2026-10",
+      "to": "2027-06",
+      "fraction": 1,
+      "source": "staffing-sheet.csv row 31"
+    },
+    {
+      "person": "jmiller",
+      "job": "UNI",
+      "role": "Assistant Superintendent",
+      "from": "2026-10",
+      "to": "2027-04",
+      "fraction": 1,
+      "source": "staffing-sheet.csv row 32"
+    },
+    {
+      "person": "dyoung",
+      "job": "UNI",
+      "role": "Assistant Superintendent",
+      "from": "2026-10",
+      "to": "2027-04",
+      "fraction": 1,
+      "source": "staffing-sheet.csv row 33"
+    },
+    {
+      "person": "ngibson",
+      "job": "ARV",
+      "role": "Assistant Superintendent",
+      "from": "2026-10",
+      "to": "2027-04",
+      "fraction": 1,
+      "source": "staffing-sheet.csv row 34"
+    },
+    {
+      "person": "kbrennan",
+      "job": "BRM",
+      "role": "Assistant Superintendent",
+      "from": "2026-10",
+      "to": "2027-03",
+      "fraction": 1,
+      "source": "staffing-sheet.csv row 35"
+    }
+  ],
+  "openQuestions": [
+    {
+      "text": "Union Station Lofts substantial completion moved from April to July 2027 (schedule update 9/28), but the staffing sheet still rolls the whole team off in April to June. Extend Chris, Megan, Noah, Jim, Jake, and Derek, or name replacements?",
+      "source": "projects.csv row 5; staffing-sheet.csv rows 8, 13, 20, 26, 32, 33"
+    },
+    {
+      "text": "Megan Doyle is on Union Station through April on the staffing sheet, but the HR roster shows parental leave February to April 2027. Who covers the APM seat?",
+      "source": "staffing-sheet.csv row 13; roster.csv row 13"
+    },
+    {
+      "text": "Sam Okafor's December and January cells read \"GLD + DTC nights 1/2\". Treated as 50% on DTC night shifts on top of Golden Dental. Confirm that is real and not a note.",
+      "source": "staffing-sheet.csv row 29"
+    },
+    {
+      "text": "Wash Park MOB superintendent row reads \"TBD - Frank?\". Frank Delgado is not counted on Wash Park because the sheet already splits him across four jobs.",
+      "source": "staffing-sheet.csv rows 22, 36"
+    },
+    {
+      "text": "Frank Delgado's cells read \"GS - UNI/ARV/STV/BRM\" with no percentages. Entered as 25% each per the note \"GS split 4 ways\". Confirm the split.",
+      "source": "staffing-sheet.csv row 22"
+    },
+    {
+      "text": "Riverside MOB start moved from February to March 2027 per the owner. Pencilled names on the sheet were shifted one month to match.",
+      "source": "pursuits.csv row 2; staffing-sheet.csv rows 2, 7, 23"
+    }
+  ]
+}
