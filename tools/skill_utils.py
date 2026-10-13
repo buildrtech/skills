@@ -21,7 +21,8 @@ REQUIRED_FILES = (
 )
 NAME_PATTERN = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
 MAX_NAME_LENGTH = 64
-MAX_DESCRIPTION_LENGTH = 1024
+# Claude's custom-skill upload rejects longer descriptions.
+MAX_DESCRIPTION_LENGTH = 200
 MAX_SKILL_MD_LINES = 500
 
 TIERS = ("neutral",)

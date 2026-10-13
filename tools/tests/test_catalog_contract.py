@@ -33,6 +33,18 @@ class CatalogContractTest(unittest.TestCase):
             path.write_text(path.read_text().replace('tier: neutral', 'tier: buildr-connected'))
             self.assertTrue(any('metadata.tier' in e for e in validate_skill_tree(root)))
 
+    def test_rejects_descriptions_over_200_characters(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp) / 'rfp-intake'
+            shutil.copytree(ROOT / 'skills/rfp-intake', root)
+            path = root / 'SKILL.md'
+            text = path.read_text()
+            description = next(line for line in text.splitlines() if line.startswith('description: '))
+            path.write_text(text.replace(description, 'description: ' + 'x' * 200))
+            self.assertEqual(validate_skill_tree(root), [])
+            path.write_text(text.replace(description, 'description: ' + 'x' * 201))
+            self.assertIn('description exceeds 200 characters', validate_skill_tree(root))
+
     def test_missing_and_non_markdown_samples(self):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp) / 'rfp-intake'

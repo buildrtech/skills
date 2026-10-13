@@ -1,5 +1,26 @@
 # Bid leveling verification
 
+## Revision 4.1.0: Python script
+
+Users install skills by uploading the folder to ChatGPT, Claude / Cowork and
+Microsoft 365 Copilot. Python is the runtime all three can run, and Copilot has
+no network or package installs, so `scripts/level.mjs` is replaced by
+`scripts/level.py`. It uses only the standard library (`zipfile` plus XML
+strings) and runs on Python 3.8 or newer. SKILL.md now says to build the same
+four sheets with another spreadsheet tool, keeping the formulas, if the script
+can't run.
+
+- On the sample and on the fresh roofing inputs, all nine workbook parts
+  (sheets, styles, relationships) are byte-identical to the 4.0.0 Node output.
+  `--json` prints the same totals. Only the zip container bytes differ.
+- Python 3.12 and 3.14 write byte-identical workbooks. CI checks the sample
+  under 3.12.
+- `evals/tasks/bid-leveling/test_level.py` ports the 11 tests and adds a check
+  that booleans are rejected as money. It runs in a new CI step for
+  `evals/tasks/*/test_*.py`.
+- Mutation check: eight deliberate breaks each failed between 1 and 6 tests.
+- LibreOffice: with cached values stripped, recalculated totals match.
+
 ## Revision 4.0.0: Markdown in, one workbook out
 
 Previous revision: `b3ec0a7` (3.0.0), an interactive HTML bid tab, an Excel
@@ -20,7 +41,7 @@ spreadsheets out". Decisions he made for this revision:
   registry, row classes, alternates, bond and tax basis, governing
   submissions, the extraction reference, and the PDF/XLSX/email sample bids.
   Bond, tax, alternates and a superseded number go in a bid's `notes`.
-- `scripts/level.mjs` (one file, no dependencies) validates a short
+- `scripts/level.mjs` (one Node file, no dependencies; Python since 4.1.0) validates a short
   `bid-data.json`, levels the bids and writes four sheets: Leveled totals,
   Scope, Plugs, Questions. Money in the JSON is dollars.
 - Leveled total = base + `SUMIFS` of plugs marked Carry "Yes". Open gaps are

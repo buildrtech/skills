@@ -1,12 +1,12 @@
 ---
 name: bid-leveling
-description: Level subcontractor bids for one trade package into an Excel workbook with live formulas, scope gaps, suggested plugs, and questions for each bidder. Use when the user asks to level bids, build a bid tab, compare subcontractor quotes, find scope gaps between bidders, plug missing scope, or prepare scope-review questions on bid day. Not for award recommendations, whole-project GMP roll-ups, or contract interpretation.
+description: Level subcontractor bids into an Excel bid tab with scope gaps, plugs, and bidder questions. Use to level bids, build a bid tab, compare sub quotes, or find scope gaps. Not for award decisions.
 license: MIT
 metadata:
   summary: Level sub bids on bid day. Markdown bids in, one spreadsheet out with every scope gap, a plug for each, and who is really low.
   tier: neutral
   stages: preconstruction, estimating
-  version: "4.0.0"
+  version: "4.1.0"
   author: Buildr
 ---
 
@@ -78,17 +78,19 @@ directory (never in the skill folder). Money is in dollars.
 
 ## 3. Build the workbook
 
-Run the bundled script. It needs Node.js 18 or newer and nothing else, and it
-does the arithmetic and writes the formulas, so don't rebuild the workbook
-another way. Resolve the skill's directory, then:
+Run the bundled script. It needs Python 3.8 or newer and only the standard
+library: no packages to install, no network. It does the arithmetic and writes
+the formulas. Resolve the skill's directory, then:
 
 ```bash
-node <skill-dir>/scripts/level.mjs bid-data.json bid-tab.xlsx
+python3 <skill-dir>/scripts/level.py bid-data.json bid-tab.xlsx
 ```
 
 `--json` in place of the output path prints the leveled totals instead. The
 script checks the data and stops with a list of problems. Fix the data, not the
-script. If Node can't run, say so and stop.
+script. If the script can't run at all, build the same four sheets with
+whatever spreadsheet tool you have, keeping the formulas, and tell the user it
+wasn't built by the script.
 
 What the script does:
 

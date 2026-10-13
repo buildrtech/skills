@@ -24,6 +24,8 @@ jobs:
         run: python3 -m unittest discover -s tools/tests -v
       - name: Test rescoring with the pinned verifier
         run: python3 evals/reviews/test_rescore.py
+      - name: Test every skill's Python scripts
+        run: for t in evals/tasks/*/test_*.py; do python3 -I "$t" -v || exit 1; done
       - uses: actions/setup-node@v4
         with:
           node-version: "22"

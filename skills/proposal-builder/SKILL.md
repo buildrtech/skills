@@ -1,12 +1,12 @@
 ---
 name: proposal-builder
-description: Build a construction proposal that answers an owner's RFP, compliance first, as a polished PDF made with pdfcn. Maps every RFP requirement and evaluation criterion to the section that answers it, tracks page limits and required forms, draws on a reusable company library and prior proposals with every claim sourced, and flags stale or unconfirmed claims. Use for CM at Risk, design-build, and qualifications-based proposal responses after a go decision. Not for hard-bid bid forms, estimating the fee, bid leveling, or submitting anything.
+description: Build a compliance-first construction proposal PDF that answers an owner's RFP from a company library. Use for CMAR, design-build, or qualifications proposals after a go decision. Not for hard bids.
 license: MIT
 metadata:
   summary: Answer the RFP, compliance first. Every requirement mapped to where you answer it, page limits and forms checked, and a polished PDF built from your own library.
   tier: neutral
   stages: business-development, preconstruction
-  version: "2.0.0"
+  version: "2.0.1"
   author: Buildr
 ---
 

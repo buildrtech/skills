@@ -1,12 +1,12 @@
 ---
 name: rfp-intake
-description: Prepare a bid/no-bid (go/no-go) decision on one RFP, ITB, RFQ, or solicitation package. Checks must-pass gates (licensing, bonding, insurance, mandatory meetings, time to bid, terms the company won't accept) against the company's profile, scores the opportunity on the company's criteria, and writes a cited brief with key dates, addenda changes, requirements, risks, and questions. Use when asked to review, triage, or intake a solicitation, or whether to bid a project. Not for estimating, legal advice, or triaging many RFPs at once.
+description: Make a bid/no-bid call on one RFP, ITB, or RFQ. Checks must-pass gates, scores it, and writes a cited brief. Use to review, triage, or intake a solicitation, or decide whether to bid. Not estimating.
 license: MIT
 metadata:
   summary: Prep the go/no-go meeting. Check the must-pass gates, score the opportunity on your criteria, and get a cited brief with dates, addenda changes, risks, and questions.
   tier: neutral
   stages: business-development, preconstruction
-  version: "2.0.0"
+  version: "2.0.1"
   author: Buildr
 ---
 
