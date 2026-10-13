@@ -1,0 +1,26 @@
+{
+  "baseline": {
+    "skill/SKILL.md": "4a77ca1f89ffc8cbe18346179206d2baafc027c29cfb5d51b6d39561fba951a9",
+    "skill/examples/sample-prompts.md": "9a79e16f6e8e332c88f8554f76f60ecb1f9e68b2789925a531d9fd6e9127f8c2",
+    "skill/references/intake-checklist.md": "5f4d296c5085dd1d22b32d2c453d6d284618d8a2ddfea7c83786a3fb8e8defc7",
+    "skill/samples/input-solicitation.md": "a939a1ebf6bd082fe93212895fac56ab7964ec55d4235c7b00469aca23bdbeba",
+    "skill/samples/output-intake-review.md": "0e0e33ffe9ee7cd9457f1c85f288073a4dd3d27774c647e595eefc7b1cb75865",
+    "input/addendum-1.md": "c758b9509be70ebc98aced6328d95ef7ce67db639a9867242bac6ca16535aa0f",
+    "input/addendum-2.md": "8124474ea943910fdb57f9601c9f3a223e668885318acdbb8725da3ca045fe45",
+    "input/company-checklist.md": "9482f10973b44bb009692135c07a373127652297f6bfc6639d057186a26e6519",
+    "input/solicitation.md": "f52784d5f2174fbea3b5c056e0c28ceba1f1f9fc507b60ef6965083fc0e437c2"
+  },
+  "revised": {
+    "skill/SKILL.md": "f25a6d649860bcdafa96536b9c04a03270db9165ed729e084d11279acd876e62",
+    "skill/examples/sample-prompts.md": "9a79e16f6e8e332c88f8554f76f60ecb1f9e68b2789925a531d9fd6e9127f8c2",
+    "skill/references/intake-checklist.md": "0bca9dad50a16e9fb9d03481e26c264323d3545f1a4122f13afccf9322c73a0f",
+    "skill/samples/input-solicitation.md": "a939a1ebf6bd082fe93212895fac56ab7964ec55d4235c7b00469aca23bdbeba",
+    "skill/samples/output-intake-review.md": "aa9a44958d3eff7866a35af89f9c7b8bb20334105dbaba81ea1f678e52b08201",
+    "input/addendum-1.md": "c758b9509be70ebc98aced6328d95ef7ce67db639a9867242bac6ca16535aa0f",
+    "input/addendum-2.md": "8124474ea943910fdb57f9601c9f3a223e668885318acdbb8725da3ca045fe45",
+    "input/company-checklist.md": "9482f10973b44bb009692135c07a373127652297f6bfc6639d057186a26e6519",
+    "input/solicitation.md": "f52784d5f2174fbea3b5c056e0c28ceba1f1f9fc507b60ef6965083fc0e437c2"
+  },
+  "prompt_sha256": "4a9f7f02fd1e105f1dbff25270ac221aff348aa47de409fe7f6d2461370080b9",
+  "rubric_sha256": "8e0077bc7aa0b87a0c8d34bbf745d8d1cbd89e7f0df130553a4359b1f00bdd95"
+}

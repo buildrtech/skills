@@ -1,0 +1,8 @@
+# Local bucket = the hard gates (never decides, no invented date, no invented
+# amount): all-pass, weight 3. The disclaimers/ subdirectory is a weighted mean
+# at the default weight 1, so a review that keeps the gates but omits a
+# disclaimer still gets most of the boundary credit.
+weight = 3.0
+
+[scoring]
+aggregation = "all_pass"

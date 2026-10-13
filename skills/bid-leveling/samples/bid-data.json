@@ -1,0 +1,73 @@
+{
+  "project": "Cedar Hollow Family Health Clinic",
+  "package": "09A Metal framing and gypsum board",
+  "asOf": "2026-08-22",
+  "addenda": [1, 2],
+  "scope": [
+    { "key": "framing", "label": "Metal stud framing" },
+    { "key": "board", "label": "Gypsum board, Level 4 finish" },
+    { "key": "lobby_l5", "label": "Level 5 finish at lobby (Addendum 2)" },
+    { "key": "shaft", "label": "Shaft wall" },
+    { "key": "batts", "label": "Sound attenuation batts" },
+    { "key": "blocking", "label": "In-wall blocking" },
+    { "key": "sheathing", "label": "Exterior glass-mat sheathing" },
+    { "key": "firestop", "label": "Firestopping at this trade's penetrations" }
+  ],
+  "bids": [
+    {
+      "bidder": "Northgate Drywall & Acoustics",
+      "file": "input-bid-northgate.md",
+      "total": 752000,
+      "addenda": [1],
+      "scope": {
+        "framing": { "status": "included", "quote": "Furnish and install non-structural metal framing" },
+        "board": { "status": "included", "quote": "gypsum board ... taped and finished to Level 4" },
+        "lobby_l5": { "status": "omitted" },
+        "shaft": { "status": "included", "quote": "shaft wall at elevator and mechanical shafts" },
+        "batts": { "status": "included", "quote": "Sound attenuation batts at all partitions noted on A-601" },
+        "blocking": { "status": "included", "quote": "In-wall blocking for casework and wall-mounted equipment" },
+        "sheathing": { "status": "excluded", "quote": "Exterior sheathing by others." },
+        "firestop": { "status": "unclear", "quote": "Fire caulking at head-of-wall joints per UL details." }
+      },
+      "notes": ["Sales tax included. Valid 30 days."],
+      "questions": []
+    },
+    {
+      "bidder": "Prairie Wall & Ceiling Co.",
+      "file": "input-bid-prairie.md",
+      "total": 803800,
+      "addenda": [1, 2],
+      "scope": {
+        "framing": { "status": "included", "amount": 312000, "quote": "Metal stud framing | $312,000" },
+        "board": { "status": "included", "amount": 326200, "quote": "Gypsum board, Level 4 | $326,200" },
+        "lobby_l5": { "status": "included", "amount": 14600, "quote": "Level 5 finish, lobby (Add. 2) | $14,600" },
+        "shaft": { "status": "included", "amount": 58300, "quote": "Shaft wall | $58,300" },
+        "batts": { "status": "included", "amount": 22800, "quote": "Sound batts | $22,800" },
+        "blocking": { "status": "included", "amount": 18900, "quote": "In-wall blocking | $18,900" },
+        "sheathing": { "status": "included", "amount": 41200, "quote": "Exterior sheathing | $41,200" },
+        "firestop": { "status": "included", "amount": 9800, "quote": "Firestopping | $9,800" }
+      },
+      "notes": ["Straight time, five-day weeks."],
+      "questions": []
+    },
+    {
+      "bidder": "Ridgeline Interiors",
+      "file": "input-bid-ridgeline.md",
+      "total": 789500,
+      "addenda": [1, 2],
+      "scope": {
+        "framing": { "status": "included", "quote": "Includes framing" },
+        "board": { "status": "included", "quote": "board, Level 4 finish" },
+        "lobby_l5": { "status": "included", "quote": "Level 5 at the lobby" },
+        "shaft": { "status": "included", "quote": "shaft wall" },
+        "batts": { "status": "excluded", "quote": "Excludes insulation" },
+        "blocking": { "status": "included", "quote": "blocking" },
+        "sheathing": { "status": "included", "quote": "exterior sheathing" },
+        "firestop": { "status": "excluded", "quote": "Excludes insulation and firestopping." }
+      },
+      "notes": ["Revised August 22, 9:10 a.m. from $781,000 at bid time. Leveled on the revision at the estimator's direction."],
+      "questions": ["Your revised number came in the morning after bids closed. What changed from the $781,000 you sent at 1:52 p.m.?"]
+    }
+  ],
+  "plugs": []
+}

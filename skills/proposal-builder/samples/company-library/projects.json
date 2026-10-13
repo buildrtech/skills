@@ -1,0 +1,57 @@
+{
+  "verified": "2026-06-30",
+  "projects": [
+    {
+      "id": "garfield",
+      "name": "Garfield Elementary School Addition",
+      "owner": "Mankato Area Public Schools",
+      "sector": "K-12",
+      "delivery": "CM at Risk",
+      "finalCost": 942000000,
+      "completed": "2024-08",
+      "reference": {
+        "name": "Tom Brekke, Director of Facilities",
+        "phone": "507-555-0141"
+      }
+    },
+    {
+      "id": "blue-earth-library",
+      "name": "Blue Earth County Library Renovation",
+      "owner": "Blue Earth County",
+      "sector": "Public library",
+      "delivery": "CM at Risk",
+      "finalCost": 680000000,
+      "completed": "2023-05",
+      "reference": {
+        "name": "Karen Olstad, County Facilities Manager",
+        "phone": "507-555-0177"
+      }
+    },
+    {
+      "id": "nm-fire",
+      "name": "North Mankato Fire Station No. 2",
+      "owner": "City of North Mankato",
+      "sector": "Civic",
+      "delivery": "CM at Risk",
+      "finalCost": 1120000000,
+      "completed": "2025-11",
+      "reference": {
+        "name": "Luis Ortega, Public Works Director",
+        "phone": "507-555-0102"
+      }
+    },
+    {
+      "id": "chhs-roof",
+      "name": "Cedar Hollow High School Roof Replacement",
+      "owner": "Cedar Hollow Public Schools",
+      "sector": "K-12",
+      "delivery": "Design-bid-build",
+      "finalCost": 210000000,
+      "completed": "2022-08",
+      "reference": {
+        "name": "Dana Pike, Buildings and Grounds",
+        "phone": "507-555-0190"
+      }
+    }
+  ]
+}

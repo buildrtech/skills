@@ -1,0 +1,578 @@
+{
+  "opportunity": {
+    "name": "Prairie View Elementary School Addition and Renovation",
+    "number": "Bid No. CHPS-2026-07",
+    "owner": "Cedar Hollow Public Schools (ISD 742)",
+    "asOf": "2026-10-05",
+    "location": "1200 Prairie View Drive, Cedar Hollow, Minnesota",
+    "locationCite": {
+      "doc": "itb",
+      "page": 2,
+      "section": "§1"
+    },
+    "sector": "K-12 education, occupied school",
+    "sectorCite": {
+      "doc": "itb",
+      "page": 2,
+      "section": "§1"
+    },
+    "deliveryMethod": "Design-bid-build, single lump-sum prime contract to the lowest responsive and responsible bidder",
+    "deliveryMethodCite": {
+      "doc": "itb",
+      "page": 2,
+      "section": "§2"
+    },
+    "contract": "AIA A101-2017 and A201-2017, modified by the District's Supplementary Conditions",
+    "contractCite": {
+      "doc": "itb",
+      "page": 2,
+      "section": "§2"
+    },
+    "estimatedValue": 1820000000,
+    "estimatedValueCite": {
+      "doc": "itb",
+      "page": 2,
+      "section": "§1"
+    }
+  },
+  "documents": [
+    {
+      "id": "itb",
+      "short": "ITB",
+      "title": "Invitation to Bid CHPS-2026-07 (CHPS-2026-07-invitation-to-bid.pdf)",
+      "supplied": true,
+      "pages": 8
+    },
+    {
+      "id": "addendum-1",
+      "short": "Addendum 1",
+      "title": "Addendum No. 1, September 30, 2026 (CHPS-2026-07-addendum-1.pdf)",
+      "supplied": true,
+      "pages": 1
+    },
+    {
+      "id": "addendum-2",
+      "short": "Addendum 2",
+      "title": "Addendum No. 2, October 2, 2026 (CHPS-2026-07-addendum-2.pdf)",
+      "supplied": true,
+      "pages": 1
+    },
+    {
+      "id": "project-manual",
+      "title": "Project Manual, Divisions 00 to 33",
+      "supplied": false,
+      "note": "Holds the Supplementary Conditions, Attachment C (Hazardous Materials Survey), and the geotechnical report, all referenced in the ITB"
+    },
+    {
+      "id": "drawings",
+      "title": "Drawings, 186 sheets dated September 14, 2026",
+      "supplied": false
+    }
+  ],
+  "scope": {
+    "text": "Two-story, 22,000 SF classroom addition and renovation of 18,000 SF of the 1968 classroom wing, in an occupied school. Work in the existing building only from June 14 to August 20, 2027. Alternates: synthetic turf playfield and LED gym lighting.",
+    "cite": {
+      "doc": "itb",
+      "page": 2,
+      "section": "§1"
+    }
+  },
+  "dates": [
+    {
+      "key": "prebid",
+      "label": "Pre-bid meeting and site walk",
+      "date": "2026-10-08",
+      "time": "10:00",
+      "tz": "CT",
+      "mandatory": true,
+      "cite": {
+        "doc": "itb",
+        "page": 3,
+        "section": "§3"
+      }
+    },
+    {
+      "key": "questions_due",
+      "label": "Written questions due",
+      "date": "2026-10-20",
+      "time": "14:00",
+      "tz": "CT",
+      "cite": {
+        "doc": "addendum-1",
+        "page": 1,
+        "section": "Item 1-1"
+      },
+      "was": {
+        "date": "2026-10-15",
+        "time": "14:00",
+        "cite": {
+          "doc": "itb",
+          "page": 3,
+          "section": "§3"
+        }
+      }
+    },
+    {
+      "key": "final_addendum",
+      "label": "Final addendum",
+      "date": "2026-10-23",
+      "cite": {
+        "doc": "addendum-1",
+        "page": 1,
+        "section": "Item 1-1"
+      },
+      "was": {
+        "date": "2026-10-19",
+        "cite": {
+          "doc": "itb",
+          "page": 3,
+          "section": "§3"
+        }
+      }
+    },
+    {
+      "key": "bid_due",
+      "label": "Bids due",
+      "date": "2026-10-29",
+      "time": "14:00",
+      "tz": "CT",
+      "cite": {
+        "doc": "addendum-1",
+        "page": 1,
+        "section": "Item 1-1"
+      },
+      "was": {
+        "date": "2026-10-22",
+        "time": "14:00",
+        "cite": {
+          "doc": "itb",
+          "page": 1
+        }
+      }
+    },
+    {
+      "key": "award",
+      "label": "Anticipated award (School Board)",
+      "date": "2026-11-09",
+      "cite": {
+        "doc": "itb",
+        "page": 3,
+        "section": "§3"
+      }
+    },
+    {
+      "key": "ntp",
+      "label": "Notice to Proceed",
+      "date": "2026-12-01",
+      "cite": {
+        "doc": "itb",
+        "page": 3,
+        "section": "§3"
+      }
+    },
+    {
+      "key": "summer_start",
+      "label": "Work allowed in the existing building",
+      "date": "2027-06-14",
+      "cite": {
+        "doc": "itb",
+        "page": 2,
+        "section": "§1"
+      }
+    },
+    {
+      "key": "substantial",
+      "label": "Substantial Completion (also the end of the summer window)",
+      "date": "2027-08-20",
+      "cite": {
+        "doc": "itb",
+        "page": 3,
+        "section": "§3"
+      }
+    },
+    {
+      "key": "final",
+      "label": "Final Completion",
+      "date": "2027-09-17",
+      "cite": {
+        "doc": "itb",
+        "page": 3,
+        "section": "§3"
+      }
+    }
+  ],
+  "changes": [
+    {
+      "item": "Bid deadline",
+      "now": "Oct 29, 2026, 2:00 p.m. CT",
+      "was": "Oct 22, 2026, 2:00 p.m. CT",
+      "cite": {
+        "doc": "addendum-1",
+        "page": 1,
+        "section": "Item 1-1"
+      },
+      "wasCite": {
+        "doc": "itb",
+        "page": 1
+      }
+    },
+    {
+      "item": "Questions deadline",
+      "now": "Oct 20, 2026, 2:00 p.m. CT",
+      "was": "Oct 15, 2026, 2:00 p.m. CT",
+      "cite": {
+        "doc": "addendum-1",
+        "page": 1,
+        "section": "Item 1-1"
+      },
+      "wasCite": {
+        "doc": "itb",
+        "page": 3,
+        "section": "§3"
+      }
+    },
+    {
+      "item": "Final addendum",
+      "now": "No later than Oct 23, 2026",
+      "was": "No later than Oct 19, 2026",
+      "cite": {
+        "doc": "addendum-1",
+        "page": 1,
+        "section": "Item 1-1"
+      },
+      "wasCite": {
+        "doc": "itb",
+        "page": 3,
+        "section": "§3"
+      }
+    },
+    {
+      "item": "Bid security",
+      "now": "10% of base bid",
+      "was": "5% of base bid",
+      "cite": {
+        "doc": "addendum-2",
+        "page": 1,
+        "section": "Item 2-1"
+      },
+      "wasCite": {
+        "doc": "itb",
+        "page": 4,
+        "section": "§4"
+      }
+    },
+    {
+      "item": "Pollution liability",
+      "now": "$2,000,000 each occurrence, for work next to abatement areas",
+      "cite": {
+        "doc": "addendum-2",
+        "page": 1,
+        "section": "Item 2-2"
+      }
+    }
+  ],
+  "bonds": {
+    "text": "Bid security 10% of the base bid, about $1.82 million on the owner's estimate (was 5%). Performance and payment bonds, 100% each, within 10 days of award, from a Minnesota-licensed surety.",
+    "performancePercent": 100,
+    "cite": {
+      "doc": "addendum-2",
+      "page": 1,
+      "section": "Item 2-1"
+    }
+  },
+  "insurance": [
+    {
+      "key": "cgl_occurrence",
+      "label": "CGL each occurrence",
+      "required": 200000000,
+      "cite": {
+        "doc": "itb",
+        "page": 5,
+        "section": "§7"
+      }
+    },
+    {
+      "key": "cgl_aggregate",
+      "label": "CGL general aggregate, per project",
+      "required": 400000000,
+      "cite": {
+        "doc": "itb",
+        "page": 5,
+        "section": "§7"
+      }
+    },
+    {
+      "key": "auto",
+      "label": "Automobile liability",
+      "required": 100000000,
+      "cite": {
+        "doc": "itb",
+        "page": 5,
+        "section": "§7"
+      }
+    },
+    {
+      "key": "umbrella",
+      "label": "Umbrella or excess",
+      "required": 1000000000,
+      "cite": {
+        "doc": "itb",
+        "page": 5,
+        "section": "§7"
+      }
+    },
+    {
+      "key": "employers_liability",
+      "label": "Employer's liability",
+      "required": 100000000,
+      "cite": {
+        "doc": "itb",
+        "page": 5,
+        "section": "§7"
+      }
+    },
+    {
+      "key": "pollution",
+      "label": "Pollution liability",
+      "required": 200000000,
+      "cite": {
+        "doc": "addendum-2",
+        "page": 1,
+        "section": "Item 2-2"
+      }
+    }
+  ],
+  "licenses": [
+    {
+      "key": "city-cedar-hollow-class-a",
+      "label": "City of Cedar Hollow Commercial Building Contractor, Class A",
+      "when": "contract",
+      "cite": {
+        "doc": "itb",
+        "page": 4,
+        "section": "§5"
+      }
+    }
+  ],
+  "terms": [
+    {
+      "key": "liquidated_damages",
+      "label": "Liquidated damages, $2,500 per calendar day",
+      "cite": {
+        "doc": "itb",
+        "page": 5,
+        "section": "§8"
+      }
+    },
+    {
+      "key": "builders_risk_by_contractor",
+      "label": "Builder's risk by the contractor, full replacement value",
+      "cite": {
+        "doc": "itb",
+        "page": 5,
+        "section": "§7"
+      }
+    }
+  ],
+  "requirements": [
+    {
+      "category": "Submission",
+      "text": "Sealed bid to the District Office, 410 Main Street, Cedar Hollow, by the deadline. Late bids are returned unopened.",
+      "mandatory": true,
+      "cite": {
+        "doc": "itb",
+        "page": 1
+      }
+    },
+    {
+      "category": "Form",
+      "text": "Bid Form with the base bid and both alternates, acknowledging Addenda 1 and 2.",
+      "mandatory": true,
+      "cite": {
+        "doc": "itb",
+        "page": 7,
+        "section": "§11"
+      }
+    },
+    {
+      "category": "Form",
+      "text": "Responsible Contractor Verification of Compliance, Minn. Stat. 16C.285, with the bid.",
+      "mandatory": true,
+      "cite": {
+        "doc": "itb",
+        "page": 4,
+        "section": "§5"
+      }
+    },
+    {
+      "category": "Form",
+      "text": "Signed Non-Collusion Affidavit.",
+      "cite": {
+        "doc": "itb",
+        "page": 7,
+        "section": "§11"
+      }
+    },
+    {
+      "category": "Post-bid",
+      "text": "Apparent low bidder lists subcontractors at 5% or more of the base bid within 24 hours of bid opening.",
+      "cite": {
+        "doc": "itb",
+        "page": 7,
+        "section": "§11"
+      }
+    },
+    {
+      "category": "Wages",
+      "text": "Minnesota prevailing wage on all work; weekly certified payroll from the contractor and every subcontractor.",
+      "cite": {
+        "doc": "itb",
+        "page": 4,
+        "section": "§6"
+      }
+    }
+  ],
+  "risks": [
+    {
+      "title": "No float on the renovation",
+      "says": "Work in the existing building can only happen from June 14 to August 20, 2027, the same day as Substantial Completion, and liquidated damages are $2,500 a calendar day.",
+      "consequence": "Any slip in the summer renovation goes straight to liquidated damages, about $75,000 a month, with no room to recover.",
+      "offset": "The addition can start at Notice to Proceed in December 2026, so only the renovation is tied to the window.",
+      "cite": {
+        "doc": "itb",
+        "page": 2,
+        "section": "§1"
+      }
+    },
+    {
+      "title": "Hazardous materials survey not in the package",
+      "says": "Attachment C is referenced but sits in the Project Manual, which wasn't supplied. The District's own abatement contractor works before the renovation, and we must stop work if unidentified materials turn up.",
+      "consequence": "Without the survey there is no way to judge how much abatement could eat into the 10-week summer window.",
+      "offset": "Abatement is the District's contract, not ours.",
+      "cite": {
+        "doc": "itb",
+        "page": 6,
+        "section": "§9"
+      }
+    },
+    {
+      "title": "Contract changes not reviewed",
+      "says": "The AIA documents are modified by Supplementary Conditions in the Project Manual.",
+      "consequence": "Risk allocation (delay damages, concealed conditions, indemnity) can't be confirmed until the Supplementary Conditions are read.",
+      "cite": {
+        "doc": "itb",
+        "page": 2,
+        "section": "§2"
+      }
+    },
+    {
+      "title": "Builder's risk on the contractor",
+      "says": "The contractor insures the full replacement value of the work.",
+      "consequence": "Add the premium to the estimate and confirm the broker will cover renovation inside an occupied 1968 building.",
+      "cite": {
+        "doc": "itb",
+        "page": 5,
+        "section": "§7"
+      }
+    }
+  ],
+  "criteria": [
+    {
+      "key": "owner_relationship",
+      "score": 4,
+      "reason": "Larkspur completed the Cedar Hollow High School roof replacement for the District in 2022.",
+      "profileField": "pastClients"
+    },
+    {
+      "key": "delivery_contract",
+      "score": 3,
+      "reason": "Hard bid to the lowest responsive bidder on AIA forms. Standard, but price-only selection and the Supplementary Conditions are unread.",
+      "cite": {
+        "doc": "itb",
+        "page": 2,
+        "section": "§2"
+      }
+    },
+    {
+      "key": "schedule",
+      "score": 2,
+      "reason": "Occupied school, a 10-week summer window for the renovation that ends on the Substantial Completion date, and $2,500 a day in liquidated damages.",
+      "cite": {
+        "doc": "itb",
+        "page": 2,
+        "section": "§1"
+      }
+    },
+    {
+      "key": "scope_fit",
+      "score": 4,
+      "reason": "K-12 addition and renovation is a core sector, with self-perform concrete and carpentry.",
+      "profileField": "sectors, selfPerform"
+    },
+    {
+      "key": "size_fit",
+      "score": 4,
+      "reason": "$18.2 million is inside the $5 to $25 million target range, toward the top.",
+      "profileField": "sizeRange"
+    },
+    {
+      "key": "competition",
+      "score": null,
+      "reason": "The ITB doesn't name invited bidders. Check the plan-holder list and who attends the pre-bid meeting."
+    },
+    {
+      "key": "risk_allocation",
+      "score": 2,
+      "reason": "Unread Supplementary Conditions, a hazardous materials survey that wasn't supplied, and builder's risk on the contractor.",
+      "cite": {
+        "doc": "itb",
+        "page": 6,
+        "section": "§9"
+      }
+    },
+    {
+      "key": "capacity",
+      "score": null,
+      "reason": "The profile doesn't show which project manager and superintendent are free from December 2026 through September 2027."
+    }
+  ],
+  "ownerQuestions": [
+    {
+      "text": "Please issue Attachment C (Hazardous Materials Survey) with the bid documents, and confirm that abatement will be complete before June 14, 2027.",
+      "cite": {
+        "doc": "itb",
+        "page": 6,
+        "section": "§9"
+      }
+    },
+    {
+      "text": "Can renovation start before June 14 in areas the school isn't using, or can the renovation have a separate Substantial Completion date after August 20?",
+      "cite": {
+        "doc": "itb",
+        "page": 2,
+        "section": "§1"
+      }
+    },
+    {
+      "text": "Does the District carry an allowance or contingency for suspect materials found after abatement?",
+      "cite": {
+        "doc": "itb",
+        "page": 6,
+        "section": "§9"
+      }
+    },
+    {
+      "text": "Can the new pollution liability requirement be met by a contractor's pollution policy, or must it be a separate occurrence policy?",
+      "cite": {
+        "doc": "addendum-2",
+        "page": 1,
+        "section": "Item 2-2"
+      }
+    }
+  ],
+  "teamQuestions": [
+    {
+      "text": "Who attends the mandatory pre-bid meeting on October 8? Bids from firms that miss it are rejected."
+    }
+  ]
+}

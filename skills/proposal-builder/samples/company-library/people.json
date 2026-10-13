@@ -1,0 +1,42 @@
+{
+  "verified": "2026-08-15",
+  "people": [
+    {
+      "name": "Morgan Lee",
+      "title": "Project Manager",
+      "years": 18,
+      "credentials": [
+        "LEED AP BD+C"
+      ],
+      "projects": [
+        "garfield",
+        "blue-earth-library"
+      ]
+    },
+    {
+      "name": "Sam Ortiz",
+      "title": "Superintendent",
+      "years": 22,
+      "credentials": [
+        "OSHA 30",
+        "First Aid/CPR"
+      ],
+      "projects": [
+        "blue-earth-library",
+        "nm-fire"
+      ]
+    },
+    {
+      "name": "Priya Nair",
+      "title": "Preconstruction Manager",
+      "years": 12,
+      "credentials": [
+        "Certified Professional Estimator (CPE)"
+      ],
+      "projects": [
+        "garfield",
+        "nm-fire"
+      ]
+    }
+  ]
+}

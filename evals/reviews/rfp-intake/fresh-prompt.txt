@@ -1,0 +1,3 @@
+As of March 3, 2027, review the Harbor Crossing invitation, both addenda, and our checklist in input/ for tomorrow's precon meeting. Write a complete bid/no-bid review to output/intake-review.md with cited dates, bid requirements, risks, and a recommendation. I will make the final call.
+
+Use the assigned skill at skill/SKILL.md and its bundled resources. This is a local synthetic document exercise. Read only this workspace's skill/ and input/ files; do not consult other skills, repository history, memory, remote services, parent threads, or external files. Do not spawn workers. Write only output/intake-review.md. Complete within ten minutes and report the output path.
