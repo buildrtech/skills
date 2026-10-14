@@ -1,4 +1,6 @@
-# Approach boilerplate (verified 2026-05-01)
+# Approach boilerplate
+
+Last verified: 2026-05-01, by Dana Whitfield
 
 ## Estimating at each design phase
 We prepare a detailed estimate at schematic design, design development, and 50% and 95% construction documents, each reconciled line by line to the previous one so the owner sees what moved and why.

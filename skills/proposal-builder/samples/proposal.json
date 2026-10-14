@@ -24,21 +24,21 @@
       "id": "lib-projects",
       "kind": "library",
       "short": "Library: projects",
-      "title": "company-library/projects.json",
+      "title": "company-library/projects.md",
       "date": "2026-06-30"
     },
     {
       "id": "lib-people",
       "kind": "library",
       "short": "Library: people",
-      "title": "company-library/people.json",
+      "title": "company-library/people.md",
       "date": "2026-08-15"
     },
     {
       "id": "lib-safety",
       "kind": "library",
       "short": "Library: safety",
-      "title": "company-library/safety.json",
+      "title": "company-library/safety.md",
       "date": "2026-02-15"
     },
     {
