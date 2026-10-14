@@ -8,6 +8,7 @@
 - "Did Addendum 3 change anything that matters for the bid?"
 - "Can we even bid this one? It needs a city license we might not have."
 - "Set up our go/no-go criteria and profile so we can run every RFP the same way."
+- "Here's our bonding letter and insurance certificate. We need two weeks to bid and won't sign no-damages-for-delay. Use that for every RFP."
 
 ## Should not trigger
 
