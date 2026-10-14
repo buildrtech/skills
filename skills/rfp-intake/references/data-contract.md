@@ -5,6 +5,9 @@
 (`company-profile.json`, reused across runs). `samples/` has a full example of
 each.
 
+You write both from the user's documents and answers, and edit them when the
+user tells you something changed. Neither is an input the user prepares.
+
 Money is **integer cents**: `$18,200,000` is `1820000000`. Dates are
 `YYYY-MM-DD`, and times are 24-hour `HH:MM` with the time zone the document
 states (`CT`).

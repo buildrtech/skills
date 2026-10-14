@@ -5,7 +5,7 @@ metadata:
   summary: Prep the go/no-go meeting. Check the must-pass gates, score the opportunity on your criteria, and get a cited brief with dates, addenda changes, risks, and questions.
   tier: neutral
   stages: business-development, preconstruction
-  version: "1.0.0"
+  version: "1.1.0"
   author: Buildr
 ---
 
@@ -26,14 +26,16 @@ The recommendation is advice. The team makes the call.
 
 ## 1. Collect the documents and the company profile
 
-Ask for what is missing, in one message:
+Users bring what they have: PDFs, Word files, spreadsheets, emails, or notes
+in the chat. Reading it is your job. Ask for what is missing, in one message:
 
 - **The solicitation**: the RFP or ITB, every addendum, and the forms. Never
   produce a review without a real document.
-- **The company profile**: `company-profile.json`, saved from an earlier run.
-  If there isn't one, ask once for what the gates need and write the file in
-  the user's working directory, following
-  [the data contract](references/data-contract.md):
+- **What the gates need to know about the company**, unless an earlier run
+  already saved it. Ask in plain terms, and take the answers however they
+  come: typed in the chat, or the documents that hold them (the surety's
+  bonding letter, a certificate of insurance, a license list, the go/no-go
+  scorecard spreadsheet):
   - licenses held
   - bonding limits, single and aggregate, and current bonded backlog
   - insurance limits carried
@@ -42,13 +44,18 @@ Ask for what is missing, in one message:
   - target sectors and size range, self-perform trades, past clients
   - go/no-go criteria, weights, and thresholds, if they have them
 
-  Work with whatever the user gives. Anything missing becomes Unknown in the
-  brief. Never fill the profile in yourself.
+  Never ask for JSON or a template. Write what they give you to
+  `company-profile.json` in the user's working directory, following
+  [the data contract](references/data-contract.md), and reuse it on later
+  runs. When something changes ("our bonding went up to $25M"), update the
+  file yourself. Anything missing becomes Unknown in the brief. Never fill a
+  value in from assumption.
 
 ## 2. Extract
 
 Read [reading solicitations](references/reading-solicitations.md), then write
-`intake-data.json` per [the data contract](references/data-contract.md).
+`intake-data.json` per [the data contract](references/data-contract.md). It's
+your working file for the script; the user never writes or edits it.
 
 - Inventory every document. List anything the solicitation references that
   wasn't supplied (Project Manual, drawings, attachments) as not supplied; you
@@ -74,7 +81,8 @@ node /path/to/rfp-intake/scripts/intake.mjs intake-data.json company-profile.jso
 
 Use `--json` to inspect the raw analysis. The script validates both files and
 stops with a list of problems, including citations to pages that don't exist
-or to documents that weren't supplied. Fix the data, not the script.
+or to documents that weren't supplied. Fix the data, not the script, and don't
+relay the errors to the user unless fixing one needs something only they know.
 
 What the script decides:
 
