@@ -4,6 +4,10 @@
 (`scripts/check.mjs`). Both run the same validator, `proposal-core.mjs`, and
 refuse to run on a problem. `samples/proposal.json` is a full example.
 
+You build this file from the user's documents and edit it when they ask for
+changes in plain words. It is never an input the user prepares, and validator
+errors are yours to fix, not to relay.
+
 Money is **integer cents**. Dates are `YYYY-MM-DD`. A **source reference** is
 `{ "id": "rfp", "page": 4, "section": "§4" }`. `id` must be in `sources`, and
 `page` must be within that source's page count when one is given.

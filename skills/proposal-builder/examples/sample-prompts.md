@@ -4,6 +4,7 @@
 
 - "We're a Go on the Riverside library CMAR. Build the proposal from our library and tell me what's missing."
 - "Here's the RFP and our last two proposals. Draft Tabs B through E and check we're under the 20-page limit."
+- "Attached: the RFP, our project list spreadsheet, resumes for the team, and the EMR letter from our carrier. Put the proposal together."
 - "Make a compliance matrix for this design-build RFP and show me which criteria we haven't answered."
 - "Our EMR changed. Rebuild the proposal and flag anything still quoting the old number."
 - "Start a company library from this proposal so the next one is faster."
