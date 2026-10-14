@@ -79,7 +79,3 @@ These skills prepare information for people who make construction
 decisions. They are not legal, financial, safety, or engineering advice.
 Review every output before you rely on it, and never let an agent make
 recordability, wage, or contractual determinations on its own.
-
-## License
-
-MIT. See [LICENSE](LICENSE).

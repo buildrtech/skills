@@ -46,7 +46,7 @@ Reviewers check for:
 - **Portability.** No absolute paths, no assumptions about a specific
   sandbox, no dependencies that are not named in the skill.
 - **Size.** `SKILL.md` stays under 500 lines. Detail goes in `references/`.
-- **Licensing.** Only content you have the right to license under MIT.
+- **Rights.** Only contribute content you wrote or have the right to share.
   Vendored third-party skills are not accepted; link to them instead.
 
 ## Versioning

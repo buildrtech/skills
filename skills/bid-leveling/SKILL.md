@@ -1,12 +1,11 @@
 ---
 name: bid-leveling
 description: Level subcontractor bids into an Excel bid tab with scope gaps, plugs, and bidder questions. Use to level bids, build a bid tab, compare sub quotes, or find scope gaps. Not for award decisions.
-license: MIT
 metadata:
   summary: Level sub bids on bid day. Markdown bids in, one spreadsheet out with every scope gap, a plug for each, and who is really low.
   tier: neutral
   stages: preconstruction, estimating
-  version: "4.1.0"
+  version: "4.1.1"
   author: Buildr
 ---
 

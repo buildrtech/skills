@@ -24,7 +24,6 @@ characters, and must equal `name` in the frontmatter.
 ---
 name: rfp-intake
 description: One or two sentences: what it does and when to use it. 200 characters or fewer (Claude rejects longer ones on upload). This is the only text most agents see before deciding to load the skill, so include the trigger words users actually say.
-license: MIT
 metadata:
   summary: Review a bid invitation for requirements, risks, and a bid/no-bid recommendation.
   tier: neutral                       # all shipped skills must work without Buildr

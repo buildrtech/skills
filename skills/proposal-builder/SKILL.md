@@ -1,12 +1,11 @@
 ---
 name: proposal-builder
 description: Build a compliance-first construction proposal PDF that answers an owner's RFP from a company library. Use for CMAR, design-build, or qualifications proposals after a go decision. Not for hard bids.
-license: MIT
 metadata:
   summary: Answer the RFP, compliance first. Every requirement mapped to where you answer it, page limits and forms checked, and a polished PDF built from your own library.
   tier: neutral
   stages: business-development, preconstruction
-  version: "2.0.1"
+  version: "2.0.2"
   author: Buildr
 ---
 

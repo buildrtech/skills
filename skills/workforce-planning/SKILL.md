@@ -1,12 +1,11 @@
 ---
 name: workforce-planning
 description: Prep a construction staffing meeting from your staffing sheet, projects, pursuits, and roster. Use for PM and super planning, overloads, unfilled seats, and roll-offs. Not for craft crews or payroll.
-license: MIT
 metadata:
   summary: Prep the staffing meeting. See who's overloaded, which jobs have empty seats, who rolls off when, and what changes if you win the pursuits you're chasing.
   tier: neutral
   stages: workforce, operations
-  version: "3.0.1"
+  version: "3.0.2"
   author: Buildr
 ---
 

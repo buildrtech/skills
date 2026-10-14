@@ -90,7 +90,6 @@ def build_entry(skill_root: Path, plugins: dict[str, list[str]]) -> dict:
         "name": name,
         "description": frontmatter["description"],
         "summary": metadata["summary"],
-        "license": frontmatter.get("license"),
         "tier": tier,
         "stages": split_csv(metadata.get("stages")),
         "version": metadata.get("version"),
