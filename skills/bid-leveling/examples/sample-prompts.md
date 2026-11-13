@@ -8,6 +8,7 @@
 - "Which of these roofing bids are missing the tapered insulation, and what should I ask each bidder?"
 - "Ridgeline sent a revised number this morning. Use the revision and rebuild the workbook."
 - "Use $9,800 from our firestopping budget as Northgate's plug. Who's low now?"
+- "Give me a spreadsheet of every scope item across these five mechanical bids and flag what I need to look at."
 
 ## Should not trigger
 

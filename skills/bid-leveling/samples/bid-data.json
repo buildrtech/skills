@@ -11,7 +11,8 @@
     { "key": "batts", "label": "Sound attenuation batts" },
     { "key": "blocking", "label": "In-wall blocking" },
     { "key": "sheathing", "label": "Exterior glass-mat sheathing" },
-    { "key": "firestop", "label": "Firestopping at this trade's penetrations" }
+    { "key": "firestop", "label": "Firestopping at this trade's penetrations" },
+    { "key": "act", "label": "Acoustical ceilings", "extra": true }
   ],
   "bids": [
     {
@@ -27,10 +28,10 @@
         "batts": { "status": "included", "quote": "Sound attenuation batts at all partitions noted on A-601" },
         "blocking": { "status": "included", "quote": "In-wall blocking for casework and wall-mounted equipment" },
         "sheathing": { "status": "excluded", "quote": "Exterior sheathing by others." },
-        "firestop": { "status": "unclear", "quote": "Fire caulking at head-of-wall joints per UL details." }
+        "firestop": { "status": "unclear", "quote": "Fire caulking at head-of-wall joints per UL details." },
+        "act": { "status": "excluded", "quote": "Acoustical ceilings NIC." }
       },
-      "notes": ["Sales tax included. Valid 30 days."],
-      "questions": []
+      "notes": ["Sales tax included. Valid 30 days."]
     },
     {
       "bidder": "Prairie Wall & Ceiling Co.",
@@ -45,10 +46,10 @@
         "batts": { "status": "included", "amount": 22800, "quote": "Sound batts | $22,800" },
         "blocking": { "status": "included", "amount": 18900, "quote": "In-wall blocking | $18,900" },
         "sheathing": { "status": "included", "amount": 41200, "quote": "Exterior sheathing | $41,200" },
-        "firestop": { "status": "included", "amount": 9800, "quote": "Firestopping | $9,800" }
+        "firestop": { "status": "included", "amount": 9800, "quote": "Firestopping | $9,800" },
+        "act": { "status": "omitted" }
       },
-      "notes": ["Straight time, five-day weeks."],
-      "questions": []
+      "notes": ["Straight time, five-day weeks."]
     },
     {
       "bidder": "Ridgeline Interiors",
@@ -63,10 +64,16 @@
         "batts": { "status": "excluded", "quote": "Excludes insulation" },
         "blocking": { "status": "included", "quote": "blocking" },
         "sheathing": { "status": "included", "quote": "exterior sheathing" },
-        "firestop": { "status": "excluded", "quote": "Excludes insulation and firestopping." }
+        "firestop": { "status": "excluded", "quote": "Excludes insulation and firestopping." },
+        "act": { "status": "omitted" }
       },
       "notes": ["Revised August 22, 9:10 a.m. from $781,000 at bid time. Leveled on the revision at the estimator's direction."],
-      "questions": ["Your revised number came in the morning after bids closed. What changed from the $781,000 you sent at 1:52 p.m.?"]
+      "review": [
+        {
+          "check": "Revised to $789,500 at 9:10 a.m. on August 22, the morning after bids closed. The bid-time number was $781,000.",
+          "ask": "Your revised number came in the morning after bids closed. What changed from the $781,000 you sent at 1:52 p.m.?"
+        }
+      ]
     }
   ],
   "plugs": []

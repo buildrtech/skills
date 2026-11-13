@@ -1,5 +1,111 @@
 # Bid leveling verification
 
+## SKILL.md 2.0.0: one grid, plugs in place, review flags
+
+Previous revision: `867014f` (`metadata.version` 1.1.0). The sections below
+this one use an older numbering, from before this repository's history starts
+at 1.0.0.
+
+Mike asked to simplify the skill, have it output a spreadsheet of all scope
+items, flag what needs extra review, and make it easy for GCs to plug.
+
+### What was wrong with 1.1.0
+
+- Plugging happened on a separate Plugs sheet, away from the scope grid, with
+  two cells per gap (the amount and a Carry Yes/No).
+- Nothing was highlighted. "Suggested", "Open" and "Entered" were text
+  prefixes in a Source column.
+- A bid exclusion that wasn't on the scope sheet disappeared. In the sample,
+  Northgate's "Acoustical ceilings NIC" appeared nowhere in the workbook.
+- Text typed into a plug cell ("TBD") closed the gap while adding $0, so the
+  bid read as complete. Carry "No" on an item the bidder confirmed left the
+  bid incomplete with no way to close it.
+
+### What changed
+
+- Two sheets, down from four. **Bid tab**: one row per scope item, two columns
+  per bidder (what the bid says, and the plug), with base bid, plugs, leveled
+  total, gaps without a plug and both ranks under the grid as formulas.
+  **Review**: one filterable row per flag with the reason and the question to
+  ask the bidder.
+- One cell per gap. Plug cells are yellow, turn red while a gap is blank, show
+  a suggested plug in orange italic until it is typed over, and accept only
+  numbers. Entering 0 closes a gap the bidder confirmed. The Carry column is
+  gone.
+- Flags: Needs a plug, Suggested plug, Your plug, Addenda, Not on scope sheet,
+  Check.
+- New input: a scope line with `"extra": true` for something a bid raises that
+  the scope sheet doesn't list. It is flagged, sits in its own section of the
+  grid, is never a gap and gets no suggestion.
+- A bid's `questions` became `review`: `{ "check", "ask", "scope" }`, the last
+  two optional.
+- `--json` is removed. The script always writes the workbook and prints the
+  totals and flag counts.
+- Unchanged: the suggested plug is the highest price another bidder itemized
+  and counts by default; unclear scope gets no suggestion.
+- Size: the workbook is simpler; the code is not shorter. `level.py` went from
+  412 to 481 lines and SKILL.md from 129 to 160, for the cell formatting and
+  the two new inputs.
+
+### Sample
+
+Same package and bids. Lowest base Northgate $752,000; lowest complete Prairie
+$803,800; Northgate $807,800 with one gap without a plug; Ridgeline $822,100.
+Eight flags: 1 Addenda, 4 Suggested plug, 1 Needs a plug, 1 Not on scope
+sheet, 1 Check.
+
+### Verification (2026-11-13)
+
+- `python3 -I evals/tasks/bid-leveling/test_level.py`: 14 tests pass,
+  including a byte comparison of the bundled workbook against a fresh build.
+- Mutation check: 18 deliberate breaks to `level.py`, one at a time. Each
+  failed between 1 and 7 tests besides the byte comparison: lowest instead of
+  highest suggestion, a suggestion for unclear scope, an extra line treated as
+  a gap, plugs on included lines, no flag for a missed addendum, no flag for
+  unstated addenda, quotes not required, a gap count that ignores blank
+  cells, suggestions left out of the total, incomplete bids ranked (in the
+  formula and in the script), review items dropped, a review item losing its
+  scope line or naming an unknown one, gap cells not styled as inputs, no red
+  rule, plug cells accepting text, and an entered plug ignored.
+- LibreOffice (headless): with every cached formula value stripped, the
+  recalculated totals, gap counts and ranks match the script on the sample and
+  on the fresh roofing data. After typing $9,800 into Northgate's firestopping
+  plug, clearing Ridgeline's batts plug and setting Prairie's base to
+  $900,000, it recomputed Northgate as complete at $817,600 and rank 1,
+  Ridgeline as Incomplete at $799,300 and Prairie as rank 2. Entering 0 in
+  Northgate's firestopping plug closed the gap. A -$5,000 plug on an extra
+  line gave plugs of -$5,000.
+- Rendered both sheets to PDF with LibreOffice and inspected them: yellow
+  input cells, the red open gap, orange italic suggestions and the green
+  rank 1 all render, before and after the edits above.
+- Fresh-context comparison (Amp Task subagents, model claude-fable-5-2): the
+  unfamiliar inputs in `fresh-input/`, one run per revision, each agent seeing
+  only its skill folder and the four input files. Prompt, the same for both:
+
+  > Bids for 07A roofing closed at 2:00 today, March 4. Level these three
+  > against the scope sheet and give me a spreadsheet of every scope item.
+  > Flag anything I need to look at. Carry $8,000 for Crestline's walkway
+  > pads; that's from our budget estimate.
+
+  Expected: lowest base Crestline $412,000; lowest complete Harbor Peak
+  $458,000; Crestline $468,200 with the entered $8,000 walkway plug and a
+  $48,200 coping suggestion; Kettle River incomplete at $440,400 (crickets
+  unclear, addenda unstated).
+  - 2.0.0: every expected status, plug and total, with one run of the script
+    that passed validation the first time. Flags: 2 Suggested plug, 1 Your
+    plug, 1 Addenda, 1 Needs a plug, 1 Check. The reply told the estimator to
+    type plugs into the yellow cells.
+  - 1.1.0: the same statuses, plugs and totals, on four sheets. The reply
+    pointed the estimator at the Plugs sheet and its Carry cells.
+  - Changes made after the 2.0.0 run, from what its agent reported as unclear:
+    a `review` item may name its scope line (the agent's note about the
+    crickets landed on the Review sheet with a blank Scope item); a bid that
+    covers part of a line is `unclear`; `asOf` is defined.
+- Limitations: one run per revision and one model. The three changes made
+  after the fresh run are covered by tests but not by another fresh run. The
+  workbook was recalculated and rendered in LibreOffice only; it has not been
+  opened in Excel, Google Sheets or Numbers.
+
 ## Revision 4.1.0: Python script
 
 Users install skills by uploading the folder to ChatGPT, Claude / Cowork and
