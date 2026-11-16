@@ -1,8 +1,8 @@
 # Data contract
 
-`proposal.json` drives both the PDF (`render.tsx`) and the compliance check
-(`scripts/check.mjs`). Both run the same validator, `proposal-core.mjs`, and
-refuse to run on a problem. `samples/proposal.json` is a full example.
+`proposal.json` drives both the PDF (`proposal.typ`) and the compliance check
+(`scripts/check.mjs`). The check runs the validator in `proposal-core.mjs` and
+refuses to run on a problem; the template trusts data the check accepts. `samples/proposal.json` is a full example.
 
 You build this file from the user's documents and edit it when they ask for
 changes in plain words. It is never an input the user prepares, and validator

@@ -1,6 +1,6 @@
 # Riverside Branch Library proposal
 
-A ten-page CM at Risk proposal draft, rendered with pdfcn and Forme from
+A ten-page CM at Risk proposal draft, rendered with Typst from
 [proposal.json](proposal.json). It is organized in the RFP's Tab A to G order
 with the fee, the required forms, and a compliance matrix appendix. Six pages
 count toward the 20-page limit.

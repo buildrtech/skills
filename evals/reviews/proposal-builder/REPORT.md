@@ -1,5 +1,29 @@
 # Proposal Builder verification
 
+## Revision 1.2.0: Typst renderer
+
+pdfcn and Forme are replaced by one Typst template,
+`templates/proposal.typ`. Removed: `scripts/setup.mjs` (downloaded pdfcn
+registry components and ran `npm ci`), `templates/render.tsx` and
+`templates/package-lock.json`. Rendering is now
+`typst compile proposal.typ proposal.pdf` with no install step, packages or
+network access. The design, section order, page structure and data contract
+are unchanged; type is Libertinus Serif, bundled with Typst, instead of
+Helvetica and Times.
+
+Verification with Typst 0.15.1 and Poppler:
+
+- The sample renders to 10 Letter pages with the same per-section page counts
+  as the Forme render, so `output-compliance-check.md` is byte-for-byte
+  unchanged and the existing tests pass without edits.
+- All ten pages were rasterized and inspected. The cover, preview
+  (`refresh-preview.py`) and PDF were regenerated from the new render.
+- Long-input probe: 45 fee lines and four times the narrative items rendered to
+  14 pages. All 45 lines survived text extraction, the fee table header
+  repeated on each of its three pages, and no list heading was stranded.
+  `FOR REVIEW` hid source lines and EUR amounts printed with €.
+- Proposal text containing `$ # * _ < @` printed literally.
+
 ## Revision 2.0.0: RFP responses, compliance first
 
 Previous revision: 1.0.0, a polished proposal PDF from a free-form brief. This

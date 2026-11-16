@@ -3,7 +3,7 @@
 The current collection contains four standalone skills:
 
 - Bid Leveling
-- Proposal Builder (pdfcn)
+- Proposal Builder
 - RFP Intake
 - Workforce Planning
 

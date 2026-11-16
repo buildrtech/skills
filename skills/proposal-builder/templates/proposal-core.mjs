@@ -1,5 +1,5 @@
-// Proposal data: validation and compliance analysis. Dependency-free, shared by
-// render.tsx (in the workspace) and scripts/check.mjs (in the skill).
+// Proposal data: validation and compliance analysis. Dependency-free, used by
+// scripts/check.mjs and the tests. The Typst template reads the same JSON.
 // Money is integer cents. An absent fee is "unpriced", never zero.
 
 const DATE = /^\d{4}-\d{2}-\d{2}$/;

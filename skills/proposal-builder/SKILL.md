@@ -5,7 +5,7 @@ metadata:
   summary: Answer the RFP, compliance first. Every requirement mapped to where you answer it, page limits and forms checked, and a polished PDF built from your own library.
   tier: neutral
   stages: business-development, preconstruction
-  version: "1.1.0"
+  version: "1.2.0"
   author: Buildr
 ---
 
@@ -16,8 +16,8 @@ proposal manager would: start from what the RFP asks for and how it scores,
 answer each item from the company's own material, and check the draft before
 anyone sends it. Produce two things for the user:
 
-- **The proposal PDF**, rendered with [pdfcn](https://github.com/shadcn-labs/pdfcn)
-  and Forme, in the RFP's required order.
+- **The proposal PDF**, rendered with [Typst](https://typst.app) in the RFP's
+  required order.
 - **A compliance check** (`compliance-check.md`) covering:
   - the requirement matrix
   - required forms
@@ -83,26 +83,29 @@ requirements each section answers.
   unanswered and put it in `questions`.
 - An absent fee is `unpriced`, never zero.
 
-## 4. Render with pdfcn
+## 4. Render with Typst
 
 Read [rendering and design](references/rendering.md). You need:
 
-- Node.js 22 or newer and npm
-- network access for the first component install
+- [Typst](https://typst.app) 0.13 or newer (`brew install typst`,
+  `winget install --id Typst.Typst`, or a binary from its GitHub releases)
+- Node.js 22 or newer, for the check
 - Poppler (`pdfinfo`, `pdftotext`, `pdftoppm`)
 
-Keep user data and outputs outside the skill folder.
+Keep user data and outputs outside the skill folder. Copy the template next to
+`proposal.json` and compile it:
 
 ```bash
-node /path/to/proposal-builder/scripts/setup.mjs /path/to/new-proposal-workspace
-cd /path/to/new-proposal-workspace
-npm run render -- /path/to/proposal.json /path/to/proposal.pdf
+cp /path/to/proposal-builder/templates/proposal.typ /path/to/proposal-workspace/
+cd /path/to/proposal-workspace
+typst compile proposal.typ proposal.pdf
 ```
 
-Setup downloads a pinned pdfcn revision into a new directory and installs
-pinned renderer versions. Customize the workspace's `render.tsx` for the
-proposer's brand. If setup or rendering fails, report the step that failed;
-never present a Markdown outline or HTML page as the generated PDF.
+Customize the workspace's `proposal.typ` for the proposer's brand. The template
+doesn't validate the data: when Typst reports an error about a missing field,
+run the check below, which names the problem. If rendering fails, report the
+step that failed; never present a Markdown outline or HTML page as the
+generated PDF.
 
 ## 5. Check, inspect, and hand off
 
